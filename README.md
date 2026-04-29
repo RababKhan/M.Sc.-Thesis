@@ -2,8 +2,7 @@
 
 This project explores **Reinforcement Learning (RL)-based model compression** using PPO to learn **layer-wise pruning strategies**, combined with **fine-tuning** to recover accuracy.
 
-The goal is to achieve:
-> **Aggressive compression with minimal or no accuracy loss**
+The goal is to achieve: **Aggressive compression with minimal or no accuracy loss**
 
 ---
 
@@ -140,6 +139,25 @@ The RL agent learns to:
 Not all layers contribute equally to model performance.  
 
 Reinforcement Learning (RL) automatically discovers this behavior.
+
+---
+## Sustainability Impact
+
+This project contributes to **sustainable computing** by improving the efficiency of deep learning models through adaptive pruning.
+
+### Key Contributions
+
+- **Reduced Energy Consumption**  
+  Model pruning decreases the number of parameters and computations, which lowers CPU/GPU usage and overall power consumption.
+
+- **Lower Carbon Footprint**  
+  Efficient models require less energy during training and inference, helping reduce CO₂ emissions associated with large-scale AI systems.
+
+- **Efficient Resource Utilization**  
+  The reinforcement learning agent learns to prune only less important layers while preserving critical ones, avoiding unnecessary computation.
+
+- **Edge Device Deployment**  
+  Smaller and compressed models can run on low-power devices such as mobile and embedded systems, reducing reliance on high-energy servers.
 
 ---
 
