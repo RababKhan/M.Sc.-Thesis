@@ -145,6 +145,58 @@ the action space excludes; the matched-sparsity global-magnitude runs above do n
 
 ---
 
+## Storage and inference cost
+
+Source: `evaluation/storage_and_latency.py`, run on an idle machine, seed-42
+policy `[1,1,5,5]` at 58.20% sparsity (259,133 of 619,872 weights non-zero,
+41.8% density).
+
+### Storage
+
+| Representation | Size | vs its dense counterpart |
+|---|---|---|
+| dense `.pth` | 2427.1 KB | — |
+| pruned `.pth` | 2427.1 KB | **0.0%** |
+| dense `.pth`, gzipped | 2253.4 KB | — |
+| pruned `.pth`, gzipped | 1142.2 KB | **−49.3%** |
+| CSR (value + int32 index), theoretical | 2024.5 KB | −16.4% vs dense float32 |
+| bitmask + values, theoretical | 1087.9 KB | −55.1% vs dense float32 |
+
+The raw checkpoint is byte-for-byte identical in size: unstructured pruning
+stores the zeros. The reduction is realised only by a representation that
+exploits them, and naive CSR gives most of it back because an int32 index costs
+as much as the float value it points at. Compressed-vs-compressed (−49.3%) is
+the like-for-like figure; comparing a gzipped pruned checkpoint against an
+uncompressed dense one overstates the saving as −52.9%.
+
+### Inference latency
+
+Batch 128, 4 threads, 20 warmup iterations discarded, 100 timed.
+
+| Model | Median | Mean | Min | SD |
+|---|---|---|---|---|
+| dense | 75.89 ms | 78.77 | 68.34 | 23.53 |
+| pruned (58.2% zeros) | 75.27 ms | 77.97 | 68.64 | 8.27 |
+
+Difference in medians: −0.62 ms (−0.8%), far smaller than the run-to-run spread
+(SD 23.53 ms on the dense model). **No measurable latency difference.** Dense
+kernels perform the same multiply-accumulates whether or not the operands are
+zero.
+
+### Does a sparse kernel help at this density?
+
+`classifier.1` (524,288 weights, 40.0% density), batch 128:
+
+| Kernel | Median |
+|---|---|
+| dense matmul | 1.331 ms |
+| `torch.sparse.mm` (CSR) | 3.093 ms (**2.32× slower**) |
+
+At this density the sparse kernel is slower than the dense one, so the sparsity
+does not convert into compute savings even with sparse support available.
+
+---
+
 ## Reward function (verified, unchanged)
 
 ```
@@ -164,10 +216,10 @@ column is not comparable across methods and is not used as a quality metric.
 
 ## Pending
 
+- [x] Storage and latency measurement — see above
 - [ ] Clean fine-tuning notebook (`notebooks/Final fine tuned.ipynb`) — running
 - [ ] Sensitivity ablation: with / zeroed / shuffled, 4 seeds each
 - [ ] Reward sparsity-coefficient sweep: 0.01 / 0.02 / 0.04 / 0.08
-- [ ] Storage and latency measurement (`evaluation/storage_and_latency.py`, needs an idle machine)
 - [ ] Consolidated final results table, once the above land
 
 ---
