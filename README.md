@@ -32,7 +32,14 @@ Instead of manually pruning all layers equally, this project:
 
 ---
 
-## Final Results (Fair Comparison)
+## Final Results
+
+> **Superseded.** The table below came from a pipeline in which the RL reward,
+> the layer-sensitivity probe and the in-episode fine-tuning all used CIFAR-10
+> *test* images, and both training loops selected their best epoch on test
+> accuracy. Those numbers are optimistically biased and should not be cited.
+> Current, leakage-free results live in `results/` and are indexed in
+> `results/experiment_log.md`.
 
 | Method | Accuracy (%) | Sparsity (%) |
 |--------|-------------|--------------|
@@ -101,11 +108,13 @@ Each layer is represented using:
 
 ### Action Space
 
-Discrete pruning levels:
+Six discrete pruning levels (`ACTION_TO_PRUNE`):
 
 ```
-[0%, 10%, 20%, 30%, 40%, 50%, 60%]
+[0%, 10%, 20%, 30%, 40%, 60%]
 ```
+
+There is no 50% level; the action space has six entries, not seven.
 
 ---
 
