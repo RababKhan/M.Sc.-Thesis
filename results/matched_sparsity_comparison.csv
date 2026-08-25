@@ -1,0 +1,9 @@
+Seed,PPO policy,Sparsity (%),Baseline method,PPO accuracy (%),Baseline accuracy (%),Delta (pp),Discordant PPO-only,Discordant baseline-only,McNemar chi2,McNemar p,Significant at 0.05
+1,"[0, 0, 5, 5]",57.8845,global magnitude,76.65,76.54,0.11,312,301,0.1631,0.686322940896473,False
+1,"[0, 0, 5, 5]",57.8845,uniform per-layer,76.65,40.69,35.96,4096,500,2812.0159,0.0,True
+2,"[0, 5, 5, 5]",59.6686,global magnitude,75.16,76.36,-1.2,365,485,16.66,4.351500591857473e-05,True
+2,"[0, 5, 5, 5]",59.6686,uniform per-layer,75.16,40.68,34.48,4007,559,2602.2359,0.0,True
+3,"[0, 5, 5, 5]",59.6686,global magnitude,75.16,76.36,-1.2,365,485,16.66,4.351500591857473e-05,True
+3,"[0, 5, 5, 5]",59.6686,uniform per-layer,75.16,40.68,34.48,4007,559,2602.2359,0.0,True
+42,"[1, 1, 5, 5]",58.1957,global magnitude,76.49,76.35,0.14,311,297,0.278,0.5980774358295753,False
+42,"[1, 1, 5, 5]",58.1957,uniform per-layer,76.49,41.2,35.29,4034,505,2742.1864,0.0,True
