@@ -270,6 +270,7 @@ column is not comparable across methods and is not used as a quality metric.
 
 Python 3.13.13 · torch 2.7.1+cpu · torchvision 0.22.1 · gymnasium 1.2.3 ·
 stable-baselines3 2.8.0 · numpy 2.2.2 · pandas 2.2.3 · CPU only.
+Pinned in `requirements.txt`.
 
 The fine-tuning arm was run on Python 3.11.9 with the same package versions
 (Intel i5-6400, 4 threads). The baseline and layer sensitivities reproduced
