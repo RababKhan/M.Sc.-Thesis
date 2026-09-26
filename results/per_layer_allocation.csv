@@ -1,0 +1,6 @@
+Layer,Params,Share of prunable (%),PPO (%),Global magnitude (%),Uniform (%)
+features.0,864,0.14,10.0,9.8,58.4
+features.3,18432,2.97,10.0,28.7,58.4
+features.6,73728,11.89,60.0,32.0,58.4
+classifier.1,524288,84.58,60.0,63.3,58.4
+classifier.3,2560,0.41,0.0,0.0,0.0

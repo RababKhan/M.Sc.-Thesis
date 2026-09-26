@@ -1,0 +1,5 @@
+Seed,Method,Actions,Prune fractions,Accuracy (%),Sparsity (%),Reward,Source
+1,PPO_Seed_1,"[0, 0, 5, 5]","[0.0, 0.0, 0.6, 0.6]",76.65,57.884530999948375,3.907981525600947,notebooks/Main code.ipynb cell 63
+2,PPO_Seed_2,"[0, 5, 5, 5]","[0.0, 0.6, 0.6, 0.6]",75.16,59.66860900314904,3.9503299761197304,notebooks/Main code.ipynb cell 63
+3,PPO_Seed_3,"[0, 5, 5, 5]","[0.0, 0.6, 0.6, 0.6]",75.16,59.66860900314904,3.9503299761197304,notebooks/Main code.ipynb cell 63
+42,PPO_Final_2000,"[1, 1, 5, 5]","[0.1, 0.1, 0.6, 0.6]",76.49,58.19572427856073,3.9173135875256566,notebooks/Main code.ipynb cell 51

@@ -1,0 +1,14 @@
+# Versions every current result was produced with (see results/experiment_log.md).
+# CPU-only builds of torch / torchvision come from the PyTorch index.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.7.1
+torchvision==0.22.1
+gymnasium==1.2.3
+stable-baselines3==2.8.0
+numpy==2.2.2
+pandas==2.2.3
+matplotlib==3.11.2
+
+# Kernel for running the notebooks from VS Code or an existing Jupyter install.
+ipykernel==7.3.0
