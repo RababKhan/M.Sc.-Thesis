@@ -34,6 +34,7 @@ reward function consumes that value directly.
 | `matched_sparsity_methods.csv` | `evaluation/matched_sparsity_analysis.py` | leakage-free |
 | `per_layer_allocation.csv` | `evaluation/matched_sparsity_analysis.py` | leakage-free |
 | `predictions/test_predictions.csv` | `evaluation/matched_sparsity_analysis.py` | leakage-free |
+| `final_results_fair_finetune_holdout.csv` | `notebooks/Final fine tuned.ipynb`, full top-to-bottom run (executed 2026-09-26) | leakage-free |
 
 ### Superseded — do not cite
 
@@ -197,6 +198,43 @@ does not convert into compute savings even with sparse support available.
 
 ---
 
+## Fine-tuning arm (1 PPO seed)
+
+Source: `notebooks/Final fine tuned.ipynb`, executed top to bottom on 2026-09-26
+(34 code cells, in order, no errors, 2075 s). Loads `cnn_baseline_FIXED.pth`
+and asserts val 77.32% / test 77.03% before anything else; both reproduced.
+Layer sensitivities reproduce Main's exactly (probe accuracy 76.1; drops
+0.6 / 0.2 / 0.1 / 0.0).
+
+Every pruned model is fine-tuned for 3 epochs (Adam, lr 1e-4) on the 45,000-image
+train split, epoch selected on the 5,000-image validation split, then measured
+once on test. PPO trained for 300 timesteps (seed 42) with 1-epoch in-episode
+fine-tuning on a 5,000-image train subset and reward on the 1,000-image RL probe.
+
+| Method | Actions | Val % | Test % | Sparsity % |
+|---|---|---|---|---|
+| Baseline | - | 77.32 | 77.03 | 0.00 |
+| Baseline + fine-tune | - | 80.02 | 79.91 | 0.00 |
+| FT uniform 10% | `[1,1,1,1]` | 80.08 | 79.58 | 9.96 |
+| FT uniform 20% | `[2,2,2,2]` | 80.12 | 79.75 | 19.92 |
+| FT uniform 40% | `[4,4,4,4]` | 79.44 | 79.60 | 39.83 |
+| FT uniform 60% | `[5,5,5,5]` | 77.78 | 78.62 | 59.75 |
+| PPO + fine-tune | `[4,4,4,4]` | 79.68 | 79.65 | 39.83 |
+
+The learned policy `[4,4,4,4]` is identical to FT uniform 40%. The two rows
+apply the same pruning and differ only in fine-tuning randomness, so their
+0.05 pp test gap is run-to-run noise, not a method difference. This run shows
+no layer-wise adaptation. The notebook's own guard (cell 50) prints the same
+warning.
+
+This notebook defines its own reward function (cell 31); its Reward column is
+not comparable with Main's and is omitted here.
+
+`checkpoints/baseline_finetuned.pth` and `checkpoints/ppo_finetune_agent_holdout.zip`
+were written by this run.
+
+---
+
 ## Reward function (verified, unchanged)
 
 ```
@@ -217,7 +255,11 @@ column is not comparable across methods and is not used as a quality metric.
 ## Pending
 
 - [x] Storage and latency measurement — see above
-- [ ] Clean fine-tuning notebook (`notebooks/Final fine tuned.ipynb`) — running
+- [x] Clean fine-tuning notebook — see "Fine-tuning arm" above. Single PPO seed;
+      more seeds are needed before drawing any conclusion about the fine-tuned arm.
+      `checkpoints/baseline_clean.pth` is no longer produced or used by any code;
+      its working copy came from an abandoned Aug 25 run with a separately trained
+      15-epoch baseline.
 - [ ] Sensitivity ablation: with / zeroed / shuffled, 4 seeds each
 - [ ] Reward sparsity-coefficient sweep: 0.01 / 0.02 / 0.04 / 0.08
 - [ ] Consolidated final results table, once the above land
@@ -228,6 +270,10 @@ column is not comparable across methods and is not used as a quality metric.
 
 Python 3.13.13 · torch 2.7.1+cpu · torchvision 0.22.1 · gymnasium 1.2.3 ·
 stable-baselines3 2.8.0 · numpy 2.2.2 · pandas 2.2.3 · CPU only.
+
+The fine-tuning arm was run on Python 3.11.9 with the same package versions
+(Intel i5-6400, 4 threads). The baseline and layer sensitivities reproduced
+exactly under it.
 
 ## Reproduction
 
