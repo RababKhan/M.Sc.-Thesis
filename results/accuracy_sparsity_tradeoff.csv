@@ -1,0 +1,22 @@
+method,family,matched_to_seed,sparsity,test_accuracy,actions
+Dense baseline,dense,,0.0,77.03,-
+PPO seed 1,ppo,1,57.884530999948375,76.65,"[0, 0, 5, 5]"
+Global magnitude @ 57.88%,global_magnitude_matched,1,57.884530999948375,76.54,-
+Uniform per-layer @ 57.88%,uniform_matched,1,57.884530999948375,40.69,-
+PPO seed 2,ppo,2,59.66860900314904,75.16,"[0, 5, 5, 5]"
+Global magnitude @ 59.67%,global_magnitude_matched,2,59.66860900314904,76.36,-
+Uniform per-layer @ 59.67%,uniform_matched,2,59.66877032677714,40.68,-
+PPO seed 3,ppo,3,59.66860900314904,75.16,"[0, 5, 5, 5]"
+PPO seed 42,ppo,42,58.19572427856073,76.49,"[1, 1, 5, 5]"
+Global magnitude @ 58.20%,global_magnitude_matched,42,58.19572427856073,76.35,-
+Uniform per-layer @ 58.20%,uniform_matched,42,58.19572427856073,41.2,-
+Uniform per-layer 20%,uniform_reference_unmatched,,19.917499096587683,75.69,"[2, 2, 2, 2]"
+Uniform per-layer 40%,uniform_reference_unmatched,,39.83483686954726,67.75,"[4, 4, 4, 4]"
+Uniform per-layer 60%,uniform_reference_unmatched,,59.75217464250684,40.48,"[5, 5, 5, 5]"
+Global magnitude 10%,global_magnitude_reference_unmatched_incl_output_layer,,9.99996773527438,76.95,-
+Global magnitude 20%,global_magnitude_reference_unmatched_incl_output_layer,,19.99993547054876,77.04,-
+Global magnitude 40%,global_magnitude_reference_unmatched_incl_output_layer,,40.00003226472562,76.88,-
+Global magnitude 60%,global_magnitude_reference_unmatched_incl_output_layer,,59.99996773527438,76.51,-
+Global magnitude 80%,global_magnitude_reference_unmatched_incl_output_layer,,80.00006452945124,73.14,-
+Global magnitude @ 59.67% (seed 3: same policy as seed 2),global_magnitude_matched,3,59.66860900314904,76.36,-
+Uniform per-layer @ 59.67% (seed 3: same policy as seed 2),uniform_matched,3,59.66877032677714,40.68,-
