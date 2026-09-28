@@ -90,3 +90,53 @@ from them, as required by rule R2.
   budget.
 - **If a budget cannot be met.** The design changes (e.g. the R3 fallback),
   or the problem is reported for a decision, before any run.
+
+## Part B — measurements and projections (appended after the benchmark; Part A unchanged since `366d21a`)
+
+One-epoch benchmark, 4 threads, idle machine, 2026-09-28 21:36–21:42
+(`results/architecture_generalization/cpu_epoch_benchmark.csv`). Training loss
+only; no accuracy of any benchmark model was computed.
+
+| Dataset | Arch | Params | t_epoch (s) | t_val (s) | T_run = 30 × (t_epoch + t_val) | ≤ 2.0 h | Epoch-1 train loss vs ln C | LR |
+|---|---|---|---|---|---|---|---|---|
+| CIFAR-10 | SimpleCNN | 620,362 | 41.96 | 3.84 | 0.38 h | yes | 1.609 < 2.303 | 1e-3 |
+| CIFAR-10 | LeNet-5 | 62,006 | 8.10 | 0.48 | 0.07 h | yes | 1.832 < 2.303 | 1e-3 |
+| CIFAR-10 | ResNet-8 | 78,042 | 77.08 | 4.96 | 0.68 h | yes | 1.638 < 2.303 | 1e-3 |
+| CIFAR-100 | SimpleCNN | 643,492 | 43.02 | 4.03 | 0.39 h | yes | 3.896 < 4.605 | 1e-3 |
+| CIFAR-100 | LeNet-5 | 69,656 | 6.79 | 0.51 | 0.06 h | yes | 4.140 < 4.605 | 1e-3 |
+| CIFAR-100 | ResNet-8 | 83,892 | 76.82 | 5.19 | 0.68 h | yes | 4.046 < 4.605 | 1e-3 |
+
+Rule outcomes
+- **R1.** Every run is within 2.0 h; the largest is ResNet-8 at 0.68 h.
+- **R3.** ResNet-8 is within budget on both datasets, so it stays as
+  architecture C. The SmallVGG fallback is **not** used and was not
+  benchmarked.
+- **Stability exception.** It is not triggered anywhere, so every
+  architecture uses lr 1e-3.
+
+Projected Phase-2 cost (sequential, 4 threads)
+
+| Item | Machine-hours |
+|---|---|
+| CIFAR-10 LeNet-5, 3 seeds | 0.22 |
+| CIFAR-10 ResNet-8, 3 seeds | 2.05 |
+| CIFAR-100 SimpleCNN, 3 seeds | 1.18 |
+| CIFAR-100 LeNet-5, 3 seeds | 0.18 |
+| CIFAR-100 ResNet-8, 3 seeds | 2.05 |
+| **15 dense runs** | **5.7** |
+| Benchmarks, splits, efficiency measurement (latency, peak RAM), checks | ≈ 1 |
+| **Phase 2 total** | **≈ 7 (budget R5: ≤ 30)** |
+
+Unit costs for later phases (4 threads)
+
+| Unit cost | Value |
+|---|---|
+| 3,000-image V_RL evaluation | SimpleCNN 1.2 s · LeNet-5 0.2 s · ResNet-8 1.5 s |
+| Exact V_RL landscape (1,296 policies) | SimpleCNN ≈ 26 min · LeNet-5 ≈ 4 min · ResNet-8 ≈ 33 min |
+| Memoised PPO episode, cache hit (reset + 4 unit steps) | 0.008–0.076 s |
+
+- **Measured PPO runs.** The five library-verification runs took 363–494 s
+  per memoised run and 703 s uncached, each at 1 thread with 4 runs in
+  parallel.
+- **R4.** A memoised PPO run needs ≤ 15 machine-minutes on every
+  architecture.

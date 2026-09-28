@@ -1,0 +1,7 @@
+dataset,arch,num_classes,parameters,threads,t_epoch_s,t_val_s,t_vrl3000_s,t_episode_memo_s,projected_run_h,within_budget_2h,mean_train_loss,ln_num_classes,nonfinite_loss,stability_rule_triggered,lr_decision,peak_wset_mb,measured_at
+cifar10,simplecnn,10,620362,4,41.96,3.84,1.193,0.0712,0.382,True,1.6091,2.3026,False,False,0.001,745.5,2026-09-28T21:36:58+06:00
+cifar10,lenet5,10,62006,4,8.1,0.48,0.188,0.0083,0.072,True,1.8318,2.3026,False,False,0.001,745.5,2026-09-28T21:37:08+06:00
+cifar10,resnet8,10,78042,4,77.08,4.96,1.499,0.0131,0.684,True,1.6378,2.3026,False,False,0.001,745.5,2026-09-28T21:38:41+06:00
+cifar100,simplecnn,100,643492,4,43.02,4.03,1.238,0.0759,0.392,True,3.8958,4.6052,False,False,0.001,748.0,2026-09-28T21:40:04+06:00
+cifar100,lenet5,100,69656,4,6.79,0.51,0.166,0.0089,0.061,True,4.1397,4.6052,False,False,0.001,748.0,2026-09-28T21:40:13+06:00
+cifar100,resnet8,100,83892,4,76.82,5.19,1.568,0.0139,0.683,True,4.0457,4.6052,False,False,0.001,748.0,2026-09-28T21:41:46+06:00
