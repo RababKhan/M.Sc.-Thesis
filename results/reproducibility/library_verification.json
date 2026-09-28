@@ -1,0 +1,306 @@
+{
+ "static_checks": [
+  {
+   "check": "train/val indices identical to rl_env.Splits",
+   "pass": true,
+   "detail": "val index sha256 9d3648af9194ccc8"
+  },
+  {
+   "check": "validation index hash is the historical 9d3648af...",
+   "pass": true,
+   "detail": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7"
+  },
+  {
+   "check": "validation tensors bit-identical to the historical cache",
+   "pass": true,
+   "detail": "(5000, 3, 32, 32)"
+  },
+  {
+   "check": "legacy probe = first 1,000 validation images, identical batches",
+   "pass": true,
+   "detail": "batch 0 equal"
+  },
+  {
+   "check": "CIFAR-10 V_RL/V_SELECT = archive split (3,000/2,000, disjoint)",
+   "pass": true,
+   "detail": "55b7ff40a25b9b24"
+  },
+  {
+   "check": "stratified_split regenerates the archive V_RL/V_SELECT split exactly",
+   "pass": true,
+   "detail": "seed 20260928"
+  },
+  {
+   "check": "guards: test before freeze, test and V_SELECT inside training() all raise",
+   "pass": true,
+   "detail": "TEST requested before the model/policy was frozen; TEST requested during training; V_SELECT requested during training"
+  },
+  {
+   "check": "cnn_baseline_FIXED.pth sha256 unchanged",
+   "pass": true,
+   "detail": "ca28f8345c23365e"
+  },
+  {
+   "check": "src SimpleCNN loads FIXED; identical state dict and logits",
+   "pass": true,
+   "detail": "512 validation images"
+  },
+  {
+   "check": "test tensors bit-identical to the historical cache",
+   "pass": true,
+   "detail": "10,000 images"
+  },
+  {
+   "check": "baseline accuracies val 77.32 / probe 76.10 / test 77.03",
+   "pass": true,
+   "detail": "val 77.32, probe 76.1, test 77.03"
+  },
+  {
+   "check": "parameter count 620,362 (weights 619,872)",
+   "pass": true,
+   "detail": "{\"total\": 620362, \"trainable\": 620362, \"conv_weights\": 93024, \"linear_weights\": 526848, \"weights\": 619872, \"biases\": 490, \"batchnorm\": 0, \"buffers\": 0}"
+  },
+  {
+   "check": "SimpleCNN units = historical FILTERED_LAYERS with 864/18,432/73,728/524,288 weights",
+   "pass": true,
+   "detail": "['features.0', 'features.3', 'features.6', 'classifier.1'] [864, 18432, 73728, 524288]"
+  },
+  {
+   "check": "accuracy-drop sensitivity identical to rl_env.compute_layer_sensitivities",
+   "pass": true,
+   "detail": "{\"features.0\": 0.5999999999999943, \"features.3\": 0.19999999999998863, \"features.6\": 0.09999999999999432, \"classifier.1\": 0.0}"
+  },
+  {
+   "check": "V_RL loss sensitivity reproduces archive_sensitivity_vector.json exactly (4 threads)",
+   "pass": true,
+   "detail": "normalized [1.0, 0.031603, 0.00935, 0.0]; at 1 thread the raw values differ by up to 2.4e-08 (float reduction order), so loss-based quantities are computed at a fixed 4 threads"
+  },
+  {
+   "check": "unit pruning [1,1,5,5]: identical masks/weights, sparsity 58.19572427856073",
+   "pass": true,
+   "detail": "sparsity 58.19572427856073"
+  },
+  {
+   "check": "landscape: 103 policies reproduce recorded val/probe accuracy exactly and sparsity to the CSV's 16 significant digits (1 thread, as recorded)",
+   "pass": true,
+   "detail": "mismatches: []"
+  },
+  {
+   "check": "reference baselines: 5 notebook-sweep global (all 5 layers) and 3 fixed uniform policies reproduce recorded test accuracy and sparsity exactly",
+   "pass": true,
+   "detail": "mismatches: []"
+  },
+  {
+   "check": "matched-sparsity: 6 recorded global-magnitude/uniform baselines reproduce exactly (masks + test accuracy; exact-count global = historical global)",
+   "pass": true,
+   "detail": "mismatches: []"
+  },
+  {
+   "check": "statistics: sign-flip, Wilcoxon, Holm identical to historical; sign-flip = brute force; exact t-quantiles match the historical 3-decimal table",
+   "pass": true,
+   "detail": "8 vectors incl. recorded E1-E0 AUC; max |t - table| after rounding 0.0"
+  },
+  {
+   "check": "McNemar of a model against itself",
+   "pass": true,
+   "detail": "(0, 0, 0.0, 1.0)"
+  }
+ ],
+ "ppo_runs": [
+  {
+   "name": "explore_E1_100",
+   "seed": 100,
+   "cache": true,
+   "soft_prior": true,
+   "episodes": 512,
+   "curve_identical_all_columns": true,
+   "first_differing_episode": null,
+   "actions": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "recorded_actions": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "sparsity": 57.884530999948375,
+   "recorded_sparsity": 57.884530999948375,
+   "test_accuracy": 76.65,
+   "recorded_test_accuracy": 76.65,
+   "final_reward": 2.1415975086544248,
+   "threads": 1,
+   "train_seconds": 493.8,
+   "pass": true
+  },
+  {
+   "name": "main1",
+   "seed": 1,
+   "cache": true,
+   "soft_prior": false,
+   "episodes": 512,
+   "curve_identical_all_columns": true,
+   "first_differing_episode": null,
+   "actions": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "recorded_actions": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "sparsity": 57.884530999948375,
+   "recorded_sparsity": 57.884530999948375,
+   "test_accuracy": 76.65,
+   "recorded_test_accuracy": 76.65,
+   "final_reward": 3.8781334386528763,
+   "threads": 1,
+   "train_seconds": 376.8,
+   "pass": true
+  },
+  {
+   "name": "main2",
+   "seed": 2,
+   "cache": true,
+   "soft_prior": false,
+   "episodes": 512,
+   "curve_identical_all_columns": true,
+   "first_differing_episode": null,
+   "actions": [
+    0,
+    5,
+    5,
+    5
+   ],
+   "recorded_actions": [
+    0,
+    5,
+    5,
+    5
+   ],
+   "sparsity": 59.66860900314904,
+   "recorded_sparsity": 59.66860900314904,
+   "test_accuracy": 75.16,
+   "recorded_test_accuracy": 75.16,
+   "final_reward": 3.912636755366521,
+   "threads": 1,
+   "train_seconds": 382.0,
+   "pass": true
+  },
+  {
+   "name": "main3",
+   "seed": 3,
+   "cache": true,
+   "soft_prior": false,
+   "episodes": 512,
+   "curve_identical_all_columns": true,
+   "first_differing_episode": null,
+   "actions": [
+    0,
+    5,
+    5,
+    5
+   ],
+   "recorded_actions": [
+    0,
+    5,
+    5,
+    5
+   ],
+   "sparsity": 59.66860900314904,
+   "recorded_sparsity": 59.66860900314904,
+   "test_accuracy": 75.16,
+   "recorded_test_accuracy": 75.16,
+   "final_reward": 3.912636755366521,
+   "threads": 1,
+   "train_seconds": 362.6,
+   "pass": true
+  },
+  {
+   "name": "main42",
+   "seed": 42,
+   "cache": false,
+   "soft_prior": false,
+   "episodes": 512,
+   "curve_identical_all_columns": true,
+   "first_differing_episode": null,
+   "actions": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "recorded_actions": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "sparsity": 58.19572427856073,
+   "recorded_sparsity": 58.19572427856073,
+   "test_accuracy": 76.49,
+   "recorded_test_accuracy": 76.49,
+   "final_reward": 3.8847612008372043,
+   "threads": 1,
+   "train_seconds": 702.8,
+   "pass": true
+  }
+ ],
+ "all_pass": true,
+ "library_sha256": {
+  "src/__init__.py": "f52371999afde2d9cb06ebf851bd4dbae549e8193a32dd1a1a645c09a02a1ad7",
+  "src/data/__init__.py": "bdd1f3dd4f29014700e7693095eb523a6addd1bf999da8c46a61ea6d618dfd9f",
+  "src/evaluation/__init__.py": "000cb062acbcc6b7b190e4ceae1953e884118f60a1428253aabbf440e82bb11a",
+  "src/evaluation/efficiency.py": "4153dc98a34885128729151e7bac03efd91f19f0be5d85aa8e33ad1fb1a59a34",
+  "src/evaluation/training.py": "7fab026b9bf847f872e195a8c571e4b0ab755cb0d0c52a04893ac7799cc6302c",
+  "src/models/__init__.py": "1aa28a9c9ab298e6b68db561b2c36050d637f1f314b36e56895572c48ef17db7",
+  "src/pruning/__init__.py": "dc0a67787b8cd8803af1ee974e2d0e3d9f2fe551d7f38c609895804432fd1760",
+  "src/pruning/structured.py": "32d4daaee573f7c9d10296b9ee408740de51d8a2734f0a3da48ec85db864e9e6",
+  "src/rl/__init__.py": "2258d7998b314a4e279b7473f1b960c48b87a4a06734d447bdc01c4d19eaa213",
+  "src/sensitivity/__init__.py": "126bd0fdb58592cd23d13f57e6604f90ca8c53a282656e62ee4277ca655f1ccd",
+  "src/statistics/__init__.py": "01164a6b4e6ace74d6dce47be3dc816dfad08edf2d555ee56721f383b23013b9",
+  "src/utils/__init__.py": "3d32554d48d4e59882380a2e468294c24814d14253af07dfc1854e919392cd75"
+ },
+ "script_sha256": "e96b023f5049337b8a358c071781b8ded63b9740f8c3c1dd0bf0de60d4f6bde8",
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 4,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "e47edf49cfcbcf20954bff93df7c70ced71695f7",
+  "dirty_paths": [
+   "M .gitignore",
+   " M checkpoints/baseline_clean.pth",
+   " M requirements.txt",
+   "?? experiments/",
+   "?? requirements_locked_phase2.txt",
+   "?? results/architecture_generalization/",
+   "?? results/cpu_dense_training_protocol.md",
+   "?? results/cpu_efficiency_protocol.md",
+   "?? results/cpu_runtime_budget.md",
+   "?? results/reproducibility/",
+   "?? results/rocksolid_cpu_master_protocol.md",
+   "?? src/"
+  ]
+ }
+}

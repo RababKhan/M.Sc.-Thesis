@@ -26,3 +26,6 @@ data/
 # Model files (optional)
 *.h5
 *.pt
+# Phase-2 resumable training state (deleted when a run completes) and atomic-write temporaries
+checkpoints/phase2_dense/_work/
+*.tmp

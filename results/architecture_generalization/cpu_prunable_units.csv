@@ -1,0 +1,41 @@
+arch,arch_status,num_classes,unit_index,unit,unit_type,role,modules,module_types,weight_shapes,params,fraction_of_all_weights,fraction_of_prunable_weights,macs_per_image
+simplecnn,A (primary),10,0.0,features.0,conv,prunable (PPO decision step),features.0,Conv2d,32x3x3x3,864,0.0013938361468174075,0.001399616401430719,884736
+simplecnn,A (primary),10,1.0,features.3,conv,prunable (PPO decision step),features.3,Conv2d,64x32x3x3,18432,0.029735171132104693,0.029858483230522006,4718592
+simplecnn,A (primary),10,2.0,features.6,conv,prunable (PPO decision step),features.6,Conv2d,128x64x3x3,73728,0.11894068452841877,0.11943393292208802,4718592
+simplecnn,A (primary),10,3.0,classifier.1,linear,prunable (PPO decision step),classifier.1,Linear,256x2048,524288,0.8458004233132002,0.8493079674459593,524288
+simplecnn,A (primary),10,,classifier.3,output classifier,excluded (never pruned),classifier.3,Linear,10x256,2560,0.004129884879458985,,2560
+simplecnn,A (primary),100,0.0,features.0,conv,prunable (PPO decision step),features.0,Conv2d,32x3x3x3,864,0.0013438853217858744,0.001399616401430719,884736
+simplecnn,A (primary),100,1.0,features.3,conv,prunable (PPO decision step),features.3,Conv2d,64x32x3x3,18432,0.028669553531431986,0.029858483230522006,4718592
+simplecnn,A (primary),100,2.0,features.6,conv,prunable (PPO decision step),features.6,Conv2d,128x64x3x3,73728,0.11467821412572794,0.11943393292208802,4718592
+simplecnn,A (primary),100,3.0,classifier.1,linear,prunable (PPO decision step),classifier.1,Linear,256x2048,524288,0.8154895226718432,0.8493079674459593,524288
+simplecnn,A (primary),100,,classifier.3,output classifier,excluded (never pruned),classifier.3,Linear,100x256,25600,0.039818824349211086,,25600
+lenet5,B (primary),10,0.0,conv1,conv,prunable (PPO decision step),features.0,Conv2d,6x3x5x5,450,0.007285089849441476,0.007385524372230428,352800
+lenet5,B (primary),10,1.0,conv2,conv,prunable (PPO decision step),features.3,Conv2d,16x6x5x5,2400,0.03885381253035454,0.03938946331856229,240000
+lenet5,B (primary),10,2.0,fc1,linear,prunable (PPO decision step),classifier.1,Linear,120x400,48000,0.7770762506070908,0.7877892663712457,48000
+lenet5,B (primary),10,3.0,fc2,linear,prunable (PPO decision step),classifier.3,Linear,84x120,10080,0.16318601262748908,0.1654357459379616,10080
+lenet5,B (primary),10,,classifier.5,output classifier,excluded (never pruned),classifier.5,Linear,10x84,840,0.013598834385624089,,840
+lenet5,B (primary),100,0.0,conv1,conv,prunable (PPO decision step),features.0,Conv2d,6x3x5x5,450,0.006490696668109044,0.007385524372230428,352800
+lenet5,B (primary),100,1.0,conv2,conv,prunable (PPO decision step),features.3,Conv2d,16x6x5x5,2400,0.03461704889658156,0.03938946331856229,240000
+lenet5,B (primary),100,2.0,fc1,linear,prunable (PPO decision step),classifier.1,Linear,120x400,48000,0.6923409779316313,0.7877892663712457,48000
+lenet5,B (primary),100,3.0,fc2,linear,prunable (PPO decision step),classifier.3,Linear,84x120,10080,0.14539160536564258,0.1654357459379616,10080
+lenet5,B (primary),100,,classifier.5,output classifier,excluded (never pruned),classifier.5,Linear,100x84,8400,0.12115967113803548,,8400
+resnet8,C (primary),10,0.0,stem,conv,prunable (PPO decision step),conv1,Conv2d,16x3x3x3,432,0.005584281282316443,0.005630865484880084,442368
+resnet8,C (primary),10,1.0,stage1,residual stage,prunable (PPO decision step),layer1.conv1;layer1.conv2,Conv2d;Conv2d,16x16x3x3;16x16x3x3,4608,0.05956566701137539,0.06006256517205422,4718592
+resnet8,C (primary),10,2.0,stage2,residual stage,prunable (PPO decision step),layer2.conv1;layer2.conv2;layer2.shortcut.0,Conv2d;Conv2d;Conv2d,32x16x3x3;32x32x3x3;32x16x1x1,14336,0.18531540847983455,0.18686131386861313,3670016
+resnet8,C (primary),10,3.0,stage3,residual stage,prunable (PPO decision step),layer3.conv1;layer3.conv2;layer3.shortcut.0,Conv2d;Conv2d;Conv2d,64x32x3x3;64x64x3x3;64x32x1x1,57344,0.7412616339193382,0.7474452554744525,3670016
+resnet8,C (primary),10,,fc,output classifier,excluded (never pruned),fc,Linear,10x64,640,0.008273009307135471,,640
+resnet8,C (primary),100,0.0,stem,conv,prunable (PPO decision step),conv1,Conv2d,16x3x3x3,432,0.00519730510105871,0.005630865484880084,442368
+resnet8,C (primary),100,1.0,stage1,residual stage,prunable (PPO decision step),layer1.conv1;layer1.conv2,Conv2d;Conv2d,16x16x3x3;16x16x3x3,4608,0.05543792107795958,0.06006256517205422,4718592
+resnet8,C (primary),100,2.0,stage2,residual stage,prunable (PPO decision step),layer2.conv1;layer2.conv2;layer2.shortcut.0,Conv2d;Conv2d;Conv2d,32x16x3x3;32x32x3x3;32x16x1x1,14336,0.17247353224254092,0.18686131386861313,3670016
+resnet8,C (primary),100,3.0,stage3,residual stage,prunable (PPO decision step),layer3.conv1;layer3.conv2;layer3.shortcut.0,Conv2d;Conv2d;Conv2d,64x32x3x3;64x64x3x3;64x32x1x1,57344,0.6898941289701637,0.7474452554744525,3670016
+resnet8,C (primary),100,,fc,output classifier,excluded (never pruned),fc,Linear,100x64,6400,0.07699711260827719,,6400
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),10,0.0,stage1,conv stage,prunable (PPO decision step),features.0;features.3,Conv2d;Conv2d,32x3x3x3;32x32x3x3,10080,0.012392304968724182,0.012431429811752635,10321920
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),10,1.0,stage2,conv stage,prunable (PPO decision step),features.7;features.10,Conv2d;Conv2d,64x32x3x3;64x64x3x3,55296,0.06798064439985838,0.06819527211018588,14155776
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),10,2.0,stage3,conv stage,prunable (PPO decision step),features.14;features.17,Conv2d;Conv2d,128x64x3x3;128x128x3x3,221184,0.2719225775994335,0.2727810884407435,14155776
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),10,3.0,fc1,linear,prunable (PPO decision step),classifier.1,Linear,256x2048,524288,0.644557220976435,0.646592209637318,524288
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),10,,classifier.3,output classifier,excluded (never pruned),classifier.3,Linear,10x256,2560,0.0031472520555489987,,2560
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),100,0.0,stage1,conv stage,prunable (PPO decision step),features.0;features.3,Conv2d;Conv2d,32x3x3x3;32x32x3x3,10080,0.01205095833811546,0.012431429811752635,10321920
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),100,1.0,stage2,conv stage,prunable (PPO decision step),features.7;features.10,Conv2d;Conv2d,64x32x3x3;64x64x3x3,55296,0.06610811431194766,0.06819527211018588,14155776
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),100,2.0,stage3,conv stage,prunable (PPO decision step),features.14;features.17,Conv2d;Conv2d,128x64x3x3;128x128x3x3,221184,0.26443245724779063,0.2727810884407435,14155776
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),100,3.0,fc1,linear,prunable (PPO decision step),classifier.1,Linear,256x2048,524288,0.6268028616243927,0.646592209637318,524288
+smallvgg,C' (pre-registered fallback; used only under budget rule R3),100,,classifier.3,output classifier,excluded (never pruned),classifier.3,Linear,100x256,25600,0.030605608477753548,,25600
