@@ -1,0 +1,5 @@
+layer,accuracy_raw,accuracy_normalized,loss_raw,loss_normalized,original_raw_pp,probe_ratios,n_validation_images,normalization,registered_before_any_refined_ppo_run
+features.0,0.14148991205380235,1.0,0.783930778503418,1.0,0.5999999999999943,"[0.1, 0.2, 0.4, 0.6]",5000,"min-max across the four layers to [0,1]; all equal -> 0",2026-09-27T01:24:40+06:00
+features.3,0.005690636316606295,0.05106190691369173,0.02428552694618702,0.032278303448596016,0.19999999999998863,"[0.1, 0.2, 0.4, 0.6]",5000,"min-max across the four layers to [0,1]; all equal -> 0",2026-09-27T01:24:40+06:00
+features.6,0.002651319192964299,0.029823768639855384,0.009433251805603504,0.013357802244606217,0.09999999999999432,"[0.1, 0.2, 0.4, 0.6]",5000,"min-max across the four layers to [0,1]; all equal -> 0",2026-09-27T01:24:40+06:00
+classifier.1,-0.0016166580444904309,0.0,-0.0010523982346057892,0.0,0.0,"[0.1, 0.2, 0.4, 0.6]",5000,"min-max across the four layers to [0,1]; all equal -> 0",2026-09-27T01:24:40+06:00
