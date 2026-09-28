@@ -3,7 +3,7 @@
 Every result file in `results/`, what produced it, and whether it is leakage-free.
 Raw numbers only — no interpretation.
 
-Last updated: 2026-09-27
+Last updated: 2026-09-29
 
 ---
 
@@ -860,6 +860,175 @@ not change the classification.
 
 ---
 
+## Phase 2 (CPU-only): consolidated library, three architectures, CIFAR-100, dense baselines
+
+### Protocols
+
+Written and committed in `366d21a`, before any Phase-2 benchmark, split or training run:
+
+- `rocksolid_cpu_master_protocol.md`. It supersedes the hardware-dependent parts of
+  `rocksolid_master_protocol.md`, which is unchanged.
+- `cpu_runtime_budget.md`. Part A holds the rules; the Part B measurements were appended in
+  `2055dac`.
+- `cpu_dense_training_protocol.md`.
+- `cpu_efficiency_protocol.md`.
+
+The project is designed for commodity CPUs. No GPU run or GPU latency is part of it.
+
+### Consolidated library (`src/`) and its verification
+
+`src/` re-implements the shared pieces of the historical scripts once, for any registered
+architecture:
+
+- data, splits and guards;
+- models;
+- pruning units and one-shot baselines;
+- prepared structured pruning;
+- sensitivity;
+- the PPO environment and soft prior;
+- evaluation and efficiency;
+- statistics.
+
+The historical scripts are unchanged. `experiments/phase2/verify_library.py` →
+`results/reproducibility/library_verification.json`: **all pass**.
+
+| Check | Result |
+|---|---|
+| Splits, validation/probe/test tensors, V_RL/V_SELECT | bit-identical to `rl_env.Splits` / `archive_validation_split.npz`; val hash `9d3648af…` |
+| Baseline | val 77.32 / probe 76.10 / test 77.03; 620,362 parameters |
+| Sensitivity | accuracy drop identical; archive V_RL loss vector identical (4 threads) |
+| Pruning | `[1,1,5,5]` masks identical, sparsity 58.19572427856073; 103 landscape policies (1 thread); 6 matched and 8 reference baselines with exact test accuracies |
+| Complete PPO runs | seeds 42 (uncached), 1, 2, 3 (memoised) and soft-prior E1 seed 100: all 512 episodes, and the final policy, sparsity and test accuracy, bit-identical |
+| Statistics | sign-flip, Wilcoxon and Holm identical to the historical code; exact t-quantiles |
+
+The verification found two numerical facts. The first is now a rule in the CPU master
+protocol §11.
+
+- **Thread count changes float reduction order.** Loss values move at the 1e-8 level, and an
+  argmax can flip on an exact logit tie.
+  - Example: policy `[3,4,2,2]`, validation image 3771 scores 73.24% at 1 thread and 73.26% at 2
+    or 4 threads. The historical and the new code behave identically.
+  - Consequence: evaluations that are compared with each other use one fixed thread count. That
+    count is 1, as in all historical landscape and PPO evaluations.
+- **pandas misreads floats.** Its default CSV float parser misreads about 20% of 17-digit floats in
+  the last bit. Recorded curves are therefore compared with `float_precision="round_trip"`.
+
+### Architectures and pruning units
+
+Each architecture has four units (6^4 = 1,296 policies), and the output classifier is excluded.
+Details are in `architecture_generalization/cpu_prunable_units.csv`.
+
+| Architecture | Units (weights) | Largest unit share |
+|---|---|---|
+| SimpleCNN | features.0 864 · features.3 18,432 · features.6 73,728 · classifier.1 524,288 | 84.6% |
+| LeNet-5 (CIFAR; 5×5 convs 6/16, FC 400-120-84) | conv1 450 · conv2 2,400 · fc1 48,000 · fc2 10,080 | 77.7% |
+| ResNet-8 (He et al. n = 1; 16/32/64) | stem 432 · stage1 4,608 · stage2 14,336 · stage3 57,344 | 74.1% |
+
+The pre-registered fallback, SmallVGG, was not needed: every setting stayed within the time budget.
+
+### One-epoch CPU benchmark (4 threads)
+
+Results are in `architecture_generalization/cpu_epoch_benchmark.csv`. The benchmark recorded
+training loss only, no accuracy.
+
+| Setting | s / epoch | Projected run | Actual runs (3 seeds) |
+|---|---|---|---|
+| C10 LeNet-5 | 8.1 | 0.07 h | 4.2–4.9 min |
+| C10 ResNet-8 | 77.1 | 0.68 h | 38.9–40.1 min |
+| C100 SimpleCNN | 43.0 | 0.39 h | 27.2–29.9 min |
+| C100 LeNet-5 | 6.8 | 0.06 h | 4.8–5.2 min |
+| C100 ResNet-8 | 76.8 | 0.68 h | 38.5–38.6 min |
+
+- **Stability exception.** It did not trigger: every epoch-1 training loss was below ln C. The
+  learning rate is therefore 1e-3 everywhere.
+- **Cost.** Dense training took 5.8 machine-hours in total, against a projection of 5.7 h. The
+  budget is ≤ 2 h per run and ≤ 30 h for Phase 2.
+
+### CIFAR-100 split
+
+The split is in `reproducibility/cifar100_split_indices.npz` (sha256 `d7351925…`, `c156f62`),
+with manifest `cifar100_split_manifest.json`.
+
+- **Train / validation:** seed-42 permutation, 45,000 / 5,000. The index lists coincide with
+  CIFAR-10's.
+- **V_RL / V_SELECT:** stratified, 3,000 / 2,000, seed 20260928.
+- **Images per class:** validation 37–65, V_RL 22–39, V_SELECT 15–26.
+- **Normalisation:** the constants recomputed from the 50,000 training images round to the constants
+  used.
+- **Test set:** read only by frozen dense models.
+
+### Dense baselines
+
+The protocol:
+- Adam at lr 1e-3, cosine schedule over 30 epochs, batch 128, crop + flip augmentation;
+- the checkpoint is the best full-validation epoch;
+- the test set is read once, after the checkpoint was written and hashed;
+- seeds 0–2, with seed 0 the pruning reference by rule.
+
+Files:
+- per run: `architecture_generalization/cpu_baseline_runs.csv`;
+- per setting: `cpu_baselines.csv`;
+- run records: `architecture_generalization/dense_runs/`;
+- checkpoints: `checkpoints/phase2_dense/`.
+
+| Setting | Val mean ± SD | Test mean ± SD | Reference seed 0: val / test |
+|---|---|---|---|
+| C10 SimpleCNN | — | — | 77.32 / 77.03 (`cnn_baseline_FIXED.pth`, historical recipe) |
+| C10 LeNet-5 | 65.63 ± 1.94 | 66.21 ± 1.51 | 64.32 / 64.96 |
+| C10 ResNet-8 | 78.62 ± 0.23 | 78.69 ± 0.51 | 78.72 / 78.69 |
+| C100 SimpleCNN | 48.78 ± 0.95 | 49.84 ± 0.65 | 49.08 / 50.50 |
+| C100 LeNet-5 | 32.15 ± 0.42 | 31.42 ± 0.75 | 32.58 / 32.28 |
+| C100 ResNet-8 | 43.07 ± 0.54 | 43.58 ± 0.53 | 43.48 / 43.99 |
+
+The selected epochs are 24–30. The selected epoch's validation accuracy is at most 0.26 pp above
+the last epoch's.
+
+### Efficiency of the dense references (4 threads)
+
+Results are in `architecture_generalization/cpu_efficiency_baselines.csv`, with the timings in
+`cpu_efficiency_latency_samples.csv`. CPU load was 8.0% before the measurement and 4.1% after.
+Each model and batch size got 500 timed passes.
+
+| Setting | Params | MACs / image | Raw / gzip bytes | Latency b1 / b32 / b128 (ms, median) | Peak RAM b128 (MB) |
+|---|---|---|---|---|---|
+| C10 SimpleCNN | 620,362 | 10.85 M | 2,485,317 / 2,307,464 | 0.74 / 12.75 / 52.15 | 232 |
+| C10 LeNet-5 | 62,006 | 0.65 M | 252,037 / 232,527 | 0.62 / 1.65 / 5.61 | 194 |
+| C10 ResNet-8 | 78,042 | 12.50 M | 332,219 / 297,340 | 1.40 / 12.29 / 64.82 | 220 |
+| C100 SimpleCNN | 643,492 | 10.87 M | 2,577,861 / 2,398,700 | 0.77 / 12.81 / 52.45 | 233 |
+| C100 LeNet-5 | 69,656 | 0.66 M | 282,629 / 260,967 | 0.60 / 1.69 / 5.59 | 189 |
+| C100 ResNet-8 | 83,892 | 12.51 M | 355,643 / 319,202 | 1.39 / 12.08 / 64.55 | 219 |
+
+- **FLOPs.** torch FlopCounterMode FLOPs equal 2 × MACs in every case.
+- **ptflops.** ptflops 0.7.5 MACs, which include BN and activations, are in the CSV.
+- **Consistency.** The SimpleCNN numbers agree with the earlier controlled measurement:
+  0.737 ms at batch 1 and 51.25 ms at batch 128.
+
+### Implementation checks
+
+`architecture_generalization/cpu_phase2_checks.md`: **69 passed, 0 failed, 0 skipped**. The checks
+cover:
+- architectures, and forward passes on both datasets;
+- parameter formulas and unit mapping;
+- the zero-pruning policy;
+- checkpoint reload, including all 15 dense runs;
+- deterministic splits and the data guards;
+- the five one-shot baselines;
+- structured channel removal;
+- training resume and determinism;
+- the PPO environment on all architectures;
+- efficiency counters and sensitivity.
+
+### Prepared but not run
+
+Phase 2 stops here. The following are prepared but not run:
+- multi-seed PPO on the new settings;
+- the one-shot baseline comparisons;
+- structured-pruning experiments;
+- fine-tuning;
+- robustness.
+
+---
+
 ## Latency (controlled protocol)
 
 Source: `evaluation/latency_benchmark.py` → `latency_results.csv` (summary) and
@@ -941,6 +1110,8 @@ column is not comparable across methods and is not used as a quality metric.
 - [x] Archive-confirmatory experiment on fresh seeds 200–239 (pre-registered, committed `1bda844`; 160 runs; Level C-FA). Per the pre-registration: no further redesign of sensitivity for final accuracy without a new hypothesis
 - [ ] More PPO seeds in the fine-tuning arm (currently 1)
 - [ ] Consolidated final results table (left to the paper write-up)
+- [x] Phase 2 (CPU-only): consolidated `src/` library (verified), LeNet-5 / ResNet-8, CIFAR-100 split, 15 dense baselines, efficiency baselines, implementation checks
+- [ ] Phase 3 onward (CPU-only roadmap): awaiting approval
 - [ ] Optional: normalised-sparsity reward, as a separately labelled experiment (not run)
 
 ---
@@ -949,7 +1120,7 @@ column is not comparable across methods and is not used as a quality metric.
 
 Python 3.13.13 · torch 2.7.1+cpu · torchvision 0.22.1 · gymnasium 1.2.3 ·
 stable-baselines3 2.8.0 · numpy 2.2.2 · pandas 2.2.3 · CPU only.
-Pinned in `requirements.txt`.
+Pinned in `requirements.txt`. From Phase 2 on, `ptflops==0.7.5` is added (`requirements_locked_phase2.txt`).
 
 Two machines are involved:
 
@@ -1024,3 +1195,17 @@ python evaluation/archive_aggregate.py                               # refuses t
 
 `matched_sparsity_analysis.py` asserts that it reproduces the notebook's recorded
 seed-42 sparsity and accuracy exactly before computing anything new.
+
+Phase 2 (CPU-only; run with `venv/Scripts/python.exe` from the repository root):
+
+```
+python experiments/phase2/verify_library.py static --threads 4           # 21 checks vs historical results
+python experiments/phase2/verify_library.py ppo main42                   # also main1, main2, main3, explore_E1_100
+python experiments/phase2/verify_library.py report                       # -> library_verification.json
+python experiments/phase2/prepare_splits.py                              # CIFAR-100 split; refuses to overwrite
+python experiments/phase2/benchmark_epoch.py --dataset cifar10 --archs simplecnn lenet5 resnet8
+python experiments/phase2/benchmark_epoch.py --dataset cifar100 --archs simplecnn lenet5 resnet8
+python experiments/phase2/train_dense.py --dataset cifar10 --arch lenet5 --seeds 0 1 2 --threads 4   # etc.; resumable
+python experiments/phase2/architecture_tables.py units | dense | efficiency   # efficiency needs an idle machine
+python experiments/phase2/phase2_checks.py                               # -> cpu_phase2_checks.md
+```
