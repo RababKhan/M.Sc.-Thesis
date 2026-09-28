@@ -1,0 +1,495 @@
+{
+ "data": {
+  "train": 45000,
+  "validation": 5000,
+  "test": 10000,
+  "train_val_disjoint": true,
+  "train_plus_val": 50000,
+  "val_indices_sha256": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7",
+  "rl_probe_is_first_1000_of_validation": true,
+  "V_RL": 3000,
+  "V_SELECT": 2000,
+  "V_RL_V_SELECT_disjoint": true,
+  "V_RL_union_V_SELECT_is_validation": true,
+  "V_RL_cifar_indices_subset_of_validation": true,
+  "V_SELECT_cifar_indices_subset_of_validation": true,
+  "V_RL_labels_match": true,
+  "class_counts_validation": [
+   488,
+   512,
+   532,
+   471,
+   471,
+   514,
+   507,
+   500,
+   504,
+   501
+  ],
+  "class_counts_V_RL": [
+   293,
+   307,
+   319,
+   283,
+   283,
+   308,
+   304,
+   300,
+   302,
+   301
+  ],
+  "class_counts_V_SELECT": [
+   195,
+   205,
+   213,
+   188,
+   188,
+   206,
+   203,
+   200,
+   202,
+   200
+  ],
+  "probe_overlap_with_V_SELECT": 379,
+  "probe_overlap_with_V_RL": 621
+ },
+ "checkpoints": [
+  {
+   "file": "checkpoints/baseline_clean.pth",
+   "bytes": 2486005,
+   "sha256": "a0b89145a93eac07a44bd03f6f7677b452ad666c7efe3b1c5f2b6feb9b47b623",
+   "git_tracked": true,
+   "git_modified": true,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code",
+   "parameters_total": 620362,
+   "prunable_weights": 619872,
+   "val_accuracy": 80.12,
+   "test_accuracy": 79.56
+  },
+  {
+   "file": "checkpoints/baseline_finetuned.pth",
+   "bytes": 2486069,
+   "sha256": "7c5b700ad04c3ecca75da8187f52e7c7bb5a68698007cf7b48e55ad066f00889",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "a361256 2026-09-26 Use the shared baseline in the fine-tuning notebook and re-run it",
+   "parameters_total": 620362,
+   "prunable_weights": 619872,
+   "val_accuracy": 80.02,
+   "test_accuracy": 79.91
+  },
+  {
+   "file": "checkpoints/cnn_baseline.pth",
+   "bytes": 2485973,
+   "sha256": "139c658ca3d22309d6c9352a0db0155e195dbd3f8013fdae0bcc5348dba35d8d",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code",
+   "parameters_total": 620362,
+   "prunable_weights": 619872,
+   "val_accuracy": 8.64,
+   "test_accuracy": 9.78
+  },
+  {
+   "file": "checkpoints/cnn_baseline_FIXED.pth",
+   "bytes": 2486069,
+   "sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "886b29c 2026-08-25 Re-run Main notebook on the leakage-free split; fix fixed-policy runner",
+   "parameters_total": 620362,
+   "prunable_weights": 619872,
+   "val_accuracy": 77.32,
+   "test_accuracy": 77.03
+  },
+  {
+   "file": "checkpoints/manual_and_rl_df_current.csv",
+   "bytes": 502,
+   "sha256": "d17cf654789d6918a517a6c2fd9b32f7b355df07c65aaece636b5fda57952450",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code"
+  },
+  {
+   "file": "checkpoints/ppo_compression_agent.zip",
+   "bytes": 149001,
+   "sha256": "5241ce3ec35784c9c028a5b9a1005fa939815e3468471b63e5413c6e99e6c6ba",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code"
+  },
+  {
+   "file": "checkpoints/ppo_filtered_2000.zip",
+   "bytes": 149004,
+   "sha256": "a3cc58ffb4c7a5652a2e6d2a15bb5b7632e31ee5b2b24393af926adfa351ffbc",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code"
+  },
+  {
+   "file": "checkpoints/ppo_final_2000.zip",
+   "bytes": 149605,
+   "sha256": "e528b0db9c6069aa0be5c0230044ad9bf6c5aa8565b5a31b2d01b09c163cad99",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "886b29c 2026-08-25 Re-run Main notebook on the leakage-free split; fix fixed-policy runner"
+  },
+  {
+   "file": "checkpoints/ppo_finetune_agent.zip",
+   "bytes": 148801,
+   "sha256": "5d2ceecb927df68cbc79ae45f1902a50ef9798eb784d55337bcd9b3d15376be9",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code"
+  },
+  {
+   "file": "checkpoints/ppo_finetune_agent_fair.zip",
+   "bytes": 148801,
+   "sha256": "3836c3daf89d9e91556b6a19a5edb094c3fbcc09f32500a990a19f49de25fefa",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "2f37f37 2026-04-29 Initial commit of thesis code"
+  },
+  {
+   "file": "checkpoints/ppo_finetune_agent_holdout.zip",
+   "bytes": 148044,
+   "sha256": "c28000efdcae392707d8d1676187c9faaa96dfde72e5d6391cba9874d0186bfe",
+   "git_tracked": true,
+   "git_modified": false,
+   "last_commit": "a361256 2026-09-26 Use the shared baseline in the fine-tuning notebook and re-run it"
+  },
+  {
+   "directory": "checkpoints/archive_agents",
+   "files": 160,
+   "bytes": 23594640
+  },
+  {
+   "directory": "checkpoints/constrained_experiments",
+   "files": 180,
+   "bytes": 26539758
+  },
+  {
+   "directory": "checkpoints/experiments",
+   "files": 28,
+   "bytes": 4167723
+  },
+  {
+   "directory": "checkpoints/exploration_levelA_agents",
+   "files": 120,
+   "bytes": 17695620
+  },
+  {
+   "directory": "checkpoints/refined_experiments",
+   "files": 100,
+   "bytes": 14884710
+  },
+  {
+   "directory": "checkpoints/soft_prior_experiments",
+   "files": 240,
+   "bytes": 36967872
+  }
+ ],
+ "ppo": {
+  "declared_kwargs": {
+   "policy": "MlpPolicy",
+   "learning_rate": 0.0003,
+   "n_steps": 64,
+   "batch_size": 32,
+   "n_epochs": 10,
+   "gamma": 0.99,
+   "ent_coef": 0.01,
+   "verbose": 0
+  },
+  "total_timesteps_requested": 2000,
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "gae_lambda": 0.95,
+  "clip_range": 0.2,
+  "clip_range_vf": null,
+  "ent_coef": 0.01,
+  "vf_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "normalize_advantage": true,
+  "target_kl": null,
+  "use_sde": false,
+  "policy_architecture": "MlpExtractor(   (policy_net): Sequential(     (0): Linear(in_features=7, out_features=64, bias=True)     (1): Tanh()     (2): Linear(in_features=64, out_features=64, bias=True)     (3): Tanh()   )   (value_net): Sequential(     (0): Linear(in_features=7, out_features=64, bias=True)     (1): Tanh()     (2): Linear(in_features=64, out_features=64, bias=True)     (3): Tanh()   ) )",
+  "action_net": "Linear(in_features=64, out_features=6, bias=True)",
+  "value_net": "Linear(in_features=64, out_features=1, bias=True)",
+  "activation": "Tanh",
+  "ortho_init": true,
+  "optimizer": "Adam",
+  "observation_space": "Box(-inf, inf, (7,), float32)",
+  "action_space": "Discrete(6)",
+  "action_to_prune": {
+   "0": 0.0,
+   "1": 0.1,
+   "2": 0.2,
+   "3": 0.3,
+   "4": 0.4,
+   "5": 0.6
+  },
+  "prunable_layers": [
+   "features.0",
+   "features.3",
+   "features.6",
+   "classifier.1"
+  ],
+  "reward_coefficients": {
+   "accuracy": 1.5,
+   "sparsity_default": 0.04,
+   "diversity": 0.05
+  },
+  "stable_baselines3": "2.8.0",
+  "sb3_contrib": "2.8.0"
+ },
+ "run_records": {
+  "runs": {
+   "records": 28,
+   "seeds": [
+    1,
+    2,
+    3,
+    42
+   ],
+   "preregistration_sha256": [
+    ""
+   ]
+  },
+  "refined_runs": {
+   "records": 100,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    42
+   ],
+   "preregistration_sha256": [
+    ""
+   ]
+  },
+  "constrained_runs": {
+   "records": 180,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    42
+   ],
+   "preregistration_sha256": [
+    "386de2f07e2f7824"
+   ]
+  },
+  "soft_prior_runs": {
+   "records": 240,
+   "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    42
+   ],
+   "preregistration_sha256": [
+    "22919379e48f4b33"
+   ]
+  },
+  "exploration_levelA_runs": {
+   "records": 120,
+   "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129
+   ],
+   "preregistration_sha256": [
+    "af6881f7f090765b"
+   ]
+  },
+  "archive_runs": {
+   "records": 160,
+   "seeds": [
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+   ],
+   "preregistration_sha256": [
+    "bcbeb6d9047056b4"
+   ]
+  }
+ },
+ "preregistrations": {
+  "results/archive_confirmatory_preregistration.md": {
+   "sha256": "bcbeb6d9047056b4d59e776210dffd0ba0b09b856ad231a1a5b40a4af3ed0ad0",
+   "added_in": "1bda844 2026-09-28",
+   "modified_since_added": false
+  },
+  "results/constrained_preregistration.md": {
+   "sha256": "386de2f07e2f78242d812fc715a9e76af339d322b411940771932aa792f25ee5",
+   "added_in": "d6fafad 2026-09-28",
+   "modified_since_added": false
+  },
+  "results/exploration_levelA_preregistration.md": {
+   "sha256": "af6881f7f090765ba070bfc31038493757671e0c73bba02aff7908d00313f777",
+   "added_in": "c3a9484 2026-09-28",
+   "modified_since_added": false
+  },
+  "results/soft_prior_preregistration.md": {
+   "sha256": "22919379e48f4b332589b962d97ceeb822012af8a4beede79219503f75569031",
+   "added_in": "4a7a5a5 2026-09-27",
+   "modified_since_added": false
+  }
+ },
+ "definitions": {
+  "class SimpleCNN": [
+   "evaluation/audit_phase1.py",
+   "evaluation/common.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ],
+  "def evaluate_model": [
+   "evaluation/audit_phase1.py",
+   "evaluation/rl_env.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ],
+  "def compute_reward / reward_components": [
+   "evaluation/audit_phase1.py",
+   "evaluation/rl_env.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ],
+  "def calculate_sparsity": [
+   "evaluation/audit_phase1.py",
+   "evaluation/common.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ],
+  "sensitivity estimators": [
+   "evaluation/archive_confirm.py",
+   "evaluation/audit_phase1.py",
+   "evaluation/refined_aggregate.py",
+   "evaluation/refined_sensitivity.py",
+   "evaluation/rl_env.py",
+   "evaluation/soft_prior.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ],
+  "exact sign-flip tests": [
+   "evaluation/aggregate_experiments.py",
+   "evaluation/audit_phase1.py",
+   "evaluation/exploration_confirm.py",
+   "evaluation/refined_aggregate.py",
+   "evaluation/soft_prior_aggregate.py"
+  ],
+  "Holm": [
+   "evaluation/audit_phase1.py",
+   "evaluation/exploration_confirm.py",
+   "evaluation/refined_aggregate.py",
+   "evaluation/soft_prior_aggregate.py"
+  ],
+  "t-quantile tables": [
+   "evaluation/archive_aggregate.py",
+   "evaluation/exploration_confirm.py",
+   "evaluation/refined_aggregate.py",
+   "evaluation/soft_prior_aggregate.py"
+  ],
+  "PPO environments": [
+   "evaluation/constrained_ppo.py",
+   "evaluation/rl_env.py",
+   "notebooks/Final fine tuned.ipynb",
+   "notebooks/Main code.ipynb"
+  ]
+ }
+}
