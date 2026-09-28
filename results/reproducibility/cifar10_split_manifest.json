@@ -1,0 +1,62 @@
+{
+ "dataset": "CIFAR-10",
+ "archive_md5": "c58f30108f718f92721af3b95e74349a",
+ "train_val_rule": "rl_env.Splits: torch.randperm(50000, seed 42); last 5,000 = validation",
+ "train_indices_sha256": "82c2885fd5b6ea01ffd34f7b212824af96c74c9589e6abbb64da18d5fae96919",
+ "val_indices_sha256": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7",
+ "v_rl_v_select_file": "results/archive_validation_split.npz",
+ "v_rl_v_select_file_sha256": "55b7ff40a25b9b24f6c89fae1ca41f309a66f8b834160c32c07d732920f0b511",
+ "class_counts": {
+  "validation": {
+   "min": 471,
+   "max": 532,
+   "mean": 500.0,
+   "per_class": [
+    488,
+    512,
+    532,
+    471,
+    471,
+    514,
+    507,
+    500,
+    504,
+    501
+   ]
+  },
+  "V_RL": {
+   "min": 283,
+   "max": 319,
+   "mean": 300.0,
+   "per_class": [
+    293,
+    307,
+    319,
+    283,
+    283,
+    308,
+    304,
+    300,
+    302,
+    301
+   ]
+  },
+  "V_SELECT": {
+   "min": 188,
+   "max": 213,
+   "mean": 200.0,
+   "per_class": [
+    195,
+    205,
+    213,
+    188,
+    188,
+    206,
+    203,
+    200,
+    202,
+    200
+   ]
+  }
+ }
+}
