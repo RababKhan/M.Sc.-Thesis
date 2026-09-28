@@ -1,0 +1,548 @@
+table,sensitivity_definition,sparsity_coef,condition,item,count,share
+policy,accuracy,0.01,C0,"[0, 0, 5, 5]",8,0.8
+policy,accuracy,0.01,C0,"[1, 1, 5, 5]",2,0.2
+layer_action,accuracy,0.01,C0,features.0=0%,8,0.8
+layer_action,accuracy,0.01,C0,features.0=10%,2,0.2
+layer_action,accuracy,0.01,C0,features.0=20%,0,0.0
+layer_action,accuracy,0.01,C0,features.0=30%,0,0.0
+layer_action,accuracy,0.01,C0,features.0=40%,0,0.0
+layer_action,accuracy,0.01,C0,features.0=60%,0,0.0
+layer_action,accuracy,0.01,C0,features.3=0%,8,0.8
+layer_action,accuracy,0.01,C0,features.3=10%,2,0.2
+layer_action,accuracy,0.01,C0,features.3=20%,0,0.0
+layer_action,accuracy,0.01,C0,features.3=30%,0,0.0
+layer_action,accuracy,0.01,C0,features.3=40%,0,0.0
+layer_action,accuracy,0.01,C0,features.3=60%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=0%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=10%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=20%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=30%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=40%,0,0.0
+layer_action,accuracy,0.01,C0,features.6=60%,10,1.0
+layer_action,accuracy,0.01,C0,classifier.1=0%,0,0.0
+layer_action,accuracy,0.01,C0,classifier.1=10%,0,0.0
+layer_action,accuracy,0.01,C0,classifier.1=20%,0,0.0
+layer_action,accuracy,0.01,C0,classifier.1=30%,0,0.0
+layer_action,accuracy,0.01,C0,classifier.1=40%,0,0.0
+layer_action,accuracy,0.01,C0,classifier.1=60%,10,1.0
+policy,accuracy,0.01,C1,"[0, 0, 5, 5]",8,0.8
+policy,accuracy,0.01,C1,"[0, 1, 5, 5]",1,0.1
+policy,accuracy,0.01,C1,"[0, 0, 3, 5]",1,0.1
+layer_action,accuracy,0.01,C1,features.0=0%,10,1.0
+layer_action,accuracy,0.01,C1,features.0=10%,0,0.0
+layer_action,accuracy,0.01,C1,features.0=20%,0,0.0
+layer_action,accuracy,0.01,C1,features.0=30%,0,0.0
+layer_action,accuracy,0.01,C1,features.0=40%,0,0.0
+layer_action,accuracy,0.01,C1,features.0=60%,0,0.0
+layer_action,accuracy,0.01,C1,features.3=0%,9,0.9
+layer_action,accuracy,0.01,C1,features.3=10%,1,0.1
+layer_action,accuracy,0.01,C1,features.3=20%,0,0.0
+layer_action,accuracy,0.01,C1,features.3=30%,0,0.0
+layer_action,accuracy,0.01,C1,features.3=40%,0,0.0
+layer_action,accuracy,0.01,C1,features.3=60%,0,0.0
+layer_action,accuracy,0.01,C1,features.6=0%,0,0.0
+layer_action,accuracy,0.01,C1,features.6=10%,0,0.0
+layer_action,accuracy,0.01,C1,features.6=20%,0,0.0
+layer_action,accuracy,0.01,C1,features.6=30%,1,0.1
+layer_action,accuracy,0.01,C1,features.6=40%,0,0.0
+layer_action,accuracy,0.01,C1,features.6=60%,9,0.9
+layer_action,accuracy,0.01,C1,classifier.1=0%,0,0.0
+layer_action,accuracy,0.01,C1,classifier.1=10%,0,0.0
+layer_action,accuracy,0.01,C1,classifier.1=20%,0,0.0
+layer_action,accuracy,0.01,C1,classifier.1=30%,0,0.0
+layer_action,accuracy,0.01,C1,classifier.1=40%,0,0.0
+layer_action,accuracy,0.01,C1,classifier.1=60%,10,1.0
+policy,accuracy,0.01,C2,"[0, 4, 4, 5]",9,0.9
+policy,accuracy,0.01,C2,"[0, 3, 3, 5]",1,0.1
+layer_action,accuracy,0.01,C2,features.0=0%,10,1.0
+layer_action,accuracy,0.01,C2,features.0=10%,0,0.0
+layer_action,accuracy,0.01,C2,features.0=20%,0,0.0
+layer_action,accuracy,0.01,C2,features.0=30%,0,0.0
+layer_action,accuracy,0.01,C2,features.0=40%,0,0.0
+layer_action,accuracy,0.01,C2,features.0=60%,0,0.0
+layer_action,accuracy,0.01,C2,features.3=0%,0,0.0
+layer_action,accuracy,0.01,C2,features.3=10%,0,0.0
+layer_action,accuracy,0.01,C2,features.3=20%,0,0.0
+layer_action,accuracy,0.01,C2,features.3=30%,1,0.1
+layer_action,accuracy,0.01,C2,features.3=40%,9,0.9
+layer_action,accuracy,0.01,C2,features.3=60%,0,0.0
+layer_action,accuracy,0.01,C2,features.6=0%,0,0.0
+layer_action,accuracy,0.01,C2,features.6=10%,0,0.0
+layer_action,accuracy,0.01,C2,features.6=20%,0,0.0
+layer_action,accuracy,0.01,C2,features.6=30%,1,0.1
+layer_action,accuracy,0.01,C2,features.6=40%,9,0.9
+layer_action,accuracy,0.01,C2,features.6=60%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=0%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=10%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=20%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=30%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=40%,0,0.0
+layer_action,accuracy,0.01,C2,classifier.1=60%,10,1.0
+policy,accuracy,0.01,C3,"[0, 3, 2, 4]",4,0.4
+policy,accuracy,0.01,C3,"[0, 5, 2, 4]",2,0.2
+policy,accuracy,0.01,C3,"[0, 1, 5, 4]",1,0.1
+policy,accuracy,0.01,C3,"[1, 4, 2, 4]",1,0.1
+policy,accuracy,0.01,C3,"[0, 2, 5, 4]",1,0.1
+policy,accuracy,0.01,C3,"[1, 3, 2, 4]",1,0.1
+layer_action,accuracy,0.01,C3,features.0=0%,8,0.8
+layer_action,accuracy,0.01,C3,features.0=10%,2,0.2
+layer_action,accuracy,0.01,C3,features.0=20%,0,0.0
+layer_action,accuracy,0.01,C3,features.0=30%,0,0.0
+layer_action,accuracy,0.01,C3,features.0=40%,0,0.0
+layer_action,accuracy,0.01,C3,features.0=60%,0,0.0
+layer_action,accuracy,0.01,C3,features.3=0%,0,0.0
+layer_action,accuracy,0.01,C3,features.3=10%,1,0.1
+layer_action,accuracy,0.01,C3,features.3=20%,1,0.1
+layer_action,accuracy,0.01,C3,features.3=30%,5,0.5
+layer_action,accuracy,0.01,C3,features.3=40%,1,0.1
+layer_action,accuracy,0.01,C3,features.3=60%,2,0.2
+layer_action,accuracy,0.01,C3,features.6=0%,0,0.0
+layer_action,accuracy,0.01,C3,features.6=10%,0,0.0
+layer_action,accuracy,0.01,C3,features.6=20%,8,0.8
+layer_action,accuracy,0.01,C3,features.6=30%,0,0.0
+layer_action,accuracy,0.01,C3,features.6=40%,0,0.0
+layer_action,accuracy,0.01,C3,features.6=60%,2,0.2
+layer_action,accuracy,0.01,C3,classifier.1=0%,0,0.0
+layer_action,accuracy,0.01,C3,classifier.1=10%,0,0.0
+layer_action,accuracy,0.01,C3,classifier.1=20%,0,0.0
+layer_action,accuracy,0.01,C3,classifier.1=30%,0,0.0
+layer_action,accuracy,0.01,C3,classifier.1=40%,10,1.0
+layer_action,accuracy,0.01,C3,classifier.1=60%,0,0.0
+policy,accuracy,0.01,C4,"[0, 4, 4, 5]",9,0.9
+policy,accuracy,0.01,C4,"[0, 3, 3, 5]",1,0.1
+layer_action,accuracy,0.01,C4,features.0=0%,10,1.0
+layer_action,accuracy,0.01,C4,features.0=10%,0,0.0
+layer_action,accuracy,0.01,C4,features.0=20%,0,0.0
+layer_action,accuracy,0.01,C4,features.0=30%,0,0.0
+layer_action,accuracy,0.01,C4,features.0=40%,0,0.0
+layer_action,accuracy,0.01,C4,features.0=60%,0,0.0
+layer_action,accuracy,0.01,C4,features.3=0%,0,0.0
+layer_action,accuracy,0.01,C4,features.3=10%,0,0.0
+layer_action,accuracy,0.01,C4,features.3=20%,0,0.0
+layer_action,accuracy,0.01,C4,features.3=30%,1,0.1
+layer_action,accuracy,0.01,C4,features.3=40%,9,0.9
+layer_action,accuracy,0.01,C4,features.3=60%,0,0.0
+layer_action,accuracy,0.01,C4,features.6=0%,0,0.0
+layer_action,accuracy,0.01,C4,features.6=10%,0,0.0
+layer_action,accuracy,0.01,C4,features.6=20%,0,0.0
+layer_action,accuracy,0.01,C4,features.6=30%,1,0.1
+layer_action,accuracy,0.01,C4,features.6=40%,9,0.9
+layer_action,accuracy,0.01,C4,features.6=60%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=0%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=10%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=20%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=30%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=40%,0,0.0
+layer_action,accuracy,0.01,C4,classifier.1=60%,10,1.0
+policy,accuracy,0.02,C0,"[0, 0, 5, 5]",8,0.8
+policy,accuracy,0.02,C0,"[0, 1, 5, 5]",1,0.1
+policy,accuracy,0.02,C0,"[1, 2, 5, 5]",1,0.1
+layer_action,accuracy,0.02,C0,features.0=0%,9,0.9
+layer_action,accuracy,0.02,C0,features.0=10%,1,0.1
+layer_action,accuracy,0.02,C0,features.0=20%,0,0.0
+layer_action,accuracy,0.02,C0,features.0=30%,0,0.0
+layer_action,accuracy,0.02,C0,features.0=40%,0,0.0
+layer_action,accuracy,0.02,C0,features.0=60%,0,0.0
+layer_action,accuracy,0.02,C0,features.3=0%,8,0.8
+layer_action,accuracy,0.02,C0,features.3=10%,1,0.1
+layer_action,accuracy,0.02,C0,features.3=20%,1,0.1
+layer_action,accuracy,0.02,C0,features.3=30%,0,0.0
+layer_action,accuracy,0.02,C0,features.3=40%,0,0.0
+layer_action,accuracy,0.02,C0,features.3=60%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=0%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=10%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=20%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=30%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=40%,0,0.0
+layer_action,accuracy,0.02,C0,features.6=60%,10,1.0
+layer_action,accuracy,0.02,C0,classifier.1=0%,0,0.0
+layer_action,accuracy,0.02,C0,classifier.1=10%,0,0.0
+layer_action,accuracy,0.02,C0,classifier.1=20%,0,0.0
+layer_action,accuracy,0.02,C0,classifier.1=30%,0,0.0
+layer_action,accuracy,0.02,C0,classifier.1=40%,0,0.0
+layer_action,accuracy,0.02,C0,classifier.1=60%,10,1.0
+policy,accuracy,0.02,C1,"[0, 0, 5, 5]",5,0.5
+policy,accuracy,0.02,C1,"[0, 5, 5, 5]",2,0.2
+policy,accuracy,0.02,C1,"[1, 0, 5, 5]",1,0.1
+policy,accuracy,0.02,C1,"[2, 5, 5, 5]",1,0.1
+policy,accuracy,0.02,C1,"[0, 3, 5, 5]",1,0.1
+layer_action,accuracy,0.02,C1,features.0=0%,8,0.8
+layer_action,accuracy,0.02,C1,features.0=10%,1,0.1
+layer_action,accuracy,0.02,C1,features.0=20%,1,0.1
+layer_action,accuracy,0.02,C1,features.0=30%,0,0.0
+layer_action,accuracy,0.02,C1,features.0=40%,0,0.0
+layer_action,accuracy,0.02,C1,features.0=60%,0,0.0
+layer_action,accuracy,0.02,C1,features.3=0%,6,0.6
+layer_action,accuracy,0.02,C1,features.3=10%,0,0.0
+layer_action,accuracy,0.02,C1,features.3=20%,0,0.0
+layer_action,accuracy,0.02,C1,features.3=30%,1,0.1
+layer_action,accuracy,0.02,C1,features.3=40%,0,0.0
+layer_action,accuracy,0.02,C1,features.3=60%,3,0.3
+layer_action,accuracy,0.02,C1,features.6=0%,0,0.0
+layer_action,accuracy,0.02,C1,features.6=10%,0,0.0
+layer_action,accuracy,0.02,C1,features.6=20%,0,0.0
+layer_action,accuracy,0.02,C1,features.6=30%,0,0.0
+layer_action,accuracy,0.02,C1,features.6=40%,0,0.0
+layer_action,accuracy,0.02,C1,features.6=60%,10,1.0
+layer_action,accuracy,0.02,C1,classifier.1=0%,0,0.0
+layer_action,accuracy,0.02,C1,classifier.1=10%,0,0.0
+layer_action,accuracy,0.02,C1,classifier.1=20%,0,0.0
+layer_action,accuracy,0.02,C1,classifier.1=30%,0,0.0
+layer_action,accuracy,0.02,C1,classifier.1=40%,0,0.0
+layer_action,accuracy,0.02,C1,classifier.1=60%,10,1.0
+policy,accuracy,0.02,C2,"[0, 4, 4, 5]",7,0.7
+policy,accuracy,0.02,C2,"[0, 3, 3, 5]",2,0.2
+policy,accuracy,0.02,C2,"[1, 4, 4, 5]",1,0.1
+layer_action,accuracy,0.02,C2,features.0=0%,9,0.9
+layer_action,accuracy,0.02,C2,features.0=10%,1,0.1
+layer_action,accuracy,0.02,C2,features.0=20%,0,0.0
+layer_action,accuracy,0.02,C2,features.0=30%,0,0.0
+layer_action,accuracy,0.02,C2,features.0=40%,0,0.0
+layer_action,accuracy,0.02,C2,features.0=60%,0,0.0
+layer_action,accuracy,0.02,C2,features.3=0%,0,0.0
+layer_action,accuracy,0.02,C2,features.3=10%,0,0.0
+layer_action,accuracy,0.02,C2,features.3=20%,0,0.0
+layer_action,accuracy,0.02,C2,features.3=30%,2,0.2
+layer_action,accuracy,0.02,C2,features.3=40%,8,0.8
+layer_action,accuracy,0.02,C2,features.3=60%,0,0.0
+layer_action,accuracy,0.02,C2,features.6=0%,0,0.0
+layer_action,accuracy,0.02,C2,features.6=10%,0,0.0
+layer_action,accuracy,0.02,C2,features.6=20%,0,0.0
+layer_action,accuracy,0.02,C2,features.6=30%,2,0.2
+layer_action,accuracy,0.02,C2,features.6=40%,8,0.8
+layer_action,accuracy,0.02,C2,features.6=60%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=0%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=10%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=20%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=30%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=40%,0,0.0
+layer_action,accuracy,0.02,C2,classifier.1=60%,10,1.0
+policy,accuracy,0.02,C3,"[0, 5, 2, 4]",5,0.5
+policy,accuracy,0.02,C3,"[0, 3, 2, 4]",2,0.2
+policy,accuracy,0.02,C3,"[0, 2, 5, 4]",1,0.1
+policy,accuracy,0.02,C3,"[0, 4, 2, 4]",1,0.1
+policy,accuracy,0.02,C3,"[0, 0, 5, 4]",1,0.1
+layer_action,accuracy,0.02,C3,features.0=0%,10,1.0
+layer_action,accuracy,0.02,C3,features.0=10%,0,0.0
+layer_action,accuracy,0.02,C3,features.0=20%,0,0.0
+layer_action,accuracy,0.02,C3,features.0=30%,0,0.0
+layer_action,accuracy,0.02,C3,features.0=40%,0,0.0
+layer_action,accuracy,0.02,C3,features.0=60%,0,0.0
+layer_action,accuracy,0.02,C3,features.3=0%,1,0.1
+layer_action,accuracy,0.02,C3,features.3=10%,0,0.0
+layer_action,accuracy,0.02,C3,features.3=20%,1,0.1
+layer_action,accuracy,0.02,C3,features.3=30%,2,0.2
+layer_action,accuracy,0.02,C3,features.3=40%,1,0.1
+layer_action,accuracy,0.02,C3,features.3=60%,5,0.5
+layer_action,accuracy,0.02,C3,features.6=0%,0,0.0
+layer_action,accuracy,0.02,C3,features.6=10%,0,0.0
+layer_action,accuracy,0.02,C3,features.6=20%,8,0.8
+layer_action,accuracy,0.02,C3,features.6=30%,0,0.0
+layer_action,accuracy,0.02,C3,features.6=40%,0,0.0
+layer_action,accuracy,0.02,C3,features.6=60%,2,0.2
+layer_action,accuracy,0.02,C3,classifier.1=0%,0,0.0
+layer_action,accuracy,0.02,C3,classifier.1=10%,0,0.0
+layer_action,accuracy,0.02,C3,classifier.1=20%,0,0.0
+layer_action,accuracy,0.02,C3,classifier.1=30%,0,0.0
+layer_action,accuracy,0.02,C3,classifier.1=40%,10,1.0
+layer_action,accuracy,0.02,C3,classifier.1=60%,0,0.0
+policy,accuracy,0.02,C4,"[0, 4, 4, 5]",7,0.7
+policy,accuracy,0.02,C4,"[0, 3, 3, 5]",2,0.2
+policy,accuracy,0.02,C4,"[1, 4, 4, 5]",1,0.1
+layer_action,accuracy,0.02,C4,features.0=0%,9,0.9
+layer_action,accuracy,0.02,C4,features.0=10%,1,0.1
+layer_action,accuracy,0.02,C4,features.0=20%,0,0.0
+layer_action,accuracy,0.02,C4,features.0=30%,0,0.0
+layer_action,accuracy,0.02,C4,features.0=40%,0,0.0
+layer_action,accuracy,0.02,C4,features.0=60%,0,0.0
+layer_action,accuracy,0.02,C4,features.3=0%,0,0.0
+layer_action,accuracy,0.02,C4,features.3=10%,0,0.0
+layer_action,accuracy,0.02,C4,features.3=20%,0,0.0
+layer_action,accuracy,0.02,C4,features.3=30%,2,0.2
+layer_action,accuracy,0.02,C4,features.3=40%,8,0.8
+layer_action,accuracy,0.02,C4,features.3=60%,0,0.0
+layer_action,accuracy,0.02,C4,features.6=0%,0,0.0
+layer_action,accuracy,0.02,C4,features.6=10%,0,0.0
+layer_action,accuracy,0.02,C4,features.6=20%,0,0.0
+layer_action,accuracy,0.02,C4,features.6=30%,2,0.2
+layer_action,accuracy,0.02,C4,features.6=40%,8,0.8
+layer_action,accuracy,0.02,C4,features.6=60%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=0%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=10%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=20%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=30%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=40%,0,0.0
+layer_action,accuracy,0.02,C4,classifier.1=60%,10,1.0
+policy,loss,0.01,C0,"[0, 0, 5, 5]",8,0.8
+policy,loss,0.01,C0,"[1, 1, 5, 5]",2,0.2
+layer_action,loss,0.01,C0,features.0=0%,8,0.8
+layer_action,loss,0.01,C0,features.0=10%,2,0.2
+layer_action,loss,0.01,C0,features.0=20%,0,0.0
+layer_action,loss,0.01,C0,features.0=30%,0,0.0
+layer_action,loss,0.01,C0,features.0=40%,0,0.0
+layer_action,loss,0.01,C0,features.0=60%,0,0.0
+layer_action,loss,0.01,C0,features.3=0%,8,0.8
+layer_action,loss,0.01,C0,features.3=10%,2,0.2
+layer_action,loss,0.01,C0,features.3=20%,0,0.0
+layer_action,loss,0.01,C0,features.3=30%,0,0.0
+layer_action,loss,0.01,C0,features.3=40%,0,0.0
+layer_action,loss,0.01,C0,features.3=60%,0,0.0
+layer_action,loss,0.01,C0,features.6=0%,0,0.0
+layer_action,loss,0.01,C0,features.6=10%,0,0.0
+layer_action,loss,0.01,C0,features.6=20%,0,0.0
+layer_action,loss,0.01,C0,features.6=30%,0,0.0
+layer_action,loss,0.01,C0,features.6=40%,0,0.0
+layer_action,loss,0.01,C0,features.6=60%,10,1.0
+layer_action,loss,0.01,C0,classifier.1=0%,0,0.0
+layer_action,loss,0.01,C0,classifier.1=10%,0,0.0
+layer_action,loss,0.01,C0,classifier.1=20%,0,0.0
+layer_action,loss,0.01,C0,classifier.1=30%,0,0.0
+layer_action,loss,0.01,C0,classifier.1=40%,0,0.0
+layer_action,loss,0.01,C0,classifier.1=60%,10,1.0
+policy,loss,0.01,C1,"[0, 0, 5, 5]",7,0.7
+policy,loss,0.01,C1,"[1, 1, 5, 5]",2,0.2
+policy,loss,0.01,C1,"[0, 1, 5, 5]",1,0.1
+layer_action,loss,0.01,C1,features.0=0%,8,0.8
+layer_action,loss,0.01,C1,features.0=10%,2,0.2
+layer_action,loss,0.01,C1,features.0=20%,0,0.0
+layer_action,loss,0.01,C1,features.0=30%,0,0.0
+layer_action,loss,0.01,C1,features.0=40%,0,0.0
+layer_action,loss,0.01,C1,features.0=60%,0,0.0
+layer_action,loss,0.01,C1,features.3=0%,7,0.7
+layer_action,loss,0.01,C1,features.3=10%,3,0.3
+layer_action,loss,0.01,C1,features.3=20%,0,0.0
+layer_action,loss,0.01,C1,features.3=30%,0,0.0
+layer_action,loss,0.01,C1,features.3=40%,0,0.0
+layer_action,loss,0.01,C1,features.3=60%,0,0.0
+layer_action,loss,0.01,C1,features.6=0%,0,0.0
+layer_action,loss,0.01,C1,features.6=10%,0,0.0
+layer_action,loss,0.01,C1,features.6=20%,0,0.0
+layer_action,loss,0.01,C1,features.6=30%,0,0.0
+layer_action,loss,0.01,C1,features.6=40%,0,0.0
+layer_action,loss,0.01,C1,features.6=60%,10,1.0
+layer_action,loss,0.01,C1,classifier.1=0%,0,0.0
+layer_action,loss,0.01,C1,classifier.1=10%,0,0.0
+layer_action,loss,0.01,C1,classifier.1=20%,0,0.0
+layer_action,loss,0.01,C1,classifier.1=30%,0,0.0
+layer_action,loss,0.01,C1,classifier.1=40%,0,0.0
+layer_action,loss,0.01,C1,classifier.1=60%,10,1.0
+policy,loss,0.01,C2,"[0, 4, 4, 5]",7,0.7
+policy,loss,0.01,C2,"[0, 3, 3, 5]",2,0.2
+policy,loss,0.01,C2,"[0, 2, 2, 5]",1,0.1
+layer_action,loss,0.01,C2,features.0=0%,10,1.0
+layer_action,loss,0.01,C2,features.0=10%,0,0.0
+layer_action,loss,0.01,C2,features.0=20%,0,0.0
+layer_action,loss,0.01,C2,features.0=30%,0,0.0
+layer_action,loss,0.01,C2,features.0=40%,0,0.0
+layer_action,loss,0.01,C2,features.0=60%,0,0.0
+layer_action,loss,0.01,C2,features.3=0%,0,0.0
+layer_action,loss,0.01,C2,features.3=10%,0,0.0
+layer_action,loss,0.01,C2,features.3=20%,1,0.1
+layer_action,loss,0.01,C2,features.3=30%,2,0.2
+layer_action,loss,0.01,C2,features.3=40%,7,0.7
+layer_action,loss,0.01,C2,features.3=60%,0,0.0
+layer_action,loss,0.01,C2,features.6=0%,0,0.0
+layer_action,loss,0.01,C2,features.6=10%,0,0.0
+layer_action,loss,0.01,C2,features.6=20%,1,0.1
+layer_action,loss,0.01,C2,features.6=30%,2,0.2
+layer_action,loss,0.01,C2,features.6=40%,7,0.7
+layer_action,loss,0.01,C2,features.6=60%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=0%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=10%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=20%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=30%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=40%,0,0.0
+layer_action,loss,0.01,C2,classifier.1=60%,10,1.0
+policy,loss,0.01,C3,"[0, 2, 1, 4]",4,0.4
+policy,loss,0.01,C3,"[0, 5, 1, 4]",3,0.3
+policy,loss,0.01,C3,"[0, 1, 5, 4]",2,0.2
+policy,loss,0.01,C3,"[0, 3, 1, 4]",1,0.1
+layer_action,loss,0.01,C3,features.0=0%,10,1.0
+layer_action,loss,0.01,C3,features.0=10%,0,0.0
+layer_action,loss,0.01,C3,features.0=20%,0,0.0
+layer_action,loss,0.01,C3,features.0=30%,0,0.0
+layer_action,loss,0.01,C3,features.0=40%,0,0.0
+layer_action,loss,0.01,C3,features.0=60%,0,0.0
+layer_action,loss,0.01,C3,features.3=0%,0,0.0
+layer_action,loss,0.01,C3,features.3=10%,2,0.2
+layer_action,loss,0.01,C3,features.3=20%,4,0.4
+layer_action,loss,0.01,C3,features.3=30%,1,0.1
+layer_action,loss,0.01,C3,features.3=40%,0,0.0
+layer_action,loss,0.01,C3,features.3=60%,3,0.3
+layer_action,loss,0.01,C3,features.6=0%,0,0.0
+layer_action,loss,0.01,C3,features.6=10%,8,0.8
+layer_action,loss,0.01,C3,features.6=20%,0,0.0
+layer_action,loss,0.01,C3,features.6=30%,0,0.0
+layer_action,loss,0.01,C3,features.6=40%,0,0.0
+layer_action,loss,0.01,C3,features.6=60%,2,0.2
+layer_action,loss,0.01,C3,classifier.1=0%,0,0.0
+layer_action,loss,0.01,C3,classifier.1=10%,0,0.0
+layer_action,loss,0.01,C3,classifier.1=20%,0,0.0
+layer_action,loss,0.01,C3,classifier.1=30%,0,0.0
+layer_action,loss,0.01,C3,classifier.1=40%,10,1.0
+layer_action,loss,0.01,C3,classifier.1=60%,0,0.0
+policy,loss,0.01,C4,"[0, 4, 4, 5]",7,0.7
+policy,loss,0.01,C4,"[0, 3, 3, 5]",1,0.1
+policy,loss,0.01,C4,"[0, 2, 2, 5]",1,0.1
+policy,loss,0.01,C4,"[1, 3, 3, 5]",1,0.1
+layer_action,loss,0.01,C4,features.0=0%,9,0.9
+layer_action,loss,0.01,C4,features.0=10%,1,0.1
+layer_action,loss,0.01,C4,features.0=20%,0,0.0
+layer_action,loss,0.01,C4,features.0=30%,0,0.0
+layer_action,loss,0.01,C4,features.0=40%,0,0.0
+layer_action,loss,0.01,C4,features.0=60%,0,0.0
+layer_action,loss,0.01,C4,features.3=0%,0,0.0
+layer_action,loss,0.01,C4,features.3=10%,0,0.0
+layer_action,loss,0.01,C4,features.3=20%,1,0.1
+layer_action,loss,0.01,C4,features.3=30%,2,0.2
+layer_action,loss,0.01,C4,features.3=40%,7,0.7
+layer_action,loss,0.01,C4,features.3=60%,0,0.0
+layer_action,loss,0.01,C4,features.6=0%,0,0.0
+layer_action,loss,0.01,C4,features.6=10%,0,0.0
+layer_action,loss,0.01,C4,features.6=20%,1,0.1
+layer_action,loss,0.01,C4,features.6=30%,2,0.2
+layer_action,loss,0.01,C4,features.6=40%,7,0.7
+layer_action,loss,0.01,C4,features.6=60%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=0%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=10%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=20%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=30%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=40%,0,0.0
+layer_action,loss,0.01,C4,classifier.1=60%,10,1.0
+policy,loss,0.02,C0,"[0, 0, 5, 5]",8,0.8
+policy,loss,0.02,C0,"[0, 1, 5, 5]",1,0.1
+policy,loss,0.02,C0,"[1, 2, 5, 5]",1,0.1
+layer_action,loss,0.02,C0,features.0=0%,9,0.9
+layer_action,loss,0.02,C0,features.0=10%,1,0.1
+layer_action,loss,0.02,C0,features.0=20%,0,0.0
+layer_action,loss,0.02,C0,features.0=30%,0,0.0
+layer_action,loss,0.02,C0,features.0=40%,0,0.0
+layer_action,loss,0.02,C0,features.0=60%,0,0.0
+layer_action,loss,0.02,C0,features.3=0%,8,0.8
+layer_action,loss,0.02,C0,features.3=10%,1,0.1
+layer_action,loss,0.02,C0,features.3=20%,1,0.1
+layer_action,loss,0.02,C0,features.3=30%,0,0.0
+layer_action,loss,0.02,C0,features.3=40%,0,0.0
+layer_action,loss,0.02,C0,features.3=60%,0,0.0
+layer_action,loss,0.02,C0,features.6=0%,0,0.0
+layer_action,loss,0.02,C0,features.6=10%,0,0.0
+layer_action,loss,0.02,C0,features.6=20%,0,0.0
+layer_action,loss,0.02,C0,features.6=30%,0,0.0
+layer_action,loss,0.02,C0,features.6=40%,0,0.0
+layer_action,loss,0.02,C0,features.6=60%,10,1.0
+layer_action,loss,0.02,C0,classifier.1=0%,0,0.0
+layer_action,loss,0.02,C0,classifier.1=10%,0,0.0
+layer_action,loss,0.02,C0,classifier.1=20%,0,0.0
+layer_action,loss,0.02,C0,classifier.1=30%,0,0.0
+layer_action,loss,0.02,C0,classifier.1=40%,0,0.0
+layer_action,loss,0.02,C0,classifier.1=60%,10,1.0
+policy,loss,0.02,C1,"[0, 0, 5, 5]",7,0.7
+policy,loss,0.02,C1,"[1, 4, 5, 5]",1,0.1
+policy,loss,0.02,C1,"[0, 4, 5, 5]",1,0.1
+policy,loss,0.02,C1,"[0, 5, 5, 5]",1,0.1
+layer_action,loss,0.02,C1,features.0=0%,9,0.9
+layer_action,loss,0.02,C1,features.0=10%,1,0.1
+layer_action,loss,0.02,C1,features.0=20%,0,0.0
+layer_action,loss,0.02,C1,features.0=30%,0,0.0
+layer_action,loss,0.02,C1,features.0=40%,0,0.0
+layer_action,loss,0.02,C1,features.0=60%,0,0.0
+layer_action,loss,0.02,C1,features.3=0%,7,0.7
+layer_action,loss,0.02,C1,features.3=10%,0,0.0
+layer_action,loss,0.02,C1,features.3=20%,0,0.0
+layer_action,loss,0.02,C1,features.3=30%,0,0.0
+layer_action,loss,0.02,C1,features.3=40%,2,0.2
+layer_action,loss,0.02,C1,features.3=60%,1,0.1
+layer_action,loss,0.02,C1,features.6=0%,0,0.0
+layer_action,loss,0.02,C1,features.6=10%,0,0.0
+layer_action,loss,0.02,C1,features.6=20%,0,0.0
+layer_action,loss,0.02,C1,features.6=30%,0,0.0
+layer_action,loss,0.02,C1,features.6=40%,0,0.0
+layer_action,loss,0.02,C1,features.6=60%,10,1.0
+layer_action,loss,0.02,C1,classifier.1=0%,0,0.0
+layer_action,loss,0.02,C1,classifier.1=10%,0,0.0
+layer_action,loss,0.02,C1,classifier.1=20%,0,0.0
+layer_action,loss,0.02,C1,classifier.1=30%,0,0.0
+layer_action,loss,0.02,C1,classifier.1=40%,0,0.0
+layer_action,loss,0.02,C1,classifier.1=60%,10,1.0
+policy,loss,0.02,C2,"[0, 4, 4, 5]",8,0.8
+policy,loss,0.02,C2,"[0, 3, 3, 5]",1,0.1
+policy,loss,0.02,C2,"[1, 4, 4, 5]",1,0.1
+layer_action,loss,0.02,C2,features.0=0%,9,0.9
+layer_action,loss,0.02,C2,features.0=10%,1,0.1
+layer_action,loss,0.02,C2,features.0=20%,0,0.0
+layer_action,loss,0.02,C2,features.0=30%,0,0.0
+layer_action,loss,0.02,C2,features.0=40%,0,0.0
+layer_action,loss,0.02,C2,features.0=60%,0,0.0
+layer_action,loss,0.02,C2,features.3=0%,0,0.0
+layer_action,loss,0.02,C2,features.3=10%,0,0.0
+layer_action,loss,0.02,C2,features.3=20%,0,0.0
+layer_action,loss,0.02,C2,features.3=30%,1,0.1
+layer_action,loss,0.02,C2,features.3=40%,9,0.9
+layer_action,loss,0.02,C2,features.3=60%,0,0.0
+layer_action,loss,0.02,C2,features.6=0%,0,0.0
+layer_action,loss,0.02,C2,features.6=10%,0,0.0
+layer_action,loss,0.02,C2,features.6=20%,0,0.0
+layer_action,loss,0.02,C2,features.6=30%,1,0.1
+layer_action,loss,0.02,C2,features.6=40%,9,0.9
+layer_action,loss,0.02,C2,features.6=60%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=0%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=10%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=20%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=30%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=40%,0,0.0
+layer_action,loss,0.02,C2,classifier.1=60%,10,1.0
+policy,loss,0.02,C3,"[0, 5, 1, 4]",5,0.5
+policy,loss,0.02,C3,"[0, 3, 1, 4]",2,0.2
+policy,loss,0.02,C3,"[1, 0, 5, 4]",1,0.1
+policy,loss,0.02,C3,"[0, 1, 5, 4]",1,0.1
+policy,loss,0.02,C3,"[2, 5, 1, 4]",1,0.1
+layer_action,loss,0.02,C3,features.0=0%,8,0.8
+layer_action,loss,0.02,C3,features.0=10%,1,0.1
+layer_action,loss,0.02,C3,features.0=20%,1,0.1
+layer_action,loss,0.02,C3,features.0=30%,0,0.0
+layer_action,loss,0.02,C3,features.0=40%,0,0.0
+layer_action,loss,0.02,C3,features.0=60%,0,0.0
+layer_action,loss,0.02,C3,features.3=0%,1,0.1
+layer_action,loss,0.02,C3,features.3=10%,1,0.1
+layer_action,loss,0.02,C3,features.3=20%,0,0.0
+layer_action,loss,0.02,C3,features.3=30%,2,0.2
+layer_action,loss,0.02,C3,features.3=40%,0,0.0
+layer_action,loss,0.02,C3,features.3=60%,6,0.6
+layer_action,loss,0.02,C3,features.6=0%,0,0.0
+layer_action,loss,0.02,C3,features.6=10%,8,0.8
+layer_action,loss,0.02,C3,features.6=20%,0,0.0
+layer_action,loss,0.02,C3,features.6=30%,0,0.0
+layer_action,loss,0.02,C3,features.6=40%,0,0.0
+layer_action,loss,0.02,C3,features.6=60%,2,0.2
+layer_action,loss,0.02,C3,classifier.1=0%,0,0.0
+layer_action,loss,0.02,C3,classifier.1=10%,0,0.0
+layer_action,loss,0.02,C3,classifier.1=20%,0,0.0
+layer_action,loss,0.02,C3,classifier.1=30%,0,0.0
+layer_action,loss,0.02,C3,classifier.1=40%,10,1.0
+layer_action,loss,0.02,C3,classifier.1=60%,0,0.0
+policy,loss,0.02,C4,"[0, 4, 4, 5]",9,0.9
+policy,loss,0.02,C4,"[1, 4, 4, 5]",1,0.1
+layer_action,loss,0.02,C4,features.0=0%,9,0.9
+layer_action,loss,0.02,C4,features.0=10%,1,0.1
+layer_action,loss,0.02,C4,features.0=20%,0,0.0
+layer_action,loss,0.02,C4,features.0=30%,0,0.0
+layer_action,loss,0.02,C4,features.0=40%,0,0.0
+layer_action,loss,0.02,C4,features.0=60%,0,0.0
+layer_action,loss,0.02,C4,features.3=0%,0,0.0
+layer_action,loss,0.02,C4,features.3=10%,0,0.0
+layer_action,loss,0.02,C4,features.3=20%,0,0.0
+layer_action,loss,0.02,C4,features.3=30%,0,0.0
+layer_action,loss,0.02,C4,features.3=40%,10,1.0
+layer_action,loss,0.02,C4,features.3=60%,0,0.0
+layer_action,loss,0.02,C4,features.6=0%,0,0.0
+layer_action,loss,0.02,C4,features.6=10%,0,0.0
+layer_action,loss,0.02,C4,features.6=20%,0,0.0
+layer_action,loss,0.02,C4,features.6=30%,0,0.0
+layer_action,loss,0.02,C4,features.6=40%,10,1.0
+layer_action,loss,0.02,C4,features.6=60%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=0%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=10%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=20%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=30%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=40%,0,0.0
+layer_action,loss,0.02,C4,classifier.1=60%,10,1.0
