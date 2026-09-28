@@ -1,0 +1,22 @@
+{
+ "level": "A",
+ "primary_criteria_met": {
+  "E1 vs E0": true,
+  "E1 vs E2": true,
+  "E1 vs E3": true
+ },
+ "secondary_exploration_E1_vs_E0_met": {
+  "S1: reward-rank score AUC": true,
+  "S2: utility AUC": true,
+  "S3: destructive features.0 frequency": true
+ },
+ "level_B_conditions": {
+  "B1_E1_vs_E0_primary_replicates": true,
+  "B2_all_primary_means_positive": true,
+  "B3_a_secondary_exploration_outcome_replicates": true
+ },
+ "preregistration": {
+  "commit": "c3a9484",
+  "sha256": "af6881f7f090765ba070bfc31038493757671e0c73bba02aff7908d00313f777"
+ }
+}
