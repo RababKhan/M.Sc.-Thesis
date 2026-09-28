@@ -1,0 +1,54 @@
+{
+ "level": "C-FA",
+ "criteria": {
+  "C1": false,
+  "C2": false,
+  "C3": false,
+  "C4": true,
+  "C5": true
+ },
+ "explained_by_pruning_less": {
+  "A0": false,
+  "A2": false,
+  "A3": false
+ },
+ "level_B_conditions": {
+  "B1": false,
+  "B2": false,
+  "B3": false,
+  "B4": false
+ },
+ "matched_sparsity_validity": {
+  "A0": {
+   "n_matched": 38,
+   "mean_abs_sparsity_diff": 0.04462296460525631,
+   "max_abs_sparsity_diff": 0.5946388931908544,
+   "share_within_0_50": 0.9736842105263158,
+   "mean_sparsity_diff": 0.017970603099044524,
+   "valid": true,
+   "explained_by_pruning_less": false
+  },
+  "A2": {
+   "n_matched": 34,
+   "mean_abs_sparsity_diff": 0.0586174147527983,
+   "max_abs_sparsity_diff": 0.29731944659542364,
+   "share_within_0_50": 1.0,
+   "mean_sparsity_diff": -0.04112803554130279,
+   "valid": true,
+   "explained_by_pruning_less": false
+  },
+  "A3": {
+   "n_matched": 37,
+   "mean_abs_sparsity_diff": 0.033267548173851434,
+   "max_abs_sparsity_diff": 0.31119327861235746,
+   "share_within_0_50": 1.0,
+   "mean_sparsity_diff": -0.004142093154018229,
+   "valid": true,
+   "explained_by_pruning_less": false
+  }
+ },
+ "preregistration": {
+  "commit": "1bda844",
+  "sha256": "bcbeb6d9047056b4d59e776210dffd0ba0b09b856ad231a1a5b40a4af3ed0ad0"
+ }
+}

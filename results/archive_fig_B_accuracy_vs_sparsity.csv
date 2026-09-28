@@ -1,0 +1,321 @@
+condition,seed,sparsity,test_accuracy,series
+A0,200,58.181850446543805,76.56,PPO + archive
+A0,201,57.884530999948375,76.65,PPO + archive
+A0,202,58.181850446543805,76.56,PPO + archive
+A0,203,58.181850446543805,76.56,PPO + archive
+A0,204,57.884530999948375,76.65,PPO + archive
+A0,205,58.23766842186774,69.41,PPO + archive
+A0,206,58.181850446543805,76.56,PPO + archive
+A0,207,58.181850446543805,76.56,PPO + archive
+A0,208,58.181850446543805,76.56,PPO + archive
+A0,209,58.181850446543805,76.56,PPO + archive
+A0,210,58.23766842186774,69.41,PPO + archive
+A0,211,58.181850446543805,76.56,PPO + archive
+A0,212,58.181850446543805,76.56,PPO + archive
+A0,213,58.181850446543805,76.56,PPO + archive
+A0,214,58.181850446543805,76.56,PPO + archive
+A0,215,58.181850446543805,76.56,PPO + archive
+A0,216,58.181850446543805,76.56,PPO + archive
+A0,217,58.19572427856073,76.49,PPO + archive
+A0,218,58.181850446543805,76.56,PPO + archive
+A0,219,58.181850446543805,76.56,PPO + archive
+A0,220,58.181850446543805,76.56,PPO + archive
+A0,221,58.181850446543805,76.56,PPO + archive
+A0,222,58.181850446543805,76.56,PPO + archive
+A0,223,58.181850446543805,76.56,PPO + archive
+A0,224,58.181850446543805,76.56,PPO + archive
+A0,225,58.181850446543805,76.56,PPO + archive
+A0,226,57.37329642248722,40.68,PPO + archive
+A0,227,57.96809663930618,43.53,PPO + archive
+A0,228,58.181850446543805,76.56,PPO + archive
+A0,229,58.181850446543805,76.56,PPO + archive
+A0,230,58.181850446543805,76.56,PPO + archive
+A0,231,58.181850446543805,76.56,PPO + archive
+A0,232,58.181850446543805,76.56,PPO + archive
+A0,233,58.81843348304166,73.74,PPO + archive
+A0,234,58.181850446543805,76.56,PPO + archive
+A0,235,57.884530999948375,76.65,PPO + archive
+A0,236,58.181850446543805,76.56,PPO + archive
+A0,237,58.47916989313923,76.6,PPO + archive
+A0,238,58.181850446543805,76.56,PPO + archive
+A0,239,58.181850446543805,76.56,PPO + archive
+A1,200,58.181850446543805,76.56,PPO + archive
+A1,201,58.47916989313923,76.6,PPO + archive
+A1,202,58.181850446543805,76.56,PPO + archive
+A1,203,58.181850446543805,76.56,PPO + archive
+A1,204,58.181850446543805,76.56,PPO + archive
+A1,205,58.181850446543805,76.56,PPO + archive
+A1,206,58.181850446543805,76.56,PPO + archive
+A1,207,58.181850446543805,76.56,PPO + archive
+A1,208,58.181850446543805,76.56,PPO + archive
+A1,209,58.181850446543805,76.56,PPO + archive
+A1,210,58.181850446543805,76.56,PPO + archive
+A1,211,58.181850446543805,76.56,PPO + archive
+A1,212,58.181850446543805,76.56,PPO + archive
+A1,213,58.181850446543805,76.56,PPO + archive
+A1,214,58.181850446543805,76.56,PPO + archive
+A1,215,58.181850446543805,76.56,PPO + archive
+A1,216,58.181850446543805,76.56,PPO + archive
+A1,217,58.181850446543805,76.56,PPO + archive
+A1,218,58.181850446543805,76.56,PPO + archive
+A1,219,58.181850446543805,76.56,PPO + archive
+A1,220,58.181850446543805,76.56,PPO + archive
+A1,221,58.181850446543805,76.56,PPO + archive
+A1,222,58.181850446543805,76.56,PPO + archive
+A1,223,58.181850446543805,76.56,PPO + archive
+A1,224,58.181850446543805,76.56,PPO + archive
+A1,225,58.181850446543805,76.56,PPO + archive
+A1,226,58.181850446543805,76.56,PPO + archive
+A1,227,57.884530999948375,76.65,PPO + archive
+A1,228,58.181850446543805,76.56,PPO + archive
+A1,229,58.181850446543805,76.56,PPO + archive
+A1,230,58.181850446543805,76.56,PPO + archive
+A1,231,58.181850446543805,76.56,PPO + archive
+A1,232,58.181850446543805,76.56,PPO + archive
+A1,233,58.181850446543805,76.56,PPO + archive
+A1,234,58.181850446543805,76.56,PPO + archive
+A1,235,58.181850446543805,76.56,PPO + archive
+A1,236,58.181850446543805,76.56,PPO + archive
+A1,237,58.181850446543805,76.56,PPO + archive
+A1,238,58.181850446543805,76.56,PPO + archive
+A1,239,58.181850446543805,76.56,PPO + archive
+A2,200,58.181850446543805,76.56,PPO + archive
+A2,201,58.181850446543805,76.56,PPO + archive
+A2,202,58.181850446543805,76.56,PPO + archive
+A2,203,58.181850446543805,76.56,PPO + archive
+A2,204,58.47916989313923,76.6,PPO + archive
+A2,205,58.23766842186774,69.41,PPO + archive
+A2,206,58.181850446543805,76.56,PPO + archive
+A2,207,58.23766842186774,69.41,PPO + archive
+A2,208,58.181850446543805,76.56,PPO + archive
+A2,209,58.181850446543805,76.56,PPO + archive
+A2,210,59.11575292963709,73.15,PPO + archive
+A2,211,58.181850446543805,76.56,PPO + archive
+A2,212,58.181850446543805,76.56,PPO + archive
+A2,213,58.19572427856073,76.49,PPO + archive
+A2,214,58.181850446543805,76.56,PPO + archive
+A2,215,58.181850446543805,76.56,PPO + archive
+A2,216,58.181850446543805,76.56,PPO + archive
+A2,217,58.181850446543805,76.56,PPO + archive
+A2,218,58.47916989313923,76.6,PPO + archive
+A2,219,58.181850446543805,76.56,PPO + archive
+A2,220,58.181850446543805,76.56,PPO + archive
+A2,221,58.181850446543805,76.56,PPO + archive
+A2,222,58.47916989313923,76.6,PPO + archive
+A2,223,58.47916989313923,76.6,PPO + archive
+A2,224,58.181850446543805,76.56,PPO + archive
+A2,225,58.47916989313923,76.6,PPO + archive
+A2,226,57.37329642248722,40.68,PPO + archive
+A2,227,57.96809663930618,43.53,PPO + archive
+A2,228,58.181850446543805,76.56,PPO + archive
+A2,229,58.181850446543805,76.56,PPO + archive
+A2,230,57.37329642248722,40.68,PPO + archive
+A2,231,58.181850446543805,76.56,PPO + archive
+A2,232,58.181850446543805,76.56,PPO + archive
+A2,233,58.181850446543805,76.56,PPO + archive
+A2,234,58.181850446543805,76.56,PPO + archive
+A2,235,58.52095271281813,73.89,PPO + archive
+A2,236,56.75090986526251,67.67,PPO + archive
+A2,237,59.12978808528212,68.27,PPO + archive
+A2,238,58.181850446543805,76.56,PPO + archive
+A2,239,58.181850446543805,76.56,PPO + archive
+A3,200,58.181850446543805,76.56,PPO + archive
+A3,201,58.181850446543805,76.56,PPO + archive
+A3,202,58.181850446543805,76.56,PPO + archive
+A3,203,58.181850446543805,76.56,PPO + archive
+A3,204,58.181850446543805,76.56,PPO + archive
+A3,205,57.940348975272315,69.42,PPO + archive
+A3,206,58.181850446543805,76.56,PPO + archive
+A3,207,58.181850446543805,76.56,PPO + archive
+A3,208,58.181850446543805,76.56,PPO + archive
+A3,209,58.181850446543805,76.56,PPO + archive
+A3,210,59.11575292963709,73.15,PPO + archive
+A3,211,58.181850446543805,76.56,PPO + archive
+A3,212,58.181850446543805,76.56,PPO + archive
+A3,213,58.181850446543805,76.56,PPO + archive
+A3,214,58.181850446543805,76.56,PPO + archive
+A3,215,58.181850446543805,76.56,PPO + archive
+A3,216,58.181850446543805,76.56,PPO + archive
+A3,217,58.181850446543805,76.56,PPO + archive
+A3,218,58.181850446543805,76.56,PPO + archive
+A3,219,58.181850446543805,76.56,PPO + archive
+A3,220,58.181850446543805,76.56,PPO + archive
+A3,221,58.181850446543805,76.56,PPO + archive
+A3,222,58.181850446543805,76.56,PPO + archive
+A3,223,58.181850446543805,76.56,PPO + archive
+A3,224,58.181850446543805,76.56,PPO + archive
+A3,225,58.181850446543805,76.56,PPO + archive
+A3,226,57.28973078312942,75.77,PPO + archive
+A3,227,57.96809663930618,43.53,PPO + archive
+A3,228,58.181850446543805,76.56,PPO + archive
+A3,229,58.181850446543805,76.56,PPO + archive
+A3,230,58.49304372515616,76.5,PPO + archive
+A3,231,58.181850446543805,76.56,PPO + archive
+A3,232,58.181850446543805,76.56,PPO + archive
+A3,233,56.42568143100511,75.57,PPO + archive
+A3,234,58.181850446543805,76.56,PPO + archive
+A3,235,58.181850446543805,76.56,PPO + archive
+A3,236,58.181850446543805,76.56,PPO + archive
+A3,237,58.47916989313923,76.6,PPO + archive
+A3,238,58.181850446543805,76.56,PPO + archive
+A3,239,58.181850446543805,76.56,PPO + archive
+A0,200,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,201,57.884530999948375,76.54,global magnitude at matched sparsity
+A0,202,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,203,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,204,57.884530999948375,76.54,global magnitude at matched sparsity
+A0,205,58.23766842186774,76.29,global magnitude at matched sparsity
+A0,206,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,207,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,208,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,209,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,210,58.23766842186774,76.29,global magnitude at matched sparsity
+A0,211,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,212,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,213,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,214,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,215,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,216,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,217,58.19572427856073,76.35,global magnitude at matched sparsity
+A0,218,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,219,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,220,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,221,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,222,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,223,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,224,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,225,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,226,57.37329642248722,76.48,global magnitude at matched sparsity
+A0,227,57.96809663930618,76.49,global magnitude at matched sparsity
+A0,228,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,229,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,230,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,231,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,232,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,233,58.81843348304166,76.47,global magnitude at matched sparsity
+A0,234,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,235,57.884530999948375,76.54,global magnitude at matched sparsity
+A0,236,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,237,58.47916989313923,76.37,global magnitude at matched sparsity
+A0,238,58.181850446543805,76.32,global magnitude at matched sparsity
+A0,239,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,200,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,201,58.47916989313923,76.37,global magnitude at matched sparsity
+A1,202,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,203,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,204,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,205,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,206,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,207,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,208,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,209,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,210,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,211,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,212,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,213,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,214,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,215,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,216,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,217,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,218,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,219,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,220,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,221,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,222,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,223,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,224,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,225,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,226,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,227,57.884530999948375,76.54,global magnitude at matched sparsity
+A1,228,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,229,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,230,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,231,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,232,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,233,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,234,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,235,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,236,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,237,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,238,58.181850446543805,76.32,global magnitude at matched sparsity
+A1,239,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,200,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,201,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,202,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,203,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,204,58.47916989313923,76.37,global magnitude at matched sparsity
+A2,205,58.23766842186774,76.29,global magnitude at matched sparsity
+A2,206,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,207,58.23766842186774,76.29,global magnitude at matched sparsity
+A2,208,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,209,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,210,59.11575292963709,76.45,global magnitude at matched sparsity
+A2,211,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,212,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,213,58.19572427856073,76.35,global magnitude at matched sparsity
+A2,214,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,215,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,216,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,217,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,218,58.47916989313923,76.37,global magnitude at matched sparsity
+A2,219,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,220,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,221,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,222,58.47916989313923,76.37,global magnitude at matched sparsity
+A2,223,58.47916989313923,76.37,global magnitude at matched sparsity
+A2,224,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,225,58.47916989313923,76.37,global magnitude at matched sparsity
+A2,226,57.37329642248722,76.48,global magnitude at matched sparsity
+A2,227,57.96809663930618,76.49,global magnitude at matched sparsity
+A2,228,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,229,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,230,57.37329642248722,76.48,global magnitude at matched sparsity
+A2,231,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,232,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,233,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,234,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,235,58.52095271281813,76.44,global magnitude at matched sparsity
+A2,236,56.75090986526251,76.54,global magnitude at matched sparsity
+A2,237,59.12978808528212,76.44,global magnitude at matched sparsity
+A2,238,58.181850446543805,76.32,global magnitude at matched sparsity
+A2,239,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,200,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,201,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,202,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,203,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,204,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,205,57.940348975272315,76.47,global magnitude at matched sparsity
+A3,206,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,207,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,208,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,209,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,210,59.11575292963709,76.45,global magnitude at matched sparsity
+A3,211,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,212,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,213,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,214,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,215,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,216,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,217,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,218,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,219,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,220,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,221,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,222,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,223,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,224,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,225,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,226,57.28973078312942,76.54,global magnitude at matched sparsity
+A3,227,57.96809663930618,76.49,global magnitude at matched sparsity
+A3,228,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,229,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,230,58.49304372515616,76.34,global magnitude at matched sparsity
+A3,231,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,232,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,233,56.42568143100511,76.66,global magnitude at matched sparsity
+A3,234,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,235,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,236,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,237,58.47916989313923,76.37,global magnitude at matched sparsity
+A3,238,58.181850446543805,76.32,global magnitude at matched sparsity
+A3,239,58.181850446543805,76.32,global magnitude at matched sparsity
