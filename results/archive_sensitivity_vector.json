@@ -1,0 +1,92 @@
+{
+ "layer_order": [
+  "features.0",
+  "features.3",
+  "features.6",
+  "classifier.1"
+ ],
+ "raw_loss_sensitivity": [
+  0.7689387191157384,
+  0.02316601629849377,
+  0.0060291506399448745,
+  -0.0011714718046477621
+ ],
+ "normalized_sensitivity": [
+  1.0,
+  0.03160260491301242,
+  0.009350119670520027,
+  0.0
+ ],
+ "definition": "mean over probe ratios 10/20/40/60% of (loss_r - loss_0)/loss_0 on V_RL; min-max to [0,1]",
+ "n_images": 3000,
+ "baseline_v_rl_loss": 0.6571615956624349,
+ "baseline_v_rl_accuracy": 76.96666666666667,
+ "probe_detail": {
+  "features.0@10": {
+   "loss": 0.6630895512898763,
+   "accuracy": 76.83333333333333
+  },
+  "features.0@20": {
+   "loss": 0.6939067357381185,
+   "accuracy": 76.36666666666666
+  },
+  "features.0@40": {
+   "loss": 0.9571070073445638,
+   "accuracy": 68.26666666666667
+  },
+  "features.0@60": {
+   "loss": 2.335811070760091,
+   "accuracy": 42.2
+  },
+  "features.3@10": {
+   "loss": 0.6586928494771321,
+   "accuracy": 77.03333333333333
+  },
+  "features.3@20": {
+   "loss": 0.660471741994222,
+   "accuracy": 77.0
+  },
+  "features.3@40": {
+   "loss": 0.6711370429992676,
+   "accuracy": 76.6
+  },
+  "features.3@60": {
+   "loss": 0.6992400131225586,
+   "accuracy": 75.16666666666667
+  },
+  "features.6@10": {
+   "loss": 0.6575818697611491,
+   "accuracy": 77.03333333333333
+  },
+  "features.6@20": {
+   "loss": 0.658229148864746,
+   "accuracy": 76.96666666666667
+  },
+  "features.6@40": {
+   "loss": 0.6566928049723307,
+   "accuracy": 76.83333333333333
+  },
+  "features.6@60": {
+   "loss": 0.6719910640716553,
+   "accuracy": 76.06666666666666
+  },
+  "classifier.1@10": {
+   "loss": 0.6572767219543457,
+   "accuracy": 77.03333333333333
+  },
+  "classifier.1@20": {
+   "loss": 0.6572560030619303,
+   "accuracy": 77.1
+  },
+  "classifier.1@40": {
+   "loss": 0.6566718037923177,
+   "accuracy": 77.06666666666666
+  },
+  "classifier.1@60": {
+   "loss": 0.6543624687194824,
+   "accuracy": 77.13333333333334
+  }
+ },
+ "split_sha256": "55b7ff40a25b9b24f6c89fae1ca41f309a66f8b834160c32c07d732920f0b511",
+ "computed_at": "2026-09-28T11:38:18+06:00"
+}
