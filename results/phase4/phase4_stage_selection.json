@@ -380,5 +380,54 @@
   "test_set_accessed": false,
   "config_sha256": "4d5cb586f24c8b770bc8820d624cfa56dab46304609e3207a5c64ab20b5a3f9b",
   "script_sha256": "0ed9db17ce15cd73da9d6f0154719ae5e3298f45f886eddbbca60c3f4ccd3915"
+ },
+ "C": {
+  "reward": "R0",
+  "prior": "P2",
+  "median_vselect_rank": {
+   "S0": {
+    "cifar10_simplecnn": 78.0,
+    "cifar10_lenet5": 66.0,
+    "cifar10_resnet8": 87.0,
+    "cifar100_simplecnn": 70.0,
+    "cifar100_lenet5": 140.0,
+    "cifar100_resnet8": 137.0
+   },
+   "S1": {
+    "cifar10_simplecnn": 1.0,
+    "cifar10_lenet5": 1.5,
+    "cifar10_resnet8": 2.5,
+    "cifar100_simplecnn": 2.0,
+    "cifar100_lenet5": 2.0,
+    "cifar100_resnet8": 2.5
+   },
+   "S2": {
+    "cifar10_simplecnn": 38.0,
+    "cifar10_lenet5": 66.0,
+    "cifar10_resnet8": 28.0,
+    "cifar100_simplecnn": 61.0,
+    "cifar100_lenet5": 34.5,
+    "cifar100_resnet8": 55.5
+   },
+   "S2A": {
+    "cifar10_simplecnn": 1.0,
+    "cifar10_lenet5": 1.0,
+    "cifar10_resnet8": 1.0,
+    "cifar100_simplecnn": 1.0,
+    "cifar100_lenet5": 2.0,
+    "cifar100_resnet8": 2.0
+   }
+  },
+  "mean_over_settings": {
+   "S0": 96.33333333333333,
+   "S1": 1.9166666666666667,
+   "S2": 47.166666666666664,
+   "S2A": 1.3333333333333333
+  },
+  "winner": "S2A",
+  "selected_at": "2026-09-29T21:52:39+06:00",
+  "test_set_accessed": false,
+  "config_sha256": "4d5cb586f24c8b770bc8820d624cfa56dab46304609e3207a5c64ab20b5a3f9b",
+  "script_sha256": "0ed9db17ce15cd73da9d6f0154719ae5e3298f45f886eddbbca60c3f4ccd3915"
  }
 }
