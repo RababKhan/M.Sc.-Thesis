@@ -84,6 +84,31 @@ def save_npy(arr, path):
     os.replace(tmp, path)
 
 
+def write_shared_once(arr, path, attempts=20):
+    """File shared by the 4 workers (test labels). Written if absent; an existing file must be identical.
+    Retries transient Windows locks (a first version crashed on one; see runs/infrastructure_log.txt)."""
+    import time
+    for _ in range(attempts):
+        if os.path.exists(path):
+            try:
+                existing = np.load(path)
+            except (OSError, ValueError):
+                time.sleep(0.5)
+                continue
+            if not np.array_equal(existing, arr):
+                raise RuntimeError(f"shared file differs: {path}")
+            return
+        try:
+            save_npy(arr, path)
+            return
+        except PermissionError:
+            tmp = f"{path}.{os.getpid()}.tmp"
+            if os.path.exists(tmp):
+                os.remove(tmp)
+            time.sleep(0.5)
+    raise RuntimeError(f"could not write {path}")
+
+
 def worker(k, n):
     torch.set_num_threads(L.THREADS)
     assert os.path.exists(FREEZE), "freeze first"
@@ -121,9 +146,7 @@ def worker(k, n):
             os.makedirs(folder, exist_ok=True)
             name = ("ppo_" if kind == "policy" else f"{method}_") + "".join(map(str, pol)) + (f"_seed{rs}" if rs is not None else "") + ".npy"
             save_npy(preds.numpy().astype(np.int16), os.path.join(folder, name))
-            lab = os.path.join(L.PRED, f"{d}_test_labels.npy")
-            if not os.path.exists(lab):
-                save_npy(labels.numpy().astype(np.int16), lab)
+            write_shared_once(labels.numpy().astype(np.int16), os.path.join(L.PRED, f"{d}_test_labels.npy"))
             row = {"kind": kind, "setting": s, "policy": pol, "method": method, "random_seed": rs, "zero_count": k0,
                    "total_sparsity": P.total_sparsity(pm), "vrl_accuracy": vrl, "test_accuracy": accuracy_from(preds, labels),
                    "predictions_file": os.path.relpath(os.path.join(folder, name), L.ROOT).replace("\\", "/")}
