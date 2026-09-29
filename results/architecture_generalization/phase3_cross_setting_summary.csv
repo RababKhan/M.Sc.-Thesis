@@ -1,0 +1,13 @@
+statement,family,supported,opposite,inconclusive,class,reversed,cifar10_simplecnn,cifar10_lenet5,cifar10_resnet8,cifar100_simplecnn,cifar100_lenet5,cifar100_resnet8
+1 PPO > uniform,A,5,0.0,1.0,STRONG,False,supported,supported,supported,supported,supported,inconclusive
+2 PPO > global magnitude,B,3,0.0,3.0,MODERATE,False,inconclusive,supported,supported,inconclusive,inconclusive,supported
+3 PPO > LAMP,B,0,5.0,1.0,NOT SUPPORTED,True,opposite,opposite,inconclusive,opposite,opposite,opposite
+4 PPO > ERK,B,3,1.0,2.0,LIMITED,False,supported,supported,inconclusive,supported,inconclusive,opposite
+5 PPO > random,B,6,0.0,0.0,STRONG,False,supported,supported,supported,supported,supported,supported
+6 correct prior improves exploration (V_RL accuracy AUC),C,3,0.0,3.0,MODERATE,False,supported,inconclusive,inconclusive,supported,inconclusive,supported
+7 exploration gain is layer-specific (P1 > P2 and P1 > P3),C-specificity,1,0.0,5.0,LIMITED,False,supported,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+8 correct prior improves final accuracy (excess over matched GM),D,0,0.0,6.0,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+"6-C-rank correct prior, secondary: rank AUC",C-rank,6,0.0,0.0,STRONG,False,supported,supported,supported,supported,supported,supported
+"6-C-utility correct prior, secondary: utility AUC",C-utility,6,0.0,0.0,STRONG,False,supported,supported,supported,supported,supported,supported
+"6-C-destructive correct prior, secondary: destructive frequency (lower)",C-destructive,6,0.0,0.0,STRONG,False,supported,supported,supported,supported,supported,supported
+historical Level-A/B/C rule per setting (replication),replication,2,,,,,A,B,B,A,B,B

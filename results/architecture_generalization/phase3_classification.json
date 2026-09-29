@@ -1,0 +1,198 @@
+{
+ "generated": "2026-09-29T16:31:25+06:00",
+ "statements": {
+  "1 PPO > uniform": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 5,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "2 PPO > global magnitude": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "3 PPO > LAMP": {
+   "class": "NOT SUPPORTED",
+   "reversed": true,
+   "supported_in": 0,
+   "opposite_in": 5,
+   "per_setting": {
+    "cifar10_simplecnn": "opposite",
+    "cifar10_lenet5": "opposite",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "opposite",
+    "cifar100_lenet5": "opposite",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "4 PPO > ERK": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 1,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "5 PPO > random": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "6 correct prior improves exploration (V_RL accuracy AUC)": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "7 exploration gain is layer-specific (P1 > P2 and P1 > P3)": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 1,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "8 correct prior improves final accuracy (excess over matched GM)": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  }
+ },
+ "historical_rule_replication": {
+  "cifar10_simplecnn": {
+   "level": "A",
+   "primary_supported": [
+    true,
+    true,
+    true
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  },
+  "cifar10_lenet5": {
+   "level": "B",
+   "primary_supported": [
+    false,
+    false,
+    false
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  },
+  "cifar10_resnet8": {
+   "level": "B",
+   "primary_supported": [
+    false,
+    false,
+    false
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  },
+  "cifar100_simplecnn": {
+   "level": "A",
+   "primary_supported": [
+    true,
+    true,
+    true
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  },
+  "cifar100_lenet5": {
+   "level": "B",
+   "primary_supported": [
+    false,
+    false,
+    false
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  },
+  "cifar100_resnet8": {
+   "level": "B",
+   "primary_supported": [
+    true,
+    false,
+    false
+   ],
+   "secondary_favour_P1_vs_P0": [
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ "operationalisation_note": "statement 7 is 'opposite' in a setting if either P1-P2 or P1-P3 is opposite"
+}

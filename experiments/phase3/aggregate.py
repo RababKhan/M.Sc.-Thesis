@@ -226,7 +226,7 @@ def main():
                                  "reward", "reward_rank", "pareto_val_accuracy", "utility", "destructive",
                                  "mean_action_entropy", "runtime_seconds", "train_seconds", "reference_sha256")}
         row.update({f"reward_{k}": v for k, v in r["reward_components"].items()})
-        row.update({"policy": C.policy_key(r["actions"]), "dense_test_accuracy": dt,
+        row.update({"policy": str(list(r["actions"])), "dense_test_accuracy": dt,
                     "accuracy_drop_test": dt - r["test_accuracy"], "accuracy_retention_test": 100.0 * r["test_accuracy"] / dt,
                     "vrl_auc": auc(t.timestep, t.val_accuracy), "rank_auc": auc(t.timestep, t.rank_score),
                     "utility_auc": auc(t.timestep, t.utility), "destructive_frequency": float(t.destructive.mean()),
@@ -300,7 +300,8 @@ def main():
             lvl = "B"
         else:
             lvl = "C"
-        repl[s] = {"level": lvl, "primary_supported": ok_prim, "secondary_favour_P1_vs_P0": sec}
+        repl[s] = {"level": lvl, "primary_supported": [bool(x) for x in ok_prim],
+                   "secondary_favour_P1_vs_P0": [bool(x) for x in sec]}
 
     # ---------------------------------------------------------------- cross-setting summary
     statements = [("1 PPO > uniform", "A", "P0 - uniform"), ("2 PPO > global magnitude", "B", "P0 - global"),
@@ -322,7 +323,7 @@ def main():
         cls, rev = cross_class(n_sup, n_opp)
         cross.append({"statement": name, "family": fam, "supported": n_sup, "opposite": n_opp,
                       "inconclusive": 6 - n_sup - n_opp, "class": cls, "reversed": rev, **per})
-        classification[name] = {"class": cls, "reversed": rev, "supported_in": n_sup, "opposite_in": n_opp, "per_setting": per}
+        classification[name] = {"class": cls, "reversed": bool(rev), "supported_in": n_sup, "opposite_in": n_opp, "per_setting": per}
     for ep, lab in (("C-rank", "secondary: rank AUC"), ("C-utility", "secondary: utility AUC"),
                     ("C-destructive", "secondary: destructive frequency (lower)")):
         per = {s: st[(st.family == ep) & (st.setting == s)]["outcome"].iloc[0] for s in C.SETTINGS}
@@ -454,7 +455,7 @@ def main():
     for s in C.SETTINGS:
         chosen = runs[runs.setting == s].groupby(["policy", "condition"]).size().unstack(fill_value=0)
         for a, r in lands[s].items():
-            k = C.policy_key(a)
+            k = str(list(a))
             fe.append({"setting": s, "policy": k, "total_sparsity": r["total_sparsity"], "vrl_accuracy": r["val_accuracy"],
                        "reward": r["reward"], "reward_rank": r["reward_rank"], "pareto": r["pareto_val_accuracy"],
                        **{f"final_{c}": int(chosen.loc[k, c]) if k in chosen.index and c in chosen.columns else 0

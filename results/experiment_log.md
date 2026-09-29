@@ -1029,6 +1029,124 @@ Phase 2 stops here. The following are prepared but not run:
 
 ---
 
+## Phase 3 (CPU-only): architecture and dataset generalisation of PPO and sensitivity-guided exploration
+
+Pre-registration: `results/phase3_preregistration.md`, sha256 `064c6c05…`, committed in `2dbcc77`
+before any landscape or PPO run.
+
+- **Frozen inputs** (`phase3_frozen_inputs.json`, same commit): the six V_RL loss-sensitivity
+  vectors (1 thread), the destructive-action rules, and the per-seed shuffled and constant priors.
+- **Landscapes and implementation checks** (`a2cf5e5`): 57/57 checks passed on the
+  non-experimental seed 42.
+- **Runs:** 6 settings × 4 conditions (P0 plain; P1 correct prior β 0.5; P2 shuffled; P3 constant)
+  × 20 fresh seeds 300–319, so **480 runs**. Every run:
+  - uses the identical PPO budget (2,048 timesteps = 512 episodes) at 1 thread;
+  - takes its reward from V_RL (λ_s 0.01) with an exact V_RL landscape cache;
+  - reads the test set once per frozen final policy.
+- **Integrity checks:** 22/22 (`phase3_integrity_checks.md`).
+
+### Infrastructure events (`phase3_runs/infrastructure_log.txt`)
+
+1. **A mains power cut** struck after 75 completed runs.
+   - The integrity scan found every record verified, with no partial or corrupt file.
+   - The four in-flight runs had written nothing and were repeated with the same seed and
+     configuration.
+2. **A worker crash** (`PermissionError`, a transient Windows lock) hit the shared
+   test-prediction cache file when two workers produced the same final policy.
+   - The affected run had written nothing and was repeated.
+   - Fix `5633700`, infrastructure only:
+     - every run computes its own test predictions;
+     - the shared cache is written once, and an existing file must be identical;
+     - writes are fsynced before the atomic rename.
+
+### Frozen sensitivity (V_RL, normalised, unit order)
+
+| Setting | S | Most sensitive (destructive = it at ≥ 40%) |
+|---|---|---|
+| C10 SimpleCNN | 1.000, 0.032, 0.009, 0.000 | features.0 |
+| C10 LeNet-5 | 1.000, 0.422, 0.046, 0.000 | conv1 |
+| C10 ResNet-8 | 1.000, 0.138, 0.331, 0.000 | stem |
+| C100 SimpleCNN | 1.000, 0.103, 0.014, 0.000 | features.0 |
+| C100 LeNet-5 | 1.000, 0.587, 0.000, 0.086 | conv1 |
+| C100 ResNet-8 | 0.987, 0.310, 1.000, 0.000 | stage2 |
+
+### Test accuracy at matched sparsity
+
+Means over 20 seeds. Each baseline has exactly the zero count of each P0 run. `phase3_summary.csv`
+holds the SDs and the rows matched to P1–P3.
+
+| Setting | Dense | P0 | P1 | P0 sparsity | Uniform | Global | LAMP | ERK | Random |
+|---|---|---|---|---|---|---|---|---|---|
+| C10 SimpleCNN | 77.03 | 76.44 | 76.51 | 55.1% | 45.08 | 76.51 | 76.99 | 75.70 | 16.84 |
+| C10 LeNet-5 | 64.96 | 61.67 | 62.17 | 51.5% | 45.38 | 58.94 | 63.31 | 59.74 | 12.99 |
+| C10 ResNet-8 | 78.69 | 76.95 | 76.87 | 28.3% | 62.79 | 69.57 | 76.80 | 77.01 | 12.59 |
+| C100 SimpleCNN | 50.50 | 49.66 | 49.48 | 53.3% | 19.96 | 49.67 | 50.30 | 45.31 | 2.37 |
+| C100 LeNet-5 | 32.28 | 31.18 | 30.81 | 34.6% | 27.51 | 31.32 | 31.86 | 30.88 | 3.29 |
+| C100 ResNet-8 | 43.99 | 43.01 | 43.13 | 9.5% | 42.78 | 42.74 | 43.76 | 43.81 | 4.25 |
+
+### Pre-registered cross-setting classification
+
+Mechanical, from `phase3_cross_setting_summary.csv` and `phase3_classification.json`. "Supported"
+means the hypothesised direction holds, Holm p < 0.05 within the family, and the 95% t-CI excludes 0.
+
+| Statement | Supported / opposite (of 6) | Class |
+|---|---|---|
+| 1 PPO > uniform | 5 / 0 (C100 ResNet-8: 19 of 20 ties, PPO chose uniform `[1,1,1,1]`) | **STRONG** |
+| 2 PPO > global magnitude | 3 / 0 (C10 LeNet-5 +2.74, C10 ResNet-8 +7.38, C100 ResNet-8 +0.28 pp) | **MODERATE** |
+| 3 PPO > LAMP | 0 / 5 (LAMP better by 0.55–1.64 pp; C10 ResNet-8 inconclusive) | **NOT SUPPORTED, REVERSED** |
+| 4 PPO > ERK | 3 / 1 (ERK better in C100 ResNet-8) | **LIMITED** |
+| 5 PPO > random | 6 / 0 | **STRONG** |
+| 6 correct prior improves exploration (V_RL accuracy AUC) | 3 / 0 (C10 SimpleCNN, C100 SimpleCNN, C100 ResNet-8) | **MODERATE** |
+| 7 exploration gain is layer-specific (P1 > P2 and P1 > P3) | 1 / 0 (C10 SimpleCNN only) | **LIMITED** |
+| 8 correct prior improves final accuracy (excess over matched GM) | 0 / 0 | **NOT SUPPORTED** |
+| secondary: rank-score AUC, utility AUC, destructive frequency (P1 − P0) | 6 / 0 each | STRONG each |
+| historical Level-A/B/C rule, recomputed per setting | A in C10 and C100 SimpleCNN; B in the other four | — |
+
+### Other observations
+
+- **Final policies.**
+  - No final policy in any condition is destructive.
+  - PPO learns architecture-specific allocations: heavy pruning of the large FC/last-stage unit,
+    light pruning of the first unit.
+  - In C100 ResNet-8, PPO converges to `[1,1,1,1]` in 19 of 20 P0 runs, which is only 9.5% sparsity.
+    With λ_s = 0.01 the reward favours accuracy over sparsity for this small, low-accuracy model.
+- **Exploration.** The prior's advantage is concentrated early in training (roughly the first
+  100–150 episodes) and the trajectories converge afterwards.
+  - On LeNet-5 the shuffled and constant priors help as much as the correct prior.
+- **McNemar (supportive).**
+  - P1 vs P0 same seed: significant pairs are rare and split in direction.
+  - P0 vs matched GM: PPO is significantly better (McNemar p < 0.05) in 18 of 20 (C10 LeNet-5)
+    and 19 of 20 (C10 ResNet-8) seed pairs.
+- **CPU cost** (measured):
+  - landscapes: 2.1 h wall on 4 workers;
+  - PPO: 5.8 process-hours, which is 1.4 machine-hours;
+  - matched baselines: 2.0 h;
+  - checks: 0.6 h;
+  - total ≈ 6.5 machine-hours.
+
+### Files
+
+All in `results/architecture_generalization/` unless noted.
+
+- **Run tables:** `phase3_all_runs.csv`, `phase3_summary.csv`, `phase3_policy_stats.csv`.
+- **Exploration:** `phase3_training_curves.csv`, `phase3_trajectory.csv.gz`,
+  `phase3_exploration_auc.csv`.
+- **Statistics and classification:** `phase3_statistics.csv`, `phase3_cross_setting_summary.csv`,
+  `phase3_classification.json`.
+- **McNemar:** `phase3_mcnemar.csv`, `phase3_mcnemar_summary.csv`.
+- **Inputs and rules:** `phase3_sensitivity_vectors.csv`, `phase3_destructive_action_rules.json`,
+  `phase3_frozen_inputs.json`.
+- **Checks:** `phase3_implementation_checks.md`, `phase3_integrity_checks.md`.
+- **Landscapes:** `phase3_policy_landscapes.csv`, `phase3_landscapes/`.
+- **Runs and predictions:** `phase3_runs/` (records, curves, infrastructure log),
+  `phase3_predictions/`.
+- **Figures:** `phase3_fig_A…F_*.csv` (data), `phase3_figures/*.png`.
+- **Baselines:** `results/stronger_baselines/phase3_all_runs.csv`, `phase3_summary.csv`,
+  `phase3_grid.csv`, `phase3_baseline_evaluations.csv`.
+- **Agents:** `checkpoints/phase3_agents/`.
+
+---
+
 ## Latency (controlled protocol)
 
 Source: `evaluation/latency_benchmark.py` → `latency_results.csv` (summary) and
@@ -1111,7 +1229,8 @@ column is not comparable across methods and is not used as a quality metric.
 - [ ] More PPO seeds in the fine-tuning arm (currently 1)
 - [ ] Consolidated final results table (left to the paper write-up)
 - [x] Phase 2 (CPU-only): consolidated `src/` library (verified), LeNet-5 / ResNet-8, CIFAR-100 split, 15 dense baselines, efficiency baselines, implementation checks
-- [ ] Phase 3 onward (CPU-only roadmap): awaiting approval
+- [x] Phase 3 (CPU-only): 480 pre-registered PPO runs over 6 settings, exact landscapes, matched baselines; mechanical cross-setting classification
+- [ ] Phase 4 onward (CPU-only roadmap): awaiting approval
 - [ ] Optional: normalised-sparsity reward, as a separately labelled experiment (not run)
 
 ---

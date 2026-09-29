@@ -1,0 +1,13 @@
+setting,pair,n,first_better,second_better
+cifar100_lenet5,P0 vs matched global,20,1,1
+cifar100_lenet5,P1 vs P0,20,2,4
+cifar100_resnet8,P0 vs matched global,20,1,0
+cifar100_resnet8,P1 vs P0,20,3,1
+cifar100_simplecnn,P0 vs matched global,20,7,0
+cifar100_simplecnn,P1 vs P0,20,2,5
+cifar10_lenet5,P0 vs matched global,20,18,1
+cifar10_lenet5,P1 vs P0,20,4,3
+cifar10_resnet8,P0 vs matched global,20,19,0
+cifar10_resnet8,P1 vs P0,20,2,2
+cifar10_simplecnn,P0 vs matched global,20,0,3
+cifar10_simplecnn,P1 vs P0,20,2,1
