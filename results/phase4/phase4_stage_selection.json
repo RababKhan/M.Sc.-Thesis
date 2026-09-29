@@ -1,0 +1,106 @@
+{
+ "A": {
+  "I": {
+   "R0": 16.40696557797551,
+   "R1a": 4.732743996997797,
+   "R1b": 17.188804681021118,
+   "R2": 10.792743508385126
+  },
+  "criteria": {
+   "R1a": {
+    "ratio": 0.28845943355613357,
+    "ratio_boot_ci95": [
+     0.23396870841222953,
+     0.3487626726418492
+    ],
+    "A1": true,
+    "mean_vrl_retention": {
+     "cifar10_simplecnn": 0.9938934603724556,
+     "cifar10_lenet5": 0.9463452566096423,
+     "cifar10_resnet8": 0.8902376910016978,
+     "cifar100_simplecnn": 0.9918266048974189,
+     "cifar100_lenet5": 0.8863863863863866,
+     "cifar100_resnet8": 0.675133282559025
+    },
+    "settings_retention_ok": 2,
+    "A2": false
+   },
+   "R1b": {
+    "ratio": 1.0476528764158035,
+    "ratio_boot_ci95": [
+     0.9851289720052971,
+     1.1201207667709425
+    ],
+    "A1": false,
+    "mean_vrl_retention": {
+     "cifar10_simplecnn": 0.9872022520571677,
+     "cifar10_lenet5": 0.9624416796267499,
+     "cifar10_resnet8": 0.9731536502546687,
+     "cifar100_simplecnn": 0.9843812045003311,
+     "cifar100_lenet5": 0.9750250250250252,
+     "cifar100_resnet8": 0.9890327494287894
+    },
+    "settings_retention_ok": 6,
+    "A2": true
+   },
+   "R2": {
+    "ratio": 0.657814722478187,
+    "ratio_boot_ci95": [
+     0.5652442097582687,
+     0.7485006133449686
+    ],
+    "A1": false,
+    "mean_vrl_retention": {
+     "cifar10_simplecnn": 0.9820485058466868,
+     "cifar10_lenet5": 0.9649300155520999,
+     "cifar10_resnet8": 0.9286714770797962,
+     "cifar100_simplecnn": 0.9774983454665787,
+     "cifar100_lenet5": 0.9511011011011012,
+     "cifar100_resnet8": 0.9282939832444784
+    },
+    "settings_retention_ok": 4,
+    "A2": false
+   }
+  },
+  "passing": [],
+  "winner": "R0",
+  "mean_final_sparsity": {
+   "R0": {
+    "cifar10_simplecnn": 54.314011602395325,
+    "cifar10_lenet5": 51.318844099077225,
+    "cifar10_resnet8": 29.027016546018615,
+    "cifar100_simplecnn": 51.10808322134289,
+    "cifar100_lenet5": 31.96841194288187,
+    "cifar100_resnet8": 8.27568575553417
+   },
+   "R1a": {
+    "cifar10_simplecnn": 49.78172913117547,
+    "cifar10_lenet5": 54.03084021369597,
+    "cifar10_resnet8": 40.18950361944158,
+    "cifar100_simplecnn": 49.32538978896023,
+    "cifar100_lenet5": 49.17806144526179,
+    "cifar100_resnet8": 42.30871029836381
+   },
+   "R1b": {
+    "cifar10_simplecnn": 54.49284691032987,
+    "cifar10_lenet5": 49.19451189898008,
+    "cifar10_resnet8": 21.398073940020684,
+    "cifar100_simplecnn": 50.15998301478274,
+    "cifar100_lenet5": 31.00692340977932,
+    "cifar100_resnet8": 7.383060635226181
+   },
+   "R2": {
+    "cifar10_simplecnn": 54.39347155541789,
+    "cifar10_lenet5": 47.76177756192326,
+    "cifar10_resnet8": 37.304873319544996,
+    "cifar100_simplecnn": 52.39688324374099,
+    "cifar100_lenet5": 37.55863262656859,
+    "cifar100_resnet8": 22.96679499518768
+   }
+  },
+  "selected_at": "2026-09-29T19:45:11+06:00",
+  "test_set_accessed": false,
+  "config_sha256": "4d5cb586f24c8b770bc8820d624cfa56dab46304609e3207a5c64ab20b5a3f9b",
+  "script_sha256": "0ed9db17ce15cd73da9d6f0154719ae5e3298f45f886eddbbca60c3f4ccd3915"
+ }
+}
