@@ -95,25 +95,53 @@ def verified(ctx, setting, rid):
     return ok
 
 
+def durable_write(data, path):
+    """Write bytes via a flushed + fsynced temporary file and an atomic rename (power-cut safe)."""
+    tmp = f"{path}.{os.getpid()}.tmp"
+    with open(tmp, "wb") as f:
+        f.write(data)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+def write_shared_once(arr, path, attempts=20):
+    """Shared deterministic cache shared by 4 workers. Written if absent; if present it must be identical
+    (a free determinism check). Retries transient Windows locks (another reader, the virus scanner):
+    a first version crashed on such a lock, see phase3_runs/infrastructure_log.txt."""
+    for _ in range(attempts):
+        if os.path.exists(path):
+            try:
+                existing = np.load(path)
+            except (OSError, ValueError):
+                time.sleep(0.5)
+                continue
+            if not np.array_equal(existing, arr):
+                raise RuntimeError(f"non-deterministic predictions for {path}")
+            return
+        buf = io.BytesIO()
+        np.save(buf, arr)
+        try:
+            durable_write(buf.getvalue(), path)
+            return
+        except PermissionError:
+            tmp = f"{path}.{os.getpid()}.tmp"
+            if os.path.exists(tmp):
+                os.remove(tmp)
+            time.sleep(0.5)
+    raise RuntimeError(f"could not write {path}")
+
+
 def test_predictions(bundle, setting, pruned, actions):
-    """Deterministic per (setting, policy): computed once after freezing, cached as .npy."""
+    """Computed for every run from its own frozen model (once, after freezing); stored in a shared cache."""
     d, _ = C.split(setting)
     folder = os.path.join(C.PRED_DIR, setting)
     os.makedirs(folder, exist_ok=True)
-    path = os.path.join(folder, f"ppo_{C.policy_key(actions)}.npy")
-    labels_path = os.path.join(C.PRED_DIR, f"{d}_test_labels.npy")
-    if os.path.exists(path) and os.path.exists(labels_path):
-        return np.load(path), np.load(labels_path)
     preds, labels = predictions(pruned, bundle.test_loader())
-    for arr, p in ((preds.numpy().astype(np.int16), path), (labels.numpy().astype(np.int16), labels_path)):
-        if not os.path.exists(p):
-            buf = io.BytesIO()
-            np.save(buf, arr)
-            tmp = f"{p}.{os.getpid()}.tmp"
-            with open(tmp, "wb") as f:
-                f.write(buf.getvalue())
-            os.replace(tmp, p)
-    return preds.numpy().astype(np.int16), labels.numpy().astype(np.int16)
+    preds, labels = preds.numpy().astype(np.int16), labels.numpy().astype(np.int16)
+    write_shared_once(preds, os.path.join(folder, f"ppo_{C.policy_key(actions)}.npy"))
+    write_shared_once(labels, os.path.join(C.PRED_DIR, f"{d}_test_labels.npy"))
+    return preds, labels
 
 
 def rollout_with_entropy(agent, env):
@@ -166,10 +194,7 @@ def run_one(ctx, setting, condition, seed):
     curve_file = os.path.join(CURVES, f"{rid}.csv.gz")
     buf = io.StringIO()
     pd.DataFrame(log.rows).to_csv(buf, index=False, float_format="%.17g")
-    tmp = curve_file + ".tmp"
-    with gzip.GzipFile(tmp, "wb", mtime=0) as f:
-        f.write(buf.getvalue().encode("utf-8"))
-    os.replace(tmp, curve_file)
+    durable_write(gzip.compress(buf.getvalue().encode("utf-8"), mtime=0), curve_file)
     agent_path = os.path.join(C.AGENTS_DIR, f"{rid}.zip")
     agent.save(agent_path)
     units = [u["name"] for u in inputs["units"]]
@@ -204,10 +229,7 @@ def run_one(ctx, setting, condition, seed):
         **{k: v for k, v in ctx.hashes.items() if not k.startswith("landscape_")},
         "code_sha256": ctx.code, "environment": ctx.env_info, "git": ctx.git,
     }
-    tmp = record_path(rid) + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(rec, f, indent=1)
-    os.replace(tmp, record_path(rid))
+    durable_write(json.dumps(rec, indent=1).encode("utf-8"), record_path(rid))
     return rec["runtime_seconds"]
 
 
