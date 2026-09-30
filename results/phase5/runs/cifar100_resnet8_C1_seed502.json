@@ -1,0 +1,80 @@
+{
+ "run_id": "cifar100_resnet8_C1_seed502",
+ "status": "complete",
+ "setting": "cifar100_resnet8",
+ "condition": "C1",
+ "seed": 502,
+ "reward": "RC",
+ "prior": "P2",
+ "tau": 0.98,
+ "final_actions": [
+  0,
+  0,
+  0,
+  0
+ ],
+ "final_val_rl_accuracy": 43.76,
+ "final_sparsity": 0.0,
+ "final_reward": 1.01,
+ "episodes": 512,
+ "timesteps_trained": 2048,
+ "threads": 1,
+ "ppo": {
+  "policy": "SoftPriorPolicy",
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "ent_coef": 0.01
+ },
+ "ppo_defaults": {
+  "gae_lambda": 0.95,
+  "clip_range": 0.2,
+  "vf_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "net_arch": "[64, 64] tanh",
+  "optimizer": "Adam"
+ },
+ "test_set_accessed": false,
+ "val_select_accessed": false,
+ "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+ "landscape_sha256": "67f6c65eafa9607410e678b8377cb6e7bed754e94e6690a90e050f0b164431ac",
+ "curve_file": "results/phase5/runs/curves/cifar100_resnet8_C1_seed502.csv.gz",
+ "curve_sha256": "8bdcc9cea391ae207ab3b8e99b1cba6e5ee8a4b5657c51a7c1a2cc5bbb73d0b5",
+ "agent_file": "checkpoints/phase5_agents/cifar100_resnet8_C1_seed502.zip",
+ "train_seconds": 11.0,
+ "runtime_seconds": 11.1,
+ "started_at": "2026-09-30T17:17:35+06:00",
+ "finished_at": "2026-09-30T17:17:46+06:00",
+ "preregistration_sha256": "294bb43f9b33ff250d0891963f142033dbca27e64c592131a0be416e24549383",
+ "config_sha256": "357551dc20343d79bc61f84af53d28d1da46fa36e26b5f467147205841a3cc6a",
+ "design_commitments_sha256": "10d769a9ed2ae7e027fdc3119ecb8b7d894c7231c3f7dd442cd1ca3f0db31f95",
+ "code_sha256": {
+  "run.py": "0e0ec0aa66898fc2792e91a7d14ca9b6c8da68ab75b8dcfd399db62d4135b070",
+  "phase5_lib.py": "fe5a49c47c97df315496b5b0e0f90ca1470679d9d358f3d6c909b19b395b3f89"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "3cbaec1a206710fae4fe4c4063ce23914bb3339c",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth"
+  ]
+ }
+}

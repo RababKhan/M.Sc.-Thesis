@@ -6,6 +6,7 @@ C1 blue, C0 orange, C2 aqua. Baselines are neutral greys with distinct marker sh
 import os
 
 import matplotlib
+import matplotlib.ticker
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
@@ -63,8 +64,9 @@ def fig_b():
         for _, r in g.iterrows():
             c = r.condition if r.condition in COL else "Phase-4 F"
             a.scatter(r.sparsity_median, r.test_drop_mean, s=40, color=COL[c], marker="s" if c == "Phase-4 F" else "o", zorder=3)
+            off = {"C1": (6, 6), "C2": (6, -11), "C0": (6, 4)}.get(r.condition, (-8, 7))
             a.annotate(str(r.condition).replace(" (reference)", ""), (r.sparsity_median, r.test_drop_mean), textcoords="offset points",
-                       xytext=(5, 4), fontsize=7, color=INK)
+                       xytext=off, fontsize=7, color=INK, ha="right" if off[0] < 0 else "left")
         a.set_title(NAMES[s])
         a.set_xlabel("Selected-policy sparsity, median (%)")
         a.set_ylabel("Test accuracy drop vs dense (pp)")
@@ -88,6 +90,8 @@ def fig_c():
             v = g[g.condition == c].selected_rank.to_numpy()
             a.scatter(np.full(len(v), i) + np.linspace(-0.15, 0.15, len(v)), v, s=6, color=COL[c], zorder=3)
         a.set_yscale("log")
+        a.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:g}"))
+        a.yaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
         a.set_xticks([1, 2, 3], L.CONDITIONS)
         a.axhline(20, color=INK2, lw=0.8, ls=":")
         a.set_title(NAMES[s])
@@ -125,7 +129,7 @@ def fig_e():
     a.scatter(x, mf, marker="_", s=260, color=INK, zorder=3, label="Max feasible sparsity (VAL-RL, q >= tau)", linewidths=1.6)
     a.set_xticks(x, [NAMES[s] for s in L.SETTINGS])
     a.set_ylabel("Total sparsity (%)")
-    a.legend(frameon=False, ncol=2)
+    a.legend(frameon=False, ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.12))
     fig.tight_layout()
     return fig
 

@@ -1,0 +1,14 @@
+family,comparison,endpoint,supported,opposite,inconclusive,class,reversed,cifar10_simplecnn,cifar10_lenet5,cifar10_resnet8,cifar100_simplecnn,cifar100_lenet5,cifar100_resnet8
+H1/H4 test accuracy C1 - C0,C1 - C0,test_accuracy,4,2,0,LIMITED,False,opposite,supported,supported,opposite,supported,supported
+H3 exploration C1 - C2 (primary),C1 - C2,rank_auc,5,0,1,STRONG,False,supported,supported,inconclusive,supported,supported,supported
+H3 exploration C1 - C2 (primary),C1 - C2,vrl_accuracy_auc,5,0,1,STRONG,False,supported,supported,supported,supported,supported,inconclusive
+H3 exploration C1 - C2 (primary),C1 - C2,first_episode_top20,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+H3 exploration C1 - C2 (primary),C1 - C2,first_episode_top10,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+H3 secondary C1 - C2,C1 - C2,destructive_rate,6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+H3 secondary C1 - C2,C1 - C2,best_seen_rank,1,0,5,LIMITED,False,supported,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+H3 secondary C1 - C2,C1 - C2,selected_rank,3,0,3,MODERATE,False,supported,supported,inconclusive,supported,inconclusive,inconclusive
+H5 C1 - LAMP,C1 - LAMP,test_accuracy,0,6,0,NOT SUPPORTED,True,opposite,opposite,opposite,opposite,opposite,opposite
+C1 - global (descriptive),C1 - global,test_accuracy,5,0,1,STRONG,False,inconclusive,supported,supported,supported,supported,supported
+H5 gap to LAMP C1 - C0,C1 - C0,minus_lamp,1,2,3,LIMITED,False,opposite,inconclusive,inconclusive,opposite,inconclusive,supported
+H2 selected rank C1 - C0 (descriptive),C1 - C0,selected_rank,4,0,2,MODERATE,False,inconclusive,supported,supported,inconclusive,supported,supported
+sparsity C1 - C0 (descriptive),C1 - C0,selected_sparsity,0,4,2,NOT SUPPORTED,True,inconclusive,opposite,opposite,inconclusive,opposite,opposite

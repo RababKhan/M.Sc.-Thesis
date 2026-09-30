@@ -1172,6 +1172,44 @@ resumed with nothing lost (`results/phase4/runs/infrastructure_log.txt`).
 
 ---
 
+## Phase 5 (CPU-only, branch `phase5-cpu`): accuracy-constrained reward alignment
+
+Pre-registered in two parts, both committed before any confirmatory run:
+- design commitments (`aff2f3e`);
+- the full pre-registration with the frozen τ = 0.98 (`3cbaec1`).
+
+**Split.** New stratified VAL-RL / VAL-SELECT 2,500 / 2,500.
+
+**Runs.** 360 runs, seeds 500–519, 6 settings. The conditions are C0 (Phase-4 reward + centred prior),
+C1 (constrained reward + centred prior) and C2 (constrained reward, no prior).
+
+**Freezes.** Archives were frozen before VAL-SELECT (`6c4676f`); the final-policy list was frozen before
+test (`ddaf72c`).
+
+**Checks.** Implementation 16/16; integrity 14/14.
+
+**Criteria.**
+
+| Criterion | Status |
+|---|---|
+| A accuracy safety | PARTIALLY MET |
+| B compression | MET |
+| C search | PARTIALLY MET |
+| D sensitivity | MET |
+| E final model | PARTIALLY MET |
+| F LAMP, strong | NOT MET |
+| F LAMP, weak | MET |
+
+**Main results.**
+- **ResNet-8.** C1 − C0 test accuracy is +6.14 and +2.89 pp; the Phase-4 over-pruning is removed.
+- **SimpleCNN.** −0.31 and −0.21 pp.
+- **LAMP.** Better than C1 by 0.26–0.53 pp in 6/6 settings.
+- **Test retention.** The constraint holds on test in 67.5% of C1 runs.
+
+Full report: `results/phase5/phase5_summary.md`.
+
+---
+
 ## Latency (controlled protocol)
 
 Source: `evaluation/latency_benchmark.py` → `latency_results.csv` (summary) and
@@ -1256,7 +1294,8 @@ column is not comparable across methods and is not used as a quality metric.
 - [x] Phase 2 (CPU-only): consolidated `src/` library (verified), LeNet-5 / ResNet-8, CIFAR-100 split, 15 dense baselines, efficiency baselines, implementation checks
 - [x] Phase 3 (CPU-only): 480 pre-registered PPO runs over 6 settings, exact landscapes, matched baselines; mechanical cross-setting classification
 - [x] Phase 4 (CPU-only): reward redesign, sensitivity-specific prior, elite-archive search; 1,200 pre-registered runs (branch `phase4-cpu`)
-- [ ] Phase 5 onward: awaiting approval
+- [x] Phase 5 (CPU-only): accuracy-constrained reward alignment; 360 pre-registered runs (branch `phase5-cpu`)
+- [ ] Phase 6 onward: awaiting approval
 - [ ] Optional: normalised-sparsity reward, as a separately labelled experiment (not run)
 
 ---
