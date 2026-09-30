@@ -1147,6 +1147,31 @@ All in `results/architecture_generalization/` unless noted.
 
 ---
 
+## Phase 4 (CPU-only, branch `phase4-cpu`): reward redesign, sensitivity-specific prior, elite-archive search
+
+Pre-registration `results/phase4/phase4_preregistration.md` (sha256 `914b0418…`, `f52e87d`), committed
+before any Phase-4 computation.
+
+- **Runs:** 1,200 PPO runs, seeds 400–419, 1 thread each.
+- **Checks:** implementation 21/21; integrity 16/16.
+- **Selections (validation only, mechanical):** Stage A kept R0 (no redesigned reward met both
+  criteria); Stage B chose P2 (centred sensitivity-action prior); Stage C chose S2A (elite BC +
+  archive selection).
+- **Test:** read only after the final-policy freeze (`bf5f3fb`).
+
+**Results.** Criteria B, C and E were met; A and D were not. Full summary with qualifications:
+`results/phase4/phase4_summary.md`.
+- **Sensitivity-specific prior:** STRONG (5/6) on reward-rank AUC.
+- **Archive search:** selected median rank 1–10 vs 65–173, top-20 reach 100%; mostly a selection
+  effect, since PPO already visits the top policies.
+- **Final pipeline vs control:** better in 3/6, worse in both ResNet-8 settings.
+- **LAMP:** significantly better than the final pipeline in 6/6; non-inferior within 0.5 pp in 3/6.
+
+**Infrastructure.** A file-lock crash and a power interruption during the test evaluation were both
+resumed with nothing lost (`results/phase4/runs/infrastructure_log.txt`).
+
+---
+
 ## Latency (controlled protocol)
 
 Source: `evaluation/latency_benchmark.py` → `latency_results.csv` (summary) and
@@ -1230,7 +1255,8 @@ column is not comparable across methods and is not used as a quality metric.
 - [ ] Consolidated final results table (left to the paper write-up)
 - [x] Phase 2 (CPU-only): consolidated `src/` library (verified), LeNet-5 / ResNet-8, CIFAR-100 split, 15 dense baselines, efficiency baselines, implementation checks
 - [x] Phase 3 (CPU-only): 480 pre-registered PPO runs over 6 settings, exact landscapes, matched baselines; mechanical cross-setting classification
-- [ ] Phase 4 onward (CPU-only roadmap): awaiting approval
+- [x] Phase 4 (CPU-only): reward redesign, sensitivity-specific prior, elite-archive search; 1,200 pre-registered runs (branch `phase4-cpu`)
+- [ ] Phase 5 onward: awaiting approval
 - [ ] Optional: normalised-sparsity reward, as a separately labelled experiment (not run)
 
 ---

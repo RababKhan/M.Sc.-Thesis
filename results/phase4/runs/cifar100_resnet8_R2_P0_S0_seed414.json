@@ -1,0 +1,94 @@
+{
+ "run_id": "cifar100_resnet8_R2_P0_S0_seed414",
+ "status": "complete",
+ "setting": "cifar100_resnet8",
+ "reward": "R2",
+ "prior": "P0",
+ "variant": "S0",
+ "seed": 414,
+ "prior_coefficients": null,
+ "prior_permutation": null,
+ "reward_params_vrl": {
+  "A_b": 43.766666666666666,
+  "A_60": 4.966666666666667,
+  "rho_60": 55.37897016361887
+ },
+ "final_actions": [
+  1,
+  1,
+  1,
+  3
+ ],
+ "final_vrl_accuracy": 41.43333333333333,
+ "final_sparsity": 23.026948989412897,
+ "final_reward": 2.133503922838195,
+ "final_reward_components": {
+  "accuracy_term": 1.4097938144329896,
+  "sparsity_term": 0.6237101084052051,
+  "diversity_term": 0.1,
+  "total": 2.133503922838195
+ },
+ "episodes": 512,
+ "timesteps_trained": 2048,
+ "threads": 1,
+ "bc_eta": 0.0,
+ "bc_updates": 0,
+ "final_elite_policies": null,
+ "ppo": {
+  "policy": "MlpPolicy",
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "ent_coef": 0.01
+ },
+ "ppo_defaults": {
+  "gae_lambda": 0.95,
+  "clip_range": 0.2,
+  "vf_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "net_arch": "[64, 64] tanh",
+  "optimizer": "Adam"
+ },
+ "test_set_accessed": false,
+ "guard": "DataBundle.training() during learn(); no test access in this runner",
+ "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+ "landscape_sha256": "0fa66c55ce16922dcc607f8b152c4f41f3322c1ae79c6f9433a83e23ee1c0ef3",
+ "curve_file": "results/phase4/runs/curves/cifar100_resnet8_R2_P0_S0_seed414.csv.gz",
+ "curve_sha256": "6ffcc8322b2820d682b792e790e71156f947181dd7252993283d6028b17f4e9c",
+ "agent_file": "checkpoints/phase4_agents/cifar100_resnet8_R2_P0_S0_seed414.zip",
+ "train_seconds": 11.2,
+ "runtime_seconds": 11.2,
+ "started_at": "2026-09-29T19:39:57+06:00",
+ "finished_at": "2026-09-29T19:40:08+06:00",
+ "preregistration_sha256": "914b0418a58cc2b020d6c596a8ddaa036d283cdc4c1b0fa3b901ea9886609e53",
+ "config_sha256": "4d5cb586f24c8b770bc8820d624cfa56dab46304609e3207a5c64ab20b5a3f9b",
+ "code_sha256": {
+  "run.py": "2fc0f84daffd5ddf66dcef535b32b54751e032d26c7f86efa30ccf72adf9dd59",
+  "phase4_lib.py": "a61a5e98b7d1a0af453e1f826c3d2cddd883aef251cf46587488c93b89c3d4e8"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "e5e9a3754c52626e7d104b74e38526506200e204",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth"
+  ]
+ }
+}
