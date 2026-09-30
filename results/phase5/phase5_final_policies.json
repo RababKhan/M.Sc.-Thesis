@@ -1,0 +1,5048 @@
+{
+ "frozen_at": "2026-09-30T17:41:57+06:00",
+ "archive_sha256": "1357adfd3d6dce99bdacd36cd15f1b0d3bb2d21f922d626628145ce817807ce1",
+ "config_sha256": "357551dc20343d79bc61f84af53d28d1da46fa36e26b5f467147205841a3cc6a",
+ "tau": 0.98,
+ "runs": [
+  {
+   "run_id": "cifar100_lenet5_C0_seed500",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed501",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed502",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    2
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed503",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed504",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed505",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed506",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    2
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed507",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed508",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed509",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed510",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed511",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed512",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed513",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    2
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed514",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed515",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    2
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed516",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed517",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed518",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C0_seed519",
+   "setting": "cifar100_lenet5",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    1,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed500",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed501",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed502",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed503",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed504",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed505",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed506",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed507",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    1,
+    2,
+    3,
+    2
+   ],
+   "rule": "C1/C2 fallback: no feasible candidate, max q on VAL-SELECT",
+   "fallback": true
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed508",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed509",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed510",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed511",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed512",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed513",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed514",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed515",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed516",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed517",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed518",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C1_seed519",
+   "setting": "cifar100_lenet5",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    0
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed500",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    0,
+    3,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed501",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed502",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed503",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed504",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed505",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed506",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed507",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2 fallback: no feasible candidate, max q on VAL-SELECT",
+   "fallback": true
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed508",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed509",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed510",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed511",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed512",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed513",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed514",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed515",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed516",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed517",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    0
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed518",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_lenet5_C2_seed519",
+   "setting": "cifar100_lenet5",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    0
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed500",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed501",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed502",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed503",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed504",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed505",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed506",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed507",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed508",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed509",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed510",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed511",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed512",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed513",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed514",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed515",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed516",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed517",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    0,
+    0,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed518",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C0_seed519",
+   "setting": "cifar100_resnet8",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed500",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed501",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed502",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed503",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed504",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed505",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed506",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed507",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed508",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed509",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed510",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed511",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed512",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed513",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed514",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed515",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed516",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed517",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed518",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C1_seed519",
+   "setting": "cifar100_resnet8",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed500",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed501",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    1,
+    0,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed502",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed503",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed504",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed505",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed506",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed507",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed508",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed509",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed510",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed511",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed512",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed513",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed514",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed515",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed516",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed517",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed518",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_resnet8_C2_seed519",
+   "setting": "cifar100_resnet8",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed500",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed501",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed502",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed503",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed504",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed505",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed506",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed507",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed508",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed509",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed510",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed511",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed512",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed513",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed514",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed515",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed516",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed517",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed518",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C0_seed519",
+   "setting": "cifar100_simplecnn",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed500",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    2,
+    0,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed501",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed502",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed503",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed504",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed505",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed506",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed507",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed508",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed509",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed510",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed511",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed512",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed513",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed514",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed515",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed516",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    0,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed517",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed518",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    2,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C1_seed519",
+   "setting": "cifar100_simplecnn",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed500",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    0,
+    3,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed501",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed502",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed503",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed504",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed505",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed506",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed507",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed508",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed509",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    0,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed510",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed511",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    2,
+    0,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed512",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    2,
+    0,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed513",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed514",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed515",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed516",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    2,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed517",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed518",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    1,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar100_simplecnn_C2_seed519",
+   "setting": "cifar100_simplecnn",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed500",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    3
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed501",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed502",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed503",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed504",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed505",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed506",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed507",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed508",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed509",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed510",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed511",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed512",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed513",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed514",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed515",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed516",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed517",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed518",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C0_seed519",
+   "setting": "cifar10_lenet5",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    1,
+    2,
+    5,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed500",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed501",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed502",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed503",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed504",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed505",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed506",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    3,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed507",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed508",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed509",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed510",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed511",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed512",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed513",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed514",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed515",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed516",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed517",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed518",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C1_seed519",
+   "setting": "cifar10_lenet5",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed500",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed501",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed502",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed503",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed504",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed505",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed506",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed507",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed508",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed509",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    4
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed510",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed511",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed512",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed513",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed514",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    3,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed515",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed516",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    1
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed517",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed518",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    2
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_lenet5_C2_seed519",
+   "setting": "cifar10_lenet5",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed500",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed501",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    0,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed502",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed503",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    2,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed504",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed505",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed506",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed507",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed508",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    3,
+    2,
+    1,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed509",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    2,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed510",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    0,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed511",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed512",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    2,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed513",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed514",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed515",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    0,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed516",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed517",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed518",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C0_seed519",
+   "setting": "cifar10_resnet8",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    4
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed500",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed501",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed502",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed503",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed504",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed505",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed506",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed507",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed508",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed509",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed510",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed511",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed512",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed513",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed514",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed515",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed516",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed517",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed518",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C1_seed519",
+   "setting": "cifar10_resnet8",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed500",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed501",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed502",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed503",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed504",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed505",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed506",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed507",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    0,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed508",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed509",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    0,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed510",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed511",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    0,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed512",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed513",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed514",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed515",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed516",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed517",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    2,
+    0,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed518",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_resnet8_C2_seed519",
+   "setting": "cifar10_resnet8",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed500",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 500,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed501",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed502",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 502,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed503",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed504",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed505",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed506",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed507",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed508",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed509",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 509,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed510",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed511",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed512",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 512,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed513",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 513,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed514",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed515",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 515,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed516",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 516,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed517",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 517,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed518",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C0_seed519",
+   "setting": "cifar10_simplecnn",
+   "condition": "C0",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rule": "C0: max R0 score on VAL-SELECT",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed500",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 500,
+   "selected_policy": [
+    1,
+    2,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed501",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    5,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed502",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed503",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    5,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed504",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 504,
+   "selected_policy": [
+    1,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed505",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 505,
+   "selected_policy": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed506",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 506,
+   "selected_policy": [
+    0,
+    3,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed507",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 507,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed508",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 508,
+   "selected_policy": [
+    0,
+    3,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed509",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed510",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed511",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 511,
+   "selected_policy": [
+    2,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed512",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed513",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed514",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 514,
+   "selected_policy": [
+    1,
+    4,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed515",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed516",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed517",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed518",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 518,
+   "selected_policy": [
+    0,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C1_seed519",
+   "setting": "cifar10_simplecnn",
+   "condition": "C1",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed500",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 500,
+   "selected_policy": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed501",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 501,
+   "selected_policy": [
+    0,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed502",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 502,
+   "selected_policy": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed503",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 503,
+   "selected_policy": [
+    0,
+    5,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed504",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 504,
+   "selected_policy": [
+    0,
+    1,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed505",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 505,
+   "selected_policy": [
+    1,
+    4,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed506",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 506,
+   "selected_policy": [
+    1,
+    3,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed507",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 507,
+   "selected_policy": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed508",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 508,
+   "selected_policy": [
+    1,
+    0,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed509",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 509,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed510",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 510,
+   "selected_policy": [
+    0,
+    2,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed511",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 511,
+   "selected_policy": [
+    0,
+    2,
+    0,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed512",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 512,
+   "selected_policy": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed513",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 513,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed514",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 514,
+   "selected_policy": [
+    0,
+    3,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed515",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 515,
+   "selected_policy": [
+    1,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed516",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 516,
+   "selected_policy": [
+    1,
+    1,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed517",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 517,
+   "selected_policy": [
+    1,
+    1,
+    2,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed518",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 518,
+   "selected_policy": [
+    1,
+    4,
+    3,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  },
+  {
+   "run_id": "cifar10_simplecnn_C2_seed519",
+   "setting": "cifar10_simplecnn",
+   "condition": "C2",
+   "seed": 519,
+   "selected_policy": [
+    0,
+    0,
+    5,
+    5
+   ],
+   "rule": "C1/C2: feasible on VAL-SELECT, max sparsity",
+   "fallback": false
+  }
+ ]
+}
