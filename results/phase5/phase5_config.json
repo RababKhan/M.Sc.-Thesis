@@ -1,0 +1,376 @@
+{
+ "created": "2026-09-30T13:39:22+06:00",
+ "tau": 0.98,
+ "tau_rule": {
+  "candidates": [
+   0.95,
+   0.97,
+   0.98,
+   0.99
+  ],
+  "min_feasible": 20,
+  "min_sparsity": 10.0,
+  "passing": [
+   0.95,
+   0.97,
+   0.98
+  ],
+  "meets_by_tau": {
+   "0.95": true,
+   "0.97": true,
+   "0.98": true,
+   "0.99": false
+  }
+ },
+ "constants": {
+  "EPS": 0.01,
+  "KAPPA": 10.0,
+  "BETA": 1.0,
+  "ARCHIVE_K": 10,
+  "TOTAL_TIMESTEPS": 2000,
+  "THREADS": 1,
+  "CENSOR": 513
+ },
+ "seeds": [
+  500,
+  501,
+  502,
+  503,
+  504,
+  505,
+  506,
+  507,
+  508,
+  509,
+  510,
+  511,
+  512,
+  513,
+  514,
+  515,
+  516,
+  517,
+  518,
+  519
+ ],
+ "conditions": {
+  "C0": {
+   "reward": "R0",
+   "prior": "P2"
+  },
+  "C1": {
+   "reward": "RC",
+   "prior": "P2"
+  },
+  "C2": {
+   "reward": "RC",
+   "prior": "none"
+  }
+ },
+ "settings": {
+  "cifar10_simplecnn": {
+   "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+   "dense_val_rl_accuracy": 76.88,
+   "dense_val_select_accuracy": 77.76,
+   "sensitivity_raw": [
+    0.7856862351931511,
+    0.022599146684820638,
+    0.008025118749888274,
+    -0.0011616412907667424
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.030197435470963006,
+    0.011675395353046724,
+    0.0
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "features.0",
+    "features.3",
+    "features.6",
+    "classifier.1"
+   ],
+   "P2_coefficients": [
+    0.7395317922939976,
+    -0.23027077223503942,
+    -0.2487928123529557,
+    -0.26046820770600243
+   ],
+   "landscape_sha256": "1e8e473f276b8e4d7d165b453767ee73ab38691345f3fb75f90524f008c7cde9",
+   "tables_sha256": "60c27351d04b80814660aff3b12a8b40ae953d001a51e9c81f33e9a406f87095"
+  },
+  "cifar10_lenet5": {
+   "reference_sha256": "5ca6e0fce0fd4346562cd041230beff7722a4815cce5c9c4ea78039c396f9bdf",
+   "dense_val_rl_accuracy": 64.2,
+   "dense_val_select_accuracy": 64.44,
+   "sensitivity_raw": [
+    0.20766148884497404,
+    0.09599495063875549,
+    0.0165139849415116,
+    0.00817740701042869
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.44022331416480537,
+    0.04179069254256274,
+    0.0
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "conv1",
+    "conv2",
+    "fc1",
+    "fc2"
+   ],
+   "P2_coefficients": [
+    0.6294964983231579,
+    0.06971981248796333,
+    -0.3287128091342793,
+    -0.37050350167684204
+   ],
+   "landscape_sha256": "843323d27e6adc8e420785c4359251ff75e5b0c35be18324628eb4301ad53988",
+   "tables_sha256": "31036eed5480d2e4f5ec4aeeeb71c1abab90fea471a82728737f53a07b38dc7d"
+  },
+  "cifar10_resnet8": {
+   "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+   "dense_val_rl_accuracy": 78.92,
+   "dense_val_select_accuracy": 78.52,
+   "sensitivity_raw": [
+    1.238220720949498,
+    0.2858664972571627,
+    0.480435722338709,
+    0.12435292940877288
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.1450024581687391,
+    0.3196813801729513,
+    0.0
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "stem",
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "P2_coefficients": [
+    0.6338290404145774,
+    -0.22116850141668346,
+    -0.04648957941247128,
+    -0.36617095958542256
+   ],
+   "landscape_sha256": "f79ac6eea4522155310b5e472efdc79cdf3937e7700c92bdc57a670b8ac04429",
+   "tables_sha256": "c1539aa984134129fd6d84c06a478ab4a8307eae7dbe725923104ff126d6d132"
+  },
+  "cifar100_simplecnn": {
+   "reference_sha256": "d75dd19ca3178d43473031630469bcfc5d738e1cf54c3c9685b35cf808b684ff",
+   "dense_val_rl_accuracy": 48.96,
+   "dense_val_select_accuracy": 49.2,
+   "sensitivity_raw": [
+    0.3307800036005142,
+    0.03966373436170981,
+    0.003789783931520079,
+    0.0004944706564025948
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.11859212650387305,
+    0.009977165047901422,
+    0.0
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "features.0",
+    "features.3",
+    "features.6",
+    "classifier.1"
+   ],
+   "P2_coefficients": [
+    0.7178576771120564,
+    -0.16355019638407056,
+    -0.2721651578400422,
+    -0.2821423228879436
+   ],
+   "landscape_sha256": "957c7ba13708c6c58076261f40ca95e46d3a6d3f6692b07cf8f835b9110b1407",
+   "tables_sha256": "7db3c0f068acf13a756a34ad92ff3060cbd5ec7bc2fbbcc0f83165c99636c7a2"
+  },
+  "cifar100_lenet5": {
+   "reference_sha256": "8e1b1aee6cff5a8ebdcb774550502782a63130f4545a48071cf6bb6ccd6cd623",
+   "dense_val_rl_accuracy": 32.76,
+   "dense_val_select_accuracy": 32.4,
+   "sensitivity_raw": [
+    0.0800717936422155,
+    0.04816425083747692,
+    0.006819955554379111,
+    0.011134197526166987
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.5644130763452216,
+    0.0,
+    0.05889602342284792
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "conv1",
+    "conv2",
+    "fc1",
+    "fc2"
+   ],
+   "P2_coefficients": [
+    0.5941727250579826,
+    0.15858580140320422,
+    -0.4058272749420174,
+    -0.3469312515191695
+   ],
+   "landscape_sha256": "ed50522f8c8e8fcfc628350f0ea46871e3a2ed133820fa71581994644554313c",
+   "tables_sha256": "bec2e5b479c688e9ad9774907906a3e686f053b9f5786ed11fc7d00b1bb40e62"
+  },
+  "cifar100_resnet8": {
+   "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+   "dense_val_rl_accuracy": 43.76,
+   "dense_val_select_accuracy": 43.2,
+   "sensitivity_raw": [
+    0.8291735260456752,
+    0.3235903624290532,
+    0.8272913912594221,
+    0.09783655277052435
+   ],
+   "sensitivity_normalized": [
+    1.0,
+    0.30868644401709133,
+    0.9974264465560597,
+    0.0
+   ],
+   "most_sensitive_unit_index": 0,
+   "units": [
+    "stem",
+    "stage1",
+    "stage2",
+    "stage3"
+   ],
+   "P2_coefficients": [
+    0.42347177735671226,
+    -0.2678417786261964,
+    0.420898223912772,
+    -0.5765282226432877
+   ],
+   "landscape_sha256": "67f6c65eafa9607410e678b8377cb6e7bed754e94e6690a90e050f0b164431ac",
+   "tables_sha256": "f4d89153e8603f86f0c0dc20e6f6695dc69bc8552151484638fd4b405cf037c8"
+  }
+ },
+ "oracle": {
+  "cifar10_simplecnn": {
+   "policy_index": 395,
+   "actions": [
+    1,
+    4,
+    5,
+    5
+   ],
+   "sparsity": 59.087843941975116,
+   "val_rl_accuracy": 76.16,
+   "q": 0.9906347554630593,
+   "max_feasible_sparsity": 59.087843941975116,
+   "feasible_sparsity_ge_20_exists": true,
+   "n_feasible": 515
+  },
+  "cifar10_lenet5": {
+   "policy_index": 69,
+   "actions": [
+    0,
+    1,
+    5,
+    3
+   ],
+   "sparsity": 51.908693540553664,
+   "val_rl_accuracy": 62.96,
+   "q": 0.9806853582554517,
+   "max_feasible_sparsity": 51.908693540553664,
+   "feasible_sparsity_ge_20_exists": true,
+   "n_feasible": 395
+  },
+  "cifar10_resnet8": {
+   "policy_index": 297,
+   "actions": [
+    1,
+    2,
+    1,
+    3
+   ],
+   "sparsity": 25.33867631851086,
+   "val_rl_accuracy": 77.44,
+   "q": 0.9812468322351748,
+   "max_feasible_sparsity": 25.33867631851086,
+   "feasible_sparsity_ge_20_exists": true,
+   "n_feasible": 46
+  },
+  "cifar100_simplecnn": {
+   "policy_index": 353,
+   "actions": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "sparsity": 54.390025384500525,
+   "val_rl_accuracy": 48.2,
+   "q": 0.9844771241830066,
+   "max_feasible_sparsity": 54.390025384500525,
+   "feasible_sparsity_ge_20_exists": true,
+   "n_feasible": 254
+  },
+  "cifar100_lenet5": {
+   "policy_index": 352,
+   "actions": [
+    1,
+    3,
+    4,
+    4
+   ],
+   "sparsity": 34.612721765469495,
+   "val_rl_accuracy": 32.16,
+   "q": 0.9816849816849816,
+   "max_feasible_sparsity": 34.612721765469495,
+   "feasible_sparsity_ge_20_exists": true,
+   "n_feasible": 279
+  },
+  "cifar100_resnet8": {
+   "policy_index": 44,
+   "actions": [
+    0,
+    1,
+    1,
+    2
+   ],
+   "sparsity": 16.076756496631376,
+   "val_rl_accuracy": 43.28,
+   "q": 0.9890310786106034,
+   "max_feasible_sparsity": 16.076756496631376,
+   "feasible_sparsity_ge_20_exists": false,
+   "n_feasible": 21
+  }
+ },
+ "split_manifest_sha256": "733d55de960f1b7a7dd527ad38150afbd004e75d0ccab71e89ad6a8c2b3251ee",
+ "design_commitments_sha256": "10d769a9ed2ae7e027fdc3119ecb8b7d894c7231c3f7dd442cd1ca3f0db31f95",
+ "git": {
+  "commit": "fb9d5fbb3f0121c7ee6dd893a603e33d8d78558c",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? experiments/phase5/aggregate.py",
+   "?? experiments/phase5/checks.py",
+   "?? experiments/phase5/final_eval.py",
+   "?? experiments/phase5/make_figures.py",
+   "?? experiments/phase5/prepare.py",
+   "?? experiments/phase5/run.py",
+   "?? experiments/phase5/select_archive.py",
+   "?? results/phase5/landscapes/",
+   "?? results/phase5/phase5_sensitivity_vectors.csv",
+   "?? results/phase5/phase5_tau_diagnostic.csv"
+  ]
+ },
+ "script_sha256": "d46ed08756b27c19f255aaac27d84a3059fa6790379c2ad7db7ea35267c7a7fb",
+ "content_sha256": "d4f90221bae3a3f6a6d5784574476fcc3c9e9ae5bc1c39ad8ce93e96c4cdb62c"
+}
