@@ -33,9 +33,14 @@ def cmd_timing(a):
     torch.set_num_threads(L.THREADS)
     os.makedirs(PARTS, exist_ok=True)
     method = L.ALL_METHODS[a.worker]
-    rows, bundles = [], {}
+    part = os.path.join(PARTS, f"timing_{a.worker}.csv")
+    rows = pd.read_csv(part).to_dict("records") if os.path.exists(part) else []
+    done = {r["setting"] for r in rows}
+    bundles = {}
     tmp = tempfile.mkdtemp()
     for s in L.SETTINGS:
+        if s in done:                                        # resumable per setting (power cuts)
+            continue
         d, arch = L.P3.split(s)
         b = bundles.setdefault(d, L.bundle(d))
         ref, _ = L.P3.load_reference(s)
@@ -51,8 +56,9 @@ def cmd_timing(a):
                      "mask_violations": L.mask_violations(model), "peak_memory_mb": L.peak_memory_mb(),
                      "train_loss_epoch1": hist[0]["train_loss"]})
         print(rows[-1], flush=True)
+        pd.DataFrame(rows).to_csv(part + ".tmp", index=False)
+        os.replace(part + ".tmp", part)
     shutil.rmtree(tmp, ignore_errors=True)
-    pd.DataFrame(rows).to_csv(os.path.join(PARTS, f"timing_{a.worker}.csv"), index=False)
 
 
 def folded_state(model):

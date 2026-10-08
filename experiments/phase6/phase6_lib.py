@@ -159,6 +159,8 @@ def finetune(model, b, seed, epochs, work_path, log=print, validate=True):
                            "optimizer": opt.state_dict(), "scheduler": sched.state_dict(), "generator": gen.get_state(),
                            "history": history}, work_path)
         log(f"  epoch {epoch}/{epochs}  loss {history[-1]['train_loss']:.4f}  ({history[-1]['epoch_seconds']:.0f}s)")
+    # identical for every run that consumed the same data stream (same seed, same number of epochs)
+    history[-1]["data_stream_sha256"] = hashlib.sha256(gen.get_state().numpy().tobytes()).hexdigest()
     return history, start
 
 
