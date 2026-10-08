@@ -18,9 +18,12 @@ import torch
 import torch.nn as nn
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-for p in (ROOT, os.path.join(ROOT, "experiments", "phase3")):
-    if p not in sys.path:
-        sys.path.insert(0, p)
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+# Appended, never inserted first: Phase 3 has modules with the same names as Phase-6 scripts (aggregate, make_figures,
+# prepare). A Phase-6 import must resolve to the Phase-6 file; only phase3_common is taken from Phase 3.
+if os.path.join(ROOT, "experiments", "phase3") not in sys.path:
+    sys.path.append(os.path.join(ROOT, "experiments", "phase3"))
 
 import phase3_common as P3  # noqa: E402  (frozen references and settings)
 from src import data as D, pruning as P  # noqa: E402
@@ -31,6 +34,8 @@ RESULTS = os.path.join(ROOT, "results", "phase6")
 RUNS = os.path.join(RESULTS, "runs")
 REPRO = os.path.join(RESULTS, "reproduction_runs")
 PRED = os.path.join(RESULTS, "predictions")
+TESTS = os.path.join(RESULTS, "test_evaluations")
+FINAL = os.path.join(RESULTS, "phase6_final_models.json")
 WORK = os.path.join(ROOT, "checkpoints", "phase6_finetuned", "_work")
 CKPT = os.path.join(ROOT, "checkpoints", "phase6_finetuned")
 PREREG = os.path.join(RESULTS, "phase6_preregistration.md")
@@ -99,6 +104,24 @@ def mask_violations(model):
     return int(sum(((m.weight != 0) & (mk == 0)).sum() for (n, m), (_, mk) in zip(P.weight_layers(model), mask_tensors(model))))
 
 
+def refresh(model):
+    """Recompute the derived `weight` (weight_orig * weight_mask) of every masked layer from the current parameters.
+
+    PyTorch recomputes it only in a forward pass, so after an optimiser step or load_state_dict it is one step
+    behind (and carries autograd history, which copy.deepcopy rejects). Every count, check and copy goes through here.
+    """
+    with torch.no_grad():
+        for _, m in P.weight_layers(model):
+            if hasattr(m, "weight_mask"):
+                m.weight = m.weight_orig * m.weight_mask
+    return model
+
+
+def folded(model):
+    """A plain copy with the masks folded into the weights (no reparameterisation); `model` itself is unchanged."""
+    return P.make_permanent(copy.deepcopy(refresh(model)))
+
+
 # ------------------------------------------------------------------ fine-tuning
 def make_optimizer(model, epochs):
     opt = torch.optim.Adam([p for p in model.parameters() if p.requires_grad], lr=PROTOCOL["lr"], betas=tuple(PROTOCOL["betas"]),
@@ -126,6 +149,7 @@ def finetune(model, b, seed, epochs, work_path, log=print, validate=True):
         sched.load_state_dict(st["scheduler"])
         gen.set_state(st["generator"])
         history, start = st["history"], st["epoch"]
+        refresh(model)
         log(f"  resumed after epoch {start}")
     for epoch in range(start + 1, epochs + 1):
         t0 = time.time()
@@ -146,7 +170,7 @@ def finetune(model, b, seed, epochs, work_path, log=print, validate=True):
                 seen += len(yb)
         sched.step()
         train_s = time.time() - t0
-        model.eval()
+        refresh(model.eval())                                # the checks below see the weights after the last step
         assert mask_hash(model) == mask0, "mask buffers changed"
         assert mask_violations(model) == 0, "a masked weight is non-zero"
         zeros = P.zero_count(model)

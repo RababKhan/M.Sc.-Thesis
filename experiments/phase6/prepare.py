@@ -20,9 +20,11 @@ from src.utils import environment, git_state, sha256_file, sha256_json
 LIMIT_HOURS = 30.0
 
 
-def projection(per, epochs):
-    per_run = epochs * (per.train_s + per.val_s) + 3 * per.val_s            # + pre/post validation and two test passes
-    return float((per_run * 20 * 4).sum() + per_run.sum()) / 3600.0 / 4.0    # 480 runs + 6 reproduction runs, 4 workers
+def projection(per, epochs, evaluations=3):
+    """Wall hours of 480 runs + 6 reproduction runs on 4 workers. `evaluations` = extra passes in units of one 5,000-image
+    validation: 3 in the formula committed with the pilot (which decides E); 5 when a 10,000-image TEST pass is counted as two."""
+    per_run = epochs * (per.train_s + per.val_s) + evaluations * per.val_s
+    return float((per_run * 20 * 4).sum() + per_run.sum()) / 3600.0 / 4.0
 
 
 def main():
@@ -61,7 +63,8 @@ def main():
                        "prunable_weights": prunable}
     pd.DataFrame(rows).to_csv(os.path.join(L.RESULTS, "phase6_matched_masks.csv"), index=False, float_format="%.17g")
     cfg = {"created": datetime.datetime.now().astimezone().isoformat(timespec="seconds"), "epochs": epochs,
-           "epoch_rule": {"limit_wall_hours": LIMIT_HOURS, "projected_wall_hours": proj},
+           "epoch_rule": {"limit_wall_hours": LIMIT_HOURS, "projected_wall_hours": proj,
+                          "projected_wall_hours_test_passes_counted_double": {e: projection(per, e, 5) for e in (3, 5, 10)}},
            "protocol": L.PROTOCOL, "policy_seeds": L.POLICY_SEEDS, "ft_seed_offset": L.FT_SEED_OFFSET, "methods": L.ALL_METHODS,
            "threads": L.THREADS, "settings": settings,
            "inputs_sha256": {"phase5_final_policies": sha256_file(os.path.join(L.P5, "phase5_final_policies.json")),
@@ -76,7 +79,8 @@ def main():
     json.dump(cfg, open(L.CONFIG, "w", encoding="utf-8"), indent=1)
     json.dump(environment(), open(os.path.join(L.RESULTS, "phase6_environment.json"), "w", encoding="utf-8"), indent=1)
     print(per.round(1).to_string())
-    print("projected wall-hours:", {k: round(v, 1) for k, v in proj.items()}, "-> E =", epochs)
+    print("projected wall-hours:", {k: round(v, 2) for k, v in proj.items()}, "-> E =", epochs)
+    print("with TEST passes counted double:", {e: round(projection(per, e, 5), 2) for e in (3, 5, 10)})
     print({s: v["distinct_policies"] for s, v in settings.items()})
     print("config sha256", sha256_file(L.CONFIG))
 

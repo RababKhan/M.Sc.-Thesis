@@ -114,7 +114,7 @@ def fig4():
             a.scatter(q.sparsity_pre, q.test_post, s=14, marker=mk, color=COL[m], zorder=3, label=LAB[m])
         a.axhline(g.dense_test.iloc[0], color=INK2, lw=0.8, ls="--")
         a.set_title(NAMES[s])
-        a.set_xlabel("Total sparsity (%) (identical for the three methods)")
+        a.set_xlabel("Total sparsity (%), same for all methods")
         a.set_ylabel("Test accuracy (%)")
     h, lab = ax[L.SETTINGS[0]].get_legend_handles_labels()
     h += [plt.Line2D([], [], marker="o", mfc="white", mec=INK, ls="", ms=4), plt.Line2D([], [], color=INK2, ls="--", lw=0.8)]

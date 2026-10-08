@@ -2,11 +2,11 @@
 
   python experiments/phase6/pilot.py timing --worker K        # K = 0..3 run concurrently: 1 epoch per setting
   python experiments/phase6/pilot.py checks                    # mask, determinism, resume, serialization, Phase-5 match
+  python experiments/phase6/pilot.py checks_bn                 # determinism and resume on ResNet-8 (BatchNorm)
   python experiments/phase6/pilot.py summarize                 # -> phase6_timing_pilot.csv + projection
 Worker K fine-tunes method ALL_METHODS[K] (ppo-style mask, LAMP, global, dense), as in the confirmatory layout.
 """
 import argparse
-import copy
 import glob
 import gzip
 import io
@@ -62,7 +62,14 @@ def cmd_timing(a):
 
 
 def folded_state(model):
-    return P.make_permanent(copy.deepcopy(model)).state_dict()
+    return L.folded(model).state_dict()
+
+
+def masked_untouched(model, reference):
+    """Under every mask the stored parameter (weight_orig) still holds the dense value: no gradient or optimiser update reached it."""
+    ref = dict(P.weight_layers(reference))
+    return all(torch.equal(m.weight_orig[m.weight_mask == 0], ref[n].weight[m.weight_mask == 0])
+               for n, m in P.weight_layers(model) if hasattr(m, "weight_mask"))
 
 
 def cmd_checks(_a):
@@ -100,9 +107,10 @@ def cmd_checks(_a):
         z0, h0 = P.zero_count(m0), L.mask_hash(m0)
         m1, hist, _ = run(method, 2, f"a_{method}")
         changed = sha256_state_dict(folded_state(m1)) != sha256_state_dict(folded_state(m0))
-        chk(f"{method}: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count {z0:,} unchanged); weights trained",
-            L.mask_hash(m1) == h0 and L.mask_violations(m1) == 0 and P.zero_count(m1) == z0 and changed,
-            f"train loss {hist[0]['train_loss']:.4f} -> {hist[1]['train_loss']:.4f}")
+        chk(f"{method}: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count {z0:,} unchanged, masked parameters "
+            "never updated); unmasked weights trained",
+            L.mask_hash(m1) == h0 and L.mask_violations(m1) == 0 and P.zero_count(m1) == z0 and changed and masked_untouched(m1, ref)
+            and P.zero_count(L.folded(m1)) == z0, f"train loss {hist[0]['train_loss']:.4f} -> {hist[1]['train_loss']:.4f}")
     k = {m: P.zero_count(L.build(ref, arch, m, PILOT_POLICY)) for m in L.METHODS}
     chk("PPO-style, LAMP and global masks have the identical zero count; the classifier is dense in all three",
         len(set(k.values())) == 1 and all(L.layer_zeros(L.build(ref, arch, m, PILOT_POLICY))[P.EXCLUDED[arch][0]] == 0 for m in L.METHODS), k)
@@ -153,6 +161,41 @@ def cmd_checks(_a):
     print(f"{sum(r['pass'] for r in res)}/{len(res)} passed")
 
 
+def cmd_checks_bn(_a):
+    """Determinism and resume equivalence on ResNet-8 (BatchNorm running statistics are part of the resumed state)."""
+    torch.set_num_threads(L.THREADS)
+    s = "cifar10_resnet8"
+    d, arch = L.P3.split(s)
+    b = L.bundle(d)
+    ref, _ = L.P3.load_reference(s)
+    tmp = tempfile.mkdtemp()
+
+    class Stop(Exception):
+        pass
+
+    def log(msg):
+        if "epoch 1/" in msg:
+            raise Stop()
+    m1 = L.build(ref, arch, "ppo", PILOT_POLICY)
+    L.finetune(m1, b, PILOT_SEED, 2, os.path.join(tmp, "a"), log=lambda x: None, validate=False)
+    m2 = L.build(ref, arch, "ppo", PILOT_POLICY)
+    try:
+        L.finetune(m2, b, PILOT_SEED, 2, os.path.join(tmp, "b"), log=log, validate=False)
+    except Stop:
+        pass
+    m2 = L.build(ref, arch, "ppo", PILOT_POLICY)
+    _, resumed = L.finetune(m2, b, PILOT_SEED, 2, os.path.join(tmp, "b"), log=lambda x: None, validate=False)
+    same = sha256_state_dict(m1.state_dict()) == sha256_state_dict(m2.state_dict())
+    moved = any(not torch.equal(v, ref.state_dict()[k]) for k, v in L.folded(m1).state_dict().items() if "running_mean" in k)
+    res = [{"check": "ResNet-8 (BatchNorm): a run interrupted after epoch 1 and resumed is bit-identical to an uninterrupted 2-epoch run "
+                     "(weights, BatchNorm statistics); the running statistics were updated; mask intact",
+            "pass": bool(resumed == 1 and same and moved and L.mask_violations(m1) == 0 and P.zero_count(m1) == P.zero_count(L.build(ref, arch, "ppo", PILOT_POLICY))),
+            "detail": f"resumed from epoch {resumed}; identical {same}; running statistics updated {moved}"}]
+    print(res[0], flush=True)
+    shutil.rmtree(tmp, ignore_errors=True)
+    json.dump(res, open(os.path.join(PARTS, "checks_bn.json"), "w", encoding="utf-8"), indent=1)
+
+
 def cmd_summarize(_a):
     t = pd.concat([pd.read_csv(p) for p in sorted(glob.glob(os.path.join(PARTS, "timing_*.csv")))])
     t.to_csv(os.path.join(L.RESULTS, "phase6_timing_pilot.csv"), index=False)
@@ -171,6 +214,7 @@ if __name__ == "__main__":
     t = sub.add_parser("timing")
     t.add_argument("--worker", type=int, required=True)
     sub.add_parser("checks")
+    sub.add_parser("checks_bn")
     sub.add_parser("summarize")
     a = ap.parse_args()
-    {"timing": cmd_timing, "checks": cmd_checks, "summarize": cmd_summarize}[a.cmd](a)
+    {"timing": cmd_timing, "checks": cmd_checks, "checks_bn": cmd_checks_bn, "summarize": cmd_summarize}[a.cmd](a)

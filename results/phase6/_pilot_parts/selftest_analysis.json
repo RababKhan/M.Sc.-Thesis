@@ -1,0 +1,32 @@
+[
+ {
+  "check": "integrity file written and every check passed on the synthetic records",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "families and sizes as pre-registered",
+  "pass": true,
+  "detail": "{'H1 recovery (post - pre)': 18, 'dense control gain': 6, 'pruning-specific recovery (method - dense control)': 18, 'H2 PPO vs LAMP (post difference and gap change)': 12, 'H2 reference: PPO - LAMP before fine-tuning (Phase-5 result)': 6, 'H3 PPO vs global magnitude (post difference and gap change)': 12, 'H3 reference: PPO - global magnitude before fine-tuning (Phase-5 result)': 6, 'H4 architecture dependence (PPO recovery)': 6, 'H4 sensitivity: paired by fine-tuning seed': 6, 'H6 retention gap change (PPO: VAL-SELECT - test)': 6}"
+ },
+ {
+  "check": "Holm-adjusted p >= raw p in every family; outcome labels valid",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "the planted effect is found where it was planted and nowhere else (dG PPO - LAMP: 3 supported, 3 inconclusive)",
+  "pass": true,
+  "detail": "{'cifar10_simplecnn': 'supported', 'cifar10_lenet5': 'supported', 'cifar10_resnet8': 'supported', 'cifar100_simplecnn': 'inconclusive', 'cifar100_lenet5': 'inconclusive', 'cifar100_resnet8': 'inconclusive'}"
+ },
+ {
+  "check": "criteria A-F each MET / PARTIALLY MET / NOT MET",
+  "pass": true,
+  "detail": "{'A': 'MET', 'B': 'MET', 'C': 'MET', 'D': 'MET', 'E': 'MET', 'F': 'MET'}"
+ },
+ {
+  "check": "every required table, figure and figure source file is produced",
+  "pass": true,
+  "detail": "[]"
+ }
+]

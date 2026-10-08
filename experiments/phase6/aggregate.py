@@ -17,7 +17,20 @@ from src.utils import environment, sha256_file
 
 OUT = L.RESULTS
 FIG = os.path.join(OUT, "figures")
-PRACTICAL = 0.25                      # pp: pre-registered practical-relevance threshold
+PRACTICAL = 0.5                       # pp: pre-registered practical-relevance threshold (the Phase-5 margin)
+H1, DENSE, SPECIFIC = "H1 recovery (post - pre)", "dense control gain", "pruning-specific recovery (method - dense control)"
+H4, H4P = "H4 architecture dependence (PPO recovery)", "H4 sensitivity: paired by fine-tuning seed"
+H6 = "H6 retention gap change (PPO: VAL-SELECT - test)"
+NAME = {"lamp": "LAMP", "global": "global magnitude"}
+
+
+def fam_of(other):
+    """Confirmatory family of H2 (LAMP) / H3 (global): post-fine-tuning difference and gap change, 12 tests."""
+    return f"{'H2' if other == 'lamp' else 'H3'} PPO vs {NAME[other]} (post difference and gap change)"
+
+
+def ref_of(other):
+    return f"{'H2' if other == 'lamp' else 'H3'} reference: PPO - {NAME[other]} before fine-tuning (Phase-5 result)"
 ARCH = {"simplecnn": "SimpleCNN", "lenet5": "LeNet-5", "resnet8": "ResNet-8"}
 
 
@@ -49,6 +62,7 @@ def test_rows(name, question, items, direction, rng):
     df["holm_p"] = ST.holm(df.sign_flip_p.to_numpy())
     df["outcome"] = [outcome(r.mean_diff, r.t_ci95_low, r.t_ci95_high, r.holm_p, direction) for r in df.itertuples()]
     df["practically_relevant"] = df.mean_diff.abs() >= PRACTICAL
+    df["equivalent_within_margin"] = (df.t_ci95_low > -PRACTICAL) & (df.t_ci95_high < PRACTICAL)
     return df
 
 
@@ -74,14 +88,15 @@ def two_sample_rows(name, question, items, rng, n_perm=100000):
     df_["holm_p"] = ST.holm(df_.sign_flip_p.to_numpy())
     df_["outcome"] = [outcome(r.mean_diff, r.t_ci95_low, r.t_ci95_high, r.holm_p) for r in df_.itertuples()]
     df_["practically_relevant"] = df_.mean_diff.abs() >= PRACTICAL
+    df_["equivalent_within_margin"] = (df_.t_ci95_low > -PRACTICAL) & (df_.t_ci95_high < PRACTICAL)
     return df_
 
 
-def integrity(cfg, recs, repro, masks):
+def integrity(cfg, recs, repro, masks, tests, final):
     res = []
 
-    def chk(n, ok, d=""):
-        res.append((n, bool(ok), str(d)))
+    def chk(n, ok, d="", blocking=True):
+        res.append((n, bool(ok), str(d), blocking))
     want = {(s, x, m) for s in L.SETTINGS for x in L.POLICY_SEEDS for m in L.ALL_METHODS}
     got = {(r["setting"], r["policy_seed"], r["method"]) for r in recs}
     chk("all 480 scheduled runs complete; no run dropped or added", got == want and len(recs) == 480 and all(r["status"] == "complete" for r in recs),
@@ -99,11 +114,28 @@ def integrity(cfg, recs, repro, masks):
     mk = masks.set_index(["setting", "policy_seed"])
     chk("masks equal the frozen matched-mask table", all(r["mask_hash_pre"] == mk.loc[(r["setting"], r["policy_seed"]), f"{r['method']}_mask_sha256"]
                                                          for r in recs if r["method"] != "dense"))
-    chk("pre-fine-tuning test accuracy equals the Phase-5 record in every run", all(r["pre"]["test"] == r["phase5_recorded_test"] for r in recs))
+    fz = {m["run_id"]: m for m in final["models"]}
+    tmap = {t["run_id"]: t for t in tests}
+    chk("frozen list: exactly the 480 final-epoch models of stage 1 (state hash, checkpoint hash, zero count)",
+        set(fz) == {r["run_id"] for r in recs} and all(fz[r["run_id"]]["final_state_sha256"] == r["final_state_sha256"]
+                                                         and fz[r["run_id"]]["checkpoint_sha256"] == r["checkpoint_sha256"]
+                                                         and fz[r["run_id"]]["zero_count"] == r["zero_count_post"] for r in recs))
+    chk("checkpoint files on disk are the frozen ones", all(sha256_file(os.path.join(L.ROOT, m["checkpoint_file"])) == m["checkpoint_sha256"]
+                                                           for m in final["models"]))
+    chk("all 480 TEST evaluations complete, each of the frozen checkpoint", set(tmap) == set(fz) and all(
+        t["status"] == "complete" and t["final_state_sha256"] == fz[t["run_id"]]["final_state_sha256"]
+        and t["final_models_sha256"] == sha256_file(L.FINAL) for t in tests), f"{len(tests)} records")
+    when = datetime.datetime.fromisoformat
+    chk("order: every fine-tuning run finished before the list was frozen; every TEST evaluation started after it",
+        max(when(r["finished_at"]) for r in recs) <= when(final["created"]) <= min(when(t["started_at"]) for t in tests),
+        f"last run {max(r['finished_at'] for r in recs)}; frozen {final['created']}; first TEST {min(t['started_at'] for t in tests)}")
+    chk("stage-1 records hold no TEST accuracy (validation only)", all("test" not in r["pre"] and "test" not in r["post"]
+                                                                       and r["test_use"].startswith("none") for r in recs))
+    chk("pre-fine-tuning test accuracy equals the Phase-5 record in every run", all(t["pre_test"] == t["phase5_recorded_test"] for t in tests))
     chk("fixed mask: mask hash unchanged and no masked weight non-zero in every run",
         all(r["mask_hash_pre"] == r["mask_hash_post"] and r["mask_violations_post"] == 0 for r in recs))
-    chk("TEST read only for the pre-fine-tuning and final-epoch models; no selection (final epoch for every run)",
-        all(r["test_use"].startswith("pre-fine-tuning model and final-epoch model") for r in recs))
+    chk("no selection: the evaluated model is the one after the final epoch in every run",
+        all(r["post"]["val_rl"] == r["history"][-1]["val_rl_accuracy"] and len(r["history"]) == r["epochs"] for r in recs))
     chk("pre-registration and config unchanged in every record and on disk",
         all(r["preregistration_sha256"] == sha256_file(L.PREREG) and r["config_sha256"] == sha256_file(L.CONFIG) for r in recs))
     chk("1 thread in every run", all(r["threads"] == 1 for r in recs))
@@ -116,9 +148,9 @@ def integrity(cfg, recs, repro, masks):
         and sha256_file(os.path.join(L.P5, "splits", "cifar100_phase5_split.npz")) == cfg["inputs_sha256"]["cifar100_split"])
     rmap = {(r["setting"], r["policy_seed"], r["method"]): r for r in recs}
     same = [x["final_state_sha256"] == rmap[(x["setting"], x["policy_seed"], x["method"])]["final_state_sha256"]
-            and x["post"]["test"] == rmap[(x["setting"], x["policy_seed"], x["method"])]["post"]["test"] for x in repro]
-    chk("reproduction: the 6 pre-registered repeat runs are bit-identical (weights hash and test accuracy)", len(repro) == 6 and all(same),
-        f"{sum(same)}/{len(repro)} identical")
+            and x["post"] == rmap[(x["setting"], x["policy_seed"], x["method"])]["post"] for x in repro]
+    chk("reproduction: the 6 pre-registered repeat runs are bit-identical (weights hash and validation accuracy) [reported; decides criterion F]",
+        len(repro) == 6 and all(same), f"{sum(same)}/{len(repro)} identical", blocking=False)
     env = environment()
     chk("commit, CPU/threads and package versions recorded", bool(git("rev-parse", "HEAD")),
         f"HEAD {git('rev-parse', '--short', 'HEAD')}; {env['cpu']}; torch {env['torch']}; threads 1; CUDA {env['cuda_available']}")
@@ -134,15 +166,20 @@ def main():
     repro = [json.load(open(os.path.join(L.REPRO, f), encoding="utf-8")) for f in sorted(os.listdir(L.REPRO)) if f.endswith(".json")] \
         if os.path.isdir(L.REPRO) else []
     masks = pd.read_csv(os.path.join(OUT, "phase6_matched_masks.csv"), float_precision="round_trip")
-    res = integrity(cfg, recs, repro, masks)
-    n_ok = sum(ok for _, ok, _ in res)
+    tests = [json.load(open(os.path.join(L.TESTS, f), encoding="utf-8")) for f in sorted(os.listdir(L.TESTS)) if f.endswith(".json")]
+    final = json.load(open(L.FINAL, encoding="utf-8"))
+    res = integrity(cfg, recs, repro, masks, tests, final)
+    n_ok = sum(ok for _, ok, _, _ in res)
     stamp = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     lines = ["# Phase 6 integrity checks", "", f"Run {stamp}, after all runs and before any aggregate statistic. **{n_ok}/{len(res)} passed.**", "",
-             "| Status | Check | Detail |", "|---|---|---|"] + [f"| {'PASS' if ok else 'FAIL'} | {n} | {d.replace('|', '/')[:400]} |" for n, ok, d in res]
+             "| Status | Check | Detail |", "|---|---|---|"] + [f"| {'PASS' if ok else 'FAIL'} | {n} | {d.replace('|', '/')[:400]} |" for n, ok, d, _ in res]
     open(os.path.join(OUT, "phase6_integrity_checks.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")
-    if n_ok != len(res):
+    if any(blocking and not ok for _, ok, _, blocking in res):
         raise SystemExit("integrity checks failed; no aggregate computed")
     print(f"integrity {n_ok}/{len(res)}")
+    tmap = {t["run_id"]: t for t in tests}
+    for r in recs:                                           # attach the TEST accuracy of stage 3 to the stage-1 record
+        r["pre"]["test"], r["post"]["test"] = tmap[r["run_id"]]["pre_test"], tmap[r["run_id"]]["post_test"]
     os.makedirs(FIG, exist_ok=True)
 
     dense_ref = {}
@@ -174,6 +211,9 @@ def main():
                    "val_rl_accuracy": h["val_rl_accuracy"], "val_select_accuracy": h["val_select_accuracy"], "train_loss": h["train_loss"]}
                   for h in r["history"]]
     runs = pd.DataFrame(rows).sort_values(["setting", "policy_seed", "method"]).reset_index(drop=True)
+    dft = runs[runs.method == "dense"].set_index(["setting", "policy_seed"]).test_post          # dense control of the same pair
+    runs["dense_control_test_post"] = [dft[(s, x)] for s, x in zip(runs.setting, runs.policy_seed)]
+    runs["retention_vs_dense_control_post"] = runs.test_post / runs.dense_control_test_post
     runs.to_csv(os.path.join(OUT, "phase6_all_runs.csv"), index=False, float_format="%.17g")
     curves = pd.DataFrame(curve)
     curves.to_csv(os.path.join(OUT, "phase6_training_curves.csv"), index=False, float_format="%.17g")
@@ -183,28 +223,27 @@ def main():
         return V[(s, m)][c].to_dict()
     rng = np.random.default_rng(0)
     fams = []
-    fams.append(test_rows("H1 recovery (post - pre)", "RQ1", [(s, f"{m}: post - pre", "test accuracy", col(s, m, "test_post"), col(s, m, "test_pre"))
-                                                              for s in L.SETTINGS for m in L.METHODS], +1, rng))
-    fams.append(test_rows("dense control gain", "RQ1", [(s, "dense: post - pre", "test accuracy", col(s, "dense", "test_post"), col(s, "dense", "test_pre"))
-                                                        for s in L.SETTINGS], +1, rng))
-    fams.append(test_rows("pruning-specific recovery (method - dense control)", "RQ1",
-                          [(s, f"{m} recovery - dense gain", "recovery", col(s, m, "recovery"), col(s, "dense", "recovery"))
-                           for s in L.SETTINGS for m in L.METHODS], +1, rng))
-    for other, tag in (("lamp", "H2"), ("global", "H3")):
-        fams.append(test_rows(f"{tag} PPO - {other} after fine-tuning", "RQ2/RQ4", [(s, f"ppo - {other} (post)", "test accuracy", col(s, "ppo", "test_post"),
-                                                                                  col(s, other, "test_post")) for s in L.SETTINGS], +1, rng))
-        fams.append(test_rows(f"{tag} PPO - {other} before fine-tuning", "RQ2/RQ4", [(s, f"ppo - {other} (pre)", "test accuracy", col(s, "ppo", "test_pre"),
-                                                                                   col(s, other, "test_pre")) for s in L.SETTINGS], +1, rng))
-        fams.append(test_rows(f"{tag} gap change dG (PPO - {other})", "RQ2", [(s, f"dG ppo - {other}", "recovery difference", col(s, "ppo", "recovery"),
-                                                                             col(s, other, "recovery")) for s in L.SETTINGS], +1, rng))
+    fams.append(test_rows(H1, "RQ1", [(s, f"{m}: post - pre", "test accuracy", col(s, m, "test_post"), col(s, m, "test_pre"))
+                                      for s in L.SETTINGS for m in L.METHODS], +1, rng))
+    fams.append(test_rows(DENSE, "RQ1", [(s, "dense: post - pre", "test accuracy", col(s, "dense", "test_post"), col(s, "dense", "test_pre"))
+                                         for s in L.SETTINGS], +1, rng))
+    fams.append(test_rows(SPECIFIC, "RQ1", [(s, f"{m} recovery - dense gain", "recovery", col(s, m, "recovery"), col(s, "dense", "recovery"))
+                                            for s in L.SETTINGS for m in L.METHODS], +1, rng))
+    for other in ("lamp", "global"):
+        fams.append(test_rows(fam_of(other), "RQ2/RQ4",
+                              [(s, f"ppo - {other} (post)", "test accuracy", col(s, "ppo", "test_post"), col(s, other, "test_post")) for s in L.SETTINGS]
+                              + [(s, f"dG ppo - {other}", "recovery difference", col(s, "ppo", "recovery"), col(s, other, "recovery")) for s in L.SETTINGS],
+                              +1, rng))
+        fams.append(test_rows(ref_of(other), "RQ2/RQ4", [(s, f"ppo - {other} (pre)", "test accuracy", col(s, "ppo", "test_pre"),
+                                                           col(s, other, "test_pre")) for s in L.SETTINGS], +1, rng))
     arch_items = []
     for ds in ("cifar10", "cifar100"):
         for a, b in (("simplecnn", "lenet5"), ("simplecnn", "resnet8"), ("lenet5", "resnet8")):
             arch_items.append((ds, f"ppo recovery: {a} - {b}", "recovery", col(f"{ds}_{a}", "ppo", "recovery"), col(f"{ds}_{b}", "ppo", "recovery")))
-    fams.append(two_sample_rows("H4 architecture dependence (PPO recovery)", "RQ3", arch_items, np.random.default_rng(0)))
-    fams.append(test_rows("H6 retention gap change (PPO: VAL-SELECT - test)", "RQ5", [(s, "ppo: gap post - gap pre", "retention gap",
-                                                                                       col(s, "ppo", "retention_gap_post"), col(s, "ppo", "retention_gap_pre"))
-                                                                                      for s in L.SETTINGS], -1, rng))
+    fams.append(two_sample_rows(H4, "RQ3", arch_items, np.random.default_rng(0)))
+    fams.append(test_rows(H4P, "RQ3", arch_items, +1, rng))
+    fams.append(test_rows(H6, "RQ5", [(s, "ppo: gap post - gap pre", "retention gap", col(s, "ppo", "retention_gap_post"),
+                                       col(s, "ppo", "retention_gap_pre")) for s in L.SETTINGS], -1, rng))
     st = pd.concat(fams, ignore_index=True)
     st.to_csv(os.path.join(OUT, "phase6_statistics.csv"), index=False, float_format="%.17g")
 
@@ -234,8 +273,9 @@ def main():
                                                  gzip_bytes=("checkpoint_bytes_gzip", "mean"), raw_bytes=("checkpoint_bytes_raw", "mean"),
                                                  zero_count_change=("zero_count_post", lambda v: 0)).reset_index()
     pp["zero_count_change"] = runs.groupby(["setting", "method"]).apply(lambda g: int((g.zero_count_post - g.zero_count_pre).abs().max())).to_numpy()
+    pp["dense_gap_closed_fraction"] = [(a - b) / a if a > 0 else float("nan") for a, b in zip(pp.dense_gap_pre, pp.dense_gap_post)]
     pp.to_csv(os.path.join(OUT, "phase6_pre_post_accuracy.csv"), index=False, float_format="%.17g")
-    st[st.family.isin(["H1 recovery (post - pre)", "dense control gain", "pruning-specific recovery (method - dense control)"])].to_csv(
+    st[st.family.isin([H1, DENSE, SPECIFIC])].to_csv(
         os.path.join(OUT, "phase6_accuracy_recovery.csv"), index=False, float_format="%.17g")
     st[st.family.str.startswith("H2")].to_csv(os.path.join(OUT, "phase6_ppo_vs_lamp.csv"), index=False, float_format="%.17g")
     st[st.family.str.startswith("H3")].to_csv(os.path.join(OUT, "phase6_ppo_vs_global.csv"), index=False, float_format="%.17g")
@@ -244,30 +284,42 @@ def main():
     def oc(fam, s, comp=None):
         q = st[(st.family == fam) & (st.setting == s)]
         return (q[q.comparison == comp] if comp else q).outcome.iloc[0]
-    rec_sup = {m: [s for s in L.SETTINGS if oc("H1 recovery (post - pre)", s, f"{m}: post - pre") == "supported"] for m in L.METHODS}
+    rec_sup = {m: [s for s in L.SETTINGS if oc(H1, s, f"{m}: post - pre") == "supported"] for m in L.METHODS}
+    rec_opp = {m: [s for s in L.SETTINGS if oc(H1, s, f"{m}: post - pre") == "opposite"] for m in L.METHODS}
     all3 = [s for s in L.SETTINGS if all(s in rec_sup[m] for m in L.METHODS)]
-    crit = {"A": {"status": "MET", "basis": "identical protocol, epochs, seeds and data stream within every pair; zero-count mismatch 0 (integrity checks)"}}
+    crit = {"A": {"status": "MET", "basis": "every blocking integrity check passed: identical protocol and epoch count, shared fine-tuning seed and "
+                  "data stream within every (setting, policy seed), zero-count mismatch 0 in all 120 triples, masks equal the frozen table"}}
     crit["B"] = {"status": "MET" if len(all3) >= 2 else ("PARTIALLY MET" if any(len(v) >= 2 for v in rec_sup.values()) or len(all3) == 1 else "NOT MET"),
-                 "settings_all_three_methods": all3, "supported_per_method": rec_sup}
-    dg = {s: oc("H2 gap change dG (PPO - lamp)", s) for s in L.SETTINGS}
+                 "settings_all_three_methods": all3, "supported_per_method": rec_sup, "opposite_per_method": rec_opp,
+                 "pruning_specific_outcomes": {m: {s: oc(SPECIFIC, s, f"{m} recovery - dense gain") for s in L.SETTINGS} for m in L.METHODS}}
+    dg = {s: oc(fam_of("lamp"), s, "dG ppo - lamp") for s in L.SETTINGS}
     n_sup, n_opp = sum(v == "supported" for v in dg.values()), sum(v == "opposite" for v in dg.values())
+    lamp = st[st.family == fam_of("lamp")]
     crit["C"] = {"status": "MET" if n_sup >= 2 and n_opp == 0 else ("PARTIALLY MET" if n_sup >= 1 else "NOT MET"), "dG_outcomes": dg,
-                 "post_outcomes": {s: oc("H2 PPO - lamp after fine-tuning", s) for s in L.SETTINGS}}
-    crit["D"] = {"status": "MET", "basis": "all six settings complete (20 pairs x 4 methods) and included in every family; none excluded",
-                 "architecture_dependence": st[st.family.str.startswith("H4")].set_index("comparison").outcome.to_dict()}
-    pr = runs[runs.method != "dense"]
-    e_same = int((pr.zero_count_post == pr.zero_count_pre).sum())
-    mask_ok = int(((pr.zero_count_post == pr.zero_count_pre)).sum())
-    crit["E"] = {"status": "MET" if e_same == len(pr) else ("PARTIALLY MET" if e_same >= 0.95 * len(pr) else "NOT MET"),
-                 "runs_with_identical_zero_count": e_same, "pruned_runs": len(pr), "mask_ok": mask_ok}
+                 "dG_practically_relevant": lamp[lamp.comparison == "dG ppo - lamp"].set_index("setting").practically_relevant.astype(bool).to_dict(),
+                 "post_outcomes": {s: oc(fam_of("lamp"), s, "ppo - lamp (post)") for s in L.SETTINGS},
+                 "post_mean_ppo_minus_lamp": lamp[lamp.comparison == "ppo - lamp (post)"].set_index("setting").mean_diff.to_dict(),
+                 "post_equivalent_within_margin": lamp[lamp.comparison == "ppo - lamp (post)"].set_index("setting")
+                 .equivalent_within_margin.astype(bool).to_dict()}
+    n_set = runs.groupby("setting").size()
+    whole = all(int(n_set.get(s, 0)) == 80 for s in L.SETTINGS)
+    covered = all(set(st[st.family == f].setting) == set(L.SETTINGS) for f in (H1, DENSE, SPECIFIC, fam_of("lamp"), fam_of("global"), H6))
+    crit["D"] = {"status": "MET" if whole and covered else ("PARTIALLY MET" if covered else "NOT MET"),
+                 "basis": "all six settings complete (20 pairs x 4 methods) and present in every per-setting family; none excluded",
+                 "architecture_dependence": st[st.family == H4].assign(k=lambda d: d.setting + ": " + d.comparison).set_index("k").outcome.to_dict()}
+    pruned = [r for r in recs if r["method"] != "dense"]
+    e_same = sum(r["zero_count_post"] == r["zero_count_pre"] and r["layer_zeros_post"] == r["layer_zeros_pre"] for r in pruned)
+    mask_ok = sum(r["mask_hash_post"] == r["mask_hash_pre"] and r["mask_violations_post"] == 0 for r in pruned)
+    crit["E"] = {"status": "MET" if e_same == mask_ok == len(pruned) else ("PARTIALLY MET" if min(e_same, mask_ok) >= 0.95 * len(pruned) else "NOT MET"),
+                 "runs_with_identical_zero_count_per_layer": e_same, "runs_with_unchanged_mask": mask_ok, "pruned_runs": len(pruned)}
     rmap = {(r["setting"], r["policy_seed"], r["method"]): r for r in recs}
     n_rep = sum(x["final_state_sha256"] == rmap[(x["setting"], x["policy_seed"], x["method"])]["final_state_sha256"] for x in repro)
     complete = len(recs) == 480
-    crit["F"] = {"status": "MET" if complete and n_rep == 6 else ("PARTIALLY MET" if complete else "NOT MET"),
+    crit["F"] = {"status": "MET" if complete and len(repro) == 6 and n_rep == 6 else ("PARTIALLY MET" if complete else "NOT MET"),
                  "runs_complete": len(recs), "reproduction_identical": f"{n_rep}/{len(repro)}"}
     cross = []
     for fam in st.family.unique():
-        for comp in st[st.family == fam].comparison.str.replace(r"^(ppo|lamp|global|dense): ", lambda m: m.group(0), regex=True).unique():
+        for comp in st[st.family == fam].comparison.unique():
             q = st[(st.family == fam) & (st.comparison == comp)].set_index("setting").outcome.to_dict()
             ns, no = sum(v == "supported" for v in q.values()), sum(v == "opposite" for v in q.values())
             cross.append({"family": fam, "comparison": comp, "supported": ns, "opposite": no, "inconclusive": len(q) - ns - no, **q})

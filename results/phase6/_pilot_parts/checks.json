@@ -1,0 +1,52 @@
+[
+ {
+  "check": "ppo: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count 12,186 unchanged, masked parameters never updated); unmasked weights trained",
+  "pass": true,
+  "detail": "train loss 1.0466 -> 1.0392"
+ },
+ {
+  "check": "lamp: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count 12,186 unchanged, masked parameters never updated); unmasked weights trained",
+  "pass": true,
+  "detail": "train loss 1.0448 -> 1.0384"
+ },
+ {
+  "check": "global: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count 12,186 unchanged, masked parameters never updated); unmasked weights trained",
+  "pass": true,
+  "detail": "train loss 1.0450 -> 1.0388"
+ },
+ {
+  "check": "dense: fixed mask after 2 epochs (mask hash equal, 0 violations, zero count 0 unchanged, masked parameters never updated); unmasked weights trained",
+  "pass": true,
+  "detail": "train loss 1.0449 -> 1.0379"
+ },
+ {
+  "check": "PPO-style, LAMP and global masks have the identical zero count; the classifier is dense in all three",
+  "pass": true,
+  "detail": "{'ppo': 12186, 'lamp': 12186, 'global': 12186}"
+ },
+ {
+  "check": "deterministic: two 2-epoch runs with the same seed give bit-identical weights",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "resume: interrupted after epoch 1 and resumed == uninterrupted run (bit-identical weights)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "pairing: different methods with the same seed see the same data stream (identical generator state after 2 epochs)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "serialization: folded checkpoint reloads into a plain model with identical logits and zero count",
+  "pass": true,
+  "detail": "raw 252,037 bytes, gzip 200,244 bytes"
+ },
+ {
+  "check": "Phase-5 pruned models reproduced: VAL-RL accuracy and zero count equal the Phase-5 records (18 models)",
+  "pass": true,
+  "detail": "[]"
+ }
+]

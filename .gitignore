@@ -29,3 +29,7 @@ data/
 # Phase-2 resumable training state (deleted when a run completes) and atomic-write temporaries
 checkpoints/phase2_dense/_work/
 *.tmp
+
+# Phase-6 self-test temporaries (deleted when a self-test ends) and resumable fine-tuning state
+results/phase6/_selftest_*/
+checkpoints/phase6_finetuned/_work/

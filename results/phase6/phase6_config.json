@@ -1,0 +1,133 @@
+{
+ "created": "2026-10-08T10:55:51+06:00",
+ "epochs": 5,
+ "epoch_rule": {
+  "limit_wall_hours": 30.0,
+  "projected_wall_hours": {
+   "3": 17.991829687499997,
+   "5": 29.439351562499997,
+   "10": 58.05815624999999
+  },
+  "projected_wall_hours_test_passes_counted_double": {
+   "3": 18.5388609375,
+   "5": 29.986382812499997,
+   "10": 58.6051875
+  }
+ },
+ "protocol": {
+  "optimizer": "Adam",
+  "lr": 0.0001,
+  "betas": [
+   0.9,
+   0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay": 0.0,
+  "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+  "batch_size": 128,
+  "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+  "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+  "selection": "none: the model after the final epoch"
+ },
+ "policy_seeds": [
+  500,
+  501,
+  502,
+  503,
+  504,
+  505,
+  506,
+  507,
+  508,
+  509,
+  510,
+  511,
+  512,
+  513,
+  514,
+  515,
+  516,
+  517,
+  518,
+  519
+ ],
+ "ft_seed_offset": 100,
+ "methods": [
+  "ppo",
+  "lamp",
+  "global",
+  "dense"
+ ],
+ "threads": 1,
+ "settings": {
+  "cifar10_simplecnn": {
+   "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+   "distinct_policies": 14,
+   "total_weights": 619872,
+   "prunable_weights": 617312
+  },
+  "cifar10_lenet5": {
+   "reference_sha256": "5ca6e0fce0fd4346562cd041230beff7722a4815cce5c9c4ea78039c396f9bdf",
+   "distinct_policies": 14,
+   "total_weights": 61770,
+   "prunable_weights": 60930
+  },
+  "cifar10_resnet8": {
+   "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+   "distinct_policies": 4,
+   "total_weights": 77360,
+   "prunable_weights": 76720
+  },
+  "cifar100_simplecnn": {
+   "reference_sha256": "d75dd19ca3178d43473031630469bcfc5d738e1cf54c3c9685b35cf808b684ff",
+   "distinct_policies": 13,
+   "total_weights": 642912,
+   "prunable_weights": 617312
+  },
+  "cifar100_lenet5": {
+   "reference_sha256": "8e1b1aee6cff5a8ebdcb774550502782a63130f4545a48071cf6bb6ccd6cd623",
+   "distinct_policies": 12,
+   "total_weights": 69330,
+   "prunable_weights": 60930
+  },
+  "cifar100_resnet8": {
+   "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+   "distinct_policies": 4,
+   "total_weights": 83120,
+   "prunable_weights": 76720
+  }
+ },
+ "inputs_sha256": {
+  "phase5_final_policies": "d04c8556a9500a7c5d1b714ab320400f33def2a328334ee0fe4119e3e1b92a49",
+  "phase5_test_evaluations": "baa6b901291e86849790198141650c4854ed893f368f332e9b152ff9643ed648",
+  "cifar10_split": "eccd7522d55b4048957a40fb71aa575fcd428eaa0fde637fbf7673217f35933e",
+  "cifar100_split": "131cf53457b45ca26917cc4fbcb7447f558a4aced6db6cea133d6efc16ce4199",
+  "design_commitments": "7f67b9e25b2e0f259a39b4e26c8e23dbc46a47fd06f8d05fd43c1460b063b315",
+  "matched_masks": "ef16fdcf11d85373fec05297d1c72877b32b2348e5ac304977b1acfdb49d7d3b",
+  "timing_pilot": "d603f689bc9cf00eb7d830c747d7063276306508fb378c01063e6710965be8ca"
+ },
+ "reproduction_runs": [
+  "cifar10_simplecnn_seed500_ppo",
+  "cifar10_lenet5_seed500_ppo",
+  "cifar10_resnet8_seed500_ppo",
+  "cifar100_simplecnn_seed500_ppo",
+  "cifar100_lenet5_seed500_ppo",
+  "cifar100_resnet8_seed500_ppo"
+ ],
+ "git": {
+  "commit": "fdd08ff7380421cf204bde402f4570ae8662f0b3",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   " M experiments/phase6/aggregate.py",
+   " M experiments/phase6/phase6_lib.py",
+   " M experiments/phase6/pilot.py",
+   " M experiments/phase6/prepare.py",
+   " M experiments/phase6/run.py",
+   "?? experiments/phase6/selftest.py",
+   "?? results/phase6/_pilot_parts/checks.json",
+   "?? results/phase6/_pilot_parts/checks_bn.json",
+   "?? results/phase6/phase6_matched_masks.csv"
+  ]
+ },
+ "content_sha256": "9ca1525b09923a996ddf283e6f7f6bf174578f77925eb9d24f9dd7ac2369e87f"
+}

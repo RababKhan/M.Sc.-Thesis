@@ -1,0 +1,7 @@
+[
+ {
+  "check": "ResNet-8 (BatchNorm): a run interrupted after epoch 1 and resumed is bit-identical to an uninterrupted 2-epoch run (weights, BatchNorm statistics); the running statistics were updated; mask intact",
+  "pass": true,
+  "detail": "resumed from epoch 1; identical True; running statistics updated True"
+ }
+]

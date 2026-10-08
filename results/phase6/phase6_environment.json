@@ -1,0 +1,17 @@
+{
+ "python": "3.11.9",
+ "torch": "2.7.1+cpu",
+ "torchvision": "0.22.1+cpu",
+ "numpy": "2.2.2",
+ "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+ "logical_cpus": 4,
+ "torch_threads": 1,
+ "cuda_available": false,
+ "os": "Windows-10-10.0.22621-SP0",
+ "stable-baselines3": "2.8.0",
+ "sb3-contrib": "2.8.0",
+ "gymnasium": "1.2.3",
+ "ptflops": "0.7.5",
+ "pandas": "2.2.3",
+ "psutil": "7.2.2"
+}
