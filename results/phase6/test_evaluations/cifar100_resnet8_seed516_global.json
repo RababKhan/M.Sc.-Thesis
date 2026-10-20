@@ -1,0 +1,40 @@
+{
+ "run_id": "cifar100_resnet8_seed516_global",
+ "status": "complete",
+ "stage": "test",
+ "setting": "cifar100_resnet8",
+ "method": "global",
+ "policy_seed": 516,
+ "policy": [
+  1,
+  1,
+  0,
+  2
+ ],
+ "pre_test": 42.22,
+ "phase5_recorded_test": 42.22,
+ "post_test": 43.87,
+ "pre_predictions_file": "results/phase6/predictions/cifar100_resnet8/pre_global_1102.npy",
+ "post_predictions_file": "results/phase6/predictions/cifar100_resnet8/cifar100_resnet8_seed516_global_post.npy",
+ "final_state_sha256": "a11a62eddb40f230e8e540c3bfbb91d8cde86569fd56e4f39aaa21ff07e3ea62",
+ "checkpoint_sha256": "eff3faac30ecb944266f490153b65df30f4937732a55f1a90c13dc71e77d97cb",
+ "final_models_sha256": "574713ab96214836a7c2758b08ac1a86f95d2c8a925447219a8127c3b057f095",
+ "threads": 1,
+ "test_use": "the pre-fine-tuning model and the frozen final-epoch model only",
+ "runtime_seconds": 32.1,
+ "started_at": "2026-10-20T17:51:58+06:00",
+ "finished_at": "2026-10-20T17:52:30+06:00",
+ "preregistration_sha256": "cff68be3a9e3d9c01127ba3e579a1ea06d0dfaa43e068bab49cad8b7fb5d7c63",
+ "config_sha256": "c2907444ca760daaacade34b70d845fca63da93a9e286e74d7bf757e6f7d4655",
+ "code_sha256": {
+  "run.py": "b06f614fe8651499e3fe3bd8bc80d97f63546d203876a614cfdf08af61056a7e",
+  "phase6_lib.py": "588b3473ba26b35ed08f2c86a876ee95d37ac688ac465052994ce8a712fc80c1"
+ },
+ "git": {
+  "commit": "31811465f0886699640af794871ac3b5163a197c",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? checkpoints/phase6_finetuned/"
+  ]
+ }
+}

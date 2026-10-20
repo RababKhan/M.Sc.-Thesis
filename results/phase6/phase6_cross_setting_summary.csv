@@ -1,0 +1,21 @@
+family,comparison,supported,opposite,inconclusive,cifar10_simplecnn,cifar10_lenet5,cifar10_resnet8,cifar100_simplecnn,cifar100_lenet5,cifar100_resnet8,cifar10,cifar100
+H1 recovery (post - pre),ppo: post - pre,6,0,0,supported,supported,supported,supported,supported,supported,,
+H1 recovery (post - pre),lamp: post - pre,6,0,0,supported,supported,supported,supported,supported,supported,,
+H1 recovery (post - pre),global: post - pre,6,0,0,supported,supported,supported,supported,supported,supported,,
+dense control gain,dense: post - pre,6,0,0,supported,supported,supported,supported,supported,supported,,
+pruning-specific recovery (method - dense control),ppo recovery - dense gain,6,0,0,supported,supported,supported,supported,supported,supported,,
+pruning-specific recovery (method - dense control),lamp recovery - dense gain,5,1,0,opposite,supported,supported,supported,supported,supported,,
+pruning-specific recovery (method - dense control),global recovery - dense gain,6,0,0,supported,supported,supported,supported,supported,supported,,
+H2 PPO vs LAMP (post difference and gap change),ppo - lamp (post),0,3,3,opposite,opposite,inconclusive,inconclusive,opposite,inconclusive,,
+H2 PPO vs LAMP (post difference and gap change),dG ppo - lamp,5,0,1,supported,inconclusive,supported,supported,supported,supported,,
+H2 reference: PPO - LAMP before fine-tuning (Phase-5 result),ppo - lamp (pre),0,6,0,opposite,opposite,opposite,opposite,opposite,opposite,,
+H3 PPO vs global magnitude (post difference and gap change),ppo - global (post),2,1,3,opposite,inconclusive,supported,inconclusive,supported,inconclusive,,
+H3 PPO vs global magnitude (post difference and gap change),dG ppo - global,0,5,1,inconclusive,opposite,opposite,opposite,opposite,opposite,,
+H3 reference: PPO - global magnitude before fine-tuning (Phase-5 result),ppo - global (pre),5,0,1,inconclusive,supported,supported,supported,supported,supported,,
+H4 architecture dependence (PPO recovery),ppo recovery: simplecnn - lenet5,1,0,1,,,,,,,supported,inconclusive
+H4 architecture dependence (PPO recovery),ppo recovery: simplecnn - resnet8,1,1,0,,,,,,,supported,opposite
+H4 architecture dependence (PPO recovery),ppo recovery: lenet5 - resnet8,0,1,1,,,,,,,inconclusive,opposite
+H4 sensitivity: paired by fine-tuning seed,ppo recovery: simplecnn - lenet5,1,0,1,,,,,,,supported,inconclusive
+H4 sensitivity: paired by fine-tuning seed,ppo recovery: simplecnn - resnet8,1,1,0,,,,,,,supported,opposite
+H4 sensitivity: paired by fine-tuning seed,ppo recovery: lenet5 - resnet8,0,1,1,,,,,,,inconclusive,opposite
+H6 retention gap change (PPO: VAL-SELECT - test),ppo: gap post - gap pre,4,0,2,supported,inconclusive,supported,inconclusive,supported,supported,,

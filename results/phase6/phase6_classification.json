@@ -1,0 +1,144 @@
+{
+ "generated": "2026-10-20T17:54:54+06:00",
+ "epochs": 5,
+ "criteria": {
+  "A": {
+   "status": "MET",
+   "basis": "every blocking integrity check passed: identical protocol and epoch count, shared fine-tuning seed and data stream within every (setting, policy seed), zero-count mismatch 0 in all 120 triples, masks equal the frozen table"
+  },
+  "B": {
+   "status": "MET",
+   "settings_all_three_methods": [
+    "cifar10_simplecnn",
+    "cifar10_lenet5",
+    "cifar10_resnet8",
+    "cifar100_simplecnn",
+    "cifar100_lenet5",
+    "cifar100_resnet8"
+   ],
+   "supported_per_method": {
+    "ppo": [
+     "cifar10_simplecnn",
+     "cifar10_lenet5",
+     "cifar10_resnet8",
+     "cifar100_simplecnn",
+     "cifar100_lenet5",
+     "cifar100_resnet8"
+    ],
+    "lamp": [
+     "cifar10_simplecnn",
+     "cifar10_lenet5",
+     "cifar10_resnet8",
+     "cifar100_simplecnn",
+     "cifar100_lenet5",
+     "cifar100_resnet8"
+    ],
+    "global": [
+     "cifar10_simplecnn",
+     "cifar10_lenet5",
+     "cifar10_resnet8",
+     "cifar100_simplecnn",
+     "cifar100_lenet5",
+     "cifar100_resnet8"
+    ]
+   },
+   "opposite_per_method": {
+    "ppo": [],
+    "lamp": [],
+    "global": []
+   },
+   "pruning_specific_outcomes": {
+    "ppo": {
+     "cifar10_simplecnn": "supported",
+     "cifar10_lenet5": "supported",
+     "cifar10_resnet8": "supported",
+     "cifar100_simplecnn": "supported",
+     "cifar100_lenet5": "supported",
+     "cifar100_resnet8": "supported"
+    },
+    "lamp": {
+     "cifar10_simplecnn": "opposite",
+     "cifar10_lenet5": "supported",
+     "cifar10_resnet8": "supported",
+     "cifar100_simplecnn": "supported",
+     "cifar100_lenet5": "supported",
+     "cifar100_resnet8": "supported"
+    },
+    "global": {
+     "cifar10_simplecnn": "supported",
+     "cifar10_lenet5": "supported",
+     "cifar10_resnet8": "supported",
+     "cifar100_simplecnn": "supported",
+     "cifar100_lenet5": "supported",
+     "cifar100_resnet8": "supported"
+    }
+   }
+  },
+  "C": {
+   "status": "MET",
+   "dG_outcomes": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   },
+   "dG_practically_relevant": {
+    "cifar10_simplecnn": false,
+    "cifar10_lenet5": false,
+    "cifar10_resnet8": true,
+    "cifar100_simplecnn": false,
+    "cifar100_lenet5": false,
+    "cifar100_resnet8": false
+   },
+   "post_outcomes": {
+    "cifar10_simplecnn": "opposite",
+    "cifar10_lenet5": "opposite",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "opposite",
+    "cifar100_resnet8": "inconclusive"
+   },
+   "post_mean_ppo_minus_lamp": {
+    "cifar10_simplecnn": -0.2190000000000012,
+    "cifar10_lenet5": -0.1845000000000013,
+    "cifar10_resnet8": 0.00350000000000108,
+    "cifar100_simplecnn": -0.04999999999999964,
+    "cifar100_lenet5": -0.1360000000000003,
+    "cifar100_resnet8": -0.03900000000000077
+   },
+   "post_equivalent_within_margin": {
+    "cifar10_simplecnn": true,
+    "cifar10_lenet5": true,
+    "cifar10_resnet8": true,
+    "cifar100_simplecnn": true,
+    "cifar100_lenet5": true,
+    "cifar100_resnet8": true
+   }
+  },
+  "D": {
+   "status": "MET",
+   "basis": "all six settings complete (20 pairs x 4 methods) and present in every per-setting family; none excluded",
+   "architecture_dependence": {
+    "cifar10: ppo recovery: simplecnn - lenet5": "supported",
+    "cifar10: ppo recovery: simplecnn - resnet8": "supported",
+    "cifar10: ppo recovery: lenet5 - resnet8": "inconclusive",
+    "cifar100: ppo recovery: simplecnn - lenet5": "inconclusive",
+    "cifar100: ppo recovery: simplecnn - resnet8": "opposite",
+    "cifar100: ppo recovery: lenet5 - resnet8": "opposite"
+   }
+  },
+  "E": {
+   "status": "MET",
+   "runs_with_identical_zero_count_per_layer": 360,
+   "runs_with_unchanged_mask": 360,
+   "pruned_runs": 360
+  },
+  "F": {
+   "status": "MET",
+   "runs_complete": 480,
+   "reproduction_identical": "6/6"
+  }
+ }
+}
