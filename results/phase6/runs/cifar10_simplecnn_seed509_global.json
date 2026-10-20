@@ -1,0 +1,163 @@
+{
+ "run_id": "cifar10_simplecnn_seed509_global",
+ "status": "complete",
+ "stage": "finetune",
+ "setting": "cifar10_simplecnn",
+ "arch": "simplecnn",
+ "method": "global",
+ "policy_seed": 509,
+ "ft_seed": 609,
+ "policy": [
+  1,
+  0,
+  5,
+  5
+ ],
+ "epochs": 5,
+ "protocol": {
+  "optimizer": "Adam",
+  "lr": 0.0001,
+  "betas": [
+   0.9,
+   0.999
+  ],
+  "eps": 1e-08,
+  "weight_decay": 0.0,
+  "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+  "batch_size": 128,
+  "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+  "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+  "selection": "none: the model after the final epoch"
+ },
+ "threads": 1,
+ "total_weights": 619872,
+ "zero_count_pre": 358896,
+ "zero_count_post": 358896,
+ "sparsity_pre": 57.89840483196531,
+ "sparsity_post": 57.89840483196531,
+ "layer_zeros_pre": {
+  "features.0": 83,
+  "features.3": 5251,
+  "features.6": 23371,
+  "classifier.1": 330191,
+  "classifier.3": 0
+ },
+ "layer_zeros_post": {
+  "features.0": 83,
+  "features.3": 5251,
+  "features.6": 23371,
+  "classifier.1": 330191,
+  "classifier.3": 0
+ },
+ "mask_hash_pre": "5fc451e63fa91efe5602c4cc58999cbea0496917200de71e229a43da8ed6d66e",
+ "mask_hash_post": "5fc451e63fa91efe5602c4cc58999cbea0496917200de71e229a43da8ed6d66e",
+ "mask_violations_post": 0,
+ "pre": {
+  "val_rl": 76.68,
+  "val_select": 76.84
+ },
+ "post": {
+  "val_rl": 80.16,
+  "val_select": 79.76
+ },
+ "history": [
+  {
+   "epoch": 1,
+   "lr": 0.0001,
+   "train_loss": 0.5726729498439365,
+   "train_accuracy": 79.97777777777777,
+   "val_rl_accuracy": 79.64,
+   "val_select_accuracy": 79.24,
+   "zero_count": 358896,
+   "train_seconds": 206.85,
+   "epoch_seconds": 213.84
+  },
+  {
+   "epoch": 2,
+   "lr": 9.045084971874738e-05,
+   "train_loss": 0.5517063369962905,
+   "train_accuracy": 80.66666666666667,
+   "val_rl_accuracy": 80.04,
+   "val_select_accuracy": 79.28,
+   "zero_count": 358896,
+   "train_seconds": 146.44,
+   "epoch_seconds": 153.41
+  },
+  {
+   "epoch": 3,
+   "lr": 6.545084971874737e-05,
+   "train_loss": 0.5376785206317901,
+   "train_accuracy": 81.14888888888889,
+   "val_rl_accuracy": 80.2,
+   "val_select_accuracy": 79.8,
+   "zero_count": 358896,
+   "train_seconds": 134.97,
+   "epoch_seconds": 142.06
+  },
+  {
+   "epoch": 4,
+   "lr": 3.454915028125263e-05,
+   "train_loss": 0.5309322737269931,
+   "train_accuracy": 81.22444444444444,
+   "val_rl_accuracy": 80.32,
+   "val_select_accuracy": 79.88,
+   "zero_count": 358896,
+   "train_seconds": 136.29,
+   "epoch_seconds": 143.0
+  },
+  {
+   "epoch": 5,
+   "lr": 9.549150281252631e-06,
+   "train_loss": 0.5282729333665636,
+   "train_accuracy": 81.47555555555556,
+   "val_rl_accuracy": 80.16,
+   "val_select_accuracy": 79.76,
+   "zero_count": 358896,
+   "train_seconds": 141.77,
+   "epoch_seconds": 148.64,
+   "data_stream_sha256": "e78dd4027ed113b05acac5360f585b60535414b4d32e910f71a13b5715d1dd59"
+  }
+ ],
+ "resumed_from_epoch": 0,
+ "final_state_sha256": "f3ac07de874d9b72165742842f50f3cb5185c5213266d0139b3b58a503297f36",
+ "checkpoint_sha256": "f0f9612c205dd7ce562fb6677901f43cf083c6b09876cab6112c35089ecca90c",
+ "checkpoint_bytes_raw": 2485317,
+ "checkpoint_bytes_gzip": 1173663,
+ "train_seconds": 766.3,
+ "finetune_seconds": 800.9,
+ "runtime_seconds": 819.4,
+ "peak_memory_mb_process": 526.1,
+ "started_at": "2026-10-08T13:31:53+06:00",
+ "finished_at": "2026-10-08T13:45:32+06:00",
+ "test_use": "none: TEST is not read in stage 1",
+ "preregistration_sha256": "cff68be3a9e3d9c01127ba3e579a1ea06d0dfaa43e068bab49cad8b7fb5d7c63",
+ "config_sha256": "c2907444ca760daaacade34b70d845fca63da93a9e286e74d7bf757e6f7d4655",
+ "code_sha256": {
+  "run.py": "b06f614fe8651499e3fe3bd8bc80d97f63546d203876a614cfdf08af61056a7e",
+  "phase6_lib.py": "588b3473ba26b35ed08f2c86a876ee95d37ac688ac465052994ce8a712fc80c1"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "b1b5396fad957858c53db1a6b523c10f8af8edea",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth"
+  ]
+ },
+ "checkpoint_file": "checkpoints/phase6_finetuned/cifar10_simplecnn/cifar10_simplecnn_seed509_global.pth"
+}
