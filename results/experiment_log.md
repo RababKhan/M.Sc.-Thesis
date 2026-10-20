@@ -1210,6 +1210,48 @@ Full report: `results/phase5/phase5_summary.md`.
 
 ---
 
+## Phase 6 (CPU-only, branch `phase6-cpu`): fair post-pruning fine-tuning
+
+Pre-registered in two parts, both committed before any confirmatory run:
+- design commitments, before the pilot (`74e5f45`);
+- the full pre-registration with E = 5 from the timing rule (`b1b5396`).
+
+**Runs.** 480 runs: 6 settings × policy seeds 500–519 × {PPO (Phase-5 C1), LAMP, global magnitude,
+dense control}, plus 6 reproduction runs. Fixed-mask fine-tuning: Adam lr 1e-4, cosine schedule,
+5 epochs, batch 128, the same seed and data order within each pair. LAMP and global are matched to
+exactly the PPO zero count.
+
+**Freezes.** The 480 final models were frozen before any test access (`3181146`); test evaluation and
+analysis followed (`3f7a658`).
+
+**Checks.** Implementation 11/11; self-tests 14/14; integrity 20/20; reproduction 6/6 bit-identical.
+One interruption (workers stopped with the session on 2026-10-08), resumed from per-epoch states with
+the original seeds.
+
+**Criteria.**
+
+| Criterion | Status |
+|---|---|
+| A fairness | MET |
+| B recovery | MET |
+| C PPO competitiveness (gap change) | MET |
+| D architecture generalisation | MET |
+| E sparsity preservation | MET |
+| F reproducibility | MET |
+
+**Main results.**
+- **Recovery.** Supported for every method in 6/6 settings; on average every method ends within
+  0.14 pp of the dense reference.
+- **LAMP.** The PPO − LAMP gap narrowed from 0.26–0.53 pp to 0.00–0.22 pp (ΔG supported in 5/6). LAMP
+  is still ahead in 3/6, by 0.14–0.22 pp; PPO and LAMP are practically equivalent (±0.5 pp) in 6/6.
+- **Global magnitude.** PPO's pre-fine-tuning advantage (up to 6.5 pp) is not kept after fine-tuning
+  (at most +0.12 pp).
+- **Retention.** Every fine-tuned model has test retention ≥ 0.98.
+
+Full report: `results/phase6/phase6_summary.md`.
+
+---
+
 ## Latency (controlled protocol)
 
 Source: `evaluation/latency_benchmark.py` → `latency_results.csv` (summary) and
@@ -1295,7 +1337,8 @@ column is not comparable across methods and is not used as a quality metric.
 - [x] Phase 3 (CPU-only): 480 pre-registered PPO runs over 6 settings, exact landscapes, matched baselines; mechanical cross-setting classification
 - [x] Phase 4 (CPU-only): reward redesign, sensitivity-specific prior, elite-archive search; 1,200 pre-registered runs (branch `phase4-cpu`)
 - [x] Phase 5 (CPU-only): accuracy-constrained reward alignment; 360 pre-registered runs (branch `phase5-cpu`)
-- [ ] Phase 6 onward: awaiting approval
+- [x] Phase 6 (CPU-only): fair post-pruning fine-tuning; 480 pre-registered runs + 6 reproduction runs (branch `phase6-cpu`)
+- [ ] Phase 7 onward: awaiting approval
 - [ ] Optional: normalised-sparsity reward, as a separately labelled experiment (not run)
 
 ---
