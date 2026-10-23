@@ -1,0 +1,351 @@
+{
+ "selection_order": [
+  "A",
+  "C",
+  "B"
+ ],
+ "rule": {
+  "min_snr": 5.0,
+  "min_relative_reduction": 0.1,
+  "signal_model": "aggressive"
+ },
+ "configs": {
+  "A": {
+   "signal_ms": 0.41270000000000007,
+   "noise_ms": 0.033499999999999974,
+   "snr": 12.319402985074639,
+   "relative_reduction": 0.6160620988207196,
+   "delta_positive_all_sessions": true,
+   "per_session_delta_ms": [
+    0.41035,
+    0.4102,
+    0.42775,
+    0.4127,
+    0.421
+   ],
+   "dense_session_medians_ms": [
+    0.66725,
+    0.6643,
+    0.6978,
+    0.6699,
+    0.6871
+   ],
+   "aggressive_session_medians_ms": [
+    0.2569,
+    0.2541,
+    0.27005,
+    0.2572,
+    0.2661
+   ],
+   "usable": true
+  },
+  "B": {
+   "signal_ms": 0.12219999999999998,
+   "noise_ms": 0.028700000000000003,
+   "snr": 4.257839721254354,
+   "relative_reduction": 0.31839499739447624,
+   "delta_positive_all_sessions": true,
+   "per_session_delta_ms": [
+    0.1278,
+    0.11515,
+    0.12435,
+    0.10885,
+    0.1222
+   ],
+   "dense_session_medians_ms": [
+    0.3996,
+    0.3808,
+    0.3999,
+    0.3712,
+    0.3838
+   ],
+   "aggressive_session_medians_ms": [
+    0.2718,
+    0.26565,
+    0.27555,
+    0.26235,
+    0.2616
+   ],
+   "usable": false
+  },
+  "C": {
+   "signal_ms": 15.453050000000001,
+   "noise_ms": 1.6069500000000012,
+   "snr": 9.616385077320382,
+   "relative_reduction": 0.6319193265764708,
+   "delta_positive_all_sessions": true,
+   "per_session_delta_ms": [
+    14.749,
+    15.33845,
+    15.6894,
+    15.45305,
+    15.9569
+   ],
+   "dense_session_medians_ms": [
+    23.4315,
+    24.45415,
+    24.6315,
+    24.0135,
+    25.03845
+   ],
+   "aggressive_session_medians_ms": [
+    8.6825,
+    9.1157,
+    8.9421,
+    8.56045,
+    9.08155
+   ],
+   "usable": true
+  }
+ },
+ "params_reduced": true,
+ "macs_reduced": true,
+ "primary_config": "A",
+ "h0": "GO",
+ "checks": [
+  {
+   "check": "every pruned calibration model has fewer physical parameters than dense",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "every pruned calibration model has fewer MACs than dense",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "FlopCounter FLOPs = 2 x analytic MACs for every calibration model",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "every session process ran with the requested threads, inter-op threads and CPU affinity, oneDNN enabled",
+   "pass": true,
+   "detail": "15 session processes"
+  },
+  {
+   "check": "every session used the frozen reference (sha256) and the same input shape",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "CPU load <= 15% before and after every kept session process",
+   "pass": true,
+   "detail": "0 repeats"
+  },
+  {
+   "check": "repeated dense timing stable: between-session CV of the dense median <= 5% in every configuration",
+   "pass": true,
+   "detail": "{'A': 0.0214, 'B': 0.0323, 'C': 0.0253}"
+  },
+  {
+   "check": "dense anchor drift within every session <= 10%",
+   "pass": true,
+   "detail": "{'A': 0.0161, 'B': 0.0939, 'C': 0.0892}"
+  },
+  {
+   "check": "latency signal larger than noise (SNR >= 5) in the selected configuration",
+   "pass": true,
+   "detail": "{'A': 12.32, 'B': 4.26, 'C': 9.62}"
+  }
+ ],
+ "load_log": [
+  {
+   "session": 1,
+   "config": "C",
+   "attempt": 1,
+   "load_before": 3.8,
+   "load_after": 4.2,
+   "ok": true
+  },
+  {
+   "session": 1,
+   "config": "B",
+   "attempt": 1,
+   "load_before": 4.8,
+   "load_after": 3.8,
+   "ok": true
+  },
+  {
+   "session": 1,
+   "config": "A",
+   "attempt": 1,
+   "load_before": 3.5,
+   "load_after": 4.3,
+   "ok": true
+  },
+  {
+   "session": 2,
+   "config": "B",
+   "attempt": 1,
+   "load_before": 3.6,
+   "load_after": 5.3,
+   "ok": true
+  },
+  {
+   "session": 2,
+   "config": "A",
+   "attempt": 1,
+   "load_before": 2.9,
+   "load_after": 3.9,
+   "ok": true
+  },
+  {
+   "session": 2,
+   "config": "C",
+   "attempt": 1,
+   "load_before": 4.3,
+   "load_after": 3.5,
+   "ok": true
+  },
+  {
+   "session": 3,
+   "config": "B",
+   "attempt": 1,
+   "load_before": 4.5,
+   "load_after": 3.7,
+   "ok": true
+  },
+  {
+   "session": 3,
+   "config": "C",
+   "attempt": 1,
+   "load_before": 2.4,
+   "load_after": 2.6,
+   "ok": true
+  },
+  {
+   "session": 3,
+   "config": "A",
+   "attempt": 1,
+   "load_before": 2.0,
+   "load_after": 3.0,
+   "ok": true
+  },
+  {
+   "session": 4,
+   "config": "A",
+   "attempt": 1,
+   "load_before": 2.6,
+   "load_after": 2.3,
+   "ok": true
+  },
+  {
+   "session": 4,
+   "config": "B",
+   "attempt": 1,
+   "load_before": 1.6,
+   "load_after": 2.9,
+   "ok": true
+  },
+  {
+   "session": 4,
+   "config": "C",
+   "attempt": 1,
+   "load_before": 3.2,
+   "load_after": 2.8,
+   "ok": true
+  },
+  {
+   "session": 5,
+   "config": "C",
+   "attempt": 1,
+   "load_before": 2.3,
+   "load_after": 2.8,
+   "ok": true
+  },
+  {
+   "session": 5,
+   "config": "A",
+   "attempt": 1,
+   "load_before": 1.7,
+   "load_after": 2.9,
+   "ok": true
+  },
+  {
+   "session": 5,
+   "config": "B",
+   "attempt": 1,
+   "load_before": 1.4,
+   "load_after": 2.2,
+   "ok": true
+  }
+ ],
+ "anchor_drift": [
+  {
+   "config": "A",
+   "session": 1,
+   "max_anchor_drift": 0.004802281083514659
+  },
+  {
+   "config": "A",
+   "session": 2,
+   "max_anchor_drift": 0.005516094907057623
+  },
+  {
+   "config": "A",
+   "session": 3,
+   "max_anchor_drift": 0.006963888290616671
+  },
+  {
+   "config": "A",
+   "session": 4,
+   "max_anchor_drift": 0.016096428838811128
+  },
+  {
+   "config": "A",
+   "session": 5,
+   "max_anchor_drift": 0.003926416054679027
+  },
+  {
+   "config": "B",
+   "session": 1,
+   "max_anchor_drift": 0.0536585365853659
+  },
+  {
+   "config": "B",
+   "session": 2,
+   "max_anchor_drift": 0.028037383177570097
+  },
+  {
+   "config": "B",
+   "session": 3,
+   "max_anchor_drift": 0.050301053687907715
+  },
+  {
+   "config": "B",
+   "session": 4,
+   "max_anchor_drift": 0.0939106901217861
+  },
+  {
+   "config": "B",
+   "session": 5,
+   "max_anchor_drift": 0.048755051492634593
+  },
+  {
+   "config": "C",
+   "session": 1,
+   "max_anchor_drift": 0.04364060228386246
+  },
+  {
+   "config": "C",
+   "session": 2,
+   "max_anchor_drift": 0.059158908053149606
+  },
+  {
+   "config": "C",
+   "session": 3,
+   "max_anchor_drift": 0.08922830418361727
+  },
+  {
+   "config": "C",
+   "session": 4,
+   "max_anchor_drift": 0.05779603765393537
+  },
+  {
+   "config": "C",
+   "session": 5,
+   "max_anchor_drift": 0.06969112878612527
+  }
+ ]
+}
