@@ -1,0 +1,29 @@
+{
+ "pair": "simplecnn_c100",
+ "setting": "cifar100_simplecnn",
+ "session": 4,
+ "order_seed": 1204792059,
+ "reference_sha256": "d75dd19ca3178d43473031630469bcfc5d738e1cf54c3c9685b35cf808b684ff",
+ "requested": {
+  "threads": 1,
+  "interop": 1,
+  "cpus": [
+   2
+  ]
+ },
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpus": [
+   2
+  ],
+  "mkldnn_enabled": true
+ },
+ "torch": "2.7.1+cpu",
+ "python": "3.11.9",
+ "batch": 1,
+ "warmup": 50,
+ "timed": 300,
+ "anchor_every": 25,
+ "seconds": 343.1
+}
