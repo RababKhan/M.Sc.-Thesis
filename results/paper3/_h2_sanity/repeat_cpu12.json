@@ -1,0 +1,34 @@
+[
+ {
+  "setting": "cifar10_simplecnn",
+  "policy": [
+   2,
+   3,
+   3,
+   1
+  ],
+  "cpu": 12,
+  "identical_weights": true,
+  "identical_accuracy": true,
+  "seconds": 784.6,
+  "first_cpu": [
+   2
+  ]
+ },
+ {
+  "setting": "cifar10_resnet8",
+  "policy": [
+   2,
+   3,
+   3,
+   1
+  ],
+  "cpu": 12,
+  "identical_weights": true,
+  "identical_accuracy": true,
+  "seconds": 1108.1,
+  "first_cpu": [
+   4
+  ]
+ }
+]
