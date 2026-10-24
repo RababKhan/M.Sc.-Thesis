@@ -1,0 +1,96 @@
+{
+ "created": "2026-10-24T11:36:38+06:00",
+ "git_commit_of_the_runs": "7bfb144a63954e43e958464420fce7aed6dfad70",
+ "status": "Stopped for computational feasibility; pilot/feasibility data only.",
+ "reason": "The exhaustive 5-epoch design needs ~130 hours (about 5 days) of continuous laptop CPU time (measured: 126 runs; cost model in the stop record). The PI judged this impractical. Computational-feasibility decision, not result-based.",
+ "unrelated_to_outcomes": "The stop was decided by the PI from runtime alone. During H2-C only run counts, runtimes and errors were monitored; no recovered-accuracy value of the landscape runs was summarised, inspected or used.",
+ "completed": 126,
+ "incomplete": [
+  "cifar10_simplecnn_0330",
+  "cifar10_simplecnn_0331",
+  "cifar10_simplecnn_0332",
+  "cifar10_simplecnn_0333",
+  "cifar10_simplecnn_0334",
+  "cifar10_simplecnn_0335",
+  "cifar10_simplecnn_0340",
+  "cifar10_simplecnn_0341"
+ ],
+ "n_incomplete": 8,
+ "not_started": 5050,
+ "total_planned": 5184,
+ "per_setting_completed": {
+  "cifar10_simplecnn": 126,
+  "cifar10_resnet8": 0,
+  "cifar100_simplecnn": 0,
+  "cifar100_resnet8": 0
+ },
+ "workers": [
+  {
+   "cpu": 2,
+   "pid": 1536,
+   "core_type": "P",
+   "stopped_at": "11:31:50",
+   "last_completed": "cifar10_simplecnn_0323",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 4,
+   "pid": 19348,
+   "core_type": "P",
+   "stopped_at": "11:32:40",
+   "last_completed": "cifar10_simplecnn_0324",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 6,
+   "pid": 7020,
+   "core_type": "P",
+   "stopped_at": "11:34:06",
+   "last_completed": "cifar10_simplecnn_0325",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 8,
+   "pid": 21816,
+   "core_type": "E",
+   "stopped_at": "11:34:02",
+   "last_completed": "cifar10_simplecnn_0322",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 10,
+   "pid": 15936,
+   "core_type": "E",
+   "stopped_at": "11:30:19",
+   "last_completed": "cifar10_simplecnn_0312",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 12,
+   "pid": 17772,
+   "core_type": "E",
+   "stopped_at": "11:34:03",
+   "last_completed": "cifar10_simplecnn_0320",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 14,
+   "pid": 14020,
+   "core_type": "E",
+   "stopped_at": "11:32:53",
+   "last_completed": "cifar10_simplecnn_0314",
+   "state": "stopped by the operator right after its last record was written"
+  },
+  {
+   "cpu": 15,
+   "pid": 4516,
+   "core_type": "E",
+   "stopped_at": "11:35:12",
+   "last_completed": "cifar10_simplecnn_0321",
+   "state": "stopped by the operator right after its last record was written"
+  }
+ ],
+ "incomplete_note": "These 8 policies were claimed (lock file) in the instant before their worker was stopped; each had run for about one second, wrote no record and no work state. Their lock files are kept; a later resume must remove them first.",
+ "use_rule": "These records are not the Paper-3 primary landscape and may be used only as pilot/feasibility data unless a later, committed protocol explicitly permits otherwise. The H2-A latency tables, H0 and H1 results are unchanged and frozen.",
+ "records_valid": true
+}

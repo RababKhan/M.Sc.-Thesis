@@ -1,0 +1,2 @@
+Stopped for computational feasibility; pilot/feasibility data only.
+See results/paper3/h2c_stop_record.md. These records are not the Paper-3 primary landscape.
