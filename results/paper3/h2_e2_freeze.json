@@ -1,0 +1,137 @@
+{
+ "created": "2026-10-24T22:25:48+06:00",
+ "proxy_decision": {
+  "created": "2026-10-24T14:24:43+06:00",
+  "rule": "GO per architecture iff Spearman rho(A1, A5) >= 0.9",
+  "architectures": {
+   "cifar10_simplecnn": {
+    "n_pairs": 156,
+    "spearman_rho": 0.844211537118283,
+    "pearson_r": 0.9731009470753568,
+    "mae_q": 0.008753116631746004,
+    "bias_accuracy_A1_minus_A5": -1.2905128205128211,
+    "bias_q1_minus_q5": -0.007317209510263381,
+    "share_A1_below_A5": 1.0,
+    "top10_overlap": 3,
+    "q5_feasible_pairs": 112,
+    "tau1": 0.971457185778668,
+    "youden_j": 0.8636363636363638,
+    "confusion_at_tau1": {
+     "tp": 112,
+     "fp": 6,
+     "fn": 0,
+     "tn": 38
+    },
+    "confusion_at_q1_0.98": {
+     "tp": 95,
+     "fp": 4,
+     "fn": 17,
+     "tn": 40
+    },
+    "spearman_by_source": {
+     "pilot": {
+      "n": 126,
+      "spearman": 0.771063555463545
+     },
+     "validation": {
+      "n": 30,
+      "spearman": 0.967174814043581
+     }
+    },
+    "A1_identity": 79.88,
+    "A5_identity": 80.6,
+    "go": false
+   },
+   "cifar10_resnet8": {
+    "n_pairs": 31,
+    "spearman_rho": 0.9804396047590239,
+    "pearson_r": 0.9902204993373537,
+    "mae_q": 0.06794638360483293,
+    "bias_accuracy_A1_minus_A5": -5.677419354838709,
+    "bias_q1_minus_q5": -0.06791718276214627,
+    "share_A1_below_A5": 1.0,
+    "top10_overlap": 10,
+    "q5_feasible_pairs": 2,
+    "tau1": null,
+    "youden_j": null,
+    "confusion_at_tau1": {},
+    "confusion_at_q1_0.98": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "tn": 29
+    },
+    "spearman_by_source": {
+     "validation": {
+      "n": 31,
+      "spearman": 0.9804396047590239
+     }
+    },
+    "A1_identity": 77.96,
+    "A5_identity": 78.4,
+    "go": true
+   }
+  },
+  "validation_policies_sha256": "5e3e5384e23d2d52a5bd185c41e3f382fcf85a3768813884e6ffb6e74ee514d0",
+  "proxy_protocol_sha256": "98aa4a6bfe3f57f07396558a04492dec4a85252180c60d1cc072945db106733a"
+ },
+ "landscapes": {
+  "cifar10_resnet8": {
+   "landscape": "h2_c10_resnet8_1epoch_landscape.csv",
+   "sha256": "41c95190ff90065346448df514dcd91461cccfab600a53e255e2a5937276d9d5",
+   "latency_table_sha256": "aeb0d452d0c03c1b1f2e614dc5132d55bf4bfe315cba6127f11bcae47c01fae7"
+  }
+ },
+ "checks": [
+  {
+   "check": "cifar10_simplecnn: proxy NO-GO, no landscape (by rule)",
+   "pass": true,
+   "detail": "0.844211537118283"
+  },
+  {
+   "check": "cifar10_resnet8: 1,296 complete 1-epoch records, one per policy",
+   "pass": true,
+   "detail": "1296"
+  },
+  {
+   "check": "cifar10_resnet8: frozen H2-A latency table unchanged (sha256)",
+   "pass": true,
+   "detail": "aeb0d452d0c03c1b"
+  },
+  {
+   "check": "cifar10_resnet8: every record: exactly 1 epoch, seed 600, Phase-6 protocol, 1 thread, no test use, frozen reference, amendment-2 hash",
+   "pass": true,
+   "detail": "41fc5ee592b96fa0"
+  },
+  {
+   "check": "cifar10_resnet8: identical minibatch exposure (one data-stream hash)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "cifar10_resnet8: identity before recovery = frozen reference (Phase-5 dense VAL-RL record)",
+   "pass": true,
+   "detail": "78.92"
+  },
+  {
+   "check": "cifar10_resnet8: shapes unchanged in every run; widths, parameters and MACs equal the latency table",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "cifar10_resnet8: amendment 2 (ec7a7f2) committed before the first 1-epoch run",
+   "pass": true,
+   "detail": "2026-10-24T11:41:32+06:00 < 2026-10-24T14:09:48+06:00"
+  },
+  {
+   "check": "5-epoch validation runs: every record 5 epochs, seed 600, shapes unchanged, no test use",
+   "pass": true,
+   "detail": "61"
+  },
+  {
+   "check": "pilot H2-C records unchanged since the stop commit (git diff empty)",
+   "pass": true,
+   "detail": ""
+  }
+ ]
+}
