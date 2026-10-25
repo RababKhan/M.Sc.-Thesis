@@ -77,9 +77,9 @@ p("This work makes three contributions. First, it provides an exhaustive latency
   "parameter sparsity and measured CPU latency can diverge substantially. Second, it compares parameter reduction, "
   "MAC reduction and measured latency across these policies, finding a weak parameter–latency correlation, a "
   "strong MAC–latency correlation, and frequent cases in which a more parameter-sparse policy is slower. Third, "
-  "it reports a pre-registered recovery and feasibility analysis showing that a strict recovered-accuracy constraint "
-  "confines the accuracy-feasible region of ResNet-8 to speed-ups below 1.10×, too little to justify an "
-  "expensive hardware-aware search in this setting. The study proposes no new pruning algorithm, and its conclusions "
+  "it reports a pre-registered recovery and feasibility analysis indicating that, for ResNet-8 on this platform, the "
+  "region associated with 98% five-epoch accuracy retention remains below the pre-registered 1.10× speed-up "
+  "criterion, which can leave too little headroom to justify an expensive hardware-aware search. The study proposes no new pruning algorithm, and its conclusions "
   "are specific to the measured CPU and networks. Section II reviews related work, Section III describes the "
   "experimental setup, Section IV reports the results, and Sections V and VI discuss and conclude.")
 
@@ -118,7 +118,14 @@ p("Hardware-aware methods bring the target platform into the loop. NetAdapt iter
   "latency budget estimated from a latency lookup table [@shen2022halp]. Benchmarks such as HW-NAS-Bench provide "
   "measured or estimated hardware costs for entire architecture search spaces on several devices [@li2021hwnas], and "
   "predictors such as nn-Meter estimate model latency on edge devices at the level of fused kernels, so that not "
-  "every candidate has to be measured [@zhang2021nnmeter]. Measured latency is itself sensitive to the measurement "
+  "every candidate has to be measured [@zhang2021nnmeter]. NetAdapt and HALP both obtain layer latencies from "
+  "lookup tables built by measuring the target device and approximate the latency of a network by summing the "
+  "entries of its layers [@yang2018], [@shen2022halp]; NetAdapt applies them in a greedy, layer-by-layer "
+  "simplification, whereas HALP allocates channels across all layers at once. Lookup tables and predictors make "
+  "large searches affordable, but their estimation error enters the objective directly, and when candidate policies "
+  "differ by only a few percent in latency, a small error can reorder them. Benchmarks supply precomputed costs for "
+  "the architectures they cover, but these form fixed search spaces rather than the pruned variants of a particular "
+  "trained network. Measured latency is itself sensitive to the measurement "
   "protocol: batch size, thread count, warm-up and the operator library all change absolute timings, so "
   "comparisons are meaningful only under fixed and reported conditions.")
 p("These efforts rest on the observation that arithmetic counts are indirect measures of speed. Ma *et al.* showed "
@@ -139,8 +146,13 @@ p("Existing methods therefore often optimize or report sparsity, FLOPs or MACs, 
   "space such a characterization is feasible, and it answers a question that precedes the choice of any search "
   "method: whether an accuracy-feasible region with meaningful latency savings exists at all. It also separates "
   "two causes of a weak search outcome, an optimizer that fails to find good policies and a problem that offers "
-  "none, because the full table shows where the fastest feasible policies lie. This paper provides that "
-  "characterization for two CIFAR-scale networks on one CPU; it does not claim that the findings transfer to other "
+  "none, because the full table shows where the fastest feasible policies lie. Proxy quality matters for the same "
+  "reason on the accuracy side: when recovering every policy is too expensive, a cheaper recovery proxy decides "
+  "which policies count as feasible, and a proxy that ranks policies poorly near the feasibility boundary can "
+  "mislead a latency-aware search as much as an inaccurate latency model can. Rather than measuring or predicting "
+  "latency only for the candidates that a search visits, this paper measures every policy of a finite structured "
+  "space directly and pairs the latency table with an accuracy proxy validated and calibrated against five-epoch "
+  "recovery. The resulting characterization covers two CIFAR-scale networks on one CPU; it does not claim that the findings transfer to other "
   "hardware, larger models or other accuracy tolerances.")
 
 # ------------------------------------------------------------------ III. Experimental Setup (page 3 onward)
@@ -191,7 +203,9 @@ p("Removing channels without retraining is destructive: removing 10% of every un
   "policy the same minibatch order. We report the retained accuracy")
 eq("*q* = *A* / *A*_{dense}", 3)
 p("where *A* is the VAL-RL accuracy after recovery and *A*_{dense} that of the dense model after the same recovery. "
-  "A five-epoch recovery of all 1,296 policies would take about 130 CPU-hours on this laptop and was not computed. "
+  "A complete five-epoch recovered-accuracy landscape across all four settings, comprising 5,184 policies, was "
+  "estimated from measured run times to require about 130 hours of continuous computation on this laptop and was "
+  "therefore not completed. "
   "The exhaustive ResNet-8 recovery landscape uses one-epoch recovery (*q*_{1}), while five-epoch recovery "
   "(*q*_{5}) is reserved for proxy validation and the pre-registered boundary calibration.")
 p("Three rules were committed before their data existed. First, the one-epoch proxy is accepted for a network only "
@@ -281,7 +295,8 @@ p("For ResNet-8, the one-epoch proxy was computed for all 1,296 policies. The st
   "policy, up to 1.22×, has a five-epoch retention below 0.98 (Fig. 3). The "
   "pre-registered 1.10× requirement was therefore not met, and no hardware-aware search was started. The gap "
   "between 1.098× and 1.10× is not scientifically meaningful in itself; the stop is a pre-registered protocol "
-  "decision, and the substantive finding is that the accuracy-feasible region offers speed-ups of about 10% at most.")
+  "decision, and the substantive finding is that the region identified by the calibrated proxy offers speed-ups of about 10% "
+  "at most.")
 table("ResNet-8 Proxy-Calibrated Latency Room at 98% Retention",
       ["Quantity", "Value"],
       [["Calibration policies (five epochs)", "48"],
@@ -305,12 +320,13 @@ h2("What the Cost Metric Should Measure")
 p("On this CPU, a cost based on parameter count would favor pruning the fully connected layer of SimpleCNN, which "
   "holds 85% of its parameters but 5% of its MACs; such policies save memory but little time. MAC reduction ranks "
   "policies almost as measured latency does (ρ up to 0.98) and is a sound, hardware-independent first "
-  "approximation. Measured latency adds the intercept and the shape-specific effects that MACs miss, and it remains "
-  "the deployment-grounded metric. For a finite policy space an exhaustive latency table is inexpensive: the four "
+  "approximation. Measured latency captures shape-specific and non-MAC effects that arithmetic counts miss, and it "
+  "remains the deployment-grounded metric. For a finite policy space an exhaustive latency table is inexpensive: the four "
   "tables took about 2.5 hours and remove timing noise from any downstream objective.")
 h2("Why ResNet-8 Leaves Little Room")
-p("ResNet-8 is compact, the intercept of its latency–MAC fit is 0.33 of 0.77 ms, and its residual stages are "
-  "sensitive to channel removal. The validated proxy indicates that policies compatible with 98% five-epoch retention "
+p("ResNet-8 is compact, and its residual stages are sensitive to channel removal. Its latency–MAC fit has a "
+  "positive intercept of 0.33 ms relative to a dense latency of about 0.77 ms, consistent with a substantial latency "
+  "component that is not eliminated by channel pruning. The validated proxy indicates that policies compatible with 98% five-epoch retention "
   "are concentrated in the lightly pruned region, where MAC reductions reach at most 18% among the proxy-feasible "
   "policies and latency falls by at most 9%. The evidence therefore points to the accuracy constraint, rather than "
   "search quality alone, as the principal limiter of latency headroom in this setting: an exhaustive enumeration of "
@@ -318,9 +334,10 @@ p("ResNet-8 is compact, the intercept of its latency–MAC fit is 0.33 of 0.77 m
   "calibration policy.")
 h2("Implications for Hardware-Aware Optimization")
 p("The accuracy-feasible latency headroom of a pruning problem can be measured before an optimizer is built. Here an "
-  "exhaustive latency table, an accuracy proxy validated against the full recovery and a pre-registered feasibility "
-  "check together showed that a latency-aware objective, whether pursued by reinforcement learning, evolutionary "
-  "search or a greedy method, would operate within a band of speed-ups below 1.10×. Larger networks, a looser "
+  "exhaustive latency table was combined with an accuracy proxy validated against five-epoch recovery and a "
+  "pre-registered feasibility check. Under the calibrated proxy and five-epoch boundary validation, the "
+  "accuracy-feasible region available to a latency-aware objective, whether pursued by reinforcement learning, "
+  "evolutionary search or a greedy method, was narrow and remained below the pre-registered 1.10× criterion. Larger networks, a looser "
   "accuracy tolerance, longer recovery or batched inference, where configuration C reached a 2.76× speed-up in "
   "calibration, are settings in which hardware-aware optimization may have more room to matter.")
 h2("Limitations")
