@@ -1,0 +1,65 @@
+{
+ "queue": "proxy_validation",
+ "policy": [
+  1,
+  5,
+  4,
+  4
+ ],
+ "epochs": 5,
+ "status": "complete",
+ "widths": [
+  29,
+  26,
+  77,
+  154
+ ],
+ "macs": 3883428,
+ "params": 217151,
+ "pre": {
+  "val_rl": 41.28,
+  "val_select": 42.8
+ },
+ "post": {
+  "val_rl": 75.52,
+  "val_select": 74.72
+ },
+ "train_loss": [
+  0.965743499024709,
+  0.7943785215589735,
+  0.7573570643530951,
+  0.7373031275749207,
+  0.7288819947454664
+ ],
+ "resumed_from_epoch": 1,
+ "data_stream_sha256": "2cc04b82c1d53921376b2eeedd752f2a853f07d720bc629308ba9563660df9fa",
+ "final_state_sha256": "2d1891fc60dc5ce03f70f8d82864205c8c8f0f31b6c63e96d42ab897cde7550a",
+ "recovery": {
+  "protocol": {
+   "optimizer": "Adam",
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.999
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.0,
+   "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+   "batch_size": 128,
+   "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+   "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+   "selection": "none: the model after the final epoch"
+  },
+  "epochs": 5,
+  "seed": 600
+ },
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "threads": 1,
+ "cpu_affinity": [
+  10
+ ],
+ "seconds": 390.3,
+ "started_at": "2026-10-26T22:27:19+06:00",
+ "finished_at": "2026-10-26T22:33:50+06:00",
+ "test_use": "none"
+}
