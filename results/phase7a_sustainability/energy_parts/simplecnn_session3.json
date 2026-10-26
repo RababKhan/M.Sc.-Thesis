@@ -1,0 +1,97 @@
+{
+ "arch": "simplecnn",
+ "session": "3",
+ "order_seed": 765122340,
+ "order": [
+  "dense",
+  "lamp",
+  "ppo",
+  "uniform"
+ ],
+ "n": 100000,
+ "blocks_per_model": 1,
+ "warmup": 1000,
+ "started_at": "2026-10-26T10:37:18+06:00",
+ "blocks": [
+  {
+   "model": "dense",
+   "block": 0,
+   "at": "2026-10-26T10:39:03+06:00",
+   "seconds": 71.9797865,
+   "pkg_j": 1149.5987409996,
+   "pp0_j": 942.236073,
+   "pkg_counter_ms": 71980,
+   "e1000_j": 11.495987409996,
+   "pkg_w": 15.97113296521934,
+   "net_e1000_j": 9.667276381507262,
+   "latency_median_ms": 0.7257,
+   "latency_mean_ms": 0.719289582,
+   "latency_p95_ms": 0.7559,
+   "latency_iqr_ms": 0.027299999999999998
+  },
+  {
+   "model": "lamp",
+   "block": 0,
+   "at": "2026-10-26T10:40:15+06:00",
+   "seconds": 66.3383173,
+   "pkg_j": 975.9729160008,
+   "pp0_j": 787.532875002,
+   "pkg_counter_ms": 66339,
+   "e1000_j": 9.759729160008,
+   "pkg_w": 14.712054144924776,
+   "net_e1000_j": 8.074344715891938,
+   "latency_median_ms": 0.6598999999999999,
+   "latency_mean_ms": 0.662892343,
+   "latency_p95_ms": 0.6920999999999999,
+   "latency_iqr_ms": 0.0206
+  },
+  {
+   "model": "ppo",
+   "block": 0,
+   "at": "2026-10-26T10:41:19+06:00",
+   "seconds": 58.865788900000005,
+   "pkg_j": 854.120536002,
+   "pp0_j": 682.9776549972,
+   "pkg_counter_ms": 58866,
+   "e1000_j": 8.54120536002,
+   "pkg_w": 14.509625233307625,
+   "net_e1000_j": 7.045667201371531,
+   "latency_median_ms": 0.5882,
+   "latency_mean_ms": 0.588140946,
+   "latency_p95_ms": 0.611,
+   "latency_iqr_ms": 0.0171
+  },
+  {
+   "model": "uniform",
+   "block": 0,
+   "at": "2026-10-26T10:42:19+06:00",
+   "seconds": 54.390888600000004,
+   "pkg_j": 790.5712849992,
+   "pp0_j": 637.4239530012,
+   "pkg_counter_ms": 54391,
+   "e1000_j": 7.905712849991999,
+   "pkg_w": 14.534994837337516,
+   "net_e1000_j": 6.5238635466167745,
+   "latency_median_ms": 0.5438999999999999,
+   "latency_mean_ms": 0.543378126,
+   "latency_p95_ms": 0.5641999999999999,
+   "latency_iqr_ms": 0.0165
+  }
+ ],
+ "idle": {
+  "seconds": 30.000808299984783,
+  "pkg_j": 76.2197439996,
+  "pp0_j": 16.4119280004,
+  "pkg_w": 2.54058968136664
+ },
+ "finished_at": "2026-10-26T10:42:24+06:00",
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpu_affinity": [
+   2
+  ],
+  "torch": "2.7.1+cpu",
+  "mkldnn_enabled": true
+ }
+}

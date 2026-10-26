@@ -1,0 +1,5 @@
+arch,comparison,delta_acc_pp_ppo_minus_baseline,comparable_accuracy,energy_diff_median_pct,sessions_ppo_lower,sessions_baseline_lower,wilcoxon_two_sided_p,verdict
+simplecnn,ppo_vs_uniform,-3.6000000000000085,False,-8.038396057208729,0,5,0.0625,baseline better
+simplecnn,ppo_vs_lamp,-3.3200000000000074,False,12.485221464762464,5,0,0.0625,no clear difference
+resnet8,ppo_vs_uniform,-0.4399999999999977,True,2.140196686819329,3,2,0.625,no clear difference
+resnet8,ppo_vs_lamp,-0.0799999999999983,True,2.0254665929456017,4,1,0.4375,no clear difference

@@ -1,0 +1,525 @@
+{
+ "created": "2026-10-26T11:10:16+06:00",
+ "preregistration_sha256": "58496abc5c0eafca85ae67a536d9f2c6b1381e2d1d7fdbb6b8bdf55ebea6bfd3",
+ "n_inferences_per_block": 100000,
+ "sessions": 5,
+ "cases": {
+  "simplecnn": {
+   "case": "B",
+   "case_D_baselines_better": [
+    "ppo_vs_uniform"
+   ],
+   "ppo_accuracy_preserving": false,
+   "ppo_consistent_energy_reduction": true
+  },
+  "resnet8": {
+   "case": "B",
+   "case_D_baselines_better": [],
+   "ppo_accuracy_preserving": false,
+   "ppo_consistent_energy_reduction": true
+  }
+ },
+ "per_architecture": {
+  "simplecnn": {
+   "dense_cv": 0.02137704234610839,
+   "noise_threshold": 0.04275408469221678,
+   "methods": {
+    "dense": {
+     "arch": "simplecnn",
+     "method": "dense",
+     "e1000_median_j": 11.053595890008001,
+     "e1000_mean_j": 11.1244065200064,
+     "e1000_sd_j": 0.23780690925350106,
+     "e1000_iqr_j": 0.24683772002400062,
+     "e1000_cv": 0.02137704234610839,
+     "e_per_inference_median_mj": 11.053595890008001,
+     "saving_median": 0.0,
+     "saving_min": 0.0,
+     "saving_max": 0.0,
+     "sessions_lower_than_dense": 0,
+     "noise_threshold": 0.04275408469221678,
+     "consistent_reduction": false,
+     "wilcoxon_one_sided_p": null,
+     "pp0_saving_median": 0.0,
+     "pp0_sessions_lower": 0,
+     "net_saving_median": 0.0,
+     "net_sessions_lower": 0,
+     "power_median_w": 15.016312286321503,
+     "speedup_median": 1.0,
+     "latency_median_ms": 0.7313,
+     "normalized_edp": 1.0,
+     "val_rl": 80.6,
+     "delta_pp": 0.0,
+     "q": 1.0,
+     "accuracy_preserving": true,
+     "param_reduction": 0.0,
+     "mac_reduction": 0.0,
+     "widths": [
+      32,
+      64,
+      128,
+      256
+     ],
+     "e_session": [
+      10.901666240028,
+      10.961972669987999,
+      11.495987409996,
+      11.053595890008001,
+      11.208810390012
+     ]
+    },
+    "ppo": {
+     "arch": "simplecnn",
+     "method": "ppo",
+     "e1000_median_j": 8.54120536002,
+     "e1000_mean_j": 8.6242144039992,
+     "e1000_sd_j": 0.15769031916637147,
+     "e1000_iqr_j": 0.2494790200079997,
+     "e1000_cv": 0.018284600982699094,
+     "e_per_inference_median_mj": 8.54120536002,
+     "saving_median": 0.22807251260796435,
+     "saving_min": 0.19455348781899162,
+     "saving_max": 0.2570272517353973,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.04275408469221678,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.22844973372018584,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.230301288764152,
+     "net_sessions_lower": 5,
+     "power_median_w": 14.923078980950127,
+     "speedup_median": 1.2795403875836049,
+     "latency_median_ms": 0.5710999999999999,
+     "normalized_edp": 0.603284972387476,
+     "val_rl": 75.52,
+     "delta_pp": -5.08,
+     "q": 0.9369727047146402,
+     "accuracy_preserving": false,
+     "param_reduction": 0.800988777520222,
+     "mac_reduction": 0.4259908590542263,
+     "widths": [
+      32,
+      51,
+      51,
+      102
+     ],
+     "e_session": [
+      8.780709049992,
+      8.461848020004,
+      8.54120536002,
+      8.806079559996,
+      8.531230029984
+     ]
+    },
+    "uniform": {
+     "arch": "simplecnn",
+     "method": "uniform",
+     "e1000_median_j": 7.905712849991999,
+     "e1000_mean_j": 7.9405085920104,
+     "e1000_sd_j": 0.12255488466267006,
+     "e1000_iqr_j": 0.059718999995999056,
+     "e1000_cv": 0.015434135388504286,
+     "e_per_inference_median_mj": 7.905712849991999,
+     "saving_median": 0.2788310761937427,
+     "saving_min": 0.2725131440105242,
+     "saving_max": 0.312306758172176,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.04275408469221678,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.2797050983111997,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.28178347463349573,
+     "net_sessions_lower": 5,
+     "power_median_w": 14.639694878227724,
+     "speedup_median": 1.37256006006006,
+     "latency_median_ms": 0.5341,
+     "normalized_edp": 0.5180006528189739,
+     "val_rl": 79.12,
+     "delta_pp": -1.48,
+     "q": 0.9816377171215882,
+     "accuracy_preserving": false,
+     "param_reduction": 0.4468987462159191,
+     "mac_reduction": 0.4252785201047713,
+     "widths": [
+      24,
+      48,
+      95,
+      190
+     ],
+     "e_session": [
+      7.861942910016,
+      7.921661910011999,
+      7.905712849991999,
+      7.85896306002,
+      8.154262230012
+     ]
+    },
+    "lamp": {
+     "arch": "simplecnn",
+     "method": "lamp",
+     "e1000_median_j": 9.759729160008,
+     "e1000_mean_j": 9.8949778720056,
+     "e1000_sd_j": 0.3552952441008889,
+     "e1000_iqr_j": 0.2993331000239987,
+     "e1000_cv": 0.0359066234100506,
+     "e_per_inference_median_mj": 9.759729160008,
+     "saving_median": 0.120972377976723,
+     "saving_min": 0.06764442466576415,
+     "saving_max": 0.15103167636372727,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.04275408469221678,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.12181756036937019,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.12504459910011023,
+     "net_sessions_lower": 5,
+     "power_median_w": 14.712054144924776,
+     "speedup_median": 1.1168908819133034,
+     "latency_median_ms": 0.6578999999999999,
+     "normalized_edp": 0.7828860247543992,
+     "val_rl": 78.84,
+     "delta_pp": -1.76,
+     "q": 0.978163771712159,
+     "accuracy_preserving": false,
+     "param_reduction": 0.6551126600275323,
+     "mac_reduction": 0.19701204781962334,
+     "widths": [
+      32,
+      58,
+      102,
+      87
+     ],
+     "e_session": [
+      9.532398020003999,
+      10.015749210024,
+      9.759729160008,
+      9.71641611,
+      10.450596859991998
+     ]
+    }
+   }
+  },
+  "resnet8": {
+   "dense_cv": 0.01844169900709411,
+   "noise_threshold": 0.03688339801418822,
+   "methods": {
+    "dense": {
+     "arch": "resnet8",
+     "method": "dense",
+     "e1000_median_j": 10.88202546,
+     "e1000_mean_j": 10.9179462859992,
+     "e1000_sd_j": 0.20134547918201826,
+     "e1000_iqr_j": 0.12356098999200071,
+     "e1000_cv": 0.01844169900709411,
+     "e_per_inference_median_mj": 10.88202546,
+     "saving_median": 0.0,
+     "saving_min": 0.0,
+     "saving_max": 0.0,
+     "sessions_lower_than_dense": 0,
+     "noise_threshold": 0.03688339801418822,
+     "consistent_reduction": false,
+     "wilcoxon_one_sided_p": null,
+     "pp0_saving_median": 0.0,
+     "pp0_sessions_lower": 0,
+     "net_saving_median": 0.0,
+     "net_sessions_lower": 0,
+     "power_median_w": 15.638325881414685,
+     "speedup_median": 1.0,
+     "latency_median_ms": 0.6984,
+     "normalized_edp": 1.0,
+     "val_rl": 78.4,
+     "delta_pp": 0.0,
+     "q": 1.0,
+     "accuracy_preserving": true,
+     "param_reduction": 0.0,
+     "mac_reduction": 0.0,
+     "widths": [
+      16,
+      16,
+      32,
+      64
+     ],
+     "e_session": [
+      10.87622253,
+      10.999783519992,
+      10.639785920003998,
+      11.191913999999999,
+      10.88202546
+     ]
+    },
+    "ppo": {
+     "arch": "resnet8",
+     "method": "ppo",
+     "e1000_median_j": 9.591630850008,
+     "e1000_mean_j": 9.6355898899992,
+     "e1000_sd_j": 0.2737770665753843,
+     "e1000_iqr_j": 0.18266938001999655,
+     "e1000_cv": 0.028413109077996164,
+     "e_per_inference_median_mj": 9.591630850008,
+     "saving_median": 0.13397421934037035,
+     "saving_min": 0.055610931879706005,
+     "saving_max": 0.1446148270377472,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.03688339801418822,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.1529181980477683,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.14623898723894324,
+     "net_sessions_lower": 5,
+     "power_median_w": 14.876996102632281,
+     "speedup_median": 1.0924999999999998,
+     "latency_median_ms": 0.64,
+     "normalized_edp": 0.791391449039987,
+     "val_rl": 75.16,
+     "delta_pp": -3.24,
+     "q": 0.958673469387755,
+     "accuracy_preserving": false,
+     "param_reduction": 0.24971169370339052,
+     "mac_reduction": 0.2154624292252404,
+     "widths": [
+      14,
+      14,
+      29,
+      45
+     ],
+     "e_session": [
+      9.30335949,
+      9.526096109988002,
+      10.048097509992001,
+      9.591630850008,
+      9.708765490007998
+     ]
+    },
+    "uniform": {
+     "arch": "resnet8",
+     "method": "uniform",
+     "e1000_median_j": 9.644747819975999,
+     "e1000_mean_j": 9.7743149920008,
+     "e1000_sd_j": 0.35515444719397,
+     "e1000_iqr_j": 0.2131980499800008,
+     "e1000_cv": 0.03633548207568763,
+     "e_per_inference_median_mj": 9.644747819975999,
+     "saving_median": 0.1184253527758593,
+     "saving_min": 0.04688810477861172,
+     "saving_max": 0.13948878332153913,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.03688339801418822,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.13425090390882155,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.1332212962393472,
+     "net_sessions_lower": 5,
+     "power_median_w": 14.843081213756195,
+     "speedup_median": 1.0740399385560675,
+     "latency_median_ms": 0.6458999999999999,
+     "normalized_edp": 0.8179343391498155,
+     "val_rl": 75.6,
+     "delta_pp": -2.8,
+     "q": 0.9642857142857142,
+     "accuracy_preserving": false,
+     "param_reduction": 0.16050331872581436,
+     "mac_reduction": 0.1926097328732761,
+     "widths": [
+      14,
+      14,
+      27,
+      54
+     ],
+     "e_session": [
+      9.588202040016,
+      9.465437099988,
+      9.644747819975999,
+      9.801400089996001,
+      10.371787910027999
+     ]
+    },
+    "lamp": {
+     "arch": "resnet8",
+     "method": "lamp",
+     "e1000_median_j": 9.818946129996,
+     "e1000_mean_j": 9.8558030619936,
+     "e1000_sd_j": 0.14352131746675653,
+     "e1000_iqr_j": 0.14226908000400051,
+     "e1000_cv": 0.01456211295660016,
+     "e_per_inference_median_mj": 9.818946129996,
+     "saving_median": 0.08937185394124236,
+     "saving_min": 0.07360170204424832,
+     "saving_max": 0.12267498392178489,
+     "sessions_lower_than_dense": 5,
+     "noise_threshold": 0.03688339801418822,
+     "consistent_reduction": true,
+     "wilcoxon_one_sided_p": 0.03125,
+     "pp0_saving_median": 0.09888623041085787,
+     "pp0_sessions_lower": 5,
+     "net_saving_median": 0.08898281917936135,
+     "net_sessions_lower": 5,
+     "power_median_w": 15.08779264057119,
+     "speedup_median": 1.0683524904214559,
+     "latency_median_ms": 0.649,
+     "normalized_edp": 0.8276784432697892,
+     "val_rl": 75.24,
+     "delta_pp": -3.16,
+     "q": 0.9596938775510204,
+     "accuracy_preserving": false,
+     "param_reduction": 0.24973732092975576,
+     "mac_reduction": 0.18181818181818177,
+     "widths": [
+      15,
+      15,
+      27,
+      45
+     ],
+     "e_session": [
+      10.07571403998,
+      9.707666879987999,
+      9.767209589999998,
+      9.818946129996,
+      9.909478670003999
+     ]
+    }
+   }
+  }
+ },
+ "pairwise": [
+  {
+   "arch": "simplecnn",
+   "comparison": "ppo_vs_uniform",
+   "delta_acc_pp_ppo_minus_baseline": -3.6000000000000085,
+   "comparable_accuracy": false,
+   "energy_diff_median_pct": -8.038396057208729,
+   "sessions_ppo_lower": 0,
+   "sessions_baseline_lower": 5,
+   "wilcoxon_two_sided_p": 0.0625,
+   "verdict": "baseline better"
+  },
+  {
+   "arch": "simplecnn",
+   "comparison": "ppo_vs_lamp",
+   "delta_acc_pp_ppo_minus_baseline": -3.3200000000000074,
+   "comparable_accuracy": false,
+   "energy_diff_median_pct": 12.485221464762464,
+   "sessions_ppo_lower": 5,
+   "sessions_baseline_lower": 0,
+   "wilcoxon_two_sided_p": 0.0625,
+   "verdict": "no clear difference"
+  },
+  {
+   "arch": "resnet8",
+   "comparison": "ppo_vs_uniform",
+   "delta_acc_pp_ppo_minus_baseline": -0.4399999999999977,
+   "comparable_accuracy": true,
+   "energy_diff_median_pct": 2.140196686819329,
+   "sessions_ppo_lower": 3,
+   "sessions_baseline_lower": 2,
+   "wilcoxon_two_sided_p": 0.625,
+   "verdict": "no clear difference"
+  },
+  {
+   "arch": "resnet8",
+   "comparison": "ppo_vs_lamp",
+   "delta_acc_pp_ppo_minus_baseline": -0.0799999999999983,
+   "comparable_accuracy": true,
+   "energy_diff_median_pct": 2.0254665929456017,
+   "sessions_ppo_lower": 4,
+   "sessions_baseline_lower": 1,
+   "wilcoxon_two_sided_p": 0.4375,
+   "verdict": "no clear difference"
+  }
+ ],
+ "deployment_projection_label": "deployment-scale projection from measured per-inference package energy; not a direct experiment; no CO2e conversion",
+ "deployment_projection": {
+  "simplecnn": {
+   "ppo": {
+    "1e+06": {
+     "joules": 2512.390529988001,
+     "kwh": 0.0006978862583300003
+    },
+    "1e+07": {
+     "joules": 25123.90529988001,
+     "kwh": 0.006978862583300003
+    },
+    "1e+08": {
+     "joules": 251239.05299880012,
+     "kwh": 0.06978862583300004
+    }
+   },
+   "uniform": {
+    "1e+06": {
+     "joules": 3147.8830400160014,
+     "kwh": 0.0008744119555600003
+    },
+    "1e+07": {
+     "joules": 31478.830400160015,
+     "kwh": 0.008744119555600005
+    },
+    "1e+08": {
+     "joules": 314788.30400160013,
+     "kwh": 0.08744119555600004
+    }
+   },
+   "lamp": {
+    "1e+06": {
+     "joules": 1293.8667300000009,
+     "kwh": 0.00035940742500000026
+    },
+    "1e+07": {
+     "joules": 12938.667300000008,
+     "kwh": 0.003594074250000002
+    },
+    "1e+08": {
+     "joules": 129386.67300000008,
+     "kwh": 0.035940742500000025
+    }
+   }
+  },
+  "resnet8": {
+   "ppo": {
+    "1e+06": {
+     "joules": 1290.394609992,
+     "kwh": 0.00035844294721999997
+    },
+    "1e+07": {
+     "joules": 12903.946099919998,
+     "kwh": 0.0035844294721999997
+    },
+    "1e+08": {
+     "joules": 129039.46099919999,
+     "kwh": 0.035844294722
+    }
+   },
+   "uniform": {
+    "1e+06": {
+     "joules": 1237.277640024001,
+     "kwh": 0.00034368823334000024
+    },
+    "1e+07": {
+     "joules": 12372.776400240009,
+     "kwh": 0.0034368823334000025
+    },
+    "1e+08": {
+     "joules": 123727.7640024001,
+     "kwh": 0.03436882333400003
+    }
+   },
+   "lamp": {
+    "1e+06": {
+     "joules": 1063.0793300039995,
+     "kwh": 0.0002952998138899999
+    },
+    "1e+07": {
+     "joules": 10630.793300039995,
+     "kwh": 0.002952998138899999
+    },
+    "1e+08": {
+     "joules": 106307.93300039996,
+     "kwh": 0.02952998138899999
+    }
+   }
+  }
+ }
+}

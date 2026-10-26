@@ -1,0 +1,107 @@
+{
+ "gates": [
+  {
+   "at": "2026-10-26T10:15:53+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 3.1,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:21:04+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\simplecnn_session1.json"
+  },
+  {
+   "at": "2026-10-26T10:21:09+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 3.5,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:26:32+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\resnet8_session1.json"
+  },
+  {
+   "at": "2026-10-26T10:26:37+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.2,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:31:58+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\resnet8_session2.json"
+  },
+  {
+   "at": "2026-10-26T10:32:03+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 3.9,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:37:11+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\simplecnn_session2.json"
+  },
+  {
+   "at": "2026-10-26T10:37:16+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 4.3,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:42:25+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\simplecnn_session3.json"
+  },
+  {
+   "at": "2026-10-26T10:42:30+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.2,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:47:50+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\resnet8_session3.json"
+  },
+  {
+   "at": "2026-10-26T10:47:56+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 3.6,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:53:18+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\resnet8_session4.json"
+  },
+  {
+   "at": "2026-10-26T10:53:23+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.6,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:58:29+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\simplecnn_session4.json"
+  },
+  {
+   "at": "2026-10-26T10:58:34+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.7,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T11:03:37+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\simplecnn_session5.json"
+  },
+  {
+   "at": "2026-10-26T11:03:42+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.8,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T11:08:57+06:00",
+   "finished": "E:\\M.Sc. Thesis\\results\\phase7a_sustainability\\energy_parts\\resnet8_session5.json"
+  }
+ ],
+ "power_schemes": [
+  "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+ ]
+}

@@ -36,6 +36,8 @@ plt.rcParams.update({"font.size": 9, "axes.labelsize": 9, "legend.fontsize": 8, 
                      "axes.axisbelow": True, "axes.spines.top": False, "axes.spines.right": False,
                      "savefig.dpi": 300, "font.family": "DejaVu Sans"})
 ARCH_TITLE = {"simplecnn": "SimpleCNN", "resnet8": "ResNet-8"}
+# direct-label offsets (points); default up-right, moved where two marks sit close together
+LABEL_OFFSET = {("resnet8", "ppo"): (-8, -12), ("resnet8", "lamp"): (6, 6), ("resnet8", "uniform"): (6, 6)}
 
 
 def wilcoxon(x, y, alternative):
@@ -193,8 +195,9 @@ def fig_a(per_arch):
             ax.errorbar(r["e1000_median_j"], r["val_rl"], xerr=[[r["e1000_median_j"] - es.min()], [es.max() - r["e1000_median_j"]]],
                         fmt=MARK[m], ms=7, color=COLOR[m], ecolor=COLOR[m], elinewidth=1, capsize=0, label=L.LABELS[m],
                         markeredgecolor="white", markeredgewidth=0.8, zorder=3)
-            ax.annotate(L.LABELS[m].replace("-Structured", ""), (r["e1000_median_j"], r["val_rl"]), xytext=(6, 4),
-                        textcoords="offset points", fontsize=7.5, color=INK2)
+            off = LABEL_OFFSET.get((arch, m), (6, 4))
+            ax.annotate(L.LABELS[m].replace("-Structured", ""), (r["e1000_median_j"], r["val_rl"]), xytext=off,
+                        textcoords="offset points", fontsize=7.5, color=INK2, ha="right" if off[0] < 0 else "left")
         dense = v["methods"]["dense"]["val_rl"]
         ax.axhspan(dense - L.ACC_TOLERANCE_PP, dense + L.ACC_TOLERANCE_PP, color=GRID, alpha=0.6, lw=0, zorder=0)
         ax.set_title(ARCH_TITLE[arch], fontsize=9)
@@ -202,6 +205,8 @@ def fig_a(per_arch):
         ax.set_ylabel("VAL-RL accuracy after recovery (%)")
         xs = [v["methods"][m]["e1000_median_j"] for m in L.METHODS]
         ax.set_xlim(min(xs) * 0.9, max(xs) * 1.12)
+        ys = [v["methods"][m]["val_rl"] for m in L.METHODS]
+        ax.set_ylim(min(ys) - 0.6, max(ys) + L.ACC_TOLERANCE_PP + 0.3)
     axes[0].legend(loc="lower right", frameon=False)
     fig.text(0.5, -0.02, "Shaded band: dense accuracy ± 0.5 pp. Horizontal bars: range over 5 sessions.", ha="center",
              fontsize=7.5, color=INK2)
@@ -222,15 +227,16 @@ def fig_b(per_arch, sel):
             vals = [f(v["methods"][m]) for _, f in metrics]
             bars = ax.bar(x + (j - 1) * w, vals, w - 0.02, color=COLOR[m], label=L.LABELS[m], edgecolor="white", linewidth=0.8)
             for bx, val in zip(bars, vals):
-                ax.text(bx.get_x() + bx.get_width() / 2, val + 0.015, f"{val:.2f}", ha="center", va="bottom", fontsize=6.3,
-                        color=INK2)
+                ax.text(bx.get_x() + bx.get_width() / 2, val - 0.03, f"{val:.2f}", ha="center", va="top", fontsize=6.5,
+                        color="white", rotation=90)
         ax.axhline(1.0, color=INK2, lw=0.8, ls="--")
         ax.text(len(metrics) - 0.55, 1.015, "Dense = 1.0", ha="right", va="bottom", fontsize=7, color=INK2)
         ax.set_xticks(x, [k for k, _ in metrics])
         ax.set_title(ARCH_TITLE[arch], fontsize=9)
         ax.set_ylim(0, 1.15)
     axes[0].set_ylabel("Relative to dense")
-    axes[1].legend(loc="lower right", frameon=True, framealpha=0.9, edgecolor="none")
+    h, lab = axes[0].get_legend_handles_labels()
+    fig.legend(h, lab, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 1.06))
     fig.tight_layout()
     fig.savefig(os.path.join(FIG, "fig_B_normalized_efficiency.png"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
