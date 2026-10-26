@@ -1,0 +1,58 @@
+{
+ "created": "2026-10-26T10:15:25+06:00",
+ "n": 100000,
+ "rule_max_cv": 0.03,
+ "results": {
+  "simplecnn": {
+   "e1000_j": [
+    11.518279250004,
+    11.150383979988,
+    11.081207540015999,
+    11.253274509995999,
+    10.962988320024,
+    10.767669369984
+   ],
+   "cv": 0.023013107897975827,
+   "stable": true
+  },
+  "resnet8": {
+   "e1000_j": [
+    10.79345467998,
+    10.488504700008,
+    10.555202710008,
+    10.667303630028,
+    10.358136109980002,
+    10.312331209992001
+   ],
+   "cv": 0.017384738242808874,
+   "stable": true
+  }
+ },
+ "gates": [
+  {
+   "at": "2026-10-26T09:57:37+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 4.4,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:02:08+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 3.2,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:06:40+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.5,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-26T10:11:06+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 2.5,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  }
+ ],
+ "decision": "stable"
+}

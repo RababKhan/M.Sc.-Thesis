@@ -124,7 +124,7 @@ def environment():
     import psutil
     import torch
     cfg = torch.__config__.show()
-    onednn = next((ln.strip() for ln in cfg.splitlines() if "oneDNN" in ln or "MKLDNN" in ln.upper()), "unknown")
+    onednn = next((ln.strip(" -") for ln in cfg.splitlines() if ("MKL-DNN v" in ln or "oneDNN v" in ln)), "unknown")
     cpu = subprocess.run(["powershell", "-NoProfile", "-Command", "(Get-CimInstance Win32_Processor).Name"],
                          capture_output=True, text=True).stdout.strip()
     return {"created": now(), "cpu": cpu, "logical_cpus": psutil.cpu_count(), "os": platform.platform(),
