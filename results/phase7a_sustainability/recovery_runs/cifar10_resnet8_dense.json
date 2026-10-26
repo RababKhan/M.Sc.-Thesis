@@ -1,0 +1,82 @@
+{
+ "setting": "cifar10_resnet8",
+ "arch": "resnet8",
+ "method": "dense",
+ "status": "complete",
+ "structured_ratios": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "widths": [
+  16,
+  16,
+  32,
+  64
+ ],
+ "params": 78042,
+ "macs": 12501632,
+ "pre": {
+  "val_rl": 78.92,
+  "val_select": 78.52
+ },
+ "post": {
+  "val_rl": 78.4,
+  "val_select": 78.52
+ },
+ "train_loss": [
+  0.5741359875096215,
+  0.573033251730601,
+  0.5692028991381327,
+  0.561429398531384,
+  0.5620276126755609
+ ],
+ "epochs": 5,
+ "resumed_from_epoch": 0,
+ "data_stream_sha256": "2cc04b82c1d53921376b2eeedd752f2a853f07d720bc629308ba9563660df9fa",
+ "final_state_sha256": "38a261e60272f07a2ff4b1141e25cd88f90dc2d4df16d0a48d8a8f3fd668fd05",
+ "checkpoint": "checkpoints\\phase7a\\cifar10_resnet8_dense.pth",
+ "checkpoint_sha256": "f78a8372c8f8b75d3d3d4fe94b1ad77cd3646b3511c81f0954951fc53c6455a3",
+ "checkpoint_bytes": 333599,
+ "recovery": {
+  "protocol": {
+   "optimizer": "Adam",
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.999
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.0,
+   "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+   "batch_size": 128,
+   "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+   "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+   "selection": "none: the model after the final epoch"
+  },
+  "epochs": 5,
+  "seed": 600,
+  "data_generator_seed": 1000600
+ },
+ "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+ "threads": 1,
+ "cpu_affinity": [
+  2
+ ],
+ "seconds": 508.8,
+ "started_at": "2026-10-26T09:37:49+06:00",
+ "finished_at": "2026-10-26T09:46:18+06:00",
+ "test_use": "none",
+ "preregistration_sha256": "58496abc5c0eafca85ae67a536d9f2c6b1381e2d1d7fdbb6b8bdf55ebea6bfd3",
+ "git": {
+  "commit": "b8c276655895be7cb53958e3ab1000ea3e5c45be",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? checkpoints/phase6_finetuned/",
+   "?? experiments/phase7a/build_recover.py",
+   "?? results/phase7a_sustainability/integrity_checks.json",
+   "?? template/"
+  ]
+ }
+}

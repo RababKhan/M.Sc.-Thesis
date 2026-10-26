@@ -1,0 +1,110 @@
+{
+ "created": "2026-10-26T09:33:14+06:00",
+ "all_passed": true,
+ "checks": [
+  {
+   "setting": "cifar10_simplecnn",
+   "method": "dense",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 2485317,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 0.0,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "method": "ppo",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 497861,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 7.152557373046875e-07,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "method": "uniform",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 1376389,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 2.384185791015625e-06,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "method": "lamp",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 859781,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 1.430511474609375e-06,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "method": "dense",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 332219,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 0.0,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "method": "ppo",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 253371,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 2.384185791015625e-06,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "method": "uniform",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 281403,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 2.86102294921875e-06,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "method": "lamp",
+   "widths": true,
+   "params": true,
+   "macs": true,
+   "state_dict_bytes": 253307,
+   "no_masks": true,
+   "masked_equivalent_max_abs_diff": 1.9073486328125e-06,
+   "masked_equivalent_ok": true,
+   "reload_identical": true,
+   "passed": true
+  }
+ ]
+}
