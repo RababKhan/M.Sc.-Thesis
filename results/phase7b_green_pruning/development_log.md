@@ -161,3 +161,17 @@ Each entry is dated. Stage-A results support design decisions only. No final cla
 - **Not exercised.** The figure code (matplotlib blocked).
 - **Frozen.** `phase7b_final_preregistration.json` was written: α = 4, τ = 0.98849, E = 2, surrogate 2,
   confirmatory seeds 700–719. It records the SHA-256 of every Stage-A input and of the Stage-B code.
+
+## 2026-10-27: Stage B, confirmatory search and final recovery
+
+- **Confirmatory PPO** (seeds 700–719, frozen pre-registration). Every seed has a selected policy.
+  - The selections are identical to those seen in the disclosed dry-run error, as expected: PPO on the
+    cache is deterministic.
+  - Primary new PPO: [2,2,2,5], selected by 5 of 20 seeds. Enumeration reference: [3,1,2,5], also seed
+    700's selection.
+- **Baselines** (`final_models.py`):
+  - Uniform: r = 0.208; MAC gap 11,934.
+  - LAMP: 56.2% global sparsity; unit ratios [0.010, 0.089, 0.192, 0.634]; parameter gap 254.
+  - 10 recovery jobs in total.
+- **Final 5-epoch recovery.** All 10 jobs are complete, on one data stream (`2cc04b…`, as in Phase 7A).
+  Dense is bit-identical to Phase 7A and to its Stage-A run. The test set was not used.

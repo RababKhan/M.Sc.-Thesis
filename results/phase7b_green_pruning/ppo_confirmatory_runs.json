@@ -1,0 +1,707 @@
+{
+ "created": "2026-10-27T16:54:43+06:00",
+ "alpha": 4.0,
+ "preregistration_sha256": "ab7bcd168c614d848f47f1addd3b80e22b7aab9681e21edb34f2c47f42d16bdc",
+ "runs": [
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 700,
+   "episodes": 512,
+   "distinct_visited": 151,
+   "feasible_episodes": 431,
+   "archive_size": 75,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     2,
+     5
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 7.917857761824374,
+    "reward": 2.7091018141699967,
+    "macs": 7123260,
+    "memory_bytes": 932400,
+    "latency_ms": 0.58385,
+    "episode": 11,
+    "first_episode": 11
+   },
+   "mean_reward_last_64": 2.3694845280056884,
+   "seconds": 2.5
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 701,
+   "episodes": 512,
+   "distinct_visited": 152,
+   "feasible_episodes": 422,
+   "archive_size": 70,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     5
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.23231583127486,
+    "reward": 2.522064993336126,
+    "macs": 6937788,
+    "memory_bytes": 908916,
+    "latency_ms": 0.6067,
+    "episode": 358,
+    "first_episode": 358
+   },
+   "mean_reward_last_64": 2.314086978892731,
+   "seconds": 1.7
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 702,
+   "episodes": 512,
+   "distinct_visited": 157,
+   "feasible_episodes": 423,
+   "archive_size": 75,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     5
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.23231583127486,
+    "reward": 2.522064993336126,
+    "macs": 6937788,
+    "memory_bytes": 908916,
+    "latency_ms": 0.6067,
+    "episode": 383,
+    "first_episode": 383
+   },
+   "mean_reward_last_64": 2.3144410975380874,
+   "seconds": 1.7
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 703,
+   "episodes": 512,
+   "distinct_visited": 149,
+   "feasible_episodes": 415,
+   "archive_size": 66,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     2
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.060292817352273,
+    "reward": 2.6243772503445166,
+    "macs": 6852130,
+    "memory_bytes": 1426772,
+    "latency_ms": 0.5942,
+    "episode": 63,
+    "first_episode": 63
+   },
+   "mean_reward_last_64": 2.24753204981403,
+   "seconds": 1.7
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 704,
+   "episodes": 512,
+   "distinct_visited": 163,
+   "feasible_episodes": 427,
+   "archive_size": 88,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     2
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.060292817352273,
+    "reward": 2.6243772503445166,
+    "macs": 6852130,
+    "memory_bytes": 1426772,
+    "latency_ms": 0.5942,
+    "episode": 5,
+    "first_episode": 5
+   },
+   "mean_reward_last_64": 2.3701749792557685,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 705,
+   "episodes": 512,
+   "distinct_visited": 158,
+   "feasible_episodes": 413,
+   "archive_size": 72,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     4
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.356172401299121,
+    "reward": 2.4484101833126193,
+    "macs": 7023172,
+    "memory_bytes": 1250660,
+    "latency_ms": 0.6157,
+    "episode": 342,
+    "first_episode": 342
+   },
+   "mean_reward_last_64": 2.334912978801639,
+   "seconds": 2.1
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 706,
+   "episodes": 512,
+   "distinct_visited": 170,
+   "feasible_episodes": 412,
+   "archive_size": 79,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     0
+    ],
+    "q": 0.9894842263395094,
+    "feasible": true,
+    "e_pred": 8.146304324313567,
+    "reward": 2.573226129351588,
+    "macs": 6926080,
+    "memory_bytes": 1722776,
+    "latency_ms": 0.60045,
+    "episode": 54,
+    "first_episode": 54
+   },
+   "mean_reward_last_64": 2.291375708757018,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 707,
+   "episodes": 512,
+   "distinct_visited": 140,
+   "feasible_episodes": 437,
+   "archive_size": 68,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     5
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.23231583127486,
+    "reward": 2.522064993336126,
+    "macs": 6937788,
+    "memory_bytes": 908916,
+    "latency_ms": 0.6067,
+    "episode": 332,
+    "first_episode": 332
+   },
+   "mean_reward_last_64": 2.3598425366910103,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 708,
+   "episodes": 512,
+   "distinct_visited": 130,
+   "feasible_episodes": 437,
+   "archive_size": 61,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     0
+    ],
+    "q": 0.9894842263395094,
+    "feasible": true,
+    "e_pred": 8.146304324313567,
+    "reward": 2.573226129351588,
+    "macs": 6926080,
+    "memory_bytes": 1722776,
+    "latency_ms": 0.60045,
+    "episode": 28,
+    "first_episode": 28
+   },
+   "mean_reward_last_64": 2.364113369239839,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 709,
+   "episodes": 512,
+   "distinct_visited": 162,
+   "feasible_episodes": 416,
+   "archive_size": 77,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     2
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.060292817352273,
+    "reward": 2.6243772503445166,
+    "macs": 6852130,
+    "memory_bytes": 1426772,
+    "latency_ms": 0.5942,
+    "episode": 70,
+    "first_episode": 70
+   },
+   "mean_reward_last_64": 2.3330459433202915,
+   "seconds": 2.4
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 710,
+   "episodes": 512,
+   "distinct_visited": 145,
+   "feasible_episodes": 439,
+   "archive_size": 77,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     1
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.363053321856023,
+    "reward": 2.4443176930322847,
+    "macs": 7147964,
+    "memory_bytes": 1750132,
+    "latency_ms": 0.6162,
+    "episode": 222,
+    "first_episode": 222
+   },
+   "mean_reward_last_64": 2.361095861839363,
+   "seconds": 2.2
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 711,
+   "episodes": 512,
+   "distinct_visited": 127,
+   "feasible_episodes": 424,
+   "archive_size": 48,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     1
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.363053321856023,
+    "reward": 2.4443176930322847,
+    "macs": 7147964,
+    "memory_bytes": 1750132,
+    "latency_ms": 0.6162,
+    "episode": 78,
+    "first_episode": 78
+   },
+   "mean_reward_last_64": 2.3725149809230173,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 712,
+   "episodes": 512,
+   "distinct_visited": 134,
+   "feasible_episodes": 429,
+   "archive_size": 55,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     5
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.23231583127486,
+    "reward": 2.522064993336126,
+    "macs": 6937788,
+    "memory_bytes": 908916,
+    "latency_ms": 0.6067,
+    "episode": 382,
+    "first_episode": 382
+   },
+   "mean_reward_last_64": 2.3670995299989075,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 713,
+   "episodes": 512,
+   "distinct_visited": 192,
+   "feasible_episodes": 402,
+   "archive_size": 95,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     1
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.363053321856023,
+    "reward": 2.4443176930322847,
+    "macs": 7147964,
+    "memory_bytes": 1750132,
+    "latency_ms": 0.6162,
+    "episode": 213,
+    "first_episode": 213
+   },
+   "mean_reward_last_64": 2.293719418971408,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 714,
+   "episodes": 512,
+   "distinct_visited": 178,
+   "feasible_episodes": 416,
+   "archive_size": 89,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     4
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.356172401299121,
+    "reward": 2.4484101833126193,
+    "macs": 7023172,
+    "memory_bytes": 1250660,
+    "latency_ms": 0.6157,
+    "episode": 482,
+    "first_episode": 482
+   },
+   "mean_reward_last_64": 2.371358042969791,
+   "seconds": 2.1
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 715,
+   "episodes": 512,
+   "distinct_visited": 170,
+   "feasible_episodes": 426,
+   "archive_size": 89,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     4
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 7.957767101054413,
+    "reward": 2.6853553555215166,
+    "macs": 6778180,
+    "memory_bytes": 1130768,
+    "latency_ms": 0.58675,
+    "episode": 17,
+    "first_episode": 17
+   },
+   "mean_reward_last_64": 2.3701495576762435,
+   "seconds": 2.1
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 716,
+   "episodes": 512,
+   "distinct_visited": 162,
+   "feasible_episodes": 416,
+   "archive_size": 76,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     4
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.356172401299121,
+    "reward": 2.4484101833126193,
+    "macs": 7023172,
+    "memory_bytes": 1250660,
+    "latency_ms": 0.6157,
+    "episode": 194,
+    "first_episode": 194
+   },
+   "mean_reward_last_64": 2.3330459433202915,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 717,
+   "episodes": 512,
+   "distinct_visited": 206,
+   "feasible_episodes": 390,
+   "archive_size": 99,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     3,
+     1,
+     3,
+     4
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 7.957767101054413,
+    "reward": 2.6853553555215166,
+    "macs": 6778180,
+    "memory_bytes": 1130768,
+    "latency_ms": 0.58675,
+    "episode": 65,
+    "first_episode": 65
+   },
+   "mean_reward_last_64": 2.3592858225817097,
+   "seconds": 2.2
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 718,
+   "episodes": 512,
+   "distinct_visited": 156,
+   "feasible_episodes": 427,
+   "archive_size": 79,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     5
+    ],
+    "q": 0.9889834752128193,
+    "feasible": true,
+    "e_pred": 8.23231583127486,
+    "reward": 2.522064993336126,
+    "macs": 6937788,
+    "memory_bytes": 908916,
+    "latency_ms": 0.6067,
+    "episode": 358,
+    "first_episode": 358
+   },
+   "mean_reward_last_64": 2.316544016214239,
+   "seconds": 2.3
+  },
+  {
+   "tag": "confirm",
+   "alpha": 4.0,
+   "seed": 719,
+   "episodes": 512,
+   "distinct_visited": 178,
+   "feasible_episodes": 425,
+   "archive_size": 97,
+   "final_deterministic_actions": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "final_deterministic_feasible": true,
+   "selected": {
+    "actions": [
+     2,
+     2,
+     2,
+     1
+    ],
+    "q": 0.9899849774661993,
+    "feasible": true,
+    "e_pred": 8.363053321856023,
+    "reward": 2.4443176930322847,
+    "macs": 7147964,
+    "memory_bytes": 1750132,
+    "latency_ms": 0.6162,
+    "episode": 308,
+    "first_episode": 308
+   },
+   "mean_reward_last_64": 2.319062767804383,
+   "seconds": 2.2
+  }
+ ]
+}
