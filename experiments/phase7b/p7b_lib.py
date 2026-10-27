@@ -64,6 +64,14 @@ def counts(policy, arch=ARCH):
     return macs, params, SU.widths(arch, list(policy))
 
 
+def counts_ratios(ratios, arch=ARCH):
+    """(MACs, params, widths) for arbitrary per-unit ratios (Uniform, LAMP): keep max(1, round((1 - r) C))."""
+    P7 = energy_meter()
+    w = P7.widths(arch, list(ratios))
+    macs, params = P7.analytic(arch, w)
+    return macs, params, w
+
+
 def table():
     """{policy: dict(macs, params, memory_bytes, widths, mac_reduction, param_reduction, latency_ms)} for all 1,296
     policies; latency is the measured Paper-3 batch-1 table (configuration A)."""

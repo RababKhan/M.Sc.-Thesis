@@ -68,3 +68,96 @@ Each entry is dated. Stage-A results support design decisions only. No final cla
 - **Accepted: candidate 2**, the first to pass. Ê_1000 = 13.762 · L_table − 0.117 J; the dense prediction
   is 10.77 J and the maximum predicted saving over the 1,296 policies is 62.4%. Candidates 3–4 are recorded only.
 - **Next.** The 1,296-policy landscape at E = 2.
+- **Landscape launched.** On AC, 8 detached workers started on 2026-10-27, 1,296 policies × E = 2.
+
+## 2026-10-27: Stage-B tooling (written during the landscape run, before any Stage-B data)
+
+- **`recover.py`.** The `final` queue now takes `final_jobs.json` entries `{id, ratios, policy, roles}`, so
+  that the off-grid Uniform and LAMP ratio vectors are realized through the same slimming function
+  (`structured.simplecnn_structured`, which `structured_units.slim` calls). The action-policy path used by the
+  proxy and landscape queues is unchanged.
+- **`final_models.py`.** Builds the primary new-PPO model, the per-seed selections, the enumeration
+  reference, the MAC-matched Uniform and the parameter-matched LAMP (0.1% sparsity grid), and reuses the old
+  Phase-7A PPO checkpoint.
+  - Smoke test on a placeholder target (the old PPO's counts): Uniform reproduces Phase 7A's r = 0.256.
+- **`energy_final.py`.** Phase-7A hardware protocol, with Dense measured in 3 blocks per session.
+- **`final_analysis.py`.** Implements the GREEN rules, cases and Pareto analysis.
+- **`write_prereg.py`.** Writes the frozen Stage-B file, with input and code hashes.
+- **Check: dense recovery matches Phase 7A.** The Stage-A 5-epoch dense recovery is bit-identical to the
+  Phase-7A dense model (final state `8c285b…`, data stream `2cc04b…`). The old PPO checkpoint therefore
+  comes from the same protocol.
+
+## 2026-10-27: landscape run paused at the user's request
+
+- **Pause.** The 8 workers were stopped at 1136 of 1,296 records, at the user's request.
+- **Interrupted jobs.** The lock files of the jobs in progress were removed: 5132_E2 5133_E2 5134_E2 5135_E2 5140_E2 5141_E2 5142_E2 5143_E2.
+- **Kept.** Their per-epoch work states, which resume bit-identically, and all completed records. No data
+  was inspected or discarded.
+- **Resume.** Relaunch with the same `launch_workers.ps1 landscape` command.
+- **Resumed.** On 2026-10-27, at the user's request, 8 workers were relaunched on battery power.
+  Recovery is deterministic, so the power source does not affect results; it is not an energy measurement.
+
+## 2026-10-27: landscape complete; α tuning (Stage A)
+
+- **Landscape.** All 1,296 policies have 2-epoch recovery records, all from one data stream.
+  - Dense A_2 = 79.88. 202 of 1,296 policies are proxy-feasible (q ≥ τ = 0.98849).
+  - The 49 Stage-A policies reproduce their proxy-validation 2-epoch accuracies exactly.
+- **Windows Smart App Control (enforcing) blocked matplotlib.** From 15:46 on 2026-10-27,
+  `matplotlib/_c_internal_utils.pyd` (and apparently `ft2font.pyd`) were blocked from loading
+  (Code Integrity events 3033/3077). The same files loaded earlier in this phase.
+  - **`ppo.py`.** SB3's logger imports `matplotlib.figure` only for an output type that is never used. If
+    that import is blocked, a placeholder module stands in. No computation reads it.
+  - **`final_analysis.py`.** matplotlib is imported only inside the figure step. A blocked import leaves
+    every number intact and records that the figures are pending. The verified exact Wilcoxon function is
+    copied verbatim from Phase 7A's `analyze.py`, which imports matplotlib at module level.
+  - **Not done.** The security setting was not changed; that is the user's decision.
+- **α tuning** (`ppo.py dev`, seeds 900–904, pre-registered rule: lowest median selected Ê, ties → smaller α):
+
+  | α | Median selected Ê | Empty archives |
+  |---|---|---|
+  | 0.5 | 8.3631 J | 0 |
+  | 1 | 8.3631 J | 0 |
+  | 2 | 8.3631 J | 0 |
+  | 4 | 8.3562 J | 0 |
+
+  **Chosen: α = 4.** Selections were [2,2,2,1], [2,2,2,4] and [2,2,2,5]. The differences between α
+  values are small (< 0.1%), and the rule is applied as written.
+
+## 2026-10-27: procedural error in the Stage-B dry run (disclosed)
+
+- **What happened.** The dry run of the Stage-B tooling ran in a scratch sandbox, with a throwaway
+  pre-registration and nothing written to `results/` or `checkpoints/`. By mistake, it ran the confirmatory
+  PPO search with the real confirmatory seeds 700–719, before the real pre-registration was committed. The
+  20 per-seed selected policies were therefore printed and seen.
+- **Stopped.** The run was stopped during final-model derivation: no model was recovered and no accuracy
+  or energy was computed for these policies.
+- **Why no rule is affected.** Every pre-registered quantity was already fixed by Stage-A rules before
+  this happened:
+  - α = 4 (development seeds);
+  - τ, E = 2 and the surrogate (validation rules);
+  - the selection, baseline, statistics and GREEN rules (design);
+  - the confirmatory seeds (design).
+
+  Nothing is changed after it. PPO on the cache is deterministic, so the real confirmatory run will
+  reproduce these selections.
+- **Fix.** The dry run is repeated with placeholder seeds 9000–9019.
+
+## 2026-10-27: Stage-B dry run passed; pre-registration frozen
+
+- **Dry run.** A scratch sandbox with placeholder seeds 9000–9019, 1-epoch recovery and n = 200 RAPL
+  sessions ran every Stage-B step end to end:
+  - pre-registration, confirmatory PPO and final-model derivation (including the LAMP sweep);
+  - 10 recoveries;
+  - 5 energy sessions with Dense measured 3 times per session;
+  - the full analysis.
+
+  Only completion and errors were checked; no numbers were read.
+- **Bugs it found, fixed before freezing:**
+  - `recover.py` built the record path from `policy`, which is None for Uniform and LAMP; it now uses the job.
+  - The `ppo.py` matplotlib guard now runs when `ppo` is imported, before `write_prereg` imports `src.rl`.
+  - The figure step recognises the placeholder module and raises ImportError.
+- **Integrity checks work.** On the 1-epoch dry run, the checks "dense identical to Phase 7A" and "same
+  data stream as Phase 7A" correctly returned False.
+- **Not exercised.** The figure code (matplotlib blocked).
+- **Frozen.** `phase7b_final_preregistration.json` was written: α = 4, τ = 0.98849, E = 2, surrogate 2,
+  confirmatory seeds 700–719. It records the SHA-256 of every Stage-A input and of the Stage-B code.

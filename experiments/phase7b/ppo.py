@@ -119,6 +119,24 @@ def select(archive, inp):
     return min(tied, key=lambda a: (-a["q"], a["macs"], a["memory_bytes"], a["actions"]))
 
 
+def _matplotlib_guard():
+    """SB3's logger imports matplotlib.figure only for its Figure output type, which is never used here. If Windows
+    Smart App Control blocks a matplotlib extension, a placeholder module stands in; no computation touches it."""
+    try:
+        import matplotlib.figure  # noqa: F401
+    except ImportError:
+        import types
+        for k in [k for k in sys.modules if k == "matplotlib" or k.startswith("matplotlib.")]:
+            del sys.modules[k]
+        mpl, fig = types.ModuleType("matplotlib"), types.ModuleType("matplotlib.figure")
+        fig.Figure = type("Figure", (), {})
+        mpl.figure = fig
+        sys.modules.update({"matplotlib": mpl, "matplotlib.figure": fig})
+
+
+_matplotlib_guard()                         # at import, before anything (here or in an importer) loads SB3
+
+
 def run(inp, alpha, seed, tag):
     import torch
     from stable_baselines3 import PPO

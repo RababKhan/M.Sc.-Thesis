@@ -1,0 +1,62 @@
+{
+ "queue": "landscape",
+ "policy": [
+  0,
+  0,
+  1,
+  2
+ ],
+ "epochs": 2,
+ "status": "complete",
+ "widths": [
+  32,
+  64,
+  115,
+  205
+ ],
+ "macs": 10221938,
+ "params": 465212,
+ "pre": {
+  "val_rl": 76.88,
+  "val_select": 77.76
+ },
+ "post": {
+  "val_rl": 79.84,
+  "val_select": 79.96
+ },
+ "train_loss": [
+  0.5639846094767252,
+  0.5401682504442002
+ ],
+ "resumed_from_epoch": 0,
+ "data_stream_sha256": "c339759956ef473615307175eeb4d4bc9cb2222289505cc0e73c38b306013840",
+ "final_state_sha256": "fd7f758e7248c0bffe888def9e056ef990f11fbbba8072e59c33961933a95bb6",
+ "recovery": {
+  "protocol": {
+   "optimizer": "Adam",
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.999
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.0,
+   "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+   "batch_size": 128,
+   "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+   "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+   "selection": "none: the model after the final epoch"
+  },
+  "epochs": 2,
+  "seed": 600
+ },
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "threads": 1,
+ "cpu_affinity": [
+  2
+ ],
+ "seconds": 184.4,
+ "started_at": "2026-10-27T02:53:11+06:00",
+ "finished_at": "2026-10-27T02:56:15+06:00",
+ "test_use": "none"
+}
