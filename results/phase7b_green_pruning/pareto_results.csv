@@ -1,0 +1,12 @@
+id,roles,pareto_accuracy_macs,pareto_accuracy_memory,pareto_accuracy_energy,pareto_energy_macs
+0000,"[""dense""]",True,True,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+2225,"[""new_ppo"", ""seed701"", ""seed702"", ""seed707"", ""seed712"", ""seed718""]",False,True,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+uniform_r0.208,"[""uniform""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+lamp_s56.2,"[""lamp""]",True,True,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+3125,"[""seed700"", ""enumeration_reference""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+3132,"[""seed703"", ""seed704"", ""seed709""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+2224,"[""seed705"", ""seed714"", ""seed716""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+3130,"[""seed706"", ""seed708""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+2221,"[""seed710"", ""seed711"", ""seed713"", ""seed719""]",False,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+3134,"[""seed715"", ""seed717""]",True,False,not assessable (hardware validation stopped),not assessable (hardware validation stopped)
+phase7a_ppo,"[""old_ppo""]",True,True,not assessable (hardware validation stopped),not assessable (hardware validation stopped)

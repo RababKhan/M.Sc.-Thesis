@@ -175,3 +175,59 @@ Each entry is dated. Stage-A results support design decisions only. No final cla
   - 10 recovery jobs in total.
 - **Final 5-epoch recovery.** All 10 jobs are complete, on one data stream (`2cc04b…`, as in Phase 7A).
   Dense is bit-identical to Phase 7A and to its Stage-A run. The test set was not used.
+
+## 2026-10-27: hardware validation waiting for AC power
+
+- **Gate stopped the pilot.** The final energy pilot was launched, but the gate stopped it ("STOP: not on
+  AC power"). Nothing was measured. Waiting for the charger.
+
+## 2026-10-27: final energy pilot unstable; doubled-N pilot interrupted by foreground load
+
+- **Pilot at N = 100,000 failed.** On AC power, the pilot ran 6 dense blocks in 2 child runs, both
+  gates passed (CPU load 7.4% and 9.2%). Values in J per 1,000 inferences: 13.09, 11.41, 11.20,
+  15.13, 12.27 and 12.27. The CV was 11.36%, above the 3% limit, so the pilot was **unstable**
+  (`_energy_final/pilot_n100000.json`). VS Code was the visible background load at the time,
+  using about 65% of one core.
+- **Doubled-N pilot stopped by the gate.** As the pre-registered rule allows, N was doubled once to
+  200,000. Rep 0 measured 18.00, 19.00 and 22.12 J per 1,000 inferences. Median latency was 1.44,
+  1.52 and 1.72 ms, against about 0.87 ms at N = 100,000. Before rep 1, the gate stopped the run with
+  "STOP: CPU load 50.4% > 15.0%". A process check right afterwards showed foreground activity:
+  `vvencapp.exe` (a video encoder) at about 3.3 cores, plus Zoom. The machine was therefore in use
+  while rep 0 was measured, and the doubled-N pilot never reached a stability verdict. Its rep-0
+  record is `_energy_final/pilot_n200000_rep0.json`. No session was run, and nothing was used
+  downstream.
+- **Rule question, decision pending.** The pre-registration says "N doubles once; still unstable ->
+  STOP". The doubled-N pilot was interrupted, not judged unstable, so applying the rule needs a
+  decision. The frozen threshold and rules are unchanged.
+- **Decision (user, 2026-10-27).** The interrupted doubled-N pilot is void, the same way the earlier
+  AC-power gate refusal was treated. Its files move to `_energy_final/void_pilot_n200000_20261027/`.
+  The N = 200,000 pilot is rerun **once** while the laptop is idle (Zoom and the video encoder
+  closed). If that run is unstable, hardware validation STOPs. The 3% threshold and all other
+  frozen rules are unchanged. The N = 100,000 pilot result (unstable) stands.
+
+## 2026-11-03: doubled-N pilot unstable, hardware validation STOPPED
+
+- **Clean conditions.** The single permitted N = 200,000 pilot was run while the laptop was idle.
+  Zoom was closed, and the run waited for a VS Code update installer to finish. The machine was on
+  AC with the Balanced scheme, and the gates passed at CPU load 3.4% and 2.4%. Idle package power
+  was 2.16 W and 1.81 W, against 9.1 W in the N = 100,000 pilot.
+- **Result.** Values in J per 1,000 inferences: 11.81, 12.07, 11.04, 11.54, 11.03 and 11.03.
+  The mean was 11.421 J and the **CV 4.01% > 3%**, so the run is **unstable**
+  (`_energy_final/pilot_n200000.json`).
+- **Stop.** Under the frozen rule ("N doubles once; still unstable -> STOP"), the confirmatory
+  hardware validation STOPS. No session was run, and the threshold, N and protocol are unchanged.
+- **Observation, not used for any decision.** Block power fell within each child run (17.3, 16.3,
+  15.2 W, then 16.0, 15.1, 15.0 W), and the first block of each child run was the highest. The
+  pattern points to a warm-up or thermal transient, not random noise.
+- **Decision (user, 2026-11-03): close out as STOPPED.** No further energy measurement is made.
+  `final_analysis.py` (pre-registered; it needs the 5 sessions) is not run. A separate descriptive
+  script, `experiments/phase7b/stopped_summary.py`, reports accuracy, memory and MACs of the
+  recovered models, with the same integrity checks. It lists surrogate energy predictions, labelled
+  as predictions. GREEN-SUCCESS, the case and the baseline comparison verdicts are reported as
+  **not assessable**. The recovered accuracies were first looked at in this step.
+- **Close-out result.** Integrity checks passed: the dense model is identical to Stage A and to Phase 7A, and
+  all models used a single data stream that is the same as Phase 7A's. The new PPO [2,2,2,5] recovered to
+  VAL-SELECT 78.88, which is −1.12 pp against dense (80.00). It therefore **fails the accuracy criterion**,
+  and GREEN-SUCCESS = NO regardless of the unmeasured energy. Every confirmatory selection fails accuracy, so
+  0/20 seeds reach GREEN-SUCCESS. The case is undetermined between GREEN-C and "none" because energy was not
+  measured. LAMP-structured is the only accuracy-preserving compressed model (−0.36 pp). See `interpretation.md`.
