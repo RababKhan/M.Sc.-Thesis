@@ -1,0 +1,54 @@
+{
+ "created": "2026-11-03T15:30:54+06:00",
+ "cpu": {
+  "Name": "12th Gen Intel(R) Core(TM) i7-1260P",
+  "NumberOfCores": 12,
+  "NumberOfLogicalProcessors": 16,
+  "MaxClockSpeed": 2100
+ },
+ "os": {
+  "Caption": "Microsoft Windows 11 Home Single Language",
+  "Version": "10.0.26200",
+  "BuildNumber": "26200"
+ },
+ "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+ "platform": "Windows-10-10.0.26200-SP0",
+ "torch": "2.7.1+cpu",
+ "mkldnn_available": true,
+ "torch_config": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 192930158\n  - Intel(R) oneAPI Math Kernel Library Version 2025.1-Product Build 20250306 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=e2d141dbde55c2a4370fac5165b0561b6af4798b, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /GR /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.7.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, \n",
+ "parallel_info": "ATen/Parallel:\n\tat::get_num_threads() : 12\n\tat::get_num_interop_threads() : 12\nOpenMP 2019\n\tomp_get_max_threads() : 12\nIntel(R) oneAPI Math Kernel Library Version 2025.1-Product Build 20250306 for Intel(R) 64 architecture applications\n\tmkl_get_max_threads() : 12\nIntel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\nstd::thread::hardware_concurrency() : 16\nEnvironment variables:\n\tOMP_NUM_THREADS : [not set]\n\tMKL_NUM_THREADS : [not set]\nATen parallel backend: OpenMP\n",
+ "ram_gb": 15.698219299316406,
+ "ac_power": true,
+ "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+ "battery": "sbattery(percent=100, secsleft=<BatteryTime.POWER_TIME_UNLIMITED: -2>, power_plugged=True)",
+ "energy_backend": "RAPL package counter via Windows Energy Meter Interface (PDH \\Energy Meter(RAPL_Package0_PKG))",
+ "pdh_counters": {
+  "perf_pct_cpu2": "\\Processor Information(0,2)\\% Processor Performance",
+  "perf_pct_total": "\\Processor Information(_Total)\\% Processor Performance",
+  "nominal_mhz": "\\Processor Information(0,2)\\Processor Frequency",
+  "thermal_zone_k": "\\Thermal Zone Information(\\_TZ.THRM)\\Temperature"
+ },
+ "pdh_sample": {
+  "perf_pct_cpu2": 0.0,
+  "perf_pct_total": 120.63636363636364,
+  "nominal_mhz": 2100.0,
+  "thermal_zone_c": 73.85000000000002
+ },
+ "git_head": "5600d0918996dbfed7245c9eb533246f7db31e86",
+ "measurement": {
+  "cpu_affinity": [
+   2
+  ],
+  "intra_op_threads": 1,
+  "inter_op_threads": 1,
+  "batch": 1,
+  "dtype": "float32",
+  "input": "preallocated (1,3,32,32), torch.manual_seed(0) normal",
+  "mode": "eval() + torch.inference_mode()",
+  "warmup_per_block": 2000,
+  "n_per_block": 200000,
+  "soak_s_per_run": 180,
+  "pause_s": 5,
+  "model_loading": "excluded (before the soak)"
+ }
+}

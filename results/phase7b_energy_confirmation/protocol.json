@@ -1,0 +1,117 @@
+{
+ "title": "Phase 7B energy confirmation: direct measured inference energy of the frozen Phase 7B SimpleCNN models",
+ "created": "2026-11-03T15:35:42+06:00",
+ "base_commit": "5600d091 (frozen Phase 7B, branch phase7b-green-structured-ppo)",
+ "frozen_rule": "Written before any qualification or comparison data. Nothing below changes after this file is committed.",
+ "question": "Does the frozen Phase 7B PPO-Structured SimpleCNN [2,2,2,5] use less measured CPU inference energy than the recovered dense SimpleCNN?",
+ "positioning": "Separate measurement study. It does not modify the frozen Phase 7B experiment, its verdicts (GREEN-SUCCESS = NO, accuracy -1.12 pp) or its 3% pilot criterion, which failed and stays failed.",
+ "models": {
+  "primary": {
+   "dense": "0000 (checkpoints/phase7b/cifar10_simplecnn_0000_E5.pth)",
+   "phase7b_ppo": "2225 = policy [2,2,2,5], widths [26,51,102,102] (checkpoints/phase7b/cifar10_simplecnn_2225_E5.pth)"
+  },
+  "secondary": [
+   "uniform_r0.208",
+   "lamp_s56.2",
+   "phase7a_ppo"
+  ],
+  "integrity": "file SHA-256 and state-dict SHA-256 must match the Phase 7B / 7A freeze records (checkpoint_verification.json) before any measurement; no training or fine-tuning"
+ },
+ "backend": "Intel RAPL package energy via the Windows Energy Meter Interface (PDH Energy Meter(RAPL_Package0_PKG) Energy counter), read immediately before and after each block; no TDP, estimate or surrogate. No external meter is available.",
+ "conditions": {
+  "machine": "same laptop, Intel Core i7-1260P, Windows 11",
+  "power": "AC",
+  "plan": "Balanced",
+  "batch": 1,
+  "threads": "1 intra-op, 1 inter-op (OMP/MKL env set before torch import, torch.set_num_*_threads)",
+  "affinity": "logical CPU 2 (performance core)",
+  "dtype": "float32",
+  "input": "preallocated (1,3,32,32) tensor",
+  "mode": "eval() and torch.inference_mode()",
+  "model_loading": "excluded (all models loaded and hash-checked before the soak)",
+  "process": "fresh child process per run"
+ },
+ "workload": {
+  "soak_s": 180,
+  "soak": "continuous inference of the run's first model for 180 s before the first block (fixed thermal conditioning)",
+  "warmup_per_block": 2000,
+  "n_per_block": 200000,
+  "pause_s": 5,
+  "rationale": "The 2026-11-03 Phase 7B pilot showed block power falling within each process (first block highest), and the smoke test of this script (Dense only, n = 2,000, not analysed) showed CPU 2 settling from about 203% to about 134% of nominal clock during the soak; a fixed soak is added for that transient. N = 200,000 and the soak length are fixed now and are not tuned on qualification data."
+ },
+ "recorded_per_block": [
+  "package J",
+  "PP0 J",
+  "inference count",
+  "E_1000",
+  "J/inference",
+  "elapsed s",
+  "average package W",
+  "latency median/mean/p95/IQR (per-inference perf_counter_ns) and wall-clock mean",
+  "system-wide CPU load during the block",
+  "% Processor Performance of CPU 2 and _Total during the block",
+  "thermal zone (_TZ.THRM) temperature before/after",
+  "AC status after",
+  "affinity, threads, power plan per run"
+ ],
+ "validity": {
+  "gate_before_each_run": "AC, Balanced plan, system load <= 15% over 5 s; otherwise wait (nothing measured) up to 30 min, then STOP",
+  "void_run": "a run with any block whose system-wide load during the block > 15% (this process alone is about 6.25%) or that ends off AC is void, kept in _raw/<stage>/void/, and repeated",
+  "never": "runs are never voided, kept or repeated on the basis of energy or latency values",
+  "max_voids": "more than 3 void runs in one stage -> STOP"
+ },
+ "qualification": {
+  "design": "Dense only: 3 fresh runs x 2 blocks = 6 blocks, full workload",
+  "criterion": "CV (sample SD / mean) of the 6 Dense E_1000 values <= 3% -> qualified",
+  "attempts": "one; not qualified -> STOP ('Direct energy confirmation remains unresolved because the available measurement setup did not satisfy the stability requirement'); the limit is not relaxed and the qualification is not rerun",
+  "relation_to_old_criterion": "the old Phase 7B pilot criterion (CV <= 3%) failed (CV 4.01%) and remains failed; this is a new, separately defined qualification of a new protocol with the same 3% limit"
+ },
+ "sessions": {
+  "count": 10,
+  "content": "Dense and Phase 7B PPO once each per session (paired)",
+  "order": "balanced: 5 sessions Dense-first and 5 PPO-first, assigned by numpy default_rng(20261103).permutation([0]*5+[1]*5)"
+ },
+ "metrics": {
+  "energy": "E_1000 = package J / N x 1000 per block; J/inference = package J / N",
+  "saving_per_session": "100 x (1 - E_PPO / E_Dense) within the session",
+  "latency": "median per-inference latency per block (primary); speed-up per session = L_Dense / L_PPO",
+  "edp": "per session (J/inference x wall-clock latency per inference)_PPO / (same)_Dense; Dense = 1.0",
+  "summaries": "median (primary), mean, SD and CV over sessions for each model; per-session savings"
+ },
+ "statistics": {
+  "paired": "exact Wilcoxon signed-rank test on E_PPO - E_Dense (one-sided H1: PPO lower; two-sided also reported), exact sign test",
+  "t_test": "not used: n = 10 and normality of the differences is not assessable; interpretation rests on consistency, magnitude and variability"
+ },
+ "noise_threshold": "2 x max(qualification CV, between-session CV of Dense E_1000), in percent",
+ "energy_confirmed": {
+  "rule": "YES only if all hold, else NO",
+  "1": "the setup qualified (CV <= 3%)",
+  "2": "E_PPO < E_Dense in >= 8 of the 10 sessions",
+  "3": "median per-session saving > noise threshold",
+  "4": "leave-one-session-out: for every omitted session, the median saving of the remaining 9 > noise threshold and E_PPO < E_Dense in >= 7 of 9"
+ },
+ "secondary": {
+  "when": "only after the 10 primary sessions are complete and only if qualified",
+  "design": "5 fresh-process sessions, each with Dense, Phase 7B PPO, Uniform, LAMP and old PPO once, order numpy default_rng(20261104) permutation per session",
+  "use": "descriptive only (per-session energy saving vs same-session Dense, latency); does not enter ENERGY-CONFIRMED"
+ },
+ "fixed_inputs": {
+  "accuracy": "results/phase7b_green_pruning/final_summary.csv (VAL-SELECT, read only)",
+  "memory_macs": "results/phase7b_green_pruning/memory_results.csv and final_summary.csv (read only)"
+ },
+ "claims": {
+  "if_yes": "The frozen Phase 7B structured PPO model reduced parameter memory by 63.4%, MAC computation by 36.0%, and measured CPU inference energy relative to the dense model, while incurring a 1.12 percentage-point validation-accuracy reduction.",
+  "if_no_energy_not_lower": "The model reduced memory and MACs, but these reductions did not translate into lower measured operational energy under the evaluated CPU configuration.",
+  "if_unstable": "Direct energy confirmation remains unresolved because the available measurement setup did not satisfy the stability requirement.",
+  "never": [
+   "accuracy-preserving green pruning",
+   "GREEN-SUCCESS",
+   "no-loss compression",
+   "environmentally friendly AI",
+   "lower carbon footprint"
+  ]
+ },
+ "code_sha256": {
+  "experiments/phase7b_energy_confirmation/measure.py": "caee1af2a8c9fb388098dea01418a3b6f92ec3cdb220a028ba6ae428b540a051"
+ }
+}
