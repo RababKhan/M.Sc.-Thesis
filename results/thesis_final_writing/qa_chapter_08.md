@@ -28,7 +28,7 @@ The requested 8.1–8.8 structure is kept, with 8.1 and 8.2 merged; later sectio
 | RQ | Conclusion | Numbers used (all audited) |
 |---|---|---|
 | RQ1 | Meaningful non-uniform allocations. Strongly better than Uniform (5/6) and Random (6/6); mixed against Global and ERK; LAMP stronger before equal recovery (5/6, then 6/6). Not universally better | ≈ +31.4 pp (+31.37 convention, C10 SimpleCNN, test) |
-| RQ2 | Improves the search in every phase. Centring gave stronger evidence of a layer-relative search effect, with one measure favouring a conservative control. No reliable final-accuracy gain. "The main measurable contribution of sensitivity was to exploration rather than to final accuracy" — "not an absence of value" | — |
+| RQ2 | Across Phases 3–5, improves one or more search or exploration measures, without reliable final-accuracy gains. Centring gave stronger evidence of a layer-relative search effect, with one measure favouring a conservative control. No reliable final-accuracy gain. "The main measurable contribution of sensitivity was to exploration rather than to final accuracy" — "not an absence of value" | — |
 | RQ3 | Visits but does not retain. Archive restores validation-rank retention (80–100% top-10, 100% top-20), mainly through the archive rule. Test effect mixed. "Solves a retention problem, not a generalisation problem" | 1,296; 0% in five settings, 5% in one; 95–100%; 80–100%; 100% |
 | RQ4 | Reward controls aggressiveness. Better search exposed the fixed-rate reward. The constraint reduced over-pruning, but was slightly worse on SimpleCNN, LAMP stayed stronger, and test feasibility was 67.5%. "Aligning the optimisation objective and ensuring generalisation are separate issues" | 7.86; 7.32 → 1.18; 67.5% |
 | RQ5 | Equal recovery narrows differences. PPO–LAMP within the ±0.5 pp CI margin in all six settings; **not a formal equivalence test**; LAMP ahead in three; PPO–Global ≤ 0.12 pp. "Compare under equal post-pruning recovery budgets" | 0.26–0.53 → 0.00–0.22; 0.12 |
@@ -60,7 +60,7 @@ at the next", illustrated by five examples:
 - better search exposed a poor reward;
 - validation selection did not transfer to test;
 - lower parameter count did not mean lower latency;
-- lower energy came with unacceptable accuracy loss;
+- lower energy came with accuracy loss exceeding the pre-registered limit;
 - strong compression remained unconfirmed as an energy saving.
 
 The section adds five implications for practice and states the multi-stage view as the central conclusion.
@@ -176,3 +176,13 @@ latency reduction, hardware-aware RL succeeded.
 
 Chapter 8 v1 is frozen. Later changes are limited to factual corrections found during the final QA, and will be logged
 here.
+
+## Correction log
+
+| Date | Location | Change | Authority |
+|---|---|---|---|
+| 2026-11-05 | §8.2 RQ2 | "It improves the search … In every phase where it was tested, sensitivity guidance improved the search" → "Across Phases 3–5, sensitivity guidance improved one or more search or exploration measures … these improvements did not translate into reliable gains in final predictive accuracy". One Phase-4 accuracy-based exploration measure moved in the opposite direction. | User authorisation (final-stage task, Part A.1) |
+| 2026-11-05 | §8.2 RQ6 | Already read "the best confirmed five-epoch-feasible calibration policy reached 1.089×", kept separate from the 1.098× proxy-feasible candidate. No change needed. | Part A.2 (verified) |
+| 2026-11-05 | §8.4 | "Lower energy came with unacceptable accuracy loss" → "Lower energy came with accuracy loss exceeding the pre-registered limit". | Part A.3 |
+
+No number changed.

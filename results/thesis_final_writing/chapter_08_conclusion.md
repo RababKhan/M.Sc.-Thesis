@@ -55,9 +55,10 @@ layer-adaptive method.
 
 ### RQ2. Does layer-sensitivity information improve the pruning search process, and does that improvement translate into higher final predictive accuracy?
 
-**It improves the search, not the final model.**
-- **Search.** In every phase where it was tested, sensitivity guidance improved the search: better-ranked policies
-  were sampled earlier and destructive policies less often.
+**It improves search measures, not the final model.**
+- **Search.** Across Phases 3–5, sensitivity guidance improved one or more search or exploration measures: better-ranked
+  policies were sampled earlier, and destructive policies less often. These improvements did not translate into
+  reliable gains in final predictive accuracy.
 - **Centred form.** Centring was designed to distinguish layer-specific guidance from a generic "prune less"
   pressure. Its controls provided stronger evidence for a layer-relative exploration effect, although one
   accuracy-based exploration measure favoured a conservative control.
@@ -164,8 +165,8 @@ shows it to be a chain of connected decisions:
   validation data, and transferred to the test set only partly.
 - **Lower parameter count did not mean lower latency.** Removing parameters from low-compute layers shrank models
   without making them proportionally faster.
-- **Lower energy came with unacceptable accuracy loss.** Directly measured energy fell, but the models that saved it
-  lost more accuracy than the criterion allowed, and a simpler allocation did better.
+- **Lower energy came with accuracy loss exceeding the pre-registered limit.** Directly measured energy fell, but the
+  models that saved it lost more accuracy than the criterion allowed, and a simpler allocation did better.
 - **Strong compression remained unconfirmed as energy saving.** The structured model with the best trade-off reduced
   memory and computation substantially, but its energy could not be measured reliably.
 
