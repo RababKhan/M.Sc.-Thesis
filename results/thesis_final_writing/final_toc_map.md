@@ -1,0 +1,259 @@
+# Final table-of-contents map
+
+Hierarchy of the assembled thesis (`thesis_full_source.md`), with the tables and figures of each section. Use it
+to rebuild the TOC in the official template.
+
+- Abstract
+- Chapter 1 — Introduction
+  - 1.1 Background
+  - 1.2 Motivation
+  - 1.3 Problem Statement
+  - 1.4 Research Gap
+  - 1.5 Research Questions
+  - 1.6 Research Objectives
+  - 1.7 Research Contributions
+      - *Table 1.1*
+  - 1.8 Scope and Boundaries
+  - 1.9 Thesis Organisation
+  - 1.10 Chapter Summary
+- Chapter 2 — Literature Review
+  - 2.1 Neural Network Compression
+  - 2.2 Unstructured and Structured Pruning
+      - *Table 2.1*
+  - 2.3 Layer-Wise Adaptive Pruning
+  - 2.4 Magnitude-Based and Deterministic Pruning
+  - 2.5 LAMP and Related Layer-Adaptive Methods
+  - 2.6 Reinforcement Learning for Neural Network Compression
+      - *Table 2.2*
+  - 2.7 PPO-Based Optimisation
+  - 2.8 Sensitivity-Aware Pruning
+  - 2.9 Search and Policy Selection in Pruning
+  - 2.10 Post-Pruning Recovery and Fine-Tuning
+  - 2.11 Hardware-Aware Neural Network Compression
+  - 2.12 Parameter Count vs MACs/FLOPs vs Real Latency
+  - 2.13 Energy-Efficient and Sustainable Neural Network Inference
+  - 2.14 Research Gap
+- Chapter 3 — Proposed Framework
+  - 3.1 Chapter Overview
+      - *Table 3.1*
+      - *Figure 3.1*
+      - *Table 3.2*
+  - 3.2 Problem Formulation
+  - 3.3 Layer-Wise Pruning Representation
+      - *Table 3.3*
+  - 3.4 Reinforcement Learning Formulation
+  - 3.5 State Representation
+      - *Table 3.4*
+  - 3.6 Action Space
+  - 3.7 Initial Reward Function
+  - 3.8 Layer Sensitivity Analysis
+  - 3.9 Sensitivity-Guided Action Prior
+  - 3.10 Centred Sensitivity Prior
+  - 3.11 Policy-Retention Problem
+  - 3.12 Archive-Based Policy Selection
+    - 3.12.1 Archive (Phase 4)
+    - 3.12.2 Selection rule (Phase 4)
+    - 3.12.3 Elite behavioural cloning (Phase 4 only)
+    - 3.12.4 Constraint-aware selection (Phase 5)
+  - 3.13 Reward Misalignment and Accuracy-Constrained Reward
+    - 3.13.1 Why R0 can encourage excessive pruning
+    - 3.13.2 Accuracy-constrained reward (Phase 5)
+  - 3.14 Final Core Framework
+      - *Table 3.5*
+  - 3.15 Equal Recovery and Fine-Tuning Protocol
+  - 3.16 Deployment-Oriented Structured Extension
+    - 3.16.1 From masks to physical structure
+    - 3.16.2 Measurement: three levels of deployment efficiency
+      - *Table 3.6*
+    - 3.16.3 Two uses of the extension
+  - 3.17 Overall Algorithm
+      - *Table 3.7*
+  - 3.18 Computational Workflow and Reproducibility
+  - 3.19 Chapter Summary
+- Chapter 4 — Experimental Setup
+  - 4.1 Experimental Design Overview
+  - 4.2 Datasets
+  - 4.3 Dataset Partitioning and Validation Protocol
+    - 4.3.1 Training, validation and test
+    - 4.3.2 Two validation configurations
+      - *Table 4.1*
+    - 4.3.3 Use of each split by phase
+      - *Table 4.2*
+  - 4.4 Neural Network Architectures
+      - *Table 4.3*
+  - 4.5 Dense Reference Models
+      - *Table 4.4*
+  - 4.6 Pruning Units and Policy Spaces
+    - 4.6.1 Masked pruning units (core framework)
+    - 4.6.2 Physically compacted structured units (deployment extension)
+    - 4.6.3 Policy spaces and enumeration
+  - 4.7 Baseline Pruning Methods
+    - 4.7.1 Core-framework baselines
+    - 4.7.2 Deployment-extension comparators
+    - 4.7.3 Matching rules
+      - *Table 4.5*
+  - 4.8 PPO Training Configuration
+      - *Table 4.6*
+  - 4.9 Experimental Conditions by Phase
+      - *Table 4.7*
+    - 4.9.1 Phase 3
+    - 4.9.2 Phase 4
+    - 4.9.3 Phase 5
+    - 4.9.4 Phase 6
+    - 4.9.5 Paper 3
+    - 4.9.6 Phase 7A
+    - 4.9.7 Phase 7B
+    - 4.9.8 Phase 7B energy confirmation
+  - 4.10 Sensitivity Conditions and Controls
+  - 4.11 Archive and Selection Protocols
+  - 4.12 Reward Configurations
+  - 4.13 Recovery and Fine-Tuning Protocol
+  - 4.14 Evaluation Metrics
+      - *Table 4.8*
+  - 4.15 Statistical Analysis and Decision Criteria
+    - 4.15.1 Paired tests (Phases 3–6)
+    - 4.15.2 The ±0.5 pp rule of Phase 6
+    - 4.15.3 Deployment-extension statistics
+    - 4.15.4 Pre-registered decision rules
+      - *Table 4.9*
+  - 4.16 Hardware and Software Environment
+      - *Table 4.10*
+  - 4.17 Structured Pruning and Latency Protocol
+  - 4.18 Energy Measurement Protocol
+    - 4.18.1 Backend
+    - 4.18.2 Phase 7A
+    - 4.18.3 Phase 7B energy surrogate
+    - 4.18.4 Phase 7B confirmatory measurement and its stopping rule
+    - 4.18.5 Energy confirmation study
+  - 4.19 Reproducibility and Pre-Registration
+  - 4.20 Chapter Summary
+- Chapter 5 — Results of the Core Framework
+  - 5.1 Chapter Overview
+  - 5.2 Dense Reference Performance
+      - *Table 5.1*
+  - 5.3 Phase 3 — PPO versus Baselines
+      - *Table 5.2*
+      - *Figure 5.1*
+      - *Figure 5.2*
+  - 5.4 Phase 3 — Effect of Sensitivity Guidance
+      - *Figure 5.3*
+  - 5.5 Phase 4 — Centred Sensitivity and Exploration
+  - 5.6 Phase 4 — Policy Retention and Archive Selection
+      - *Table 5.4*
+      - *Figure 5.4*
+  - 5.7 Phase 4 — Reward Misalignment
+  - 5.8 Phase 5 — Accuracy-Constrained Reward
+      - *Table 5.5*
+      - *Figure 5.5*
+      - *Table 5.6*
+      - *Figure 5.6*
+  - 5.9 Phase 5 — Validation-to-Test Transfer
+      - *Figure 5.7*
+  - 5.10 Phase 6 — Equal Fine-Tuning
+      - *Table 5.7*
+      - *Figure 5.8*
+  - 5.11 Answers to RQ1–RQ5
+      - *Table 5.3*
+  - 5.12 Chapter Summary
+- Chapter 6 — Deployment and Sustainability Analysis
+  - 6.1 Chapter Overview
+  - 6.2 From Compression to Deployment Efficiency
+  - 6.3 Structured Physical Pruning Setup
+  - 6.4 Exhaustive CPU Latency Analysis
+      - *Table 6.1*
+      - *Figure 6.1*
+  - 6.5 Parameter Reduction versus MAC Reduction versus Latency
+  - 6.6 Accuracy-Feasible Latency Headroom
+      - *Table 6.2*
+      - *Figure 6.2*
+  - 6.7 Phase 7A — Structured Transfer and Energy Evaluation
+      - *Table 6.3*
+  - 6.8 Phase 7A — Accuracy–Energy Trade-off
+      - *Figure 6.3*
+  - 6.9 Motivation for Phase 7B
+  - 6.10 Phase 7B — Structured Energy-Aware PPO
+  - 6.11 Phase 7B — Memory and Computation Results
+      - *Table 6.4*
+  - 6.12 Phase 7B — Accuracy Trade-off
+      - *Figure 6.4*
+  - 6.13 Direct Energy Confirmation and Measurement Failure
+  - 6.14 Three-Level Sustainability Assessment
+      - *Table 6.5*
+  - 6.15 Answer to RQ6
+  - 6.16 Chapter Summary
+- Chapter 7 — Discussion
+  - 7.1 Chapter Overview
+  - 7.2 What Adaptive Layer-Wise PPO Actually Contributes
+  - 7.3 The Role of Sensitivity Information
+  - 7.4 Search Quality versus Policy Retention
+  - 7.5 Reward Design and Over-Pruning
+  - 7.6 Validation-to-Test Transfer
+  - 7.7 Why LAMP Remains a Strong Benchmark, and Why Equal Fine-Tuning Changes the Rankings
+    - 7.7.1 LAMP
+    - 7.7.2 Equal fine-tuning
+  - 7.8 Compression versus Real Deployment Efficiency
+  - 7.9 Accuracy–Efficiency Trade-offs and the Three Levels of Efficiency
+  - 7.10 Interpreting the Sustainability Experiments
+  - 7.11 What the Negative Results Establish
+  - 7.12 Generalisability
+  - 7.13 Limitations
+  - 7.14 Overall Scientific Contribution
+  - 7.15 Chapter Summary
+- Chapter 8 — Conclusion and Future Work
+  - 8.1 Chapter Overview and Summary of the Research
+  - 8.2 Conclusions by Research Question
+    - RQ1. Does PPO learn non-uniform layer-wise pruning allocations that outperform simple allocation strategies, and how does it compare with a strong deterministic method such as LAMP?
+    - RQ2. Does layer-sensitivity information improve the pruning search process, and does that improvement translate into higher final predictive accuracy?
+    - RQ3. Does PPO retain the strongest pruning policies encountered during search, and can archive-based policy selection improve retention?
+    - RQ4. How does reward design influence pruning aggressiveness and the accuracy–compression trade-off?
+    - RQ5. How does equal post-pruning fine-tuning affect comparisons between PPO and deterministic pruning methods?
+    - RQ6. Do compression gains translate into real deployment benefits in memory, computation, latency and measured operational energy?
+  - 8.3 Main Contributions
+  - 8.4 Overall Thesis Conclusion
+  - 8.5 Limitations
+  - 8.6 Future Work
+    - Short-term
+    - Medium-term
+    - Long-term
+  - 8.7 Final Remarks
+- Appendices
+  - Appendix A — Network Architectures and Hyperparameters
+    - A.1 Pruning units, shapes, parameters and MACs per image (CIFAR-10 output layer)
+    - A.2 Dense references: three training seeds
+    - A.3 Recovery protocol (Phase 6; reused in Paper 3, Phases 7A and 7B)
+  - Appendix B — Full Phase 3 Results
+    - B.1 Mean test accuracy and sparsity by setting and method (20 runs; baselines at each PPO run's zero count)
+    - B.2 All pre-registered Phase 3 comparisons (paired by seed, n = 20; exact sign-flip test, Holm within family)
+  - Appendix C — Sensitivity Vectors and Phase 4 Prior Diagnostics
+    - C.1 Normalised loss sensitivity S_l by setting
+    - C.2 Phase 4 prior comparisons (reward-rank AUC and secondary endpoints)
+  - Appendix D — Archive and Reward-Alignment Diagnostics
+    - D.1 Phase 4 search quality by variant (VAL-RL (I) ranks among 1,296 policies; medians over 20 runs)
+    - D.2 Phase 4 Stage-A rewards (P0, terminal policy)
+    - D.3 Phase 4 final pipeline F and control K against matched baselines (test, pp)
+    - D.4 Phase 4 search, final-model and LAMP families
+  - Appendix E — Phase 5 Detailed Results
+    - E.1 Selected policies by setting and condition (20 runs each)
+    - E.2 All pre-registered and descriptive Phase 5 comparisons
+  - Appendix F — Phase 6 Recovery Results
+    - F.1 Test accuracy before and after equal recovery, by setting and method (means of 20 runs)
+    - F.2 PPO vs LAMP and PPO vs global magnitude (H2, H3 and reference families)
+  - Appendix G — Hardware and Latency Protocol
+    - G.1 H0 calibration: per-configuration decision quantities
+    - G.2 H0 calibration shapes (configuration A)
+    - G.3 Latency-table session log (anchor drift; limit 10%)
+    - G.4 Proxy validation and ResNet-8 threshold calibration
+  - Appendix H — Phase 7A Energy Protocol and Session Results
+    - H.1 Per-session measurements (N = 100,000 batch-1 inferences per block)
+    - H.2 Session summaries
+  - Appendix I — Phase 7B Confirmatory Results
+    - I.1 Per-seed selected policies (20 confirmatory seeds)
+    - I.2 All recovered final models (5-epoch recovery)
+  - Appendix J — Energy-Measurement Qualification and Failure Records
+    - J.1 Dense-only stability pilots and qualification (energy per 1,000 inferences, J)
+    - J.2 Energy-confirmation qualification blocks (descriptive diagnostics)
+  - Appendix K — Reproducibility Information
+    - K.1 Frozen inputs (SHA-256 prefixes)
+    - K.2 Pre-registration and freeze commits
+    - K.3 Software environments
+    - K.4 Where the full records are
