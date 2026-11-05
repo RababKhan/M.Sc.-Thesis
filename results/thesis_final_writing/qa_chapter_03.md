@@ -188,3 +188,12 @@ Phases 3–4, and 2,500/2,500 from Phase 5 on. Chapter 4 will define both versio
 
 Chapter 3 v1 is frozen. Later changes are limited to citation-number assembly or factual corrections, and will be
 logged here.
+
+## Reference-audit note
+
+- **New reference.** Chapter 3 cites 12 references. The only one not already cited in Chapter 2 is
+  `paszke2019pytorch` (PyTorch), which is verified (ML Anthology, NeurIPS 2019).
+- **Frozen audit restored.** `reference_audit.md` is a Milestone-1 frozen file and was restored to its commit-61416234
+  version.
+- **Cumulative audit.** The cumulative audit over all chapters, in final citation order, will be regenerated once at
+  Stage 10 (final assembly) with `tools/bib.py audit <all chapters in thesis order>`.
