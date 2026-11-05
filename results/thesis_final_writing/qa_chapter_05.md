@@ -297,3 +297,9 @@ was added, and the frozen reference audit was not rebuilt.
 
 Chapter 5 v1 is frozen. Later changes are limited to citation-number assembly, the style-only figure re-renders of
 item 20.1, or factual corrections found during later QA. Each will be logged here.
+
+## Correction log
+
+| Date | Change | Authority |
+|---|---|---|
+| 2026-11-05 | Figures 5.3, 5.4 and 5.5 now point to presentation-only thesis re-renders in `figures/`, made from the same frozen CSVs (86/86 plotted values identical; `figures/qa_ch5_figure_rerender.md`). Captions and the §5.12 figure note were updated to remove the "needs re-render" caveats. No number in the chapter changed (`tools/audit_ch5.py` re-run: 182/182 PASS). | User authorisation (Chapter 6 task, Part A) |

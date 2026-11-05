@@ -192,15 +192,15 @@ pattern therefore raises the possibility that part of the exploration effect com
 rather than from layer-specific information. The Phase-3 data cannot separate the two, and they do not prove either.
 This possibility motivated the centred prior of Phase 4.
 
-![Figure 5.3](../architecture_generalization/phase3_figures/phase3_fig_D_sensitivity_tolerance.png)
+![Figure 5.3](figures/ch5_fig5_3_sensitivity_tolerance.png)
 
 **Figure 5.3. Unit sensitivity, pruning tolerance and PPO allocation (Phase 3).**
 - **Left:** for each unit, the largest single-unit ratio whose VAL-RL (I) accuracy drop is ≤ 1 pp, against normalised
   loss sensitivity S_l.
-- **Right:** mean final ratio of P0 (circles) and P1 (crosses) against S_l.
+- **Right:** mean final ratio over 20 seeds of P0 (circles) and P1 (crosses) against S_l.
+- **Colours:** each setting has one colour in both panels.
 - **Reading:** highly sensitive units tolerate only 10–20% pruning and receive low ratios under both conditions.
-- **Caveat:** the colour key of the right panel is not given in the original figure; it should be re-rendered with an
-  explicit legend before final assembly (Section 5.12).
+- **Rendering:** a thesis re-render of the frozen Phase-3 figure D, from the same CSV, with an explicit colour key.
 
 **Interpretation.** The sensitivity prior changes *how* PPO searches: it reaches better-ranked policies sooner and
 samples fewer destructive ones. It does not change *what* PPO returns, in a way detectable on test accuracy.
@@ -317,13 +317,15 @@ the terminal ones: 32.2% → 47.8% (C10) and 8.5% → 27.7% (C100) mean sparsity
 Note also that the pre-registered Stage-C criterion, the VAL-SELECT (I) rank of the selected policy, favours the
 archive variants by construction, because they select on VAL-SELECT (I). The test comparison does not share this bias.
 
-![Figure 5.4](../phase4/phase4_fig_D_topk_reach_rate.png)
+![Figure 5.4](figures/ch5_fig5_4_topk_reach_rate.png)
 
 **Figure 5.4. Share of runs whose selected policy lies in the top-k of the VAL-RL (I) landscape (Phase 4, Stage C).**
 - **Bars:** S0, S1, S2 and S2A.
 - **Dots:** best-seen top-20 reach, which is 100% for every variant.
-- **Display note:** the Phase-3 reference series in the legend has no visible bars at this scale. In the C10
-  SimpleCNN panel, the legend overlaps the bars.
+- **Phase-3 P0 reference series:** its top-10 and top-20 reach is 0, and top-50/100 reach was not recorded, so it
+  shows no bars.
+- **Rendering:** a thesis re-render of the frozen Phase-4 figure D, from the same CSV, with the legend moved below the
+  panels.
 
 **Interpretation.** The result answers RQ3 clearly at the level of search. Exploration is not the bottleneck: PPO
 finds near-optimal policies early. Retention is: the terminal policy is consistently not the best one visited, and an
@@ -443,12 +445,15 @@ from 4.05 to 1.16 pp, at 15.6% instead of 25.9%.
 
 C1's selected policies lie at or next to the constrained optimum: median constrained rank 3 (C10) and 1 (C100).
 
-![Figure 5.5](../phase5/phase5_fig_B_resnet_reward_alignment.png)
+![Figure 5.5](figures/ch5_fig5_5_resnet_reward_alignment.png)
 
 **Figure 5.5. ResNet-8 reward alignment: test-accuracy drop below dense against selected-policy sparsity.**
 - C0, C1 and C2 are plotted at their **median** sparsity (48.8%, 24.7% and 24.1% for C10; 23.5%, 16.1% and 16.1% for
   C100).
-- The Phase-4 F reference is plotted at its mean sparsity (47.8% and 27.7%), as recorded in the figure data.
+- The Phase-4 F reference is plotted at its **mean** sparsity (47.8% and 27.7%), the only value recorded in the figure
+  data. Each point's label states its statistic.
+- **Rendering:** a thesis re-render of the frozen Phase-5 figure B, from the same CSV. The axis label no longer says
+  "median" for all points.
 - The mean sparsities used in the text are 46.2% and 24.5% (C10 C0, C1) and 25.9% and 15.6% (C100 C0, C1).
 
 **Effect across all six settings (Table 5.6).**
@@ -761,11 +766,9 @@ supported / opposite, of 6).**
 | 5 | criteria A, C and E partially met; F-strong not met; 67.5% test feasibility |
 | 6 | LAMP still ahead in three settings |
 
-**Figure housekeeping for final assembly.** Figures 5.1–5.8 are the frozen phase figures, used unchanged. Three need a
-style-only re-render, from the same data, before final assembly:
-- Figure 5.3: legend for the right panel;
-- Figure 5.4: legend placement and a truncated label;
-- Figure 5.5: an axis note for the Phase-4 F point.
+**Figures.** Figures 5.1, 5.2 and 5.6–5.8 are the frozen phase figures, used unchanged. Figures 5.3–5.5 are
+presentation-only thesis re-renders from the same frozen CSVs, with every plotted value verified identical
+(`figures/rerender_ch5_figures.py`).
 
 Chapter 6 asks whether these compression results translate into deployment efficiency. Chapter 7 discusses the
 reasons for the pattern found here.
