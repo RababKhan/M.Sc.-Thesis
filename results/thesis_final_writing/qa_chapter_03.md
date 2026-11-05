@@ -197,3 +197,15 @@ logged here.
   version.
 - **Cumulative audit.** The cumulative audit over all chapters, in final citation order, will be regenerated once at
   Stage 10 (final assembly) with `tools/bib.py audit <all chapters in thesis order>`.
+
+## Correction log
+
+| Date | Location | Change | Authority |
+|---|---|---|---|
+| 2026-11-05 | §3.6, last paragraph | Wording correction only. "Action 3 on unit 2 prunes a single convolution in SimpleCNN and an entire residual stage in ResNet-8" was replaced by: an action on unit 2 masks the selected fraction of a single convolution's weights in SimpleCNN; "for ResNet-8, an action is applied to a residual-stage weight group, where the selected pruning ratio masks the corresponding fraction of weights across the convolutional layers associated with that group; the residual stage itself is not structurally removed." | User authorisation (Chapter 5 task, Part A), after the issue was reported in `qa_chapter_04.md` §20A |
+
+- **Reason.** In the core experiments, a ResNet-8 stage action applies L1 unstructured masking at ratio r to each
+  convolution of the block (and its 1×1 projection in stages 2–3; `src/pruning`, `cpu_prunable_units.csv`). No stage,
+  block or channel is removed, and the old word "entire" could be misread as structural removal.
+- **Unchanged.** Every equation, table (including Table 3.3), the pruning semantics and the structured-extension
+  wording (§3.16).

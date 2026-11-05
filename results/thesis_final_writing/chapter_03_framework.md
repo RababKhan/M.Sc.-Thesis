@@ -257,8 +257,11 @@ Because of this, the thesis can measure:
 - how good the policy is that it *returns*;
 - where the reward's own optimum lies.
 
-The same count of 1,296 holds for every architecture, but the policies do not correspond across architectures. Action
-3 on unit 2 prunes a single convolution in SimpleCNN and an entire residual stage in ResNet-8 (Table 3.3).
+The same count of 1,296 holds for every architecture, but the policies do not correspond across architectures. In
+SimpleCNN, an action on unit 2 masks the selected fraction of the weights of a single convolution. For ResNet-8, an
+action is applied to a residual-stage weight group, where the selected pruning ratio masks the corresponding fraction
+of weights across the convolutional layers associated with that group; the residual stage itself is not structurally
+removed (Table 3.3).
 
 ## 3.7 Initial Reward Function
 
