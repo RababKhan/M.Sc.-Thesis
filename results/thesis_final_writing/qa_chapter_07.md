@@ -172,3 +172,13 @@ its Chapter-2 use. No new reference was added, and the frozen reference audit wa
 
 Chapter 7 v1 is frozen. Later changes are limited to citation-number assembly or factual corrections, and will be
 logged here.
+
+## Correction log
+
+| Date | Location | Change | Authority |
+|---|---|---|---|
+| 2026-11-05 | §7.14 (central contribution, closing statement), §7.11 | "integrated, pre-registered diagnostic framework" → "an integrated, systematically audited diagnostic framework, with pre-specified and pre-registered decision criteria across its later experimental stages". "Supported at each stage by pre-registered evidence" and "each … was pre-registered as a possible outcome" → "experiments whose decision criteria were fixed in advance". The pre-audit studies (Phase 1) were not pre-registered, so the whole programme is not described as pre-registered from inception. | User authorisation (Chapter 1 task, Part A.1) |
+| 2026-11-05 | §7.3 ("What centring separates", "The layer-specific effect survives centring"), §7.15 Sensitivity bullet | Centring is now described as *designed* to distinguish layer-specific guidance from a generic "prune less" pressure. The controls "provided stronger evidence for a layer-relative exploration effect", with an explicit note that this is not complete causal isolation. | Part A.2 |
+| 2026-11-05 | §7.10 ("interpretation it supports"), §7.15 Measurement bullet | "On commodity laptop hardware, package energy measurement appears much more sensitive…" / "on commodity hardware is fragile" → "In the present measurement setup, package-energy readings were substantially less stable than latency measurements", with no generalisation beyond the tested system. | Part A.3 |
+
+No number changed; `tools/audit_ch7_numbers.py` was re-run (no new numeric tokens).

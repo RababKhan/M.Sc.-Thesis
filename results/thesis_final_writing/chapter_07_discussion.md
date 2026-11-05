@@ -92,12 +92,14 @@ The pattern has a natural explanation that the thesis can describe but not prove
 - **The LeNet-5 controls.** The shuffled and constant priors did as well as the correct one there.
 - **A shared pressure.** All three Phase-3 priors share the same total pressure towards lighter pruning. Part of any
   benefit could therefore be generic conservatism rather than layer-specific knowledge.
-- **What centring separates.** It distinguishes "more sensitive than average" from "less sensitive than average", and
-  removes the net conservative pressure by construction.
+- **What centring was designed to do.** It distinguishes "more sensitive than average" from "less sensitive than
+  average", and removes the net conservative pressure by construction. It was designed to distinguish layer-specific
+  sensitivity guidance from a generic conservative "prune less" pressure.
 
 What Phase 4 then showed is more informative than a simple success:
-- **The layer-specific effect survives centring.** The centred prior's advantage over permuted and
-  magnitude-matched controls on reward-rank AUC shows that the effect is not only generic conservatism.
+- **Stronger evidence for a layer-relative effect.** The centred prior's advantage over permuted and
+  magnitude-matched controls on reward-rank AUC provides stronger evidence for a layer-relative exploration effect
+  than Phase 3 did. It does not amount to complete causal isolation of layer-specific information.
 - **The reversed measure.** On the accuracy-based exploration measure, the *conservative* control was significantly
   better than the centred prior in 4 of 6 settings.
   - This is consistent with how the two priors act. The centred prior pushes aggressive actions onto insensitive
@@ -393,8 +395,8 @@ pre-registered stability check:
 substantially. The thesis does not claim to know the cause.
 
 **The interpretation it supports** is limited but useful:
-- On commodity laptop hardware, package energy measurement appears much more sensitive to system state than latency
-  measurement.
+- In the present measurement setup, package-energy readings were substantially less stable than latency
+  measurements. The thesis does not generalise this beyond the tested system.
 - The same counter, on the same machine, had passed its stability check in Phase 7A, so qualification must be
   repeated for every measurement campaign.
 - This is a limitation of the experimental environment. **It is evidence neither for nor against the Phase-7B model's
@@ -423,7 +425,8 @@ methodological weight.
 | Phase 7B missed the 0.5 pp criterion (0 of 20 seeds) | Learning in the deployment space narrows, but does not close, the accuracy gap at these compression levels |
 | Phase-7B energy remained unresolved | Energy claims require a qualified instrument; strong MAC reductions and accurate surrogates do not substitute for measurement |
 
-**Each of these results was pre-registered as a possible outcome and kept as observed.** Several of them changed the
+**Each of these results came from an experiment whose decision criteria were fixed in advance, and each was kept as
+observed.** Several of them changed the
 design of the next phase:
 - retention led to the archive;
 - over-pruning led to the constraint;
@@ -517,7 +520,8 @@ The deployment-scale energy figures computed in Phase 7A are labelled projection
 ## 7.14 Overall Scientific Contribution
 
 **The central contribution.** The novelty of this thesis does not lie in a claim that PPO beats existing pruning
-methods; it does not. It lies in an **integrated, pre-registered diagnostic framework**. The framework follows one
+methods; it does not. It lies in **an integrated, systematically audited diagnostic framework, with pre-specified and
+pre-registered decision criteria across its later experimental stages**. The framework follows one
 pruning approach from layer-wise allocation to measured hardware energy, isolating a separate question at each stage:
 
 | Stage | Question | Thesis evidence | Research question |
@@ -556,8 +560,8 @@ A weakness at any link can hide or reverse the effect of improvements elsewhere:
 - an allocation that was good as a mask was poor as a structure;
 - a strong MAC reduction remained unconfirmed as an energy saving.
 
-**This multi-stage view, supported at each stage by pre-registered evidence including negative results, is the
-thesis's central scientific contribution.**
+**This multi-stage view, supported at each stage by experiments whose decision criteria were fixed in advance, and
+reported including their negative results, is the thesis's central scientific contribution.**
 
 **Implications for future pruning research:**
 1. **Comparisons** should be made after equal recovery.
@@ -573,7 +577,9 @@ thesis's central scientific contribution.**
   allocation. It does not beat the strong deterministic LAMP baseline, so its value lies in adaptability to changing
   objectives rather than universal superiority.
 - **Sensitivity.** It acts as a search bias. It improves exploration in every phase, but not the final model.
-  Centring made the prior layer-specific, but did not make it predictive of final accuracy.
+  Centring was designed to distinguish layer-specific guidance from a generic "prune less" pressure, and its controls
+  gave stronger evidence for a layer-relative exploration effect. It did not make the prior predictive of final
+  accuracy.
 - **Retention.** Search quality and policy retention are separate problems. An external archive retained good
   policies on validation ranking, more reliably than imitation inside training. It did not improve generalisation.
 - **Reward.** A stronger optimiser exposed a misaligned trade-off reward. An accuracy constraint controlled
@@ -588,7 +594,8 @@ thesis's central scientific contribution.**
     better choice on SimpleCNN.
   - Deployment-oriented structured PPO (Phase 7B) improved the memory–computation–accuracy trade-off but missed the
     accuracy criterion, and its energy remains unresolved.
-- **Measurement.** Energy measurement on commodity hardware is fragile and must be qualified for each campaign.
+- **Measurement.** In the present measurement setup, package-energy readings were substantially less stable than
+  latency measurements, so the instrument had to be qualified for each measurement campaign.
 - **Contribution.** The thesis shows pruning to be a chain of coupled problems, each needing its own evidence. That is
   its central contribution.
 
