@@ -204,8 +204,12 @@ with a speed-up ≥ 1.10×. The first condition held (52); the second did not (b
 **Because the latency-room requirement was not met, no hardware-aware PPO search was started.**
 
 The gap between 1.098× and 1.10× is a protocol decision threshold fixed in advance, not a scientifically meaningful
-discontinuity. The substantive finding is that, under the 2% accuracy constraint, ResNet-8 offers at most about 10%
-latency headroom on this CPU. That is little room for any latency-driven search to exploit.
+discontinuity. The substantive finding concerns the evidence available under the 2% accuracy constraint:
+- the best proxy-feasible candidate reached a 1.098× speed-up;
+- the best confirmed five-epoch-feasible calibration policy reached 1.089×.
+
+Neither satisfied the pre-registered 1.10× GO criterion. The accuracy-feasible latency room found on this CPU is
+therefore small.
 
 **Interpretation.** Large unconstrained speed-ups are not available once accuracy is protected. For SimpleCNN the
 accuracy-feasible headroom could not be established at all, because its proxy failed.
@@ -543,8 +547,9 @@ Compression can translate into real deployment savings, but not automatically, a
 2. **Even structurally, parameter reduction is a weak guide to latency.** Across 5,184 measured structured policies,
    Spearman ρ was 0.31–0.55 for parameter reduction and 0.89–0.98 for MAC reduction. In 31–39% of policy pairs the
    sparser policy was slower.
-3. **Accuracy-feasible headroom is small.** Under a 2% accuracy constraint, ResNet-8 offered at most 1.098× latency
-   headroom, so the pre-registered hardware-aware search was not started.
+3. **Accuracy-feasible headroom is small.** For ResNet-8, the best proxy-feasible candidate reached a 1.098×
+   speed-up, while the best confirmed five-epoch-feasible calibration policy reached 1.089×. Neither satisfied the
+   pre-registered 1.10× GO criterion, so the hardware-aware search was not started.
 4. **Phase 7A: real energy savings, with material accuracy loss.** Physical structured realisation of the learned
    allocation reduced directly measured CPU package energy per inference by 22.8% (SimpleCNN) and 13.4% (ResNet-8),
    lower than dense in every session. These savings came with VAL-RL losses of 5.08 and 3.24 pp. On SimpleCNN, a
@@ -564,7 +569,8 @@ with its accuracy cost. An improvement at one level is a hypothesis about the ne
   proxy (ρ 0.31–0.55); MAC reduction is a strong one (ρ 0.89–0.98); measured latency remains the deployment-grounded
   metric.
   - The SimpleCNN accuracy proxy was rejected.
-  - ResNet-8 offered at most 1.098× accuracy-feasible headroom, below the 1.10× rule, so no hardware-aware RL was run.
+  - For ResNet-8, the best proxy-feasible candidate reached 1.098× and the best confirmed five-epoch-feasible
+    calibration policy 1.089×. Neither satisfied the 1.10× GO criterion, so no hardware-aware RL was run.
 - **Phase 7A** showed that structured pruning reduces directly measured CPU package energy (−22.8% and −13.4%). The
   transferred PPO allocation, however, lost 5.08 and 3.24 pp of VAL-RL accuracy, no method met the 0.5 pp criterion,
   and on SimpleCNN Uniform was better than PPO in both accuracy and energy.

@@ -204,7 +204,8 @@ Per-seed selections: 34.1–37.5%. Latency was **not measured**.
 Compression can translate into real deployment savings, but not automatically and not at every level at once:
 - masked sparsity gives no hardware evidence;
 - the parameter-to-latency link is weak, while MACs are strong;
-- accuracy-feasible ResNet-8 headroom is ≤ 1.098×;
+- ResNet-8: best proxy-feasible candidate 1.098×, best confirmed five-epoch-feasible calibration policy 1.089×; neither
+  met the 1.10× GO criterion;
 - Phase 7A measured real energy savings of 22.8% / 13.4% at a 5.08 / 3.24 pp VAL-RL cost, with Uniform better on
   SimpleCNN;
 - Phase 7B gave −63.4% memory and −36.0% MACs at −1.12 pp VAL-SELECT, missed the 0.5 pp criterion (0/20), and its
@@ -265,3 +266,9 @@ already used in Chapter 2. No new reference was added, and the frozen reference 
 
 Chapter 6 v1 is frozen. Later changes are limited to citation-number assembly or factual corrections, and will be
 logged here.
+
+## Correction log
+
+| Date | Location | Change | Authority |
+|---|---|---|---|
+| 2026-11-05 | §6.6 (closing paragraph), §6.15 item 3, §6.16 Paper-3 bullet; QA §19 | "ResNet-8 offered at most 1.098× accuracy-feasible headroom" / "at most about 10%" replaced by: the best proxy-feasible candidate reached 1.098×, while the best confirmed five-epoch-feasible calibration policy reached 1.089×; neither satisfied the pre-registered 1.10× GO criterion. 1.098× is a proxy-feasible candidate (precision 0.875), not a confirmed feasible policy. No number changed; `tools/audit_ch6.py` re-run. | User authorisation (Chapter 7 task, Part A) |
