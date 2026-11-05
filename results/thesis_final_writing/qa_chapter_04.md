@@ -473,3 +473,9 @@ Still blocked: no official thesis template, as reported in Milestone 1.
 ## Freeze
 
 Chapter 4 v1 is frozen. Later changes are limited to citation-number assembly or factual corrections found during later QA, and will be logged here.
+
+## Correction log
+
+| Date | Location | Change | Authority |
+|---|---|---|---|
+| 2026-11-05 | §4.9.5, §4.15.1 (×2) | Citations added at first mention of three standard statistical methods named without citation in v1: Youden's J [@youden1950index], the Wilcoxon signed-rank test [@wilcoxon1945individual] and Holm's step-down correction [@holm1979sequential]. Metadata: Youden and Wilcoxon verified on Crossref (DOIs); Holm verified on OpenAlex (W2121044470; no Crossref DOI). No wording, number or claim changed. Resolves QA item 18 ("candidates to verify at Stage 10"). | User authorisation (final-stage task, Part G) |

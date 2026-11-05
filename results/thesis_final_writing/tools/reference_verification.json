@@ -2202,5 +2202,61 @@
   "route": "crossref",
   "class": "recent",
   "topic": "energy"
+ },
+ "holm1979sequential": {
+  "status": "verified",
+  "source": "https://openalex.org/W2121044470 (JSTOR stable https://www.jstor.org/stable/4615733)",
+  "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+  "authors": [
+   "Sture Holm"
+  ],
+  "venue": "Scandinavian Journal of Statistics",
+  "year": "1979",
+  "volume": "6",
+  "issue": null,
+  "pages": "65-70",
+  "doi": null,
+  "type": "journal-article",
+  "route": "openalex",
+  "class": "foundational",
+  "topic": "statistics",
+  "note": "No Crossref DOI; metadata (title, author, journal, year, volume 6, pp. 65-70) from OpenAlex; issue not recorded by the source and therefore omitted."
+ },
+ "wilcoxon1945individual": {
+  "status": "verified",
+  "source": "https://doi.org/10.2307/3001968",
+  "title": "Individual Comparisons by Ranking Methods",
+  "authors": [
+   "Frank Wilcoxon"
+  ],
+  "venue": "Biometrics Bulletin",
+  "year": "1945",
+  "volume": "1",
+  "issue": "6",
+  "pages": "80",
+  "doi": "10.2307/3001968",
+  "type": "journal-article",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics",
+  "note": "Crossref and OpenAlex record the first page only (80)."
+ },
+ "youden1950index": {
+  "status": "verified",
+  "source": "https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3",
+  "title": "Index for rating diagnostic tests",
+  "authors": [
+   "W. J. Youden"
+  ],
+  "venue": "Cancer",
+  "year": "1950",
+  "volume": "3",
+  "issue": "1",
+  "pages": "32-35",
+  "doi": "10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3",
+  "type": "journal-article",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics"
  }
 }

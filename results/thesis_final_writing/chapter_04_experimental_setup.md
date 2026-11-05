@@ -513,7 +513,7 @@ Paper 3 tested whether structured compression becomes CPU latency, through a seq
 - **Recovered accuracy (CIFAR-10).**
   - A 1-epoch recovery proxy was validated against 5-epoch recovery on frozen samples: 156 SimpleCNN and 31 ResNet-8
     policy pairs. An architecture could proceed only if the Spearman correlation was ≥ 0.90.
-  - The protocol's Youden-J threshold rule required at least three truly feasible validation pairs. ResNet-8 had
+  - The protocol's Youden-J [@youden1950index] threshold rule required at least three truly feasible validation pairs. ResNet-8 had
     fewer, which triggered the pre-registered fallback to a decision by the principal investigator. A pre-committed
     calibration on 48 frozen ResNet-8 policies then set the threshold, by a recall-first rule with a 0.005 margin.
   - A latency-room rule then required at least 20 proxy-feasible policies and one with a speed-up ≥ 1.10×.
@@ -759,10 +759,10 @@ two-sided sign-flip test** over all 2²⁰ sign patterns.
 - the 95% t-interval (df 19);
 - a bootstrap 95% interval (10,000 resamples in Phase 3);
 - the effect size d_z;
-- the exact Wilcoxon p (Phases 3 and 4);
+- the exact Wilcoxon signed-rank p [@wilcoxon1945individual] (Phases 3 and 4);
 - wins, ties and losses.
 
-**Multiplicity.** Holm's step-down correction is applied within each pre-registered family.
+**Multiplicity.** Holm's step-down correction [@holm1979sequential] is applied within each pre-registered family.
 
 **Outcome of one comparison:**
 - **supported:** the hypothesised direction, a Holm-adjusted p < 0.05, **and** a 95% t-interval excluding 0;

@@ -158,7 +158,7 @@ latency reduction, hardware-aware RL succeeded.
 | "superior" (C1 table; §8.7) | "not superior to LAMP"; "does not establish PPO as a universally superior pruning method" |
 | "equivalen…" (RQ5; C5) | negations (see item 18) |
 | "guarantee…" (×5) | negations: archive, constraint, "improvement at one stage does not guarantee success at the next" |
-| "lower energy" (§8.4) | "Lower energy came with unacceptable accuracy loss", a Phase-7A negative example |
+| "lower energy" (§8.4) | "Lower energy came with accuracy loss exceeding the pre-registered limit", a Phase-7A negative example |
 | "carbon", "environmental" | see item 20 |
 | "state-of-the-art", "accuracy-preserving", "green", hardware-aware RL success | absent. Hardware-aware search: "no hardware-aware search was started" |
 

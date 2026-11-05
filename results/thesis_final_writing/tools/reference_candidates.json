@@ -749,5 +749,29 @@
   "route": "crossref",
   "class": "recent",
   "topic": "energy"
+ },
+ {
+  "id": "holm1979sequential",
+  "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+  "route": "openalex",
+  "openalex": "W2121044470",
+  "class": "foundational",
+  "topic": "statistics"
+ },
+ {
+  "id": "wilcoxon1945individual",
+  "title": "Individual Comparisons by Ranking Methods",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics",
+  "doi": "10.2307/3001968"
+ },
+ {
+  "id": "youden1950index",
+  "title": "Index for rating diagnostic tests",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics",
+  "doi": "10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3"
  }
 ]
