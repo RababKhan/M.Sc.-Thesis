@@ -162,12 +162,14 @@ R = ["# MIST length-compliance audit", "",
      f"| Physical A4 pages | 198 | {pages} |",
      f"| MIST-countable pages | 186 | {countable} |", "",
      "## Stop condition", "",
-     "Compression stopped here (brief §26, condition B for the remainder). The word-equivalent is within 1% of the",
-     "50,000 guideline and the MIST-countable length is within 2% of 150 pages. The remaining large tables are the",
+     "Compression stopped here (brief §26, condition B for the remainder). The word-equivalent is "
+     f"{100 * (total - 50000) / 50000:+.1f}% from the 50,000 guideline and the MIST-countable length {100 * (countable - 150) / 150:+.1f}% from 150 pages",
+     "(the final code-reference cleanup moved checkpoint hashes, pre-registration records and implementation identifiers",
+     "from Chapters 3–4 into the reproducibility appendix, Section A.2, adding one appendix page). The remaining large tables are the",
      "methodology and evidence tables the brief requires to stay (literature comparison for the research gap, framework",
      "development, data-split governance, baselines and matching rules, PPO configuration, experimental design,",
      "evaluation metrics, pre-registered criteria), and every remaining results table supports an RQ answer. Removing",
-     "the last ~3 countable pages would require deleting one of these evidence or reproducibility tables.", "",
+     f"the last ~{countable - 150} countable pages would require deleting one of these evidence or reproducibility tables.", "",
      "## Large tables (more than half a page, or spanning pages)", "", "| Table | Height (mm) | PDF pages |", "|---|---|---|"]
 R += [f"| Table {lbl} | {h:.0f} | {p1}–{p2} |" for lbl, h, p1, p2, _ in large_t]
 R += ["", "## Small tables", "", ", ".join(f"Table {lbl} ({h:.0f} mm)" for lbl, h, _, _, _ in small_t), ""]

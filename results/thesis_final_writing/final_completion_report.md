@@ -45,11 +45,13 @@ boundary, negative result, claim limitation, equation or core method was changed
 
 ## 4. MIST length compliance
 
-`mist_length_compliance_audit.md`: MIST word-equivalent **50,342** (was 62,031) against the 50,000 guideline (+0.7%);
-**164 physical A4 pages** (was 198), of which **153 MIST-countable pages** (was 186) against 150 (+2.0%). MIST §3.3.2 does
+`mist_length_compliance_audit.md`: MIST word-equivalent **50,945** (was 62,031) against the 50,000 guideline (+1.9%);
+**165 physical A4 pages** (was 198), of which **154 MIST-countable pages** (was 186) against 150 (+2.7%). The final
+code-reference cleanup moved checkpoint hashes, pre-registration records and implementation identifiers out of
+Chapters 3–4 into Appendix A.2 (`code_reference_cleanup_audit.md`), adding one appendix page. MIST §3.3.2 does
 not count the cover, approval page, declaration, table of contents and lists of figures/tables. The guideline is met
-on word-equivalents to within 1% and on countable pages to within 2%; the remaining large tables are the methodology
-and evidence tables the brief requires to stay, so compression stopped (stop condition B for the remaining ~3 pages).
+on word-equivalents to within 2% and on countable pages to within 3%; the remaining large tables are the methodology
+and evidence tables the brief requires to stay, so compression stopped (stop condition B for the remaining ~4 pages).
 
 ## 5. Abstracts, keywords, front matter
 
@@ -85,7 +87,7 @@ LaTeX token in Ch. 3 (`\overline{|w_l|}`) written as "mean |w_l|".
 ## 8. Figures and tables
 
 13 figures (10 small, 3 large; data unchanged; none removed, as none duplicates another) and 40 numbered tables (32
-chapter, 8 appendix; 3 on landscape pages: 2.1, 4.7, 6.3), all in the List of Figures / List of Tables
+chapter, 10 appendix; 3 on landscape pages: 2.1, 4.7, 6.3), all in the List of Figures / List of Tables
 (`final_figure_inventory.md`, `final_table_inventory.md`, `final_table_reduction_audit.md`).
 
 ## 9. Visual QA
@@ -108,7 +110,7 @@ No TODO, TBD, XXXX or `******` remains.
 
 ## 11. Unresolved / for the author
 
-1. **Length** (§4): 50,342 word-equivalent and 153 MIST-countable pages (164 physical) vs about 50,000 / 150. Further
+1. **Length** (§4): 50,945 word-equivalent and 154 MIST-countable pages (165 physical) vs about 50,000 / 150. Further
    reduction would require removing a methodology or evidence table (§4); left to the author's decision.
 2. Title-page degree statement now reads "...for the Degree of Master of Science in Engineering in Computer Science
    and Engineering" (as instructed); confirm against the department's approved wording if it differs.
@@ -126,7 +128,7 @@ Created this stage: `mist_template_audit.md`, `abstract_bangla.md`, `references_
 `reference_audit_mist_final.md`, `citation_conversion_audit.md`, `mist_length_compliance_audit.md`,
 `final_thesis_MIST.docx`, `final_thesis_MIST.pdf`; tools `refs_mist.py`, `citation_audit_mist.py`,
 `renumber_tables.py`, `assemble_mist.py`, `build_docx.py`, `figmap.py`, `mist_meta.json`, `wordcount.py`,
-`mist_length_audit.py`, `word_finalize.ps1`, `word_measure.ps1`, `render_pages.ps1`, `final_table_reduction_audit.md`, `_citation_manual_review.tsv`,
+`mist_length_audit.py`, `word_finalize.ps1`, `word_measure.ps1`, `render_pages.ps1`, `final_table_reduction_audit.md`, `code_reference_cleanup_audit.md`, `_citation_manual_review.tsv`,
 `_table_renumber_map.json`, `_docx_build_log.json`, `_table_heights.json`. Updated: Abstract, Chapters 1–8,
 appendices (A–E) and their builder, appendix plan, abbreviations, notation inventory, terminology/claim/split/
 numerical/citation audits, Abstract QA, inventories, TOC map, length report, full source, this report and the

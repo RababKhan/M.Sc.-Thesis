@@ -22,7 +22,7 @@ evaluation is never augmented. CIFAR-100 is used only in Phases 2–6 and the Pa
 
 ### 4.3.1 Training, validation and test
 
-For both datasets, a fixed permutation of the 50,000 training indices (`torch.randperm`, seed 42) assigns 45,000
+For both datasets, a fixed permutation of the 50,000 training indices (seed 42) assigns 45,000
 images to **training** and the last 5,000 to **validation**; the official 10,000 images are the **test** set. Index
 lists are identical for both datasets and recorded with hashes in split manifests.
 
@@ -73,7 +73,7 @@ relative to the baselines (recorded in its pre-registration); Phases 7A and 7B r
 
 ## 4.4 Neural Network Architectures
 
-The networks are defined in `src/models`:
+The three networks are:
 - **SimpleCNN** (the historical network): three 3×3 convolutions (padding 1, with bias) with 32, 64 and 128 filters,
   each with ReLU and 2×2 max-pooling; a 256-unit hidden layer with ReLU on the 2,048 flattened features; an output
   layer of C units; no batch normalisation or dropout.
@@ -108,16 +108,16 @@ affects every method of a setting identically. Later phases assert the reference
 and 7B add a dense model fine-tuned with the pruned models' protocol, separating recovery from extra training.
 
 **Table 4.4. Dense reference models (accuracy, %).** The VAL-RL columns are the denominators A_b of retained accuracy
-in Phases 3–4 (configuration I) and Phase 5 (configuration II).
+in Phases 3–4 (configuration I) and Phase 5 (configuration II). Checkpoint hashes are listed in Appendix A (Table A.2).
 
-| Setting | Checkpoint | SHA-256 | Full validation | Test | VAL-RL (I) | VAL-RL (II) |
-|---|---|---|---|---|---|---|
-| CIFAR-10 SimpleCNN | historical, 10 epochs | `ca28f834` | 77.32 | 77.03 | 76.9667 | 76.88 |
-| CIFAR-10 LeNet-5 | seed 0 | `5ca6e0fc` | 64.32 | 64.96 | 64.3000 | 64.20 |
-| CIFAR-10 ResNet-8 | seed 0 | `41fc5ee5` | 78.72 | 78.69 | 78.5333 | 78.92 |
-| CIFAR-100 SimpleCNN | seed 0 | `d75dd19c` | 49.08 | 50.50 | 50.3667 | 48.96 |
-| CIFAR-100 LeNet-5 | seed 0 | `8e1b1aee` | 32.58 | 32.28 | 33.3000 | 32.76 |
-| CIFAR-100 ResNet-8 | seed 0 | `8b84bfad` | 43.48 | 43.99 | 43.7667 | 43.76 |
+| Setting | Checkpoint | Full validation | Test | VAL-RL (I) | VAL-RL (II) |
+|---|---|---|---|---|---|
+| CIFAR-10 SimpleCNN | historical, 10 epochs | 77.32 | 77.03 | 76.9667 | 76.88 |
+| CIFAR-10 LeNet-5 | seed 0 | 64.32 | 64.96 | 64.3000 | 64.20 |
+| CIFAR-10 ResNet-8 | seed 0 | 78.72 | 78.69 | 78.5333 | 78.92 |
+| CIFAR-100 SimpleCNN | seed 0 | 49.08 | 50.50 | 50.3667 | 48.96 |
+| CIFAR-100 LeNet-5 | seed 0 | 32.58 | 32.28 | 33.3000 | 32.76 |
+| CIFAR-100 ResNet-8 | seed 0 | 43.48 | 43.99 | 43.7667 | 43.76 |
 
 The extension starts from the CIFAR-10 SimpleCNN and ResNet-8 references.
 
@@ -159,7 +159,7 @@ used only as pilot data.
 
 ### 4.7.1 Core-framework baselines
 
-The baselines are one-shot methods from `src/pruning`, each calibrated to an exact number K of zeroed prunable weights,
+The baselines are one-shot methods, each calibrated to an exact number K of zeroed prunable weights,
 with largest-remainder rounding of per-tensor counts; all are deterministic except Random:
 - **Uniform:** every prunable tensor loses the fraction K/N of its smallest-magnitude weights (N prunable weights).
 - **Random:** uniform allocation with weights removed at random inside each tensor; ten mask seeds (1000–1009),
@@ -209,7 +209,7 @@ evaluation data loader is still created at each cached terminal step, so the ran
 
 | Item | Phase 3 | Phase 4 | Phase 5 | Phase 7B |
 |---|---|---|---|---|
-| Actor and critic; optimiser; n_steps; batch; epochs | MLP [64, 64] tanh, orthogonal initialisation; Adam, lr 3×10⁻⁴; 64; 32; 10 | same | same | same |
+| Actor and critic; optimiser; rollout length; minibatch; epochs per update | MLP [64, 64] tanh, orthogonal initialisation; Adam, lr 3×10⁻⁴; 64; 32; 10 | same | same | same |
 | γ; GAE λ; clip; entropy; value; grad norm | 0.99; 0.95; 0.2; 0.01; 0.5; 0.5 | same | same | same |
 | Budget; threads | 2,048 steps = 512 episodes; 1 | same | same | same |
 | Environment; state | masked; 7 features, sensitivity slot 0 | same | same | structured SimpleCNN; 8 features with centred sensitivity |
@@ -222,8 +222,8 @@ evaluation data loader is still created at each cached terminal step, so the ran
 
 The Phase 3–5 seeds were unused by any earlier PPO run (except an unrecorded 64-timestep smoke test with seed 300 in
 the Phase-2 checks) and shared across conditions and settings, so comparisons are paired; no seed was removed,
-replaced or added. Elite behavioural cloning adds η·𝓛_elite (Equation 3.13) to a copy of the SB3 PPO update,
-bit-identical to standard PPO at η = 0.
+replaced or added. Elite behavioural cloning adds η·𝓛_elite (Equation 3.13) to the PPO loss; with
+η = 0 the update is identical to standard PPO.
 
 ## 4.9 Experimental Conditions by Phase
 
@@ -458,22 +458,23 @@ Wilcoxon and a sign test on ten pairs.
 
 ### 4.15.4 Pre-registered decision rules
 
-**Table 4.10. Pre-registered decision criteria.** The commit is the one that first added the governing file.
+**Table 4.10. Pre-registered decision criteria.** The governing records and the commits that first added them are
+listed in Appendix A (Table A.3).
 
-| Experiment | Frozen rule | Purpose | Source (commit) |
-|---|---|---|---|
-| Phase 2 | seed-0 reference; best full-validation epoch; test once after hashing | dense references | `cpu_dense_training_protocol.md` (`366d21ae`) |
-| Phase 3 | outcome and class rules; four separate questions | PPO vs baselines; prior | `phase3_preregistration.md` (`2dbcc770`) |
-| Phase 4 | mechanical Stage A–C selections; criteria A–E (reward, specific prior, search, final model, LAMP) | reward, prior, retention | `phase4_preregistration.md` (`f52e87d9`) |
-| Phase 5 | τ rule; criteria A–F (accuracy safety, compression, search, sensitivity, final model, LAMP) | constrained reward | `phase5_preregistration.md` (`3cbaec1a`) |
-| Phase 6 | E timing rule; criteria A–F (fairness, recovery, competitiveness, generalisation, sparsity preservation, reproducibility); ±0.5 pp rule | equal recovery | `phase6_preregistration.md` (`b1b5396f`) |
-| Paper 3 H0 | SNR ≥ 5, reduction ≥ 10%, positive in every session; order A, C, B | primary latency configuration | `h0_protocol.md` (`c2dcb22a`) |
-| Paper 3 H2, proxy | table protocol; proxy GO iff Spearman ≥ 0.90; Youden threshold with fallback | latency tables; proxy | `paper3_preregistration.md` (`45936846`); `paper3_proxy_protocol.md` (`ec7a7f27`) |
-| Paper 3 ResNet-8 | ≥ 5 feasible calibration policies; threshold rule; latency room (≥ 20 feasible, one ≥ 1.10×) | GO/NO-GO for hardware-aware PPO | `resnet8_threshold_calibration_protocol.md` (`5b127804`) |
-| Phase 7A | ±0.5 pp on VAL-RL; consistent energy reduction; Cases A–D; pilot CV ≤ 3% | transfer and energy | `preregistration.json` (`b8c27665`) |
-| Phase 7B Stage A | proxy acceptance; surrogate acceptance; calibration pilot CV ≤ 4%; α rule | development | `phase7b_design.md` (`f5abe039`) |
-| Phase 7B Stage B | joint deployment-efficiency criterion; comparison rule; pilot CV ≤ 3%, N doubled once, then STOP | confirmatory | `phase7b_final_preregistration.json` (`0e101d55`) |
-| 7B energy confirmation | qualification CV ≤ 3%, one attempt; energy confirmation rule | direct energy | `protocol.json` (`df233be0`) |
+| Experiment | Frozen rule | Purpose |
+|---|---|---|
+| Phase 2 | seed-0 reference; best full-validation epoch; test once after hashing | dense references |
+| Phase 3 | outcome and class rules; four separate questions | PPO vs baselines; prior |
+| Phase 4 | mechanical Stage A–C selections; criteria A–E (reward, specific prior, search, final model, LAMP) | reward, prior, retention |
+| Phase 5 | τ rule; criteria A–F (accuracy safety, compression, search, sensitivity, final model, LAMP) | constrained reward |
+| Phase 6 | E timing rule; criteria A–F (fairness, recovery, competitiveness, generalisation, sparsity preservation, reproducibility); ±0.5 pp rule | equal recovery |
+| Paper 3 H0 | SNR ≥ 5, reduction ≥ 10%, positive in every session; order A, C, B | primary latency configuration |
+| Paper 3 H2, proxy | table protocol; proxy GO iff Spearman ≥ 0.90; Youden threshold with fallback | latency tables; proxy |
+| Paper 3 ResNet-8 | ≥ 5 feasible calibration policies; threshold rule; latency room (≥ 20 feasible, one ≥ 1.10×) | GO/NO-GO for hardware-aware PPO |
+| Phase 7A | ±0.5 pp on VAL-RL; consistent energy reduction; Cases A–D; pilot CV ≤ 3% | transfer and energy |
+| Phase 7B Stage A | proxy acceptance; surrogate acceptance; calibration pilot CV ≤ 4%; α rule | development |
+| Phase 7B Stage B | joint deployment-efficiency criterion; comparison rule; pilot CV ≤ 3%, N doubled once, then STOP | confirmatory |
+| 7B energy confirmation | qualification CV ≤ 3%, one attempt; energy confirmation rule | direct energy |
 
 ## 4.16 Hardware and Software Environment
 
@@ -491,15 +492,15 @@ All experiments ran on CPUs; no GPU was used (Table 4.11).
 | Threads | 1 per run (dense training: 4) | 1 intra-op, 1 inter-op |
 | Power | mains | AC required; Balanced plan |
 
-Package versions are pinned in `requirements_locked.txt`, and every phase records its environment and commit.
+Package versions are pinned, and every phase records its software environment and code version (Appendix A.2).
 **Results do not transfer between machines:** no desktop latency or energy value is used.
 
 ## 4.17 Structured Pruning and Latency Protocol
 
-**Measurement core** (Paper 3, reused in Phases 7A and 7B): batch 1, float32, NCHW, `eval()` and `inference_mode()`
-on one preallocated, seeded input; one intra-op and one inter-op thread, set before PyTorch is imported, with the
-process pinned to logical CPU 2 (a performance-core thread other than core 0); each pass timed with
-`time.perf_counter_ns()` with garbage collection disabled; AC power required, system load ≤ 15% over 5 s before and
+**Measurement core** (Paper 3, reused in Phases 7A and 7B): batch 1, float32, NCHW, evaluation mode with gradient
+tracking disabled, on one preallocated, seeded input; one intra-op and one inter-op thread, set before PyTorch is imported, with the
+process pinned to logical CPU 2 (a performance-core thread other than core 0); each pass timed with a
+nanosecond-resolution monotonic clock with garbage collection disabled; AC power required, system load ≤ 15% over 5 s before and
 after each session, and no other experiment running.
 
 **H0 calibration.** Six SimpleCNN shapes were timed under configurations **A** (batch 1, 1 thread on CPU 2, 50 / 300
@@ -520,7 +521,7 @@ inferences, with speed-up computed within a session.
 ### 4.18.1 Backend
 
 Energy is read from the **Intel RAPL package counter** [@khan2018rapl] through the **Windows Energy Meter Interface**
-(counter `\Energy Meter(RAPL_Package0_PKG)\Energy`): raw PDH values in picowatt-hours (1 pWh = 3.6 × 10⁻⁹ J), refreshed
+(its package-0 RAPL counter): raw PDH values in picowatt-hours (1 pWh = 3.6 × 10⁻⁹ J), refreshed
 about every 1 ms, read before and after each block. The core (PP0) domain is secondary; the DRAM domain reads zero and
 is not used. No TDP model, estimate or surrogate replaces a measurement, and no external meter was available; because
 software energy counters need careful protocol design [@jay2023powermeters; @raffin2024dissecting], gates and

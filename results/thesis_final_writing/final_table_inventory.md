@@ -1,6 +1,6 @@
 # Final table inventory (MIST)
 
-Numbered tables: **40** (32 in Chapters 1–8, 8 in Appendices A–E). MIST requires consecutive
+Numbered tables: **42** (32 in Chapters 1–8, 10 in Appendices A–E). MIST requires consecutive
 numbering; all chapter tables were renumbered in order of appearance by `tools/renumber_tables.py` (mapping in
 `tools/_table_renumber_map.json`), which also resolved the former out-of-order Table 5.3 (now Table 5.11, where it
 stands). Every previously un-numbered inline table was either converted to an equivalent list/sentence during
@@ -41,6 +41,8 @@ compression or given a caption and number. Every table appears in the List of Ta
 | 7.1 | Negative and partial results and what each establishes | Ch. 7 | 7.1 | referenced 1× | in List of Tables |
 | 8.1 | Thesis contributions and their boundaries | Ch. 8 | 8.1 | referenced 2× | in List of Tables |
 | A.1 | Pruning units of the three networks: weights, share of prunable weights and MACs per image (CIFAR-10 output layer) | App. A | new (Appendix) | appendix (listed) | in List of Tables |
+| A.2 | Frozen dense reference checkpoints (Table 4.4): checkpoint file and SHA-256 prefix | App. A | new (Appendix) | referenced 2× | in List of Tables |
+| A.3 | Pre-registration records (Table 4.10) and the commits that first added them | App. A | new (Appendix) | referenced 2× | in List of Tables |
 | B.1 | Phase 3 mean test accuracy (%) of PPO (P0) and the five baselines built at each PPO run's zero count (20 runs) | App. B | new (Appendix) | appendix (listed) | in List of Tables |
 | B.2 | Normalised loss sensitivity S_l of the four units by setting and the Phase-5 centred prior coefficients | App. B | new (Appendix) | appendix (listed) | in List of Tables |
 | C.1 | Phase 6 mean recovery (test accuracy after minus before equal fine-tuning, pp; 20 runs) by setting and method | App. C | new (Appendix) | appendix (listed) | in List of Tables |

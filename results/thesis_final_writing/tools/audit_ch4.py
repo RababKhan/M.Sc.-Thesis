@@ -81,7 +81,11 @@ for (ds, a), (sha, val, test, vrl1, vrl2) in table.items():
                 f"{fi[key]['base_vrl_accuracy']:.4f}", f"{float(p5[key]['dense_val_rl_accuracy']):.2f}")
     check(f"Table 4.4 {key}", " ".join((sha, val, test, vrl1, vrl2)), " ".join(src_vals),
           "cpu_baselines.csv; phase3_frozen_inputs.json; phase5_config.json")
-    check(f"Table 4.4 row in chapter {key}", "present", "present" if all(in_text(x) for x in (sha, val, test, vrl1, vrl2)) else "missing", "chapter text")
+    # Final code-reference cleanup: checkpoint hashes moved from Table 4.4 to the reproducibility appendix (Table A.2);
+    # the accuracy values must still be in Chapter 4, the hash in Appendix A.
+    apx = open(os.path.join(os.path.dirname(CH), "appendices.md"), encoding="utf-8").read()
+    check(f"Table 4.4 row in chapter {key}", "present", "present" if all(in_text(x) for x in (val, test, vrl1, vrl2)) and sha in apx else "missing",
+          "chapter text (values); Appendix A Table A.2 (hash)")
 
 # ---------------------------------------------------------------- parameters and units
 units = csvrows("results/architecture_generalization/cpu_prunable_units.csv")

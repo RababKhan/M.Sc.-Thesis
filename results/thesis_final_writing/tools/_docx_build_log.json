@@ -57,7 +57,7 @@
   {
    "label": "4.4",
    "rows": 7,
-   "cols": 7,
+   "cols": 6,
    "font": 9
   },
   {
@@ -93,8 +93,8 @@
   {
    "label": "4.10",
    "rows": 13,
-   "cols": 4,
-   "font": 8
+   "cols": 3,
+   "font": 10
   },
   {
    "label": "4.11",
@@ -197,6 +197,18 @@
    "rows": 16,
    "cols": 6,
    "font": 9
+  },
+  {
+   "label": "A.2",
+   "rows": 7,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "A.3",
+   "rows": 13,
+   "cols": 3,
+   "font": 10
   },
   {
    "label": "B.1",
@@ -583,6 +595,14 @@
   {
    "kind": "content",
    "label": "A.1"
+  },
+  {
+   "kind": "content",
+   "label": "A.2"
+  },
+  {
+   "kind": "content",
+   "label": "A.3"
   },
   {
    "kind": "content",

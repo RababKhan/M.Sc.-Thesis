@@ -71,7 +71,7 @@ the unit; the output classifier is always excluded.
 
 | Architecture | Unit 1 | Unit 2 | Unit 3 | Unit 4 | Never pruned |
 |---|---|---|---|---|---|
-| SimpleCNN | conv1 (`features.0`) | conv2 (`features.3`) | conv3 (`features.6`) | fc1 (`classifier.1`) | output layer (`classifier.3`) |
+| SimpleCNN | conv1 | conv2 | conv3 | fc1 | output layer |
 | LeNet-5 | conv1 | conv2 | fc1 | fc2 | output layer |
 | ResNet-8 | stem convolution | stage 1 (both block convolutions) | stage 2 (both block convolutions and the 1×1 shortcut) | stage 3 (both block convolutions and the 1×1 shortcut) | output layer |
 
@@ -99,8 +99,7 @@ measured hardware cost.
 
 ## 3.5 State Representation
 
-**Core framework (Phases 3–6).** The state is the seven-feature vector of the historical environment
-(`src/rl`, `unit_state`), computed for the current unit l of N_L units:
+**Core framework (Phases 3–6).** The state is a seven-feature vector computed for the current unit l of N_L units:
 
 $$s_l = \Big[\, \tfrac{l-1}{N_L-1},\;\; \log(1+n_l),\;\; \tfrac{n_l}{\max_j n_j},\;\; \overline{|w_l|},\;\; \sigma(w_l),\;\; \textstyle\sum_{j<l} r_j,\;\; \sigma^{\text{slot}}_l \,\Big], \tag{3.4}$$
 
@@ -170,7 +169,7 @@ which accuracy loss becomes unacceptable (Section 3.13).
 
 The sensitivity of a unit measures how much the network's loss increases when that unit alone is pruned. It is
 computed once per setting on the dense reference, using only the reward split (VAL-RL), never the selection split or
-the test set (`src/sensitivity`, `loss_sensitivity`):
+the test set:
 
 1. **Baseline loss.** Evaluate the dense model's mean cross-entropy loss L_0 on VAL-RL.
 2. **Single-unit probes.** For each unit l and probe ratio r ∈ {0.1, 0.2, 0.4, 0.6}, prune *only* unit l by r
@@ -197,9 +196,9 @@ shifted:
 $$\tilde z_l(a) = z_l(a) \; - \; c_l \cdot \frac{r(a)}{0.6}, \qquad \pi_\theta(a \mid s_l) = \operatorname{softmax}_a\big(\tilde z_l(a)\big). \tag{3.10}$$
 
 Here c_l is the prior coefficient of unit l, and r(a)/0.6 rescales the ratio so that the most aggressive action has
-weight 1. In Phase 3, c_l = β·S_l with β = 0.5 (condition P1, "correct prior"). The shift (`src/rl`,
-`SoftPriorPolicy`) is applied in every forward pass, both when actions are sampled and when log-probabilities are
-evaluated in the PPO update. The penalty grows with sensitivity and aggressiveness, and action 0 is never penalised.
+weight 1. In Phase 3, c_l = β·S_l with β = 0.5 (condition P1, "correct prior"). The prior adjustment is applied
+during every forward pass, both when actions are sampled and when action log-probabilities are evaluated during the
+PPO update. The penalty grows with sensitivity and aggressiveness, and action 0 is never penalised.
 The prior **shifts preferences but does not replace the learned policy**: every action keeps a non-zero probability,
 the actor can override it, and with c_l = 0 the policy is exactly standard PPO. Its shuffled and constant controls
 (Section 4.9.1) separate *layer-specific* information from a generic bias towards lighter pruning.
@@ -331,8 +330,8 @@ selection, identically to every compared method, so the final comparison reflect
 
 Pruning methods differ in how much accuracy they lose *immediately*, but in deployment a pruned network is normally
 fine-tuned before use, and recovery can reduce or reverse those differences [@renda2020rewinding; @le2021retraining].
-To compare allocations fairly after recovery, Phase 6 applied one fixed protocol to every compared model
-(`experiments/phase6/phase6_lib.py`, `PROTOCOL` and `finetune`): Adam with cosine annealing to zero over E epochs,
+To compare allocations fairly after recovery, Phase 6 applied one fixed protocol to every compared model:
+Adam with cosine annealing to zero over E epochs,
 stepped once per epoch,
 
 $$\eta_e = \tfrac{1}{2}\,\eta_0 \big(1 + \cos(\pi e / E)\big), \qquad \eta_0 = 10^{-4},\; e = 0, \ldots, E-1, \tag{3.16}$$
@@ -362,7 +361,7 @@ kept is
 $$k_l = \max\!\big(1, \operatorname{round}((1 - r_l)\, C_l)\big), \tag{3.17}$$
 
 and the k_l channels with the largest L1 filter norms on the dense model are kept, so the result does not depend on the
-order of compaction (`src/pruning/structured_units.py`); removing an output channel also removes the matching input of
+order of compaction; removing an output channel also removes the matching input of
 every layer that reads it, and the output layer is never pruned. **Residual coupling (ResNet-8):** layers sharing a
 residual stream must keep the same channel set, so the structured ResNet-8 units differ from those of Table 3.2
 (Section 4.6.2), and a masked ResNet-8 policy maps onto them only approximately.

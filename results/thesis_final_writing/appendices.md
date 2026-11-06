@@ -1,8 +1,8 @@
 # Appendices
 
 The appendices give only the supporting values an examiner may need to verify statements in Chapters 3–6
-without opening the code repository. Each table is generated from the frozen phase records by
-`tools/build_appendices.py` and names its source record.
+without opening the code repository. Every table is generated directly from the frozen phase records; the
+records and all implementation identifiers are listed once, in Section A.2.
 
 ## Appendix A — Architectures, Hyperparameters and Reproducibility
 
@@ -12,32 +12,84 @@ without opening the code repository. Each table is generated from the frozen pha
 
 | Network | Unit | Role | Weights | Share of prunable | MACs per image |
 |---|---|---|---|---|---|
-| SimpleCNN | features.0 | pruned (PPO decision) | 864 | 0.14% | 884,736 |
-| SimpleCNN | features.3 | pruned (PPO decision) | 18,432 | 2.99% | 4,718,592 |
-| SimpleCNN | features.6 | pruned (PPO decision) | 73,728 | 11.94% | 4,718,592 |
-| SimpleCNN | classifier.1 | pruned (PPO decision) | 524,288 | 84.93% | 524,288 |
-| SimpleCNN | classifier.3 | never pruned | 2,560 | — | 2,560 |
+| SimpleCNN | conv1 | pruned (PPO decision) | 864 | 0.14% | 884,736 |
+| SimpleCNN | conv2 | pruned (PPO decision) | 18,432 | 2.99% | 4,718,592 |
+| SimpleCNN | conv3 | pruned (PPO decision) | 73,728 | 11.94% | 4,718,592 |
+| SimpleCNN | fc1 | pruned (PPO decision) | 524,288 | 84.93% | 524,288 |
+| SimpleCNN | output layer | never pruned | 2,560 | — | 2,560 |
 | LeNet-5 | conv1 | pruned (PPO decision) | 450 | 0.74% | 352,800 |
 | LeNet-5 | conv2 | pruned (PPO decision) | 2,400 | 3.94% | 240,000 |
 | LeNet-5 | fc1 | pruned (PPO decision) | 48,000 | 78.78% | 48,000 |
 | LeNet-5 | fc2 | pruned (PPO decision) | 10,080 | 16.54% | 10,080 |
-| LeNet-5 | classifier.5 | never pruned | 840 | — | 840 |
+| LeNet-5 | output layer | never pruned | 840 | — | 840 |
 | ResNet-8 | stem | pruned (PPO decision) | 432 | 0.56% | 442,368 |
-| ResNet-8 | stage1 | pruned (PPO decision) | 4,608 | 6.01% | 4,718,592 |
-| ResNet-8 | stage2 | pruned (PPO decision) | 14,336 | 18.69% | 3,670,016 |
-| ResNet-8 | stage3 | pruned (PPO decision) | 57,344 | 74.74% | 3,670,016 |
-| ResNet-8 | fc | never pruned | 640 | — | 640 |
+| ResNet-8 | stage 1 | pruned (PPO decision) | 4,608 | 6.01% | 4,718,592 |
+| ResNet-8 | stage 2 | pruned (PPO decision) | 14,336 | 18.69% | 3,670,016 |
+| ResNet-8 | stage 3 | pruned (PPO decision) | 57,344 | 74.74% | 3,670,016 |
+| ResNet-8 | output layer | never pruned | 640 | — | 640 |
 
-*Source: `cpu_prunable_units.csv`. The PPO hyper-parameters are in Table 4.6 and the equal recovery protocol in Section 4.13.*
+*Unit names as in Table 3.2 (implementation module names in Section A.2). Source: frozen unit table. The PPO hyper-parameters are in Table 4.6 and the equal recovery protocol in Section 4.13.*
 
 ### A.2 Reproducibility
 
-Every experiment was pre-registered and frozen before its confirmatory runs; Table 4.10 lists the governing
-records and the commits that first added them. The complete per-seed experimental records, per-session
-measurement records, machine-readable result files (CSV and JSON), checkpoint hashes and audit scripts are
-retained in the associated research repository, organised by phase: `architecture_generalization` (Phases 2–3),
-`phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and
-`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`.
+Every experiment was pre-registered and frozen before its confirmatory runs. The complete per-seed experimental
+records, per-session measurement records, machine-readable result files (CSV and JSON), checkpoints and audit
+scripts are retained in the associated research repository, organised by phase: `architecture_generalization`
+(Phases 2–3), `phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and
+`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`. Tables A.2 and A.3
+identify the frozen reference checkpoints and the governing pre-registration records.
+
+**Table A.2. Frozen dense reference checkpoints (Table 4.4): checkpoint file and SHA-256 prefix.**
+
+| Setting | Checkpoint file | SHA-256 (prefix) |
+|---|---|---|
+| CIFAR-10 SimpleCNN | `cnn_baseline_FIXED.pth` | `ca28f834` |
+| CIFAR-10 LeNet-5 | `lenet5_seed0.pth` | `5ca6e0fc` |
+| CIFAR-10 ResNet-8 | `resnet8_seed0.pth` | `41fc5ee5` |
+| CIFAR-100 SimpleCNN | `simplecnn_seed0.pth` | `d75dd19c` |
+| CIFAR-100 LeNet-5 | `lenet5_seed0.pth` | `8e1b1aee` |
+| CIFAR-100 ResNet-8 | `resnet8_seed0.pth` | `8b84bfad` |
+
+**Table A.3. Pre-registration records (Table 4.10) and the commits that first added them.**
+
+| Experiment | Governing record | Commit |
+|---|---|---|
+| Phase 2 | `cpu_dense_training_protocol.md` | `366d21ae` |
+| Phase 3 | `phase3_preregistration.md` | `2dbcc770` |
+| Phase 4 | `phase4_preregistration.md` | `f52e87d9` |
+| Phase 5 | `phase5_preregistration.md` | `3cbaec1a` |
+| Phase 6 | `phase6_preregistration.md` | `b1b5396f` |
+| Paper 3 H0 | `h0_protocol.md` | `c2dcb22a` |
+| Paper 3 H2, proxy | `paper3_preregistration.md`; `paper3_proxy_protocol.md` | `45936846`; `ec7a7f27` |
+| Paper 3 ResNet-8 | `resnet8_threshold_calibration_protocol.md` | `5b127804` |
+| Phase 7A | `preregistration.json` | `b8c27665` |
+| Phase 7B Stage A | `phase7b_design.md` | `f5abe039` |
+| Phase 7B Stage B | `phase7b_final_preregistration.json` | `0e101d55` |
+| 7B energy confirmation | `protocol.json` | `df233be0` |
+
+*Commits verified with `git log --diff-filter=A`.*
+
+**Implementation identifiers.** The components described conceptually in Chapters 3–4 correspond to:
+
+- state features: `src/rl` (`unit_state`);
+- layer sensitivity: `src/sensitivity` (`loss_sensitivity`);
+- sensitivity prior: `src/rl` (`SoftPriorPolicy`);
+- networks: `src/models`; baselines: `src/pruning`;
+- structured compaction: `src/pruning/structured_units.py`;
+- equal recovery protocol: `experiments/phase6/phase6_lib.py` (`PROTOCOL`, `finetune`);
+- elite behavioural cloning: a modified copy of the Stable-Baselines3 PPO update;
+- data split: `torch.randperm` (seed 42);
+- SimpleCNN units: modules `features.0`, `features.3`, `features.6`, `classifier.1`; output layer `classifier.3` (LeNet-5 output layer `classifier.5`; ResNet-8 output layer `fc`);
+- latency passes: `eval()` and `inference_mode()`, timed with `time.perf_counter_ns()`;
+- package energy counter: `\Energy Meter(RAPL_Package0_PKG)\Energy`;
+- pinned package versions: `requirements_locked.txt`; appendix generator: `tools/build_appendices.py`.
+
+**Source records of the appendix tables:**
+
+- A.1 `cpu_prunable_units.csv`; A.2 `cpu_baselines.csv`
+- B.1 `phase3_summary.csv`; B.2 `phase3_frozen_inputs.json`, `phase5_config.json`
+- C.1 `phase6_pre_post_accuracy.csv`; D.1 `h0_decision.json`; D.2 `h2_latency_freeze.json`
+- E.1 `energy_summary.csv`; E.2 `pilot_n100000.json`, `pilot_n20000.json`, `statistics.json`, `measurement_qualification.json`
 
 ## Appendix B — Supplementary Core-Pruning Results
 
@@ -54,7 +106,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 (32.28) | 34.59 | 31.19 | 27.51 | 3.29 | 31.32 | 30.88 | 31.86 |
 | C100 ResNet-8 (43.99) | 9.46 | 43.01 | 42.78 | 4.25 | 42.74 | 43.81 | 43.76 |
 
-*Source: `phase3_summary.csv`. Paired differences and their statistics are in Table 5.2.*
+*Source: frozen Phase-3 summary record. Paired differences and their statistics are in Table 5.2.*
 
 ### B.2 Sensitivity vectors
 
@@ -69,7 +121,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 | 1.000, 0.587, 0.000, 0.086 | 1.000, 0.564, 0.000, 0.059 | 0.594, 0.159, −0.406, −0.347 |
 | C100 ResNet-8 | 0.987, 0.310, 1.000, 0.000 | 1.000, 0.309, 0.997, 0.000 | 0.423, −0.268, 0.421, −0.577 |
 
-*Sources: `phase3_frozen_inputs.json`; `phase5_config.json`.*
+*Sources: frozen Phase-3 inputs and Phase-5 configuration records.*
 
 ## Appendix C — Archive, Reward and Recovery Diagnostics
 
@@ -86,7 +138,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 (30.6%) | +0.57 | +0.44 | +0.81 | +0.11 |
 | C100 ResNet-8 (15.6%) | +1.20 | +0.72 | +4.69 | +0.09 |
 
-*Source: `phase6_pre_post_accuracy.csv`. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. Phase-4 search quality and Phase-5 per-run selections are summarised in Tables 5.3, 5.4 and 5.5; their run-level records are in the repository.*
+*Source: frozen Phase-6 before/after record. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. Phase-4 search quality and Phase-5 per-run selections are summarised in Tables 5.3, 5.4 and 5.5; their run-level records are in the repository.*
 
 ## Appendix D — Hardware and Structured-Pruning Protocol
 
@@ -100,7 +152,7 @@ retained in the associated research repository, organised by phase: `architectur
 | B | 0.1222 | 0.0287 | 4.26 | 31.8% | True | False |
 | C | 15.4531 | 1.6070 | 9.62 | 63.2% | True | True |
 
-*Source: `h0_decision.json`. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.*
+*Source: frozen H0 decision record. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.*
 
 ### D.2 Latency-table sessions
 
@@ -113,7 +165,7 @@ retained in the associated research repository, organised by phase: `architectur
 | SimpleCNN, CIFAR-10 | 5 | 0 | 9.4% | — |
 | SimpleCNN, CIFAR-100 | 5 | 2 | 9.1% | 40.6% |
 
-*Source: `h2_latency_freeze.json` (`session_log`); the per-session log is in the repository.*
+*Source: frozen latency-table session log; the per-session log is in the repository.*
 
 ## Appendix E — Energy Measurement and Qualification
 
@@ -132,7 +184,7 @@ retained in the associated research repository, organised by phase: `architectur
 | ResNet-8 | uniform | 9.645 | 3.63% | 11.8% | 4.7–13.9% | 5 | 0.031 |
 | ResNet-8 | lamp | 9.819 | 1.46% | 8.9% | 7.4–12.3% | 5 | 0.031 |
 
-*Source: `energy_summary.csv`; per-block session records are in the repository.*
+*Source: frozen Phase-7A energy summary; per-block session records are in the repository.*
 
 ### E.2 Energy-measurement qualification
 
@@ -147,5 +199,5 @@ retained in the associated research repository, organised by phase: `architectur
 | 7B confirmatory pilot (N = 200,000) | 200,000 | 11.814, 12.074, 11.039, 11.539, 11.025, 11.033 | 4.01% | 3% | unstable |
 | 7B energy-confirmation qualification | 200,000 | 11.417, 14.278, 12.962, 15.221, 9.514, 9.473 | 19.92% | 3% | not qualified |
 
-*Sources: `pilot_n100000.json` (Phase 7A); `pilot_n20000.json`, `statistics.json` (Phase 7B); `measurement_qualification.json` (energy confirmation). A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not listed. The per-block diagnostics and the eleven recovered Phase-7B models (summarised in Table 6.4) are in the repository.*
+*Sources: frozen pilot, statistics and qualification records of Phase 7A, Phase 7B and the energy confirmation (Section A.2). A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not listed. The per-block diagnostics and the eleven recovered Phase-7B models (summarised in Table 6.4) are in the repository.*
 

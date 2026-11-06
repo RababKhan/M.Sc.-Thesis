@@ -165,6 +165,8 @@ qualification) ব্যর্থ হওয়ায় এর সরাসর�
 - Table 7.1: Negative and partial results and what each establishes
 - Table 8.1: Thesis contributions and their boundaries
 - Table A.1: Pruning units of the three networks: weights, share of prunable weights and MACs per image (CIFAR-10 output layer)
+- Table A.2: Frozen dense reference checkpoints (Table 4.4): checkpoint file and SHA-256 prefix
+- Table A.3: Pre-registration records (Table 4.10) and the commits that first added them
 - Table B.1: Phase 3 mean test accuracy (%) of PPO (P0) and the five baselines built at each PPO run's zero count (20 runs)
 - Table B.2: Normalised loss sensitivity S_l of the four units by setting and the Phase-5 centred prior coefficients
 - Table C.1: Phase 6 mean recovery (test accuracy after minus before equal fine-tuning, pp; 20 runs) by setting and method
@@ -1073,7 +1075,7 @@ the unit; the output classifier is always excluded.
 
 | Architecture | Unit 1 | Unit 2 | Unit 3 | Unit 4 | Never pruned |
 |---|---|---|---|---|---|
-| SimpleCNN | conv1 (`features.0`) | conv2 (`features.3`) | conv3 (`features.6`) | fc1 (`classifier.1`) | output layer (`classifier.3`) |
+| SimpleCNN | conv1 | conv2 | conv3 | fc1 | output layer |
 | LeNet-5 | conv1 | conv2 | fc1 | fc2 | output layer |
 | ResNet-8 | stem convolution | stage 1 (both block convolutions) | stage 2 (both block convolutions and the 1×1 shortcut) | stage 3 (both block convolutions and the 1×1 shortcut) | output layer |
 
@@ -1101,8 +1103,7 @@ measured hardware cost.
 
 ## 3.5 State Representation
 
-**Core framework (Phases 3–6).** The state is the seven-feature vector of the historical environment
-(`src/rl`, `unit_state`), computed for the current unit l of N_L units:
+**Core framework (Phases 3–6).** The state is a seven-feature vector computed for the current unit l of N_L units:
 
 $$s_l = \Big[\, \tfrac{l-1}{N_L-1},\;\; \log(1+n_l),\;\; \tfrac{n_l}{\max_j n_j},\;\; \overline{|w_l|},\;\; \sigma(w_l),\;\; \textstyle\sum_{j<l} r_j,\;\; \sigma^{\text{slot}}_l \,\Big], \tag{3.4}$$
 
@@ -1172,7 +1173,7 @@ which accuracy loss becomes unacceptable (Section 3.13).
 
 The sensitivity of a unit measures how much the network's loss increases when that unit alone is pruned. It is
 computed once per setting on the dense reference, using only the reward split (VAL-RL), never the selection split or
-the test set (`src/sensitivity`, `loss_sensitivity`):
+the test set:
 
 1. **Baseline loss.** Evaluate the dense model's mean cross-entropy loss L_0 on VAL-RL.
 2. **Single-unit probes.** For each unit l and probe ratio r ∈ {0.1, 0.2, 0.4, 0.6}, prune *only* unit l by r
@@ -1199,9 +1200,9 @@ shifted:
 $$\tilde z_l(a) = z_l(a) \; - \; c_l \cdot \frac{r(a)}{0.6}, \qquad \pi_\theta(a \mid s_l) = \operatorname{softmax}_a\big(\tilde z_l(a)\big). \tag{3.10}$$
 
 Here c_l is the prior coefficient of unit l, and r(a)/0.6 rescales the ratio so that the most aggressive action has
-weight 1. In Phase 3, c_l = β·S_l with β = 0.5 (condition P1, "correct prior"). The shift (`src/rl`,
-`SoftPriorPolicy`) is applied in every forward pass, both when actions are sampled and when log-probabilities are
-evaluated in the PPO update. The penalty grows with sensitivity and aggressiveness, and action 0 is never penalised.
+weight 1. In Phase 3, c_l = β·S_l with β = 0.5 (condition P1, "correct prior"). The prior adjustment is applied
+during every forward pass, both when actions are sampled and when action log-probabilities are evaluated during the
+PPO update. The penalty grows with sensitivity and aggressiveness, and action 0 is never penalised.
 The prior **shifts preferences but does not replace the learned policy**: every action keeps a non-zero probability,
 the actor can override it, and with c_l = 0 the policy is exactly standard PPO. Its shuffled and constant controls
 (Section 4.9.1) separate *layer-specific* information from a generic bias towards lighter pruning.
@@ -1333,8 +1334,8 @@ selection, identically to every compared method, so the final comparison reflect
 
 Pruning methods differ in how much accuracy they lose *immediately*, but in deployment a pruned network is normally
 fine-tuned before use, and recovery can reduce or reverse those differences (Renda, Frankle and Carbin, 2020; Le and Hua, 2021).
-To compare allocations fairly after recovery, Phase 6 applied one fixed protocol to every compared model
-(`experiments/phase6/phase6_lib.py`, `PROTOCOL` and `finetune`): Adam with cosine annealing to zero over E epochs,
+To compare allocations fairly after recovery, Phase 6 applied one fixed protocol to every compared model:
+Adam with cosine annealing to zero over E epochs,
 stepped once per epoch,
 
 $$\eta_e = \tfrac{1}{2}\,\eta_0 \big(1 + \cos(\pi e / E)\big), \qquad \eta_0 = 10^{-4},\; e = 0, \ldots, E-1, \tag{3.16}$$
@@ -1364,7 +1365,7 @@ kept is
 $$k_l = \max\!\big(1, \operatorname{round}((1 - r_l)\, C_l)\big), \tag{3.17}$$
 
 and the k_l channels with the largest L1 filter norms on the dense model are kept, so the result does not depend on the
-order of compaction (`src/pruning/structured_units.py`); removing an output channel also removes the matching input of
+order of compaction; removing an output channel also removes the matching input of
 every layer that reads it, and the output layer is never pruned. **Residual coupling (ResNet-8):** layers sharing a
 residual stream must keep the same channel set, so the structured ResNet-8 units differ from those of Table 3.2
 (Section 4.6.2), and a masked ResNet-8 policy maps onto them only approximately.
@@ -1541,7 +1542,7 @@ evaluation is never augmented. CIFAR-100 is used only in Phases 2–6 and the Pa
 
 ### 4.3.1 Training, validation and test
 
-For both datasets, a fixed permutation of the 50,000 training indices (`torch.randperm`, seed 42) assigns 45,000
+For both datasets, a fixed permutation of the 50,000 training indices (seed 42) assigns 45,000
 images to **training** and the last 5,000 to **validation**; the official 10,000 images are the **test** set. Index
 lists are identical for both datasets and recorded with hashes in split manifests.
 
@@ -1592,7 +1593,7 @@ relative to the baselines (recorded in its pre-registration); Phases 7A and 7B r
 
 ## 4.4 Neural Network Architectures
 
-The networks are defined in `src/models`:
+The three networks are:
 - **SimpleCNN** (the historical network): three 3×3 convolutions (padding 1, with bias) with 32, 64 and 128 filters,
   each with ReLU and 2×2 max-pooling; a 256-unit hidden layer with ReLU on the 2,048 flattened features; an output
   layer of C units; no batch normalisation or dropout.
@@ -1627,16 +1628,16 @@ affects every method of a setting identically. Later phases assert the reference
 and 7B add a dense model fine-tuned with the pruned models' protocol, separating recovery from extra training.
 
 **Table 4.4. Dense reference models (accuracy, %).** The VAL-RL columns are the denominators A_b of retained accuracy
-in Phases 3–4 (configuration I) and Phase 5 (configuration II).
+in Phases 3–4 (configuration I) and Phase 5 (configuration II). Checkpoint hashes are listed in Appendix A (Table A.2).
 
-| Setting | Checkpoint | SHA-256 | Full validation | Test | VAL-RL (I) | VAL-RL (II) |
-|---|---|---|---|---|---|---|
-| CIFAR-10 SimpleCNN | historical, 10 epochs | `ca28f834` | 77.32 | 77.03 | 76.9667 | 76.88 |
-| CIFAR-10 LeNet-5 | seed 0 | `5ca6e0fc` | 64.32 | 64.96 | 64.3000 | 64.20 |
-| CIFAR-10 ResNet-8 | seed 0 | `41fc5ee5` | 78.72 | 78.69 | 78.5333 | 78.92 |
-| CIFAR-100 SimpleCNN | seed 0 | `d75dd19c` | 49.08 | 50.50 | 50.3667 | 48.96 |
-| CIFAR-100 LeNet-5 | seed 0 | `8e1b1aee` | 32.58 | 32.28 | 33.3000 | 32.76 |
-| CIFAR-100 ResNet-8 | seed 0 | `8b84bfad` | 43.48 | 43.99 | 43.7667 | 43.76 |
+| Setting | Checkpoint | Full validation | Test | VAL-RL (I) | VAL-RL (II) |
+|---|---|---|---|---|---|
+| CIFAR-10 SimpleCNN | historical, 10 epochs | 77.32 | 77.03 | 76.9667 | 76.88 |
+| CIFAR-10 LeNet-5 | seed 0 | 64.32 | 64.96 | 64.3000 | 64.20 |
+| CIFAR-10 ResNet-8 | seed 0 | 78.72 | 78.69 | 78.5333 | 78.92 |
+| CIFAR-100 SimpleCNN | seed 0 | 49.08 | 50.50 | 50.3667 | 48.96 |
+| CIFAR-100 LeNet-5 | seed 0 | 32.58 | 32.28 | 33.3000 | 32.76 |
+| CIFAR-100 ResNet-8 | seed 0 | 43.48 | 43.99 | 43.7667 | 43.76 |
 
 The extension starts from the CIFAR-10 SimpleCNN and ResNet-8 references.
 
@@ -1678,7 +1679,7 @@ used only as pilot data.
 
 ### 4.7.1 Core-framework baselines
 
-The baselines are one-shot methods from `src/pruning`, each calibrated to an exact number K of zeroed prunable weights,
+The baselines are one-shot methods, each calibrated to an exact number K of zeroed prunable weights,
 with largest-remainder rounding of per-tensor counts; all are deterministic except Random:
 - **Uniform:** every prunable tensor loses the fraction K/N of its smallest-magnitude weights (N prunable weights).
 - **Random:** uniform allocation with weights removed at random inside each tensor; ten mask seeds (1000–1009),
@@ -1728,7 +1729,7 @@ evaluation data loader is still created at each cached terminal step, so the ran
 
 | Item | Phase 3 | Phase 4 | Phase 5 | Phase 7B |
 |---|---|---|---|---|
-| Actor and critic; optimiser; n_steps; batch; epochs | MLP [64, 64] tanh, orthogonal initialisation; Adam, lr 3×10⁻⁴; 64; 32; 10 | same | same | same |
+| Actor and critic; optimiser; rollout length; minibatch; epochs per update | MLP [64, 64] tanh, orthogonal initialisation; Adam, lr 3×10⁻⁴; 64; 32; 10 | same | same | same |
 | γ; GAE λ; clip; entropy; value; grad norm | 0.99; 0.95; 0.2; 0.01; 0.5; 0.5 | same | same | same |
 | Budget; threads | 2,048 steps = 512 episodes; 1 | same | same | same |
 | Environment; state | masked; 7 features, sensitivity slot 0 | same | same | structured SimpleCNN; 8 features with centred sensitivity |
@@ -1741,8 +1742,8 @@ evaluation data loader is still created at each cached terminal step, so the ran
 
 The Phase 3–5 seeds were unused by any earlier PPO run (except an unrecorded 64-timestep smoke test with seed 300 in
 the Phase-2 checks) and shared across conditions and settings, so comparisons are paired; no seed was removed,
-replaced or added. Elite behavioural cloning adds η·𝓛_elite (Equation 3.13) to a copy of the SB3 PPO update,
-bit-identical to standard PPO at η = 0.
+replaced or added. Elite behavioural cloning adds η·𝓛_elite (Equation 3.13) to the PPO loss; with
+η = 0 the update is identical to standard PPO.
 
 ## 4.9 Experimental Conditions by Phase
 
@@ -1977,22 +1978,23 @@ Wilcoxon and a sign test on ten pairs.
 
 ### 4.15.4 Pre-registered decision rules
 
-**Table 4.10. Pre-registered decision criteria.** The commit is the one that first added the governing file.
+**Table 4.10. Pre-registered decision criteria.** The governing records and the commits that first added them are
+listed in Appendix A (Table A.3).
 
-| Experiment | Frozen rule | Purpose | Source (commit) |
-|---|---|---|---|
-| Phase 2 | seed-0 reference; best full-validation epoch; test once after hashing | dense references | `cpu_dense_training_protocol.md` (`366d21ae`) |
-| Phase 3 | outcome and class rules; four separate questions | PPO vs baselines; prior | `phase3_preregistration.md` (`2dbcc770`) |
-| Phase 4 | mechanical Stage A–C selections; criteria A–E (reward, specific prior, search, final model, LAMP) | reward, prior, retention | `phase4_preregistration.md` (`f52e87d9`) |
-| Phase 5 | τ rule; criteria A–F (accuracy safety, compression, search, sensitivity, final model, LAMP) | constrained reward | `phase5_preregistration.md` (`3cbaec1a`) |
-| Phase 6 | E timing rule; criteria A–F (fairness, recovery, competitiveness, generalisation, sparsity preservation, reproducibility); ±0.5 pp rule | equal recovery | `phase6_preregistration.md` (`b1b5396f`) |
-| Paper 3 H0 | SNR ≥ 5, reduction ≥ 10%, positive in every session; order A, C, B | primary latency configuration | `h0_protocol.md` (`c2dcb22a`) |
-| Paper 3 H2, proxy | table protocol; proxy GO iff Spearman ≥ 0.90; Youden threshold with fallback | latency tables; proxy | `paper3_preregistration.md` (`45936846`); `paper3_proxy_protocol.md` (`ec7a7f27`) |
-| Paper 3 ResNet-8 | ≥ 5 feasible calibration policies; threshold rule; latency room (≥ 20 feasible, one ≥ 1.10×) | GO/NO-GO for hardware-aware PPO | `resnet8_threshold_calibration_protocol.md` (`5b127804`) |
-| Phase 7A | ±0.5 pp on VAL-RL; consistent energy reduction; Cases A–D; pilot CV ≤ 3% | transfer and energy | `preregistration.json` (`b8c27665`) |
-| Phase 7B Stage A | proxy acceptance; surrogate acceptance; calibration pilot CV ≤ 4%; α rule | development | `phase7b_design.md` (`f5abe039`) |
-| Phase 7B Stage B | joint deployment-efficiency criterion; comparison rule; pilot CV ≤ 3%, N doubled once, then STOP | confirmatory | `phase7b_final_preregistration.json` (`0e101d55`) |
-| 7B energy confirmation | qualification CV ≤ 3%, one attempt; energy confirmation rule | direct energy | `protocol.json` (`df233be0`) |
+| Experiment | Frozen rule | Purpose |
+|---|---|---|
+| Phase 2 | seed-0 reference; best full-validation epoch; test once after hashing | dense references |
+| Phase 3 | outcome and class rules; four separate questions | PPO vs baselines; prior |
+| Phase 4 | mechanical Stage A–C selections; criteria A–E (reward, specific prior, search, final model, LAMP) | reward, prior, retention |
+| Phase 5 | τ rule; criteria A–F (accuracy safety, compression, search, sensitivity, final model, LAMP) | constrained reward |
+| Phase 6 | E timing rule; criteria A–F (fairness, recovery, competitiveness, generalisation, sparsity preservation, reproducibility); ±0.5 pp rule | equal recovery |
+| Paper 3 H0 | SNR ≥ 5, reduction ≥ 10%, positive in every session; order A, C, B | primary latency configuration |
+| Paper 3 H2, proxy | table protocol; proxy GO iff Spearman ≥ 0.90; Youden threshold with fallback | latency tables; proxy |
+| Paper 3 ResNet-8 | ≥ 5 feasible calibration policies; threshold rule; latency room (≥ 20 feasible, one ≥ 1.10×) | GO/NO-GO for hardware-aware PPO |
+| Phase 7A | ±0.5 pp on VAL-RL; consistent energy reduction; Cases A–D; pilot CV ≤ 3% | transfer and energy |
+| Phase 7B Stage A | proxy acceptance; surrogate acceptance; calibration pilot CV ≤ 4%; α rule | development |
+| Phase 7B Stage B | joint deployment-efficiency criterion; comparison rule; pilot CV ≤ 3%, N doubled once, then STOP | confirmatory |
+| 7B energy confirmation | qualification CV ≤ 3%, one attempt; energy confirmation rule | direct energy |
 
 ## 4.16 Hardware and Software Environment
 
@@ -2010,15 +2012,15 @@ All experiments ran on CPUs; no GPU was used (Table 4.11).
 | Threads | 1 per run (dense training: 4) | 1 intra-op, 1 inter-op |
 | Power | mains | AC required; Balanced plan |
 
-Package versions are pinned in `requirements_locked.txt`, and every phase records its environment and commit.
+Package versions are pinned, and every phase records its software environment and code version (Appendix A.2).
 **Results do not transfer between machines:** no desktop latency or energy value is used.
 
 ## 4.17 Structured Pruning and Latency Protocol
 
-**Measurement core** (Paper 3, reused in Phases 7A and 7B): batch 1, float32, NCHW, `eval()` and `inference_mode()`
-on one preallocated, seeded input; one intra-op and one inter-op thread, set before PyTorch is imported, with the
-process pinned to logical CPU 2 (a performance-core thread other than core 0); each pass timed with
-`time.perf_counter_ns()` with garbage collection disabled; AC power required, system load ≤ 15% over 5 s before and
+**Measurement core** (Paper 3, reused in Phases 7A and 7B): batch 1, float32, NCHW, evaluation mode with gradient
+tracking disabled, on one preallocated, seeded input; one intra-op and one inter-op thread, set before PyTorch is imported, with the
+process pinned to logical CPU 2 (a performance-core thread other than core 0); each pass timed with a
+nanosecond-resolution monotonic clock with garbage collection disabled; AC power required, system load ≤ 15% over 5 s before and
 after each session, and no other experiment running.
 
 **H0 calibration.** Six SimpleCNN shapes were timed under configurations **A** (batch 1, 1 thread on CPU 2, 50 / 300
@@ -2039,7 +2041,7 @@ inferences, with speed-up computed within a session.
 ### 4.18.1 Backend
 
 Energy is read from the **Intel RAPL package counter** (Khan et al., 2018) through the **Windows Energy Meter Interface**
-(counter `\Energy Meter(RAPL_Package0_PKG)\Energy`): raw PDH values in picowatt-hours (1 pWh = 3.6 × 10⁻⁹ J), refreshed
+(its package-0 RAPL counter): raw PDH values in picowatt-hours (1 pWh = 3.6 × 10⁻⁹ J), refreshed
 about every 1 ms, read before and after each block. The core (PP0) domain is secondary; the DRAM domain reads zero and
 is not used. No TDP model, estimate or surrogate replaces a measurement, and no external meter was available; because
 software energy counters need careful protocol design (Jay et al., 2023; Raffin and Trystram, 2025), gates and
@@ -3649,8 +3651,8 @@ Zoph, B. and Le, Q. V. (2017). Neural architecture search with reinforcement lea
 # Appendices
 
 The appendices give only the supporting values an examiner may need to verify statements in Chapters 3–6
-without opening the code repository. Each table is generated from the frozen phase records by
-`tools/build_appendices.py` and names its source record.
+without opening the code repository. Every table is generated directly from the frozen phase records; the
+records and all implementation identifiers are listed once, in Section A.2.
 
 ## Appendix A — Architectures, Hyperparameters and Reproducibility
 
@@ -3660,32 +3662,84 @@ without opening the code repository. Each table is generated from the frozen pha
 
 | Network | Unit | Role | Weights | Share of prunable | MACs per image |
 |---|---|---|---|---|---|
-| SimpleCNN | features.0 | pruned (PPO decision) | 864 | 0.14% | 884,736 |
-| SimpleCNN | features.3 | pruned (PPO decision) | 18,432 | 2.99% | 4,718,592 |
-| SimpleCNN | features.6 | pruned (PPO decision) | 73,728 | 11.94% | 4,718,592 |
-| SimpleCNN | classifier.1 | pruned (PPO decision) | 524,288 | 84.93% | 524,288 |
-| SimpleCNN | classifier.3 | never pruned | 2,560 | — | 2,560 |
+| SimpleCNN | conv1 | pruned (PPO decision) | 864 | 0.14% | 884,736 |
+| SimpleCNN | conv2 | pruned (PPO decision) | 18,432 | 2.99% | 4,718,592 |
+| SimpleCNN | conv3 | pruned (PPO decision) | 73,728 | 11.94% | 4,718,592 |
+| SimpleCNN | fc1 | pruned (PPO decision) | 524,288 | 84.93% | 524,288 |
+| SimpleCNN | output layer | never pruned | 2,560 | — | 2,560 |
 | LeNet-5 | conv1 | pruned (PPO decision) | 450 | 0.74% | 352,800 |
 | LeNet-5 | conv2 | pruned (PPO decision) | 2,400 | 3.94% | 240,000 |
 | LeNet-5 | fc1 | pruned (PPO decision) | 48,000 | 78.78% | 48,000 |
 | LeNet-5 | fc2 | pruned (PPO decision) | 10,080 | 16.54% | 10,080 |
-| LeNet-5 | classifier.5 | never pruned | 840 | — | 840 |
+| LeNet-5 | output layer | never pruned | 840 | — | 840 |
 | ResNet-8 | stem | pruned (PPO decision) | 432 | 0.56% | 442,368 |
-| ResNet-8 | stage1 | pruned (PPO decision) | 4,608 | 6.01% | 4,718,592 |
-| ResNet-8 | stage2 | pruned (PPO decision) | 14,336 | 18.69% | 3,670,016 |
-| ResNet-8 | stage3 | pruned (PPO decision) | 57,344 | 74.74% | 3,670,016 |
-| ResNet-8 | fc | never pruned | 640 | — | 640 |
+| ResNet-8 | stage 1 | pruned (PPO decision) | 4,608 | 6.01% | 4,718,592 |
+| ResNet-8 | stage 2 | pruned (PPO decision) | 14,336 | 18.69% | 3,670,016 |
+| ResNet-8 | stage 3 | pruned (PPO decision) | 57,344 | 74.74% | 3,670,016 |
+| ResNet-8 | output layer | never pruned | 640 | — | 640 |
 
-*Source: `cpu_prunable_units.csv`. The PPO hyper-parameters are in Table 4.6 and the equal recovery protocol in Section 4.13.*
+*Unit names as in Table 3.2 (implementation module names in Section A.2). Source: frozen unit table. The PPO hyper-parameters are in Table 4.6 and the equal recovery protocol in Section 4.13.*
 
 ### A.2 Reproducibility
 
-Every experiment was pre-registered and frozen before its confirmatory runs; Table 4.10 lists the governing
-records and the commits that first added them. The complete per-seed experimental records, per-session
-measurement records, machine-readable result files (CSV and JSON), checkpoint hashes and audit scripts are
-retained in the associated research repository, organised by phase: `architecture_generalization` (Phases 2–3),
-`phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and
-`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`.
+Every experiment was pre-registered and frozen before its confirmatory runs. The complete per-seed experimental
+records, per-session measurement records, machine-readable result files (CSV and JSON), checkpoints and audit
+scripts are retained in the associated research repository, organised by phase: `architecture_generalization`
+(Phases 2–3), `phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and
+`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`. Tables A.2 and A.3
+identify the frozen reference checkpoints and the governing pre-registration records.
+
+**Table A.2. Frozen dense reference checkpoints (Table 4.4): checkpoint file and SHA-256 prefix.**
+
+| Setting | Checkpoint file | SHA-256 (prefix) |
+|---|---|---|
+| CIFAR-10 SimpleCNN | `cnn_baseline_FIXED.pth` | `ca28f834` |
+| CIFAR-10 LeNet-5 | `lenet5_seed0.pth` | `5ca6e0fc` |
+| CIFAR-10 ResNet-8 | `resnet8_seed0.pth` | `41fc5ee5` |
+| CIFAR-100 SimpleCNN | `simplecnn_seed0.pth` | `d75dd19c` |
+| CIFAR-100 LeNet-5 | `lenet5_seed0.pth` | `8e1b1aee` |
+| CIFAR-100 ResNet-8 | `resnet8_seed0.pth` | `8b84bfad` |
+
+**Table A.3. Pre-registration records (Table 4.10) and the commits that first added them.**
+
+| Experiment | Governing record | Commit |
+|---|---|---|
+| Phase 2 | `cpu_dense_training_protocol.md` | `366d21ae` |
+| Phase 3 | `phase3_preregistration.md` | `2dbcc770` |
+| Phase 4 | `phase4_preregistration.md` | `f52e87d9` |
+| Phase 5 | `phase5_preregistration.md` | `3cbaec1a` |
+| Phase 6 | `phase6_preregistration.md` | `b1b5396f` |
+| Paper 3 H0 | `h0_protocol.md` | `c2dcb22a` |
+| Paper 3 H2, proxy | `paper3_preregistration.md`; `paper3_proxy_protocol.md` | `45936846`; `ec7a7f27` |
+| Paper 3 ResNet-8 | `resnet8_threshold_calibration_protocol.md` | `5b127804` |
+| Phase 7A | `preregistration.json` | `b8c27665` |
+| Phase 7B Stage A | `phase7b_design.md` | `f5abe039` |
+| Phase 7B Stage B | `phase7b_final_preregistration.json` | `0e101d55` |
+| 7B energy confirmation | `protocol.json` | `df233be0` |
+
+*Commits verified with `git log --diff-filter=A`.*
+
+**Implementation identifiers.** The components described conceptually in Chapters 3–4 correspond to:
+
+- state features: `src/rl` (`unit_state`);
+- layer sensitivity: `src/sensitivity` (`loss_sensitivity`);
+- sensitivity prior: `src/rl` (`SoftPriorPolicy`);
+- networks: `src/models`; baselines: `src/pruning`;
+- structured compaction: `src/pruning/structured_units.py`;
+- equal recovery protocol: `experiments/phase6/phase6_lib.py` (`PROTOCOL`, `finetune`);
+- elite behavioural cloning: a modified copy of the Stable-Baselines3 PPO update;
+- data split: `torch.randperm` (seed 42);
+- SimpleCNN units: modules `features.0`, `features.3`, `features.6`, `classifier.1`; output layer `classifier.3` (LeNet-5 output layer `classifier.5`; ResNet-8 output layer `fc`);
+- latency passes: `eval()` and `inference_mode()`, timed with `time.perf_counter_ns()`;
+- package energy counter: `\Energy Meter(RAPL_Package0_PKG)\Energy`;
+- pinned package versions: `requirements_locked.txt`; appendix generator: `tools/build_appendices.py`.
+
+**Source records of the appendix tables:**
+
+- A.1 `cpu_prunable_units.csv`; A.2 `cpu_baselines.csv`
+- B.1 `phase3_summary.csv`; B.2 `phase3_frozen_inputs.json`, `phase5_config.json`
+- C.1 `phase6_pre_post_accuracy.csv`; D.1 `h0_decision.json`; D.2 `h2_latency_freeze.json`
+- E.1 `energy_summary.csv`; E.2 `pilot_n100000.json`, `pilot_n20000.json`, `statistics.json`, `measurement_qualification.json`
 
 ## Appendix B — Supplementary Core-Pruning Results
 
@@ -3702,7 +3756,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 (32.28) | 34.59 | 31.19 | 27.51 | 3.29 | 31.32 | 30.88 | 31.86 |
 | C100 ResNet-8 (43.99) | 9.46 | 43.01 | 42.78 | 4.25 | 42.74 | 43.81 | 43.76 |
 
-*Source: `phase3_summary.csv`. Paired differences and their statistics are in Table 5.2.*
+*Source: frozen Phase-3 summary record. Paired differences and their statistics are in Table 5.2.*
 
 ### B.2 Sensitivity vectors
 
@@ -3717,7 +3771,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 | 1.000, 0.587, 0.000, 0.086 | 1.000, 0.564, 0.000, 0.059 | 0.594, 0.159, −0.406, −0.347 |
 | C100 ResNet-8 | 0.987, 0.310, 1.000, 0.000 | 1.000, 0.309, 0.997, 0.000 | 0.423, −0.268, 0.421, −0.577 |
 
-*Sources: `phase3_frozen_inputs.json`; `phase5_config.json`.*
+*Sources: frozen Phase-3 inputs and Phase-5 configuration records.*
 
 ## Appendix C — Archive, Reward and Recovery Diagnostics
 
@@ -3734,7 +3788,7 @@ retained in the associated research repository, organised by phase: `architectur
 | C100 LeNet-5 (30.6%) | +0.57 | +0.44 | +0.81 | +0.11 |
 | C100 ResNet-8 (15.6%) | +1.20 | +0.72 | +4.69 | +0.09 |
 
-*Source: `phase6_pre_post_accuracy.csv`. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. Phase-4 search quality and Phase-5 per-run selections are summarised in Tables 5.3, 5.4 and 5.5; their run-level records are in the repository.*
+*Source: frozen Phase-6 before/after record. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. Phase-4 search quality and Phase-5 per-run selections are summarised in Tables 5.3, 5.4 and 5.5; their run-level records are in the repository.*
 
 ## Appendix D — Hardware and Structured-Pruning Protocol
 
@@ -3748,7 +3802,7 @@ retained in the associated research repository, organised by phase: `architectur
 | B | 0.1222 | 0.0287 | 4.26 | 31.8% | True | False |
 | C | 15.4531 | 1.6070 | 9.62 | 63.2% | True | True |
 
-*Source: `h0_decision.json`. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.*
+*Source: frozen H0 decision record. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.*
 
 ### D.2 Latency-table sessions
 
@@ -3761,7 +3815,7 @@ retained in the associated research repository, organised by phase: `architectur
 | SimpleCNN, CIFAR-10 | 5 | 0 | 9.4% | — |
 | SimpleCNN, CIFAR-100 | 5 | 2 | 9.1% | 40.6% |
 
-*Source: `h2_latency_freeze.json` (`session_log`); the per-session log is in the repository.*
+*Source: frozen latency-table session log; the per-session log is in the repository.*
 
 ## Appendix E — Energy Measurement and Qualification
 
@@ -3780,7 +3834,7 @@ retained in the associated research repository, organised by phase: `architectur
 | ResNet-8 | uniform | 9.645 | 3.63% | 11.8% | 4.7–13.9% | 5 | 0.031 |
 | ResNet-8 | lamp | 9.819 | 1.46% | 8.9% | 7.4–12.3% | 5 | 0.031 |
 
-*Source: `energy_summary.csv`; per-block session records are in the repository.*
+*Source: frozen Phase-7A energy summary; per-block session records are in the repository.*
 
 ### E.2 Energy-measurement qualification
 
@@ -3795,5 +3849,5 @@ retained in the associated research repository, organised by phase: `architectur
 | 7B confirmatory pilot (N = 200,000) | 200,000 | 11.814, 12.074, 11.039, 11.539, 11.025, 11.033 | 4.01% | 3% | unstable |
 | 7B energy-confirmation qualification | 200,000 | 11.417, 14.278, 12.962, 15.221, 9.514, 9.473 | 19.92% | 3% | not qualified |
 
-*Sources: `pilot_n100000.json` (Phase 7A); `pilot_n20000.json`, `statistics.json` (Phase 7B); `measurement_qualification.json` (energy confirmation). A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not listed. The per-block diagnostics and the eleven recovered Phase-7B models (summarised in Table 6.4) are in the repository.*
+*Sources: frozen pilot, statistics and qualification records of Phase 7A, Phase 7B and the energy confirmation (Section A.2). A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not listed. The per-block diagnostics and the eleven recovered Phase-7B models (summarised in Table 6.4) are in the repository.*
 

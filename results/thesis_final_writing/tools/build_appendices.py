@@ -71,27 +71,61 @@ def note(s):
 
 H("# Appendices")
 out.append("The appendices give only the supporting values an examiner may need to verify statements in Chapters 3–6")
-out.append("without opening the code repository. Each table is generated from the frozen phase records by")
-out.append("`tools/build_appendices.py` and names its source record.")
+out.append("without opening the code repository. Every table is generated directly from the frozen phase records; the")
+out.append("records and all implementation identifiers are listed once, in Section A.2.")
 out.append("")
 
 # ================================================================ A
 APP("A", "Architectures, Hyperparameters and Reproducibility")
 H("### A.1 Pruning units")
 CAP("Pruning units of the three networks: weights, share of prunable weights and MACs per image (CIFAR-10 output layer).")
+UNIT = {"features.0": "conv1", "features.3": "conv2", "features.6": "conv3", "classifier.1": "fc1", "classifier.3": "output layer",
+        "classifier.5": "output layer", "fc": "output layer", "stage1": "stage 1", "stage2": "stage 2", "stage3": "stage 3"}
 u = [r for r in rd("architecture_generalization/cpu_prunable_units.csv") if r["num_classes"] == "10" and r["arch"] in ARCH]
 table(["Network", "Unit", "Role", "Weights", "Share of prunable", "MACs per image"],
-      [[ARCH[r["arch"]], r["unit"], "pruned (PPO decision)" if r["role"].startswith("prunable") else "never pruned",
+      [[ARCH[r["arch"]], UNIT.get(r["unit"], r["unit"]) if not (r["arch"] == "resnet8" and r["unit"] == "fc") else "output layer", "pruned (PPO decision)" if r["role"].startswith("prunable") else "never pruned",
         f"{int(r['params']):,}", (hu(100 * float(r["fraction_of_prunable_weights"]), 2) + "%") if r["fraction_of_prunable_weights"] else "—",
         f"{int(r['macs_per_image']):,}"] for r in u])
-note("Source: `cpu_prunable_units.csv`. The PPO hyper-parameters are in Table 4.6 and the equal recovery protocol in Section 4.13.")
+note("Unit names as in Table 3.2 (implementation module names in Section A.2). Source: frozen unit table. The PPO hyper-parameters are in Table 4.6 "
+     "and the equal recovery protocol in Section 4.13.")
 H("### A.2 Reproducibility")
-out.append("Every experiment was pre-registered and frozen before its confirmatory runs; Table 4.10 lists the governing")
-out.append("records and the commits that first added them. The complete per-seed experimental records, per-session")
-out.append("measurement records, machine-readable result files (CSV and JSON), checkpoint hashes and audit scripts are")
-out.append("retained in the associated research repository, organised by phase: `architecture_generalization` (Phases 2–3),")
-out.append("`phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and")
-out.append("`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`.")
+out.append("Every experiment was pre-registered and frozen before its confirmatory runs. The complete per-seed experimental")
+out.append("records, per-session measurement records, machine-readable result files (CSV and JSON), checkpoints and audit")
+out.append("scripts are retained in the associated research repository, organised by phase: `architecture_generalization`")
+out.append("(Phases 2–3), `phase4`, `phase5`, `phase6`, `paper3` (latency), `phase7a_sustainability`, the Phase-7B folder and")
+out.append("`phase7b_energy_confirmation`; the thesis sources and audits are in `thesis_final_writing`. Tables A.2 and A.3")
+out.append("identify the frozen reference checkpoints and the governing pre-registration records.")
+out.append("")
+CAP("Frozen dense reference checkpoints (Table 4.4): checkpoint file and SHA-256 prefix.")
+table(["Setting", "Checkpoint file", "SHA-256 (prefix)"],
+      [[f"{'CIFAR-10' if r['dataset'] == 'cifar10' else 'CIFAR-100'} {ARCH.get(r['arch'], r['arch'])}", f"`{r['reference'].split('/')[-1]}`",
+        f"`{r['reference_sha256'][:8]}`"] for r in sorted(rd("architecture_generalization/cpu_baselines.csv"), key=lambda r: (r["dataset"] != "cifar10", list(ARCH).index(r["arch"])))])
+CAP("Pre-registration records (Table 4.10) and the commits that first added them.")
+PRE = [('Phase 2', [['cpu_dense_training_protocol.md', '366d21ae']]), ('Phase 3', [['phase3_preregistration.md', '2dbcc770']]), ('Phase 4', [['phase4_preregistration.md', 'f52e87d9']]), ('Phase 5', [['phase5_preregistration.md', '3cbaec1a']]), ('Phase 6', [['phase6_preregistration.md', 'b1b5396f']]), ('Paper 3 H0', [['h0_protocol.md', 'c2dcb22a']]), ('Paper 3 H2, proxy', [['paper3_preregistration.md', '45936846'], ['paper3_proxy_protocol.md', 'ec7a7f27']]), ('Paper 3 ResNet-8', [['resnet8_threshold_calibration_protocol.md', '5b127804']]), ('Phase 7A', [['preregistration.json', 'b8c27665']]), ('Phase 7B Stage A', [['phase7b_design.md', 'f5abe039']]), ('Phase 7B Stage B', [['phase7b_final_preregistration.json', '0e101d55']]), ('7B energy confirmation', [['protocol.json', 'df233be0']])]
+table(["Experiment", "Governing record", "Commit"],
+      [[e, "; ".join(f"`{f}`" for f, _ in recs), "; ".join(f"`{c}`" for _, c in recs)] for e, recs in PRE])
+note("Commits verified with `git log --diff-filter=A`.")
+out.append("**Implementation identifiers.** The components described conceptually in Chapters 3–4 correspond to:")
+out.append("")
+for item in ["state features: `src/rl` (`unit_state`)", "layer sensitivity: `src/sensitivity` (`loss_sensitivity`)",
+             "sensitivity prior: `src/rl` (`SoftPriorPolicy`)", "networks: `src/models`; baselines: `src/pruning`",
+             "structured compaction: `src/pruning/structured_units.py`",
+             "equal recovery protocol: `experiments/phase6/phase6_lib.py` (`PROTOCOL`, `finetune`)",
+             "elite behavioural cloning: a modified copy of the Stable-Baselines3 PPO update",
+             "data split: `torch.randperm` (seed 42)",
+             "SimpleCNN units: modules `features.0`, `features.3`, `features.6`, `classifier.1`; output layer `classifier.3` (LeNet-5 output layer `classifier.5`; ResNet-8 output layer `fc`)",
+             "latency passes: `eval()` and `inference_mode()`, timed with `time.perf_counter_ns()`",
+             "package energy counter: `\\Energy Meter(RAPL_Package0_PKG)\\Energy`",
+             "pinned package versions: `requirements_locked.txt`; appendix generator: `tools/build_appendices.py`"]:
+    out.append(f"- {item};" if not item.endswith(")") else f"- {item};")
+out[-1] = out[-1].rstrip(";") + "."
+out.append("")
+out.append("**Source records of the appendix tables:**")
+out.append("")
+for item in ["A.1 `cpu_prunable_units.csv`; A.2 `cpu_baselines.csv`", "B.1 `phase3_summary.csv`; B.2 `phase3_frozen_inputs.json`, `phase5_config.json`",
+             "C.1 `phase6_pre_post_accuracy.csv`; D.1 `h0_decision.json`; D.2 `h2_latency_freeze.json`",
+             "E.1 `energy_summary.csv`; E.2 `pilot_n100000.json`, `pilot_n20000.json`, `statistics.json`, `measurement_qualification.json`"]:
+    out.append(f"- {item}")
 out.append("")
 
 # ================================================================ B
@@ -104,7 +138,7 @@ cols = [("PPO P0", "PPO (P0)"), ("uniform (matched to P0)", "Uniform"), ("random
 table(["Setting (dense test)", "P0 sparsity (%)"] + [c[1] for c in cols],
       [[f"{NM[s]} ({hu(sm[(s, 'dense')]['test_mean'], 2)})", hu(sm[(s, 'PPO P0')]['sparsity_mean'], 2)] +
        [hu(sm[(s, m)]["test_mean"], 2) for m, _ in cols] for s in S6])
-note("Source: `phase3_summary.csv`. Paired differences and their statistics are in Table 5.2.")
+note("Source: frozen Phase-3 summary record. Paired differences and their statistics are in Table 5.2.")
 H("### B.2 Sensitivity vectors")
 CAP("Normalised loss sensitivity S_l of the four units by setting and the Phase-5 centred prior coefficients.")
 fi = j("architecture_generalization/phase3_frozen_inputs.json")["settings"]
@@ -116,7 +150,7 @@ for s in S6:
     rows.append([NM[s], ", ".join(hu(x, 3) for x in n3) if n3 else "see source", ", ".join(hu(x, 3) for x in p5[s]["sensitivity_normalized"]),
                  ", ".join(hu(x, 3) for x in p5[s]["P2_coefficients"])])
 table(["Setting", "Configuration I (Phases 3–4)", "Configuration II (Phase 5)", "Phase-5 coefficients c_l = S_l − S̄"], rows)
-note("Sources: `phase3_frozen_inputs.json`; `phase5_config.json`.")
+note("Sources: frozen Phase-3 inputs and Phase-5 configuration records.")
 
 # ================================================================ C
 APP("C", "Archive, Reward and Recovery Diagnostics")
@@ -132,7 +166,7 @@ def sgn(v):
 
 table(["Setting (sparsity)"] + [c[1] for c in mcols],
       [[f"{NM[s]} ({hu(pp[(s, 'ppo')]['sparsity'], 1)}%)"] + [sgn(pp[(s, m)]["recovery_mean"]) for m, _ in mcols] for s in S6])
-note("Source: `phase6_pre_post_accuracy.csv`. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. "
+note("Source: frozen Phase-6 before/after record. Accuracies before and after recovery and the PPO–LAMP and PPO–Global gaps are in Table 5.7. "
      "Phase-4 search quality and Phase-5 per-run selections are summarised in Tables 5.3, 5.4 and 5.5; their run-level records are in the repository.")
 
 # ================================================================ D
@@ -143,7 +177,7 @@ h0 = j("paper3/h0_decision.json")["configs"]
 table(["Configuration", "Signal (ms)", "Noise (ms)", "SNR", "Relative reduction", "Positive in all sessions", "Usable"],
       [[k, hu(v["signal_ms"], 4), hu(v["noise_ms"], 4), hu(v["snr"], 2), hu(100 * v["relative_reduction"], 1) + "%", v["delta_positive_all_sessions"], v["usable"]]
        for k, v in h0.items()])
-note("Source: `h0_decision.json`. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.")
+note("Source: frozen H0 decision record. Rule: SNR ≥ 5, reduction ≥ 10%, positive in every session; preference order A, C, B.")
 H("### D.2 Latency-table sessions")
 CAP("Exhaustive latency tables: accepted sessions, repeated attempts and anchor drift (limit 10%).")
 fz = j("paper3/h2_latency_freeze.json")["session_log"]
@@ -157,7 +191,7 @@ for pair in sorted({s["pair"] for s in fz}):
     rows.append([TBL.get(pair, pair), len(acc), len(rej), hu(100 * max(s["anchor_drift"] for s in acc), 1) + "%",
                  (hu(100 * max(s["anchor_drift"] for s in rej), 1) + "%") if rej else "—"])
 table(["Latency table", "Accepted sessions", "Repeated attempts", "Largest accepted drift", "Largest rejected drift"], rows)
-note("Source: `h2_latency_freeze.json` (`session_log`); the per-session log is in the repository.")
+note("Source: frozen latency-table session log; the per-session log is in the repository.")
 
 # ================================================================ E
 APP("E", "Energy Measurement and Qualification")
@@ -168,7 +202,7 @@ table(["Network", "Method", "Median J / 1,000", "CV over sessions", "Median savi
         hu(100 * float(r["saving_median"]), 1) + "%", f"{hu(100 * float(r['saving_min']), 1)}–{hu(100 * float(r['saving_max']), 1)}%",
         r["sessions_lower_than_dense"], p_(r["wilcoxon_one_sided_p"]) if r["wilcoxon_one_sided_p"] else "—"]
        for r in rd("phase7a_sustainability/energy_summary.csv")])
-note("Source: `energy_summary.csv`; per-block session records are in the repository.")
+note("Source: frozen Phase-7A energy summary; per-block session records are in the repository.")
 H("### E.2 Energy-measurement qualification")
 CAP("Dense-only stability pilots and qualification (energy per 1,000 inferences, J; six dense blocks each).")
 p7a = j("phase7a_sustainability/energy_pilot/pilot_n100000.json")["results"]
@@ -184,8 +218,8 @@ for k, v in st7b.items():
 rows.append(["7B energy-confirmation qualification", f"{int(q['n']):,}", ", ".join(hu(x, 3) for x in q["e1000_j"]), hu(100 * float(q["cv"]), 2) + "%",
              "3%", q["decision"]])
 table(["Measurement", "N per block", "Dense blocks", "CV", "Limit", "Decision"], rows)
-note("Sources: `pilot_n100000.json` (Phase 7A); `pilot_n20000.json`, `statistics.json` (Phase 7B); `measurement_qualification.json` "
-     "(energy confirmation). A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not "
+note("Sources: frozen pilot, statistics and qualification records of Phase 7A, Phase 7B and the energy confirmation (Section A.2). "
+     "A doubled-N Phase-7B attempt stopped by the load gate was declared void by a recorded decision of the author and is not "
      "listed. The per-block diagnostics and the eleven recovered Phase-7B models (summarised in Table 6.4) are in the repository.")
 
 open(os.path.join(W, "appendices.md"), "w", encoding="utf-8").write("\n".join(out) + "\n")
