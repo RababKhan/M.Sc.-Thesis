@@ -17,7 +17,9 @@ PHRASES = [r"beats? LAMP", r"superior to LAMP", r"outperforms? LAMP", r"equivale
            r"validation (constraints? )?guarantees?", r"accuracy[- ]preserv", r"green AI", r"green pruning", r"\bgreen\b",
            r"environmentally friendly", r"eco-friendly", r"lower carbon", r"carbon reduction", r"carbon footprint",
            r"hardware-aware RL", r"state-of-the-art", r"universally superior", r"\bsuperior", r"\bequivalen",
-           r"7B[^.]{0,60}(reduc|lower)[^.]{0,30}(energy|latency)"]
+           r"7B[^.]{0,60}(reduc|lower)[^.]{0,30}(energy|latency)", r"prov\w* (formal )?equivalen", r"hardware-aware (RL|reinforcement learning)[^.]{0,40}(succe|achiev|worked)",
+           r"reduc\w* measured (CPU )?(energy|latency)", r"environmentally friendly AI", r"sensitivity[^.]{0,40}improv\w* (the )?final (predictive )?accuracy",
+           r"archive[^.]{0,40}improv\w* test"]
 NEG = re.compile(r"\b(not|no|never|neither|nor|without|does not|did not|cannot|absent|avoid|forbidden|instead of|rather than|"
                  r"is not|are not|was not|were not|none|nothing|unresolved|failed|fails|missed|unconfirmed|NO-GO)\b", re.I)
 NAMING = re.compile(r"GREEN-SUCCESS|phase7b_green_pruning|`[^`]*green[^`]*`|RGB|Green AI\b[^.]*\[@schwartz|internal name|"

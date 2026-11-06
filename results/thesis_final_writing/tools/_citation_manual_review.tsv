@@ -1,0 +1,25 @@
+# chapter	keys (sorted, ;-joined)	manual verdict after re-reading the compressed sentence (final MIST stage)
+Ch. 1	andrychowicz2021onpolicy;engstrom2020implementation	re-read: same claim (policy-gradient methods sensitive to implementation and training choices), only lead-in reworded: supported
+Ch. 1	blalock2020state	re-read: Gap 5 narrowed to what the source shows (pruning methods compared under inconsistent experimental conditions); the open question is stated as the thesis's inference: supported (Gap 5 fix)
+Ch. 1	le2021retraining	re-read: retraining schedule alone can change which pruned network performs better (Le and Hua 2021: random pruning with a proper retraining schedule can beat methodical pruning): supported (Gap 5 fix); also cited in Problem D for repair by fine-tuning
+Ch. 2	hoefler2021sparsity;menghani2023efficient	re-read: same claim (growing cost makes deployment expensive and difficult on resource-limited devices), merged sentence: supported
+Ch. 2	li2022randomchannel	re-read: same benchmark finding, tightened wording ("in that setting" folded into the benchmark framing): supported
+Ch. 2	lecun1989obd	re-read: Optimal Brain Damage removes weights by a second-order estimate of the loss increase (both occurrences): supported
+Ch. 2	luccioni2023bloom;wu2022sustainable	re-read: same claim (converting operational energy into carbon/lifecycle impact needs further data and assumptions): supported
+Ch. 3	le2021retraining;renda2020rewinding	re-read: same claim (pruned networks are fine-tuned before use and recovery can reduce or reverse differences): supported
+Ch. 4	krizhevsky2009cifar	re-read: dataset citation at first mention of CIFAR-10/100: supported
+Ch. 4	lecun1998lenet	re-read: architecture-origin citation for LeNet-5 (adapted to CIFAR): supported
+Ch. 4	he2016resnet	re-read: architecture-origin citation for the CIFAR ResNet (ResNet-8, n = 1): supported
+Ch. 4	blalock2020state	re-read: global magnitude described as a standard reference point in pruning evaluations: supported
+Ch. 4	evci2020rigl	re-read: ERK allocation rule attributed to its source: supported
+Ch. 4	lee2021lamp	re-read: LAMP score definition attributed to its source: supported
+Ch. 4	schulman2017ppo	re-read: PPO method citation: supported
+Ch. 4	schulman2016gae	re-read: generalised advantage estimation method citation: supported
+Ch. 4	youden1950index	re-read: Youden-J threshold rule attributed to Youden (1950): supported
+Ch. 4	paszke2019pytorch	re-read: mask fixed by PyTorch's pruning reparameterisation (software citation): supported
+Ch. 4	wilcoxon1945individual	re-read: exact Wilcoxon signed-rank p attributed to Wilcoxon (1945): supported
+Ch. 6	khan2018rapl	re-read: CPU package energy from the RAPL hardware counter (software/hardware interface citation): supported
+Ch. 7	oh2018sil	re-read: elite behavioural cloning described as in the spirit of self-imitation learning: supported
+Ch. 7	lee2021lamp	re-read: LAMP as deterministic, search-free method whose rescaled magnitude score sets layer-wise sparsity automatically (both occurrences): supported
+Ch. 7	hoefler2021sparsity	re-read: masked zeros inside dense tensors give no CPU speed or size benefit without sparse kernels: supported
+Ch. 7	jay2023powermeters;khan2018rapl;raffin2024dissecting	re-read: software energy meters need careful protocol design and validation: supported

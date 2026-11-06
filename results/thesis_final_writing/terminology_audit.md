@@ -1,4 +1,4 @@
-# Terminology audit (Abstract, Chapters 1–8, Appendices)
+# Terminology audit (Abstract, Chapters 1–8, Appendices) — updated in the final MIST stage
 
 Method: each term family was counted per file with case-sensitive and case-insensitive searches. Text inside code
 formatting (file names, configuration keys) was excluded wherever it would distort the count. Every variant was then
@@ -19,15 +19,10 @@ read in context. No chapter text was changed. Results are graded:
 The only American form, `optimizer` in Appendix A.3, is a literal configuration key copied from
 `phase6_config.json`. It is now shown in code formatting with the other keys (**FIXED**: presentation only).
 
-**ADVISORY: title spelling.** The registered thesis title uses American spelling ("…Sensitivity-Aware
-Optimization"), while the body is consistently British ("Proximal Policy Optimisation" in the Abstract and
-keywords). This is common and acceptable when a title is fixed by registration, but some institutions require one
-convention throughout. Two options:
-- (a) keep the registered title verbatim and the body British (current state);
-- (b) follow whatever the official template or regulations require.
-
-The thesis title was not changed. Reference entries keep each source's original spelling, e.g. "Proximal Policy
-Optimization Algorithms".
+**Title (resolved).** The official approved title is "Development of a Sensitivity-Aware Reinforcement Learning
+Framework for Layer-Wise CNN Pruning". It contains no optimise/optimize word, so the former British/American
+title advisory no longer applies; the body is consistently British. The older working title is used nowhere
+(0 occurrences in the Abstract, chapters, front matter, DOCX metadata or full source).
 
 ## 2. Method and baseline names
 
@@ -49,20 +44,14 @@ and Chapter 8 answers RQ5 with "fixed-mask recovery". Counts: recovery 184, fine
 Verdict: **CONSISTENT** (defined synonym pair). Each chapter introduces the pair before alternating. There is one
 non-hyphenated form, `finetune`, a function name in code formatting in Ch. 3 §3.15.
 
-## 4. Name of the Phase-7B agent
+## 4. Name of the Phase-7B agent (standardised)
 
-| Form | Where |
-|---|---|
-| "structured, energy-aware PPO" | Ch. 3 (Table 3.1, §§3.5, 3.16, 3.16.3, Algorithm 3.2), Ch. 4 Table 4.7, Ch. 6 §6.10 heading and Table 6.5, Ch. 7 §7.10 |
-| "deployment-oriented structured PPO / agent" | Abstract, Ch. 1 (×3), Ch. 7 (×2), Ch. 8 (×2) |
-
-Both name the same agent. "Energy-aware" describes its *reward*, which uses the surrogate-predicted energy saving
-(Eq. 3.19). It does not imply a measured energy result, and every chapter states that 7B energy is unresolved.
-"Deployment-oriented" is the framing used in the summary chapters.
-
-Verdict: **ADVISORY**. No claim conflict. If the examiners prefer one name, use "deployment-oriented structured PPO
-(energy-aware reward)" at first mention in Ch. 6 §6.10 at template stage. That would be a wording change requiring
-approval.
+The agent is now called **"deployment-oriented structured PPO"** throughout: Abstract 2, Ch. 1 3, Ch. 3 7, Ch. 4 3,
+Ch. 6 3 (including the §6.10 heading and the Table 6.8 header), Ch. 7 2, Ch. 8 2 occurrences. "Energy-aware" no
+longer names the agent anywhere; it survives only in Chapter 2 as the name of the cited method "energy-aware pruning"
+(Yang, Chen and Sze, 2017). The methodology (Ch. 3 §3.16.3, Ch. 4 §4.9.7, Ch. 6 §6.10) and the Discussion (§7.10) state
+that the search reward used a surrogate (predicted) energy saving, so the name implies no measured energy result.
+Verdict: **RESOLVED**.
 
 ## 5. Sustainability and environmental wording
 
@@ -81,9 +70,9 @@ Verdict: **CONSISTENT** with the standing rule that no green, environmental or c
 
 | Label | Meanings | Verdict |
 |---|---|---|
-| **C1–C6** | Contributions 1–6 (Ch. 1 §1.7, Table 1.1; Ch. 8 §8.3) **and** Phase-5 conditions C0–C2 (Ch. 4 §4.9, Ch. 5 §5.8, Ch. 7, e.g. Ch. 7 l. 77 "C1's test accuracy") | **ADVISORY.** The chapters never use both meanings, and each chapter defines its own. Recorded in `list_of_abbreviations.md`. Template-stage option: write the Phase-5 conditions as "Condition C1" at first use in Ch. 7 |
+| **TC1–TC6 / C0–C2** | Thesis contributions are now "Contribution 1" … "Contribution 6" in prose (Ch. 1 §1.7) and TC1–TC6 in tables (Table 1.1, Table 8.1); C0, C1, C2 denote only the frozen Phase-5 conditions (Chs 4, 5, 7) | **RESOLVED** (recorded in `list_of_abbreviations.md`) |
 | **S1/S2, B-, D-, E-families** | Phase-4 variant and family labels | CONSISTENT (defined in Ch. 4 §§4.8–4.10, Table 4.6) |
-| **ρ** | sparsity; Spearman ρ in Ch. 6 | ADVISORY, see `final_notation_inventory.md` |
+| **ρ** | sparsity; Spearman's correlation is always written "Spearman ρ" | **RESOLVED** (see `final_notation_inventory.md`) |
 
 ## 7. Splits, phases and units
 
@@ -129,13 +118,7 @@ Counts are prose occurrences (code formatting excluded), in the Abstract and Cha
 
 ## Result
 
-There are no terminology errors that affect meaning. There are four advisories, all presentation-level and none
-applied to approved chapters:
-1. title spelling vs British body;
-2. two names for the Phase-7B agent;
-3. the C1–C6 label reuse;
-4. ρ for Spearman correlation in Ch. 6.
-
-Two fixes were applied, in material produced in this stage only:
-- the Abstract's "layer unit";
-- code formatting of the configuration keys and file paths in the appendices.
+There are no terminology errors that affect meaning. The four advisories of the previous stage are resolved: the
+title issue disappeared with the official title; the Phase-7B agent has one name; contributions and Phase-5
+conditions no longer share labels; and Spearman's ρ is always labelled. The Part-N terms of the previous brief remain
+consistent after compression (§9; counts there refer to the pre-compression text and remain indicative).
