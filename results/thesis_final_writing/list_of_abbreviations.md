@@ -81,7 +81,6 @@ expansion; no expansion has been invented.
 |---|---|---|
 | C10, C100 | CIFAR-10, CIFAR-100 (in tables) | Chapter 5 |
 | C0, C1, C2 | Phase-5 conditions (R0 + centred prior; constrained reward + centred prior; constrained reward, no prior) | Chapter 4 §4.9.3 |
-| C1–C6 (Chapters 1 and 8) | Thesis contributions 1–6 | Chapter 1 §1.7 |
 | F, K | Phase-4 final pipeline (R0, P2, S2A) and control (R0, P0, S0) | Chapter 4 §4.9.2 |
 | H0, H1, H2-A | Paper-3 stages: latency calibration, structured-pruning validation, exhaustive latency tables | Chapter 4 §4.9.5 |
 | O1–O6 | Specific research objectives | Chapter 1 §1.6 |
@@ -90,9 +89,8 @@ expansion; no expansion has been invented.
 | R0, R1a, R1b, R2, R_c | Reward functions | Chapter 4 §4.12 |
 | RQ1–RQ6 | Research questions | Chapter 1 §1.5 |
 | S0, S1, S2, S2A | Phase-4 search variants (terminal; archive; elite cloning; elite cloning + archive) | Chapter 4 §4.9.2 |
+| TC1–TC6 | Thesis contributions 1–6 (written "Contribution 1" … "Contribution 6" in prose) | Chapter 1 §1.7; Chapter 8 §8.3 |
 | 7A, 7B, 7B-EC | Phase 7A, Phase 7B, Phase-7B energy confirmation study | Chapter 4 §4.9 |
 
-**Label ambiguity, flagged.** "C1" denotes the Phase-5 *condition* in Chapters 4–7, but *Contribution 1* in Chapter 1
-§1.7 and Chapter 8 §8.3. The two meanings never occur in the same section, and each chapter defines its use. At
-template formatting, the contributions could be written out as "Contribution 1" to remove the ambiguity. This is a
-presentation change only.
+**Label collision resolved.** Thesis contributions are written "Contribution 1" … "Contribution 6" in prose and
+TC1–TC6 in tables. C0, C1 and C2 denote only the frozen Phase-5 experimental conditions.

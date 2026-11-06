@@ -8,8 +8,7 @@ Status codes:
 - **OK**: one meaning throughout.
 - **OK (context)**: the same glyph carries a second meaning, but the second meaning is always marked by a subscript,
   hat, argument or nearby label.
-- **ADVISORY**: the reuse is unmarked in at least one sentence. The fix is presentation only, and is recommended at
-  template stage.
+- **ADVISORY**: the reuse is unmarked in at least one sentence (none remains after the final MIST stage).
 
 ## Symbols required by the completion brief
 
@@ -26,7 +25,7 @@ Status codes:
 | A_b | dense-reference accuracy on the reward split (VAL-RL) | Ch. 3 (Table 3.2) | For q_VAL-SELECT (Eq. 3.14) the dense reference is the VAL-SELECT accuracy. This is implicit in "retained accuracy on the selection split", not given a separate symbol | OK (context) |
 | A_p | accuracy of the pruned network M_**r** on the same split as A_b | Ch. 3 (Table 3.2) | A_2, A_2,dense (7B proxy), A_1/A_5 (Paper 3 proxy) and A_60 (R2 anchor) are separately subscripted accuracies | OK (context) |
 | q | retained accuracy A_p / A_b | Ch. 3 (Table 3.2) | q_VAL-SELECT (selection split, Eq. 3.14) and q̂ = A_2/A_2,dense (Phase-7B 2-epoch proxy) are marked by subscript or hat | OK (context) |
-| ρ | masked weight sparsity, % of zero weights over all Conv2d/Linear weights (Eq. 3.2) | Ch. 3 (Eq. 3.2) | **Chapter 6 also uses ρ for Spearman's rank correlation.** It is mostly written "Spearman ρ" (Ch. 6 §6.6 proxy-validation table; Appendix G.4), but it is **unmarked** in two places: Ch. 6 l. 147 "(ρ < 1)" and Ch. 6 l. 569 "(ρ 0.31–0.55)", "(ρ 0.89–0.98)". The chapter context (correlation of cost metrics with latency) makes the meaning clear, and Chapter 6 does not otherwise use sparsity ρ | **ADVISORY.** At template stage write ρ_s or "Spearman ρ" in those two places (presentation only; values unchanged) |
+| ρ | masked weight sparsity, % of zero weights over all Conv2d/Linear weights (Eq. 3.2) | Ch. 3 (Eq. 3.2) | Spearman's rank correlation is also written with ρ in Chapter 6 and Appendix D. Every such use is now written "Spearman ρ" (the two formerly bare uses in Chapter 6 were corrected in the final MIST stage); sparsity ρ is never used in Chapter 6 | OK (context) — advisory resolved |
 | R | episode reward. Variants: R_0 (Eq. 3.7), R1a/R1b/R2 (Phase-4 Stage A), R_c (Eq. 3.15), R_7B (Eq. 3.19); R̂_t is the PPO return target | Ch. 3 (Table 3.2) | In Algorithm 3.1 (plain-text pseudocode) the ratio set 𝓡 is typed as "R = {0, .1, …}", because the code block cannot show the calligraphic letter. The ratio values identify it | OK (context). Optional: render 𝓡 at template stage |
 | τ | retained-accuracy threshold of the constrained reward, τ = 0.98 (Phase 5 and the selection rule of Eq. 3.14) | Ch. 3 (Table 3.2; Eq. 3.15) | τ̂ = 0.98849 is the Phase-7B proxy threshold, marked by the hat (Ch. 3 §3.16.3; Ch. 4) | OK (context) |
 | latency, T(**r**) | measured batch-1 CPU latency per inference (ms); T_table(**r**) is the frozen Paper-3 table value used by the 7B surrogate | Ch. 3 (Table 3.2) | none. L is avoided on purpose | OK |
@@ -40,7 +39,7 @@ Status codes:
 | M, M_**r** | dense reference network; network pruned by policy **r** | Ch. 3 | none | OK |
 | S̄ | mean sensitivity over units | Ch. 3 | none | OK |
 | c_l | prior coefficient (P1: 0.5·S_l; centred: 1.0·S̃_l) | Ch. 3 | C_l (capital) is the channel count of unit l. Case distinguishes them, and both are defined in Table 3.2 | OK (context) |
-| C_l, k_l | channels before structured pruning; channels kept | Ch. 3 | **C** with a digit (C0–C6) also labels Phase-5 conditions and Contributions 1–6 (see `list_of_abbreviations.md`, `terminology_audit.md`) | OK (context) |
+| C_l, k_l | channels before structured pruning; channels kept | Ch. 3 | C with a digit labels only the Phase-5 conditions C0–C2; thesis contributions are now TC1–TC6 / "Contribution 1–6" | OK (context) |
 | D | number of distinct actions in **a** | Ch. 3 | none | OK |
 | 𝒜 | archive of unique visited policies | Ch. 3 | none | OK |
 | 𝒞 | top-K archived candidates (Eq. 3.14), K_c = 10 | Ch. 3 | none | OK |
@@ -56,6 +55,6 @@ Status codes:
 ## Result
 
 All 16 symbols required by the brief are defined in Chapter 3, Table 3.2 or the equation where they first appear, and
-are used with one meaning wherever they appear unmarked. There is one advisory: the bare ρ for Spearman correlation in
-two Chapter-6 sentences. No chapter text was changed. The fix is a presentation-stage substitution (ρ → ρ_s or
-"Spearman ρ"), with no change to any value.
+are used with one meaning wherever they appear unmarked. The former advisory (bare ρ for Spearman correlation in
+two Chapter-6 sentences) was resolved in the final MIST stage by writing "Spearman ρ"; no equation or value changed.
+This inventory is the source of the List of Main Notation in `final_thesis_MIST.docx`.
