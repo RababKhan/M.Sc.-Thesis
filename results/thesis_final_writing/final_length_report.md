@@ -1,20 +1,21 @@
-# Final length report
+# Final length report (after the MIST compression pass)
 
-Word counts exclude citation keys and code blocks. Prose excludes table rows.
+Counts use the same rule throughout (`tools/wordcount.py`): citation keys and code blocks excluded; "prose" excludes
+table rows. "Before" is commit `f01d9636` (previous completion stage).
 
-| Part | Words (total) | Of which prose | Tables | Figures | Est. pages* |
-|---|---|---|---|---|---|
-| Abstract | 369 | 369 | 0 | 0 | 0.9 |
-| Chapter 1 | 3,427 | 3,292 | 1 | 0 | 8.6 |
-| Chapter 2 | 5,450 | 4,942 | 2 | 0 | 13.8 |
-| Chapter 3 | 7,975 | 6,687 | 7 | 1 | 22.3 |
-| Chapter 4 | 9,321 | 7,332 | 10 | 0 | 26.2 |
-| Chapter 5 | 6,803 | 5,736 | 7 | 8 | 23.0 |
-| Chapter 6 | 5,250 | 4,504 | 5 | 4 | 16.5 |
-| Chapter 7 | 5,739 | 5,417 | 0 | 0 | 13.7 |
-| Chapter 8 | 2,724 | 2,557 | 0 | 0 | 6.5 |
-| **Main text (Ch. 1–8)** | **46,689** | **40,467** | | | **130** |
-| Appendices A–K | 11,194 | — | many | 0 | 22–30 |
-| References | 98 entries | | | | 8 |
+| Part | Before (words) | After (words) | After (prose) | Change |
+|---|---|---|---|---|
+| Chapter 1 | 3,427 | 3,099 | 3,041 | -328 (-9.6%) |
+| Chapter 2 | 5,450 | 4,998 | 4,490 | -452 (-8.3%) |
+| Chapter 3 | 7,975 | 6,695 | 5,624 | -1,280 (-16.1%) |
+| Chapter 4 | 9,321 | 7,887 | 6,049 | -1,434 (-15.4%) |
+| Chapter 5 | 6,803 | 6,300 | 5,332 | -503 (-7.4%) |
+| Chapter 6 | 5,250 | 4,698 | 4,105 | -552 (-10.5%) |
+| Chapter 7 | 5,739 | 4,499 | 4,188 | -1,240 (-21.6%) |
+| Chapter 8 | 2,724 | 2,200 | 2,033 | -524 (-19.2%) |
+| **Chapters 1–8** | **46,689** | **40,376** | **34,862** | **-6,313 (-13.5%)** |
+| Appendices | 11,194 (A–K) | 3,453 (A–E) | 599 | -7,741 (-69.2%) |
+| English Abstract (body, keywords excluded) | 349 | 390 | | |
 
-*Page estimate: about 420 words per page of 12-pt text at standard thesis margins, plus 0.4 page per numbered table and 0.5 page per figure. Appendix tables are dense, so a range is given. Front matter (title, declaration, acknowledgements, abstract, lists, TOC) adds about 8–12 pages. These are estimates; the official template determines the final count. No page target was forced.*
+Target for Chapters 1–8: 38,000–42,000 words. Achieved: 40,376.
+The MIST word-equivalent and the page count of the formatted thesis are in `mist_length_compliance_audit.md`.

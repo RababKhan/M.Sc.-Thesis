@@ -1,0 +1,23 @@
+{
+  "title": "Development of a Sensitivity-Aware Reinforcement Learning Framework for Layer-Wise CNN Pruning",
+  "author": "Rabab Khan Rongon",
+  "student_number": "[STUDENT NUMBER]",
+  "degree": "M.Sc. Engineering",
+  "degree_statement": "Master of Science in Engineering (M.Sc. Engineering) in Computer Science and Engineering",
+  "department": "Department of Computer Science and Engineering",
+  "institution": "Military Institute of Science and Technology",
+  "city": "Dhaka, Bangladesh",
+  "month_year": "[MONTH YEAR]",
+  "exam_date": "[DATE OF EXAMINATION]",
+  "examiners": [
+    [["[NAME OF SUPERVISOR]", "[Designation], [Department]", "[Institution], Dhaka"], ["Chairman (Supervisor)", "Board of Examination"]],
+    [["[NAME OF MEMBER]", "[Designation], [Department]", "[Institution], Dhaka"], ["Member", "Board of Examination"]],
+    [["[NAME OF EXTERNAL MEMBER]", "[Designation], [Department]", "[Institution]"], ["Member (External)", "Board of Examination"]],
+    [["[NAME OF HEAD OF THE DEPARTMENT]", "[Designation], Department of Computer Science and Engineering", "MIST, Dhaka"], ["Member (Ex-officio)", "Head of the Department"]]
+  ],
+  "declaration_text": "I hereby declare that the study reported in this thesis entitled as above is my own original work and has not been submitted before anywhere for any degree or other purposes. Further I certify that the intellectual content of this thesis is the product of my own work and that all the assistance received in preparing this thesis and sources have been acknowledged and/or cited in the reference Section.",
+  "acknowledgements_placeholder": [
+    "[ACKNOWLEDGEMENTS TO BE WRITTEN BY THE AUTHOR. MIST TP.13 lists, in order: (a) the supervisor [SUPERVISOR] and co-supervisor, if any; (b) peers and colleagues in the laboratory; (c) other academic, technical or support staff of the Department of Computer Science and Engineering; (d) collaborators in other departments, institutions or organisations; (e) any financial assistance (fellowships, grants or contracts); (f) family and friends.]"
+  ],
+  "bangla_font": "Kalpurush"
+}
