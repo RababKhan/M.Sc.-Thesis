@@ -1,0 +1,195 @@
+{
+ "rows": [
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "identity",
+   "policy": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "widths": [
+    32,
+    64,
+    128,
+    256
+   ],
+   "params": 620362,
+   "macs": 10848768,
+   "seconds": 506.6,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 76.88,
+   "post_val_rl": 80.6,
+   "loss_epoch1": 0.5639607202635871,
+   "loss_epoch5": 0.5208083187474145,
+   "reload_ok": true,
+   "final_state_sha256": "8c285b1b801452072fba784b718474e5a525d2ed52f591b2571cf3f3a90b4972"
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "uniform10",
+   "policy": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "widths": [
+    29,
+    58,
+    115,
+    230
+   ],
+   "params": 501893,
+   "macs": 8944540,
+   "seconds": 620.2,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 74.16,
+   "post_val_rl": 80.44,
+   "loss_epoch1": 0.5900081924014622,
+   "loss_epoch5": 0.5320813179863824,
+   "reload_ok": true,
+   "final_state_sha256": "a51906d6c55b2f0f50882c14c4a66036f45b1f9ffd6511079c9cc751e9c25e50"
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "mixed",
+   "policy": [
+    2,
+    3,
+    3,
+    1
+   ],
+   "widths": [
+    26,
+    45,
+    90,
+    230
+   ],
+   "params": 381583,
+   "macs": 6080828,
+   "seconds": 493.3,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 65.28,
+   "post_val_rl": 78.76,
+   "loss_epoch1": 0.710226631726159,
+   "loss_epoch5": 0.6015778971566095,
+   "reload_ok": true,
+   "final_state_sha256": "eabad337321238a2e5e3767171b20ca97363390bf63847dc43dfa2950601253d"
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "fc_heavy",
+   "policy": [
+    0,
+    0,
+    0,
+    5
+   ],
+   "widths": [
+    32,
+    64,
+    128,
+    102
+   ],
+   "params": 303276,
+   "macs": 10531836,
+   "seconds": 648.3,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 75.84,
+   "post_val_rl": 80.12,
+   "loss_epoch1": 0.5760322291056316,
+   "loss_epoch5": 0.5283605758561029,
+   "reload_ok": true,
+   "final_state_sha256": "051e09c036b4e97640e9673249321347fdfc88684fca3e5fce42d55c35162d9e"
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "conv_heavy",
+   "policy": [
+    0,
+    5,
+    5,
+    0
+   ],
+   "widths": [
+    32,
+    26,
+    51,
+    256
+   ],
+   "params": 232117,
+   "macs": 3776896,
+   "seconds": 389.2,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 25.84,
+   "post_val_rl": 73.36,
+   "loss_epoch1": 1.1302716534614563,
+   "loss_epoch5": 0.8049291837692261,
+   "reload_ok": true,
+   "final_state_sha256": "2e3cfbc9318c48a395062fa20d8224c4e63ab98cb8c85232bec06a7432305a9a"
+  },
+  {
+   "setting": "cifar10_simplecnn",
+   "name": "aggressive",
+   "policy": [
+    5,
+    5,
+    5,
+    5
+   ],
+   "widths": [
+    13,
+    26,
+    51,
+    102
+   ],
+   "params": 99781,
+   "macs": 1986204,
+   "seconds": 238.4,
+   "peak_memory_mb": 695.4,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 17.48,
+   "post_val_rl": 67.0,
+   "loss_epoch1": 1.5407094511032104,
+   "loss_epoch5": 0.9603848507351346,
+   "reload_ok": true,
+   "final_state_sha256": "163636701886c22bfe4155892b288f5be1ec636a276e1b21629a39f98f6e07c0"
+  }
+ ],
+ "checks": [
+  {
+   "check": "simplecnn: every recovery ran 5 epochs with shapes unchanged (no topology change, no regrowth)",
+   "pass": true,
+   "detail": "6"
+  },
+  {
+   "check": "simplecnn: training loss falls from epoch 1 to epoch 5 for every policy",
+   "pass": true,
+   "detail": "[('identity', 0.564, 0.521), ('uniform10', 0.59, 0.532), ('mixed', 0.71, 0.602), ('fc_heavy', 0.576, 0.528), ('conv_heavy', 1.13, 0.805), ('aggressive', 1.541, 0.96)]"
+  },
+  {
+   "check": "simplecnn: VAL-RL accuracy after recovery >= before for every pruned policy",
+   "pass": true,
+   "detail": "[('identity', 76.88, 80.6), ('uniform10', 74.16, 80.44), ('mixed', 65.28, 78.76), ('fc_heavy', 75.84, 80.12), ('conv_heavy', 25.84, 73.36), ('aggressive', 17.48, 67.0)]"
+  },
+  {
+   "check": "simplecnn: recovered state dict reloads into the policy skeleton (strict) with identical logits",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "cpu": 2
+}

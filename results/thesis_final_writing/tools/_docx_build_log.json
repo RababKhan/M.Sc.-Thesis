@@ -1,0 +1,641 @@
+{
+ "tables": [
+  {
+   "label": "1.1",
+   "rows": 7,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "2.1",
+   "rows": 18,
+   "cols": 12,
+   "font": 8
+  },
+  {
+   "label": "3.1",
+   "rows": 13,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "3.2",
+   "rows": 4,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "3.3",
+   "rows": 16,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "3.4",
+   "rows": 11,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "4.1",
+   "rows": 6,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "4.2",
+   "rows": 10,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "4.3",
+   "rows": 4,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "4.4",
+   "rows": 7,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "4.5",
+   "rows": 11,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "4.6",
+   "rows": 11,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "4.7",
+   "rows": 9,
+   "cols": 8,
+   "font": 8
+  },
+  {
+   "label": "4.8",
+   "rows": 7,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "4.9",
+   "rows": 13,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "4.10",
+   "rows": 13,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "4.11",
+   "rows": 8,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "5.1",
+   "rows": 7,
+   "cols": 7,
+   "font": 9
+  },
+  {
+   "label": "5.2",
+   "rows": 9,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "5.3",
+   "rows": 7,
+   "cols": 8,
+   "font": 8
+  },
+  {
+   "label": "5.4",
+   "rows": 11,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "5.5",
+   "rows": 7,
+   "cols": 7,
+   "font": 9
+  },
+  {
+   "label": "5.6",
+   "rows": 4,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "5.7",
+   "rows": 8,
+   "cols": 7,
+   "font": 9
+  },
+  {
+   "label": "5.8",
+   "rows": 6,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "6.1",
+   "rows": 5,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "6.2",
+   "rows": 10,
+   "cols": 2,
+   "font": 10
+  },
+  {
+   "label": "6.3",
+   "rows": 9,
+   "cols": 11,
+   "font": 8
+  },
+  {
+   "label": "6.4",
+   "rows": 6,
+   "cols": 8,
+   "font": 8
+  },
+  {
+   "label": "6.5",
+   "rows": 5,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "7.1",
+   "rows": 9,
+   "cols": 2,
+   "font": 10
+  },
+  {
+   "label": "8.1",
+   "rows": 7,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "A.1",
+   "rows": 16,
+   "cols": 6,
+   "font": 9
+  },
+  {
+   "label": "A.2",
+   "rows": 7,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "A.3",
+   "rows": 13,
+   "cols": 3,
+   "font": 10
+  },
+  {
+   "label": "B.1",
+   "rows": 7,
+   "cols": 8,
+   "font": 8
+  },
+  {
+   "label": "B.2",
+   "rows": 7,
+   "cols": 4,
+   "font": 10
+  },
+  {
+   "label": "C.1",
+   "rows": 7,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "D.1",
+   "rows": 4,
+   "cols": 7,
+   "font": 9
+  },
+  {
+   "label": "D.2",
+   "rows": 5,
+   "cols": 5,
+   "font": 10
+  },
+  {
+   "label": "E.1",
+   "rows": 9,
+   "cols": 8,
+   "font": 8
+  },
+  {
+   "label": "E.2",
+   "rows": 7,
+   "cols": 6,
+   "font": 9
+  }
+ ],
+ "figures": [
+  {
+   "num": "3.1",
+   "w_mm": 145.9,
+   "h_mm": 190,
+   "large": true
+  },
+  {
+   "num": "5.1",
+   "w_mm": 150,
+   "h_mm": 97.9,
+   "large": false
+  },
+  {
+   "num": "5.2",
+   "w_mm": 143.5,
+   "h_mm": 190,
+   "large": true
+  },
+  {
+   "num": "5.3",
+   "w_mm": 150,
+   "h_mm": 68.5,
+   "large": false
+  },
+  {
+   "num": "5.4",
+   "w_mm": 150,
+   "h_mm": 90.2,
+   "large": false
+  },
+  {
+   "num": "5.5",
+   "w_mm": 150,
+   "h_mm": 64.9,
+   "large": false
+  },
+  {
+   "num": "5.6",
+   "w_mm": 150,
+   "h_mm": 94.2,
+   "large": false
+  },
+  {
+   "num": "5.7",
+   "w_mm": 150,
+   "h_mm": 59.0,
+   "large": false
+  },
+  {
+   "num": "5.8",
+   "w_mm": 150,
+   "h_mm": 94.2,
+   "large": false
+  },
+  {
+   "num": "6.1",
+   "w_mm": 120,
+   "h_mm": 161.7,
+   "large": true
+  },
+  {
+   "num": "6.2",
+   "w_mm": 120,
+   "h_mm": 99.2,
+   "large": false
+  },
+  {
+   "num": "6.3",
+   "w_mm": 150,
+   "h_mm": 65.8,
+   "large": false
+  },
+  {
+   "num": "6.4",
+   "w_mm": 150,
+   "h_mm": 64.3,
+   "large": false
+  }
+ ],
+ "equations": 20,
+ "warnings": [],
+ "all_tables": [
+  {
+   "kind": "layout",
+   "label": "monogram"
+  },
+  {
+   "kind": "layout",
+   "label": "monogram"
+  },
+  {
+   "kind": "layout",
+   "label": "approval"
+  },
+  {
+   "kind": "layout",
+   "label": "approval"
+  },
+  {
+   "kind": "layout",
+   "label": "approval"
+  },
+  {
+   "kind": "layout",
+   "label": "approval"
+  },
+  {
+   "kind": "layout",
+   "label": "notation list"
+  },
+  {
+   "kind": "layout",
+   "label": "notation list"
+  },
+  {
+   "kind": "layout",
+   "label": "notation list"
+  },
+  {
+   "kind": "layout",
+   "label": "notation list"
+  },
+  {
+   "kind": "content",
+   "label": "1.1"
+  },
+  {
+   "kind": "content",
+   "label": "2.1"
+  },
+  {
+   "kind": "content",
+   "label": "3.1"
+  },
+  {
+   "kind": "eq",
+   "label": "3.1"
+  },
+  {
+   "kind": "eq",
+   "label": "3.2"
+  },
+  {
+   "kind": "eq",
+   "label": "3.3"
+  },
+  {
+   "kind": "content",
+   "label": "3.2"
+  },
+  {
+   "kind": "eq",
+   "label": "3.4"
+  },
+  {
+   "kind": "content",
+   "label": "3.3"
+  },
+  {
+   "kind": "eq",
+   "label": "3.5"
+  },
+  {
+   "kind": "eq",
+   "label": "3.6"
+  },
+  {
+   "kind": "eq",
+   "label": "3.7"
+  },
+  {
+   "kind": "eq",
+   "label": "3.8"
+  },
+  {
+   "kind": "eq",
+   "label": "3.9"
+  },
+  {
+   "kind": "eq",
+   "label": "3.10"
+  },
+  {
+   "kind": "eq",
+   "label": "3.11"
+  },
+  {
+   "kind": "eq",
+   "label": "3.12"
+  },
+  {
+   "kind": "eq",
+   "label": "3.13"
+  },
+  {
+   "kind": "eq",
+   "label": "3.14"
+  },
+  {
+   "kind": "eq",
+   "label": "3.15"
+  },
+  {
+   "kind": "content",
+   "label": "3.4"
+  },
+  {
+   "kind": "eq",
+   "label": "3.16"
+  },
+  {
+   "kind": "eq",
+   "label": "3.17"
+  },
+  {
+   "kind": "eq",
+   "label": "3.18"
+  },
+  {
+   "kind": "eq",
+   "label": "3.19"
+  },
+  {
+   "kind": "code",
+   "label": "Input:  trained dense network M with pru"
+  },
+  {
+   "kind": "code",
+   "label": "Input:  dense network M; a structured po"
+  },
+  {
+   "kind": "eq",
+   "label": "3.20"
+  },
+  {
+   "kind": "content",
+   "label": "4.1"
+  },
+  {
+   "kind": "content",
+   "label": "4.2"
+  },
+  {
+   "kind": "content",
+   "label": "4.3"
+  },
+  {
+   "kind": "content",
+   "label": "4.4"
+  },
+  {
+   "kind": "content",
+   "label": "4.5"
+  },
+  {
+   "kind": "content",
+   "label": "4.6"
+  },
+  {
+   "kind": "content",
+   "label": "4.7"
+  },
+  {
+   "kind": "content",
+   "label": "4.8"
+  },
+  {
+   "kind": "content",
+   "label": "4.9"
+  },
+  {
+   "kind": "content",
+   "label": "4.10"
+  },
+  {
+   "kind": "content",
+   "label": "4.11"
+  },
+  {
+   "kind": "content",
+   "label": "5.1"
+  },
+  {
+   "kind": "content",
+   "label": "5.2"
+  },
+  {
+   "kind": "content",
+   "label": "5.3"
+  },
+  {
+   "kind": "content",
+   "label": "5.4"
+  },
+  {
+   "kind": "content",
+   "label": "5.5"
+  },
+  {
+   "kind": "content",
+   "label": "5.6"
+  },
+  {
+   "kind": "content",
+   "label": "5.7"
+  },
+  {
+   "kind": "content",
+   "label": "5.8"
+  },
+  {
+   "kind": "content",
+   "label": "6.1"
+  },
+  {
+   "kind": "content",
+   "label": "6.2"
+  },
+  {
+   "kind": "content",
+   "label": "6.3"
+  },
+  {
+   "kind": "content",
+   "label": "6.4"
+  },
+  {
+   "kind": "content",
+   "label": "6.5"
+  },
+  {
+   "kind": "content",
+   "label": "7.1"
+  },
+  {
+   "kind": "content",
+   "label": "8.1"
+  },
+  {
+   "kind": "content",
+   "label": "A.1"
+  },
+  {
+   "kind": "content",
+   "label": "A.2"
+  },
+  {
+   "kind": "content",
+   "label": "A.3"
+  },
+  {
+   "kind": "content",
+   "label": "B.1"
+  },
+  {
+   "kind": "content",
+   "label": "B.2"
+  },
+  {
+   "kind": "content",
+   "label": "C.1"
+  },
+  {
+   "kind": "content",
+   "label": "D.1"
+  },
+  {
+   "kind": "content",
+   "label": "D.2"
+  },
+  {
+   "kind": "content",
+   "label": "E.1"
+  },
+  {
+   "kind": "content",
+   "label": "E.2"
+  }
+ ],
+ "landscape": [
+  "2.1",
+  "4.7",
+  "6.3"
+ ]
+}

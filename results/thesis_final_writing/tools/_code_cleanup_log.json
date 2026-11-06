@@ -1,0 +1,116 @@
+[
+ [
+  "chapter_03_framework.md",
+  "| SimpleCNN | conv1 (`features.0`) | conv2 (`features.3`) | conv3 (`features.6`) | fc1 (`classifier.1`) | output layer (`classifier.3`) |",
+  "| SimpleCNN | conv1 | conv2 | conv3 | fc1 | output layer |",
+  "module names removed from the table; retained in Appendix A.2 (implementation identifiers)"
+ ],
+ [
+  "chapter_03_framework.md",
+  "The state is the seven-feature vector of the historical environment\n(`src/rl`, `unit_state`), computed for the current unit l of N_L units:",
+  "The state is a seven-feature vector computed for the current unit l of N_L units:",
+  "module path and function name removed"
+ ],
+ [
+  "chapter_03_framework.md",
+  "the test set (`src/sensitivity`, `loss_sensitivity`):",
+  "the test set:",
+  "module path and function name removed"
+ ],
+ [
+  "chapter_03_framework.md",
+  "The shift (`src/rl`,\n`SoftPriorPolicy`) is applied in every forward pass, both when actions are sampled and when log-probabilities are\nevaluated in the PPO update.",
+  "The prior adjustment is applied\nduring every forward pass, both when actions are sampled and when action log-probabilities are evaluated during the\nPPO update.",
+  "module path and class name replaced by the conceptual description given in the brief"
+ ],
+ [
+  "chapter_03_framework.md",
+  "Phase 6 applied one fixed protocol to every compared model\n(`experiments/phase6/phase6_lib.py`, `PROTOCOL` and `finetune`): Adam",
+  "Phase 6 applied one fixed protocol to every compared model:\nAdam",
+  "file path, configuration key and function name removed"
+ ],
+ [
+  "chapter_03_framework.md",
+  "order of compaction (`src/pruning/structured_units.py`); removing",
+  "order of compaction; removing",
+  "source-file path removed"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "Table 4.4 SHA-256 column (6 checkpoint hash prefixes)",
+  "column removed",
+  "moved to Appendix A, Table A.2 (reproducibility)"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "Table 4.10 'Source (commit)' column (13 record file names, 13 commit hashes)",
+  "column removed",
+  "moved to Appendix A, Table A.3 (reproducibility)"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "**Table 4.4. Dense reference models (accuracy, %).** The VAL-RL columns are the denominators A_b of retained accuracy\nin Phases 3–4 (configuration I) and Phase 5 (configuration II).",
+  "**Table 4.4. Dense reference models (accuracy, %).** The VAL-RL columns are the denominators A_b of retained accuracy\nin Phases 3–4 (configuration I) and Phase 5 (configuration II). Checkpoint hashes are listed in Appendix A (Table A.2).",
+  "caption pointer to the relocated hashes"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "**Table 4.10. Pre-registered decision criteria.** The commit is the one that first added the governing file.",
+  "**Table 4.10. Pre-registered decision criteria.** The governing records and the commits that first added them are\nlisted in Appendix A (Table A.3).",
+  "caption pointer to the relocated records and commits"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "(`torch.randperm`, seed 42)",
+  "(seed 42)",
+  "library function name removed; retained in Appendix A.2"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "The networks are defined in `src/models`:",
+  "The three networks are:",
+  "source path removed"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "The baselines are one-shot methods from `src/pruning`, each calibrated",
+  "The baselines are one-shot methods, each calibrated",
+  "source path removed"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "| Actor and critic; optimiser; n_steps; batch; epochs |",
+  "| Actor and critic; optimiser; rollout length; minibatch; epochs per update |",
+  "configuration key replaced by the scientific term"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "adds η·𝓛_elite (Equation 3.13) to a copy of the SB3 PPO update,\nbit-identical to standard PPO at η = 0.",
+  "adds η·𝓛_elite (Equation 3.13) to the PPO loss; with\nη = 0 the update is identical to standard PPO.",
+  "implementation detail (copied library update) replaced by the method statement"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "Package versions are pinned in `requirements_locked.txt`, and every phase records its environment and commit.",
+  "Package versions are pinned, and every phase records its software environment and code version (Appendix A.2).",
+  "requirements file name removed; retained in Appendix A.2"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "NCHW, `eval()` and `inference_mode()`\non one preallocated, seeded input;",
+  "NCHW, evaluation mode with gradient\ntracking disabled, on one preallocated, seeded input;",
+  "framework calls replaced by their meaning"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "each pass timed with\n`time.perf_counter_ns()` with garbage collection disabled;",
+  "each pass timed with a\nnanosecond-resolution monotonic clock with garbage collection disabled;",
+  "timer function replaced by its meaning; identifier retained in Appendix A.2"
+ ],
+ [
+  "chapter_04_experimental_setup.md",
+  "through the **Windows Energy Meter Interface**\n(counter `\\Energy Meter(RAPL_Package0_PKG)\\Energy`): raw PDH values",
+  "through the **Windows Energy Meter Interface**\n(its package-0 RAPL counter): raw PDH values",
+  "counter path replaced by its meaning; exact path retained in Appendix A.2"
+ ]
+]

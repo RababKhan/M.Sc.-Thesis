@@ -1,0 +1,62 @@
+{
+ "rule": "src.data.stratified_split(val_labels, n_first=2500, seed=20260930) on the frozen 5,000-image validation split (positions in its fixed order); first = VAL-RL, second = VAL-SELECT",
+ "seed": 20260930,
+ "datasets": {
+  "cifar10": {
+   "file": "results/phase5/splits/cifar10_phase5_split.npz",
+   "file_sha256": "eccd7522d55b4048957a40fb71aa575fcd428eaa0fde637fbf7673217f35933e",
+   "val_indices_sha256": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7",
+   "val_rl_positions_sha256": "c5e45130fabef824e2c128c1587c49c4b4a0db55ac0e7a3ce7f3560ac3a23396",
+   "val_select_positions_sha256": "2b71e2e7d6996db640a54a45743164176b33d36ca0e35ee7b71b580b751cd87d",
+   "sizes": [
+    2500,
+    2500
+   ],
+   "class_counts_validation": {
+    "min": 471,
+    "max": 532
+   },
+   "class_counts_val_rl": {
+    "min": 236,
+    "max": 266
+   },
+   "class_counts_val_select": {
+    "min": 235,
+    "max": 266
+   },
+   "max_abs_class_imbalance_rl_vs_select": 1,
+   "overlap_with_old_V_RL": {
+    "val_rl": 1479,
+    "val_select": 1521
+   }
+  },
+  "cifar100": {
+   "file": "results/phase5/splits/cifar100_phase5_split.npz",
+   "file_sha256": "131cf53457b45ca26917cc4fbcb7447f558a4aced6db6cea133d6efc16ce4199",
+   "val_indices_sha256": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7",
+   "val_rl_positions_sha256": "fd30187b02f404ae52572b9957fbfdd7a477799d3f34997d51f1b0f2e72bac3c",
+   "val_select_positions_sha256": "c39f70b4133d48baa00c0a85a1d70cf9dcf03a9e4aa1e5b41e5f8136005f57fb",
+   "sizes": [
+    2500,
+    2500
+   ],
+   "class_counts_validation": {
+    "min": 37,
+    "max": 65
+   },
+   "class_counts_val_rl": {
+    "min": 18,
+    "max": 32
+   },
+   "class_counts_val_select": {
+    "min": 19,
+    "max": 33
+   },
+   "max_abs_class_imbalance_rl_vs_select": 1,
+   "overlap_with_old_V_RL": {
+    "val_rl": 1485,
+    "val_select": 1515
+   }
+  }
+ }
+}

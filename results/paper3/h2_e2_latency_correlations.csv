@@ -1,0 +1,3 @@
+table,spearman_param_reduction_vs_latency_gain,spearman_mac_reduction_vs_latency_gain,pairs_sparser_but_slower,fraction
+simplecnn_c10,0.3213,0.8898,327672,0.3905
+resnet8_c10,0.5478,0.984,256895,0.3061

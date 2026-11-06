@@ -1,0 +1,48 @@
+{
+ "a5_identity_val_rl": 78.4,
+ "n_calibration": 48,
+ "n_true_feasible": 14,
+ "rule": {
+  "t": "largest q1 threshold with 100% recall of the calibration policies with q5 >= 0.98 and >= 20 proxy-feasible policies in the 1,296 landscape",
+  "tau_proxy": "max(0, t - 0.005)",
+  "stop_if_true_feasible_below": 5
+ },
+ "go_threshold": true,
+ "t_recall": 0.965110313,
+ "t_count": 0.978963571,
+ "t": 0.965110313,
+ "tau_proxy": 0.960110313,
+ "recall": 1.0,
+ "precision": 0.875,
+ "tp": 14,
+ "fp": 2,
+ "fn": 0,
+ "tn": 32,
+ "latency_room": {
+  "proxy_feasible": 52,
+  "latency_min_ms": 0.7016,
+  "latency_max_ms": 0.77015,
+  "best_speedup": 1.09770525,
+  "param_reduction_range": [
+   0.0,
+   0.288511314
+  ],
+  "mac_reduction_range": [
+   0.0,
+   0.18413212
+  ],
+  "pareto_policies": 13,
+  "policies_with_speedup_ge_1.10": 0
+ },
+ "go_ppo": false,
+ "go_rule": ">= 20 proxy-feasible policies and >= 1 with table speed-up >= 1.1",
+ "delta_summary": {
+  "mean": 0.025840970786139394,
+  "median": 0.02537290142857135,
+  "min": -0.0005217177551020136,
+  "max": 0.0680581876122448,
+  "share_positive": 0.9791666666666666
+ },
+ "spearman_q1_q5": 0.9753522114916895,
+ "calibration_policies_sha256": "3db752ec0dba1f78b0ed17c3e554c27dddaddf448d40aab148987d1e98ab0278"
+}

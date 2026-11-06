@@ -1,0 +1,29 @@
+{
+ "created": "2026-10-27T19:43:55+06:00",
+ "n": 100000,
+ "e1000_j": [
+  13.088017870020002,
+  11.413500159996,
+  11.204022499992,
+  15.125176310003999,
+  12.26538468,
+  12.272573529972
+ ],
+ "cv": 0.11360058979383937,
+ "rule_max_cv": 0.03,
+ "decision": "unstable",
+ "gates": [
+  {
+   "at": "2026-10-27T19:32:07+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 7.4,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "at": "2026-10-27T19:37:45+06:00",
+   "ac_power": true,
+   "cpu_load_pct": 9.2,
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  }
+ ]
+}

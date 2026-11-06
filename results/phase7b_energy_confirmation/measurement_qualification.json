@@ -1,0 +1,196 @@
+{
+ "created": "2026-11-03T16:06:45+06:00",
+ "criterion": "CV of the 6 Dense E_1000 blocks <= 3% (decided before any data)",
+ "n": 200000,
+ "warmup": 2000,
+ "soak_s": 180,
+ "runs": 3,
+ "blocks_per_run": 2,
+ "e1000_j": [
+  11.417059509984,
+  14.277523055004002,
+  12.96193361499,
+  15.221217760002,
+  9.513834195006,
+  9.472768079994001
+ ],
+ "mean_j": 12.14405603583,
+ "sd_j": 2.4195825985751855,
+ "cv": 0.1992400719690698,
+ "decision": "not qualified",
+ "run_log": [
+  {
+   "at": "2026-11-03T15:46:13+06:00",
+   "run": "qual1",
+   "status": "valid"
+  },
+  {
+   "at": "2026-11-03T15:56:30+06:00",
+   "run": "qual2",
+   "status": "valid"
+  },
+  {
+   "at": "2026-11-03T16:06:45+06:00",
+   "run": "qual3",
+   "status": "valid"
+  }
+ ],
+ "blocks": [
+  {
+   "run": "qual1",
+   "model": "0000",
+   "position": 0,
+   "at": "2026-11-03T15:42:33+06:00",
+   "n": 200000,
+   "seconds": 204.6533497,
+   "pkg_j": 2283.4119019967998,
+   "e1000_j": 11.417059509984,
+   "j_per_inference": 0.011417059509984,
+   "pkg_w": 11.157461655741468,
+   "latency_median_ms": 1.0455999999999999,
+   "latency_mean_ms": 1.022118399,
+   "system_load_pct": 8.4,
+   "perf_pct_cpu2": 130.2213154537822,
+   "perf_pct_total": 118.4283413731673,
+   "thermal_zone_c_start": 85.85000000000002,
+   "thermal_zone_c_end": 75.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "run": "qual1",
+   "model": "0000",
+   "position": 1,
+   "at": "2026-11-03T15:46:07+06:00",
+   "n": 200000,
+   "seconds": 207.5488032,
+   "pkg_j": 2855.5046110008,
+   "e1000_j": 14.277523055004002,
+   "j_per_inference": 0.014277523055004002,
+   "pkg_w": 13.758232121671902,
+   "latency_median_ms": 1.0513,
+   "latency_mean_ms": 1.0364207879999998,
+   "system_load_pct": 9.2,
+   "perf_pct_cpu2": 133.30212009013107,
+   "perf_pct_total": 117.56372022808294,
+   "thermal_zone_c_start": 76.85000000000002,
+   "thermal_zone_c_end": 82.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "run": "qual2",
+   "model": "0000",
+   "position": 0,
+   "at": "2026-11-03T15:52:47+06:00",
+   "n": 200000,
+   "seconds": 203.72519820000002,
+   "pkg_j": 2592.386722998,
+   "e1000_j": 12.96193361499,
+   "j_per_inference": 0.01296193361499,
+   "pkg_w": 12.724919381121504,
+   "latency_median_ms": 1.0479,
+   "latency_mean_ms": 1.0175909655,
+   "system_load_pct": 8.9,
+   "perf_pct_cpu2": 131.28533145894136,
+   "perf_pct_total": 117.60693560032867,
+   "thermal_zone_c_start": 85.85000000000002,
+   "thermal_zone_c_end": 83.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "run": "qual2",
+   "model": "0000",
+   "position": 1,
+   "at": "2026-11-03T15:56:24+06:00",
+   "n": 200000,
+   "seconds": 209.76019100000002,
+   "pkg_j": 3044.2435520004,
+   "e1000_j": 15.221217760002,
+   "j_per_inference": 0.015221217760002001,
+   "pkg_w": 14.512970919255121,
+   "latency_median_ms": 1.0516999999999999,
+   "latency_mean_ms": 1.0475126755,
+   "system_load_pct": 10.2,
+   "perf_pct_cpu2": 134.6811891706534,
+   "perf_pct_total": 122.30406742843613,
+   "thermal_zone_c_start": 78.85000000000002,
+   "thermal_zone_c_end": 91.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "run": "qual3",
+   "model": "0000",
+   "position": 0,
+   "at": "2026-11-03T16:03:03+06:00",
+   "n": 200000,
+   "seconds": 202.46403320000002,
+   "pkg_j": 1902.7668390012,
+   "e1000_j": 9.513834195006,
+   "j_per_inference": 0.009513834195006,
+   "pkg_w": 9.398048675250829,
+   "latency_median_ms": 1.042,
+   "latency_mean_ms": 1.0113111285,
+   "system_load_pct": 7.6,
+   "perf_pct_cpu2": 128.9437603177812,
+   "perf_pct_total": 121.50244680655138,
+   "thermal_zone_c_start": 75.85000000000002,
+   "thermal_zone_c_end": 80.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  {
+   "run": "qual3",
+   "model": "0000",
+   "position": 1,
+   "at": "2026-11-03T16:06:39+06:00",
+   "n": 200000,
+   "seconds": 208.45754340000002,
+   "pkg_j": 1894.5536159988,
+   "e1000_j": 9.472768079994001,
+   "j_per_inference": 0.009472768079994,
+   "pkg_w": 9.088438753993298,
+   "latency_median_ms": 1.043,
+   "latency_mean_ms": 1.0413132955,
+   "system_load_pct": 7.9,
+   "perf_pct_cpu2": 124.93316554303087,
+   "perf_pct_total": 119.84208862013729,
+   "thermal_zone_c_start": 71.85000000000002,
+   "thermal_zone_c_end": 72.85000000000002,
+   "ac_power_end": true,
+   "warmup": 2000,
+   "soak_s": 180,
+   "cpu_affinity": [
+    2
+   ],
+   "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  }
+ ]
+}

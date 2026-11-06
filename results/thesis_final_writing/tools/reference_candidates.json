@@ -1,0 +1,777 @@
+[
+ {
+  "id": "lecun1989obd",
+  "title": "Optimal Brain Damage",
+  "route": "mla",
+  "mla": "neurips/1989",
+  "class": "foundational",
+  "topic": "pruning"
+ },
+ {
+  "id": "han2015learning",
+  "title": "Learning both Weights and Connections for Efficient Neural Network",
+  "route": "mla",
+  "mla": "neurips/2015",
+  "class": "foundational",
+  "topic": "pruning"
+ },
+ {
+  "id": "wen2016ssl",
+  "title": "Learning Structured Sparsity in Deep Neural Networks",
+  "route": "mla",
+  "mla": "neurips/2016",
+  "class": "foundational",
+  "topic": "structured"
+ },
+ {
+  "id": "li2017filters",
+  "title": "Pruning Filters for Efficient ConvNets",
+  "route": "mla",
+  "mla": "iclr/2017",
+  "class": "foundational",
+  "topic": "structured"
+ },
+ {
+  "id": "molchanov2017taylor",
+  "title": "Pruning Convolutional Neural Networks for Resource Efficient Inference",
+  "route": "mla",
+  "mla": "iclr/2017",
+  "class": "foundational",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "he2017channel",
+  "title": "Channel Pruning for Accelerating Very Deep Neural Networks",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "structured"
+ },
+ {
+  "id": "frankle2019lth",
+  "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks",
+  "route": "mla",
+  "mla": "iclr/2019",
+  "class": "foundational",
+  "topic": "pruning"
+ },
+ {
+  "id": "liu2019rethinking",
+  "title": "Rethinking the Value of Network Pruning",
+  "route": "mla",
+  "mla": "iclr/2019",
+  "class": "foundational",
+  "topic": "recovery"
+ },
+ {
+  "id": "lee2019snip",
+  "title": "SNIP: Single-shot Network Pruning based on Connection Sensitivity",
+  "route": "mla",
+  "mla": "iclr/2019",
+  "class": "foundational",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "molchanov2019importance",
+  "title": "Importance Estimation for Neural Network Pruning",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "renda2020rewinding",
+  "title": "Comparing Rewinding and Fine-tuning in Neural Network Pruning",
+  "route": "mla",
+  "mla": "iclr/2020",
+  "class": "foundational",
+  "topic": "recovery"
+ },
+ {
+  "id": "blalock2020state",
+  "title": "What is the State of Neural Network Pruning?",
+  "route": "index",
+  "index": "https://proceedings.mlsys.org/paper_files/paper/2020",
+  "class": "foundational",
+  "topic": "recovery"
+ },
+ {
+  "id": "evci2020rigl",
+  "title": "Rigging the Lottery: Making All Tickets Winners",
+  "route": "mla",
+  "mla": "icml/2020",
+  "class": "foundational",
+  "topic": "layerwise"
+ },
+ {
+  "id": "chin2020legr",
+  "title": "Towards Efficient Model Compression via Learned Global Ranking",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "layerwise"
+ },
+ {
+  "id": "li2020eagleeye",
+  "title": "EagleEye: Fast Sub-net Evaluation for Efficient Neural Network Pruning",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "search"
+ },
+ {
+  "id": "lee2021lamp",
+  "title": "Layer-Adaptive Sparsity for the Magnitude-Based Pruning",
+  "route": "mla",
+  "mla": "iclr/2021",
+  "class": "foundational",
+  "topic": "layerwise"
+ },
+ {
+  "id": "le2021retraining",
+  "title": "Network Pruning That Matters: A Case Study on Retraining Variants",
+  "route": "mla",
+  "mla": "iclr/2021",
+  "class": "foundational",
+  "topic": "recovery"
+ },
+ {
+  "id": "hoefler2021sparsity",
+  "title": "Sparsity in Deep Learning: Pruning and growth for efficient inference and training in neural networks",
+  "route": "page",
+  "page": "https://www.jmlr.org/papers/v22/21-0366.html",
+  "class": "foundational",
+  "topic": "compression"
+ },
+ {
+  "id": "liebenwein2021lost",
+  "title": "Lost in Pruning: The Effects of Pruning Neural Networks beyond Test Accuracy",
+  "route": "index",
+  "index": "https://proceedings.mlsys.org/paper_files/paper/2021",
+  "class": "foundational",
+  "topic": "recovery"
+ },
+ {
+  "id": "abdelfattah2021zerocost",
+  "title": "Zero-Cost Proxies for Lightweight NAS",
+  "route": "mla",
+  "mla": "iclr/2021",
+  "class": "foundational",
+  "topic": "search"
+ },
+ {
+  "id": "he2018amc",
+  "title": "AMC: AutoML for Model Compression and Acceleration on Mobile Devices",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "rl"
+ },
+ {
+  "id": "zoph2017nas",
+  "title": "Neural Architecture Search with Reinforcement Learning",
+  "route": "mla",
+  "mla": "iclr/2017",
+  "class": "foundational",
+  "topic": "rl"
+ },
+ {
+  "id": "yang2018netadapt",
+  "title": "NetAdapt: Platform-Aware Neural Network Adaptation for Mobile Applications",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "hardware"
+ },
+ {
+  "id": "wang2019haq",
+  "title": "HAQ: Hardware-Aware Automated Quantization With Mixed Precision",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "hardware"
+ },
+ {
+  "id": "tan2019mnasnet",
+  "title": "MnasNet: Platform-Aware Neural Architecture Search for Mobile",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "hardware"
+ },
+ {
+  "id": "cai2020ofa",
+  "title": "Once-for-All: Train One Network and Specialize it for Efficient Deployment",
+  "route": "mla",
+  "mla": "iclr/2020",
+  "class": "foundational",
+  "topic": "hardware"
+ },
+ {
+  "id": "ma2018shufflenetv2",
+  "title": "ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "hardware"
+ },
+ {
+  "id": "yang2017energyaware",
+  "title": "Designing Energy-Efficient Convolutional Neural Networks Using Energy-Aware Pruning",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "energy"
+ },
+ {
+  "id": "strubell2019energy",
+  "title": "Energy and Policy Considerations for Deep Learning in NLP",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "energy"
+ },
+ {
+  "id": "henderson2020reporting",
+  "title": "Towards the Systematic Reporting of the Energy and Carbon Footprints of Machine Learning",
+  "route": "page",
+  "page": "https://www.jmlr.org/papers/v21/20-312.html",
+  "class": "foundational",
+  "topic": "energy"
+ },
+ {
+  "id": "schwartz2020greenai",
+  "title": "Green AI",
+  "route": "crossref",
+  "doi": "10.1145/3381831",
+  "class": "foundational",
+  "topic": "energy"
+ },
+ {
+  "id": "khan2018rapl",
+  "title": "RAPL in Action: Experiences in Using RAPL for Power Measurements",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "energy",
+  "doi": "10.1145/3177754"
+ },
+ {
+  "id": "schulman2017ppo",
+  "title": "Proximal Policy Optimization Algorithms",
+  "route": "arxiv",
+  "arxiv": "1707.06347",
+  "class": "foundational",
+  "topic": "ppo"
+ },
+ {
+  "id": "schulman2016gae",
+  "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+  "route": "mla",
+  "mla": "iclr/2016",
+  "class": "foundational",
+  "topic": "ppo"
+ },
+ {
+  "id": "engstrom2020implementation",
+  "title": "Implementation Matters in Deep RL: A Case Study on PPO and TRPO",
+  "route": "mla",
+  "mla": "iclr/2020",
+  "class": "foundational",
+  "topic": "ppo"
+ },
+ {
+  "id": "andrychowicz2021onpolicy",
+  "title": "What Matters for On-Policy Deep Actor-Critic Methods? A Large-Scale Study",
+  "route": "mla",
+  "mla": "iclr/2021",
+  "class": "foundational",
+  "topic": "ppo"
+ },
+ {
+  "id": "raffin2021sb3",
+  "title": "Stable-Baselines3: Reliable Reinforcement Learning Implementations",
+  "route": "page",
+  "page": "https://www.jmlr.org/papers/v22/20-1364.html",
+  "class": "foundational",
+  "topic": "ppo"
+ },
+ {
+  "id": "achiam2017cpo",
+  "title": "Constrained Policy Optimization",
+  "route": "mla",
+  "mla": "icml/2017",
+  "class": "foundational",
+  "topic": "reward"
+ },
+ {
+  "id": "oh2018sil",
+  "title": "Self-Imitation Learning",
+  "route": "mla",
+  "mla": "icml/2018",
+  "class": "foundational",
+  "topic": "search"
+ },
+ {
+  "id": "ecoffet2021goexplore",
+  "title": "First return, then explore",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "search"
+ },
+ {
+  "id": "yu2020evalnas",
+  "title": "Evaluating The Search Phase of Neural Architecture Search",
+  "route": "mla",
+  "mla": "iclr/2020",
+  "class": "foundational",
+  "topic": "search"
+ },
+ {
+  "id": "sutton2018rl",
+  "title": "Reinforcement Learning: An Introduction (2nd ed.)",
+  "route": "manual",
+  "url": "http://incompleteideas.net/book/the-book-2nd.html",
+  "authors": [
+   "Richard S. Sutton",
+   "Andrew G. Barto"
+  ],
+  "venue": "MIT Press, Cambridge, MA",
+  "year": 2018,
+  "class": "foundational",
+  "topic": "rl"
+ },
+ {
+  "id": "he2016resnet",
+  "title": "Deep Residual Learning for Image Recognition",
+  "route": "crossref",
+  "doi": "10.1109/CVPR.2016.90",
+  "class": "foundational",
+  "topic": "models"
+ },
+ {
+  "id": "lecun1998lenet",
+  "title": "Gradient-based learning applied to document recognition",
+  "route": "crossref",
+  "doi": "10.1109/5.726791",
+  "class": "foundational",
+  "topic": "models"
+ },
+ {
+  "id": "krizhevsky2009cifar",
+  "title": "Learning Multiple Layers of Features from Tiny Images",
+  "route": "manual",
+  "url": "https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf",
+  "authors": [
+   "Alex Krizhevsky"
+  ],
+  "venue": "Technical report, University of Toronto",
+  "year": 2009,
+  "class": "foundational",
+  "topic": "models"
+ },
+ {
+  "id": "paszke2019pytorch",
+  "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+  "route": "mla",
+  "mla": "neurips/2019",
+  "class": "foundational",
+  "topic": "software"
+ },
+ {
+  "id": "he2024structuredsurvey",
+  "title": "Structured Pruning for Deep Convolutional Neural Networks: A Survey",
+  "route": "crossref",
+  "doi": "10.1109/TPAMI.2023.3334614",
+  "class": "recent",
+  "topic": "compression"
+ },
+ {
+  "id": "cheng2024pruningsurvey",
+  "title": "A Survey on Deep Neural Network Pruning: Taxonomy, Comparison, Analysis, and Recommendations",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "compression"
+ },
+ {
+  "id": "menghani2023efficient",
+  "title": "Efficient Deep Learning: A Survey on Making Deep Learning Models Smaller, Faster, and Better",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "compression"
+ },
+ {
+  "id": "kuzmin2023pruningvsquant",
+  "title": "Pruning vs Quantization: Which is Better?",
+  "route": "mla",
+  "mla": "neurips/2023",
+  "class": "recent",
+  "topic": "compression"
+ },
+ {
+  "id": "fang2023depgraph",
+  "title": "DepGraph: Towards Any Structural Pruning",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "chen2023otov2",
+  "title": "OTOv2: Automatic, Generic, User-Friendly",
+  "route": "mla",
+  "mla": "iclr/2023",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "hou2022chex",
+  "title": "CHEX: CHannel EXploration for CNN Model Compression",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "li2022randomchannel",
+  "title": "Revisiting Random Channel Pruning for Neural Network Compression",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "liu2022randompruning",
+  "title": "The Unreasonable Effectiveness of Random Pruning: Return of the Most Naive Baseline for Sparse Training",
+  "route": "mla",
+  "mla": "iclr/2022",
+  "class": "recent",
+  "topic": "layerwise"
+ },
+ {
+  "id": "gadhikar2023random",
+  "title": "Why Random Pruning Is All We Need to Start Sparse",
+  "route": "mla",
+  "mla": "icml/2023",
+  "class": "recent",
+  "topic": "layerwise"
+ },
+ {
+  "id": "yin2024owl",
+  "title": "Outlier Weighed Layerwise Sparsity (OWL): A Missing Secret Sauce for Pruning LLMs to High Sparsity",
+  "route": "mla",
+  "mla": "icml/2024",
+  "class": "recent",
+  "topic": "layerwise"
+ },
+ {
+  "id": "xu2024besa",
+  "title": "BESA: Pruning Large Language Models with Blockwise Parameter-Efficient Sparsity Allocation",
+  "route": "mla",
+  "mla": "iclr/2024",
+  "class": "recent",
+  "topic": "layerwise"
+ },
+ {
+  "id": "frantar2022obc",
+  "title": "Optimal Brain Compression: A Framework for Accurate Post-Training Quantization and Pruning",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "frantar2023sparsegpt",
+  "title": "SparseGPT: Massive Language Models Can Be Accurately Pruned in One-Shot",
+  "route": "mla",
+  "mla": "icml/2023",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "sun2024wanda",
+  "title": "A Simple and Effective Pruning Approach for Large Language Models",
+  "route": "mla",
+  "mla": "iclr/2024",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "nonnenmacher2022sosp",
+  "title": "SOSP: Efficiently Capturing Global Correlations by Second-Order Structured Pruning",
+  "route": "mla",
+  "mla": "iclr/2022",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "yu2022hap",
+  "title": "Hessian-Aware Pruning and Optimal Neural Implant",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "yang2023globalvit",
+  "title": "Global Vision Transformer Pruning with Hessian-Aware Saliency",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "sensitivity"
+ },
+ {
+  "id": "zhang2022bip",
+  "title": "Advancing Model Pruning via Bi-level Optimization",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "search"
+ },
+ {
+  "id": "ma2023llmpruner",
+  "title": "LLM-Pruner: On the Structural Pruning of Large Language Models",
+  "route": "mla",
+  "mla": "neurips/2023",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "xia2024sheared",
+  "title": "Sheared LLaMA: Accelerating Language Model Pre-training via Structured Pruning",
+  "route": "mla",
+  "mla": "iclr/2024",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "xia2022cofi",
+  "title": "Structured Pruning Learns Compact and Accurate Models",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "kwon2022posttraining",
+  "title": "A Fast Post-Training Pruning Framework for Transformers",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "tran2022disparate",
+  "title": "Pruning has a disparate impact on model accuracy",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "liu2023sparsitymaycry",
+  "title": "Sparsity May Cry: Let Us Fail (Current) Sparse Neural Networks Together!",
+  "route": "mla",
+  "mla": "iclr/2023",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "alwani2022decore",
+  "title": "DECORE: Deep Compression with Reinforcement Learning",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "rl"
+ },
+ {
+  "id": "yu2022gnnrl",
+  "title": "Topology-Aware Network Pruning using Multi-stage Graph Embedding and Reinforcement Learning",
+  "route": "mla",
+  "mla": "icml/2022",
+  "class": "recent",
+  "topic": "rl"
+ },
+ {
+  "id": "wang2022lookahead",
+  "title": "Channel Pruning via Lookahead Search Guided Reinforcement Learning",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "rl"
+ },
+ {
+  "id": "camci2022qlp",
+  "title": "QLP: Deep Q-Learning for Pruning Deep Neural Networks",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "rl"
+ },
+ {
+  "id": "ganjdanesh2024agent",
+  "title": "Jointly Training and Pruning CNNs via Learnable Agent Guidance and Alignment",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "rl"
+ },
+ {
+  "id": "yu2022mappo",
+  "title": "The Surprising Effectiveness of PPO in Cooperative Multi-Agent Games",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "ppo"
+ },
+ {
+  "id": "pan2022misspecification",
+  "title": "The Effects of Reward Misspecification: Mapping and Mitigating Misaligned Models",
+  "route": "mla",
+  "mla": "iclr/2022",
+  "class": "recent",
+  "topic": "reward"
+ },
+ {
+  "id": "skalse2022rewardgaming",
+  "title": "Defining and Characterizing Reward Gaming",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "reward"
+ },
+ {
+  "id": "gu2024saferl",
+  "title": "A Review of Safe Reinforcement Learning: Methods, Theories and Applications",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "reward"
+ },
+ {
+  "id": "shen2022halp",
+  "title": "Structural Pruning via Latency-Saliency Knapsack",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "hardware"
+ },
+ {
+  "id": "humble2022smcp",
+  "title": "Soft Masking for Cost-Constrained Channel Pruning",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "hardware"
+ },
+ {
+  "id": "dehghani2022misnomer",
+  "title": "The Efficiency Misnomer",
+  "route": "mla",
+  "mla": "iclr/2022",
+  "class": "recent",
+  "topic": "hardware"
+ },
+ {
+  "id": "wu2022sustainable",
+  "title": "Sustainable AI: Environmental Implications, Challenges and Opportunities",
+  "route": "index",
+  "index": "https://proceedings.mlsys.org/paper_files/paper/2022",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "patterson2022plateau",
+  "title": "The Carbon Footprint of Machine Learning Training Will Plateau, Then Shrink",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "luccioni2024powerhungry",
+  "title": "Power Hungry Processing: Watts Driving the Cost of AI Deployment?",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "luccioni2023bloom",
+  "title": "Estimating the Carbon Footprint of BLOOM, a 176B Parameter Language Model",
+  "route": "page",
+  "page": "https://www.jmlr.org/papers/v24/23-0069.html",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "desislavov2023trends",
+  "title": "Trends in AI inference energy consumption: Beyond the performance-vs-parameter laws of deep learning",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "jay2023powermeters",
+  "title": "An experimental comparison of software-based power meters: focus on CPU and GPU",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "raffin2024dissecting",
+  "title": "Dissecting the Software-Based Measurement of CPU Energy Consumption: A Comparative Analysis",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "tschand2025mlperfpower",
+  "title": "MLPerf Power: Benchmarking the Energy Efficiency of Machine Learning Systems from μWatts to MWatts for Sustainable AI",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "samsi2023wordswatts",
+  "title": "From Words to Watts: Benchmarking the Energy Costs of Large Language Model Inference",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "fang2024isomorphic",
+  "title": "Isomorphic Pruning for Vision Models",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "diao2023sparsityperspective",
+  "title": "Pruning Deep Neural Networks from a Sparsity Perspective",
+  "route": "mla",
+  "mla": "iclr/2023",
+  "class": "recent",
+  "topic": "layerwise"
+ },
+ {
+  "id": "halabi2022submodular",
+  "title": "Data-Efficient Structured Pruning via Submodular Optimization",
+  "route": "mla",
+  "mla": "neurips/2022",
+  "class": "recent",
+  "topic": "structured"
+ },
+ {
+  "id": "iofinova2022transfer",
+  "title": "How Well Do Sparse ImageNet Models Transfer?",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "recovery"
+ },
+ {
+  "id": "wang2023bertenergy",
+  "title": "Energy and Carbon Considerations of Fine-Tuning BERT",
+  "route": "crossref",
+  "class": "recent",
+  "topic": "energy"
+ },
+ {
+  "id": "holm1979sequential",
+  "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+  "route": "openalex",
+  "openalex": "W2121044470",
+  "class": "foundational",
+  "topic": "statistics"
+ },
+ {
+  "id": "wilcoxon1945individual",
+  "title": "Individual Comparisons by Ranking Methods",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics",
+  "doi": "10.2307/3001968"
+ },
+ {
+  "id": "youden1950index",
+  "title": "Index for rating diagnostic tests",
+  "route": "crossref",
+  "class": "foundational",
+  "topic": "statistics",
+  "doi": "10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3"
+ }
+]

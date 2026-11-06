@@ -1,0 +1,121 @@
+{
+ "run_id": "sens-shuffled_coef-0.04_seed-3",
+ "experiment_condition": "shuffled",
+ "sparsity_coef": 0.04,
+ "seed": 3,
+ "actions": [
+  0,
+  0,
+  5,
+  5
+ ],
+ "prune_percent": [
+  0.0,
+  0.0,
+  60.0,
+  60.0
+ ],
+ "total_sparsity": 57.884530999948375,
+ "per_layer_sparsity": {
+  "features.0": 0.0,
+  "features.3": 0.0,
+  "features.6": 60.000271267361114,
+  "classifier.1": 60.000038146972656,
+  "classifier.3": 0.0
+ },
+ "probe_accuracy": 75.4,
+ "val_accuracy": 76.7,
+ "test_accuracy": 76.65,
+ "accuracy_retention": 99.50668570686746,
+ "training_reward": {
+  "accuracy_term": 1.4627521986549408,
+  "sparsity_term": 2.315381239997935,
+  "diversity_term": 0.1,
+  "total": 3.8781334386528763
+ },
+ "reported_reward_test_definition": {
+  "accuracy_term": 1.4926002856030118,
+  "sparsity_term": 2.315381239997935,
+  "diversity_term": 0.1,
+  "total": 3.907981525600947
+ },
+ "sensitivity_vector": [
+  0.0,
+  0.09999999999999432,
+  0.19999999999998863,
+  0.5999999999999943
+ ],
+ "sensitivity_measured": [
+  0.5999999999999943,
+  0.19999999999998863,
+  0.09999999999999432,
+  0.0
+ ],
+ "shuffle_mapping": {
+  "features.0": "classifier.1",
+  "features.3": "features.6",
+  "features.6": "features.3",
+  "classifier.1": "features.0"
+ },
+ "policy_reported": "final deterministic policy after training",
+ "best_training_episode": {
+  "episode": 218,
+  "actions": "[0, 4, 5, 5]",
+  "reward": 3.969891034093102,
+  "probe_accuracy": 75.1,
+  "sparsity": 59.07397010995818,
+  "note": "selected on validation-probe reward; not test-evaluated"
+ },
+ "episodes": 512,
+ "timesteps_requested": 2000,
+ "timesteps_trained": 2048,
+ "ppo": {
+  "policy": "MlpPolicy",
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "ent_coef": 0.01
+ },
+ "runtime_seconds": 278.0,
+ "train_seconds": 271.3,
+ "started_at": "2026-09-26T23:00:20+06:00",
+ "baseline_checkpoint": "checkpoints/cnn_baseline_FIXED.pth",
+ "baseline_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "baseline_val_accuracy": 77.32,
+ "baseline_test_accuracy": 77.03,
+ "baseline_probe_accuracy": 76.1,
+ "split": {
+  "seed": 42,
+  "train": 45000,
+  "val": 5000,
+  "probe": 1000,
+  "test": 10000,
+  "val_indices_sha256": "9d3648af9194ccc88b50cbe6ef88b4c4d97f77974548d35effa27db939f02fd7"
+ },
+ "test_set_use": "final evaluation only, after training; locked during agent.learn()",
+ "git": {
+  "commit": "c220caf1881a39a79bc4a4fb3aec29054130ea2c",
+  "dirty": true
+ },
+ "script_sha256": {
+  "ppo_experiments.py": "1649aab5798772e8f121e34e0e005bd19ad6455383458b7102f1ea04f77b1595",
+  "rl_env.py": "3c92b73550a3dbe6d30c3515f6c5b256571362db3645a58b2d598d04dc40abf1",
+  "common.py": "0afa8e51bf6bf3912c9dd58607c30cfe956f115909a7f67afc2b68d593435f0d"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "gymnasium": "1.2.3",
+  "stable_baselines3": "2.8.0",
+  "numpy": "2.2.2",
+  "pandas": "2.2.3",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 4,
+  "cuda": false,
+  "os": "Windows-10-10.0.22621-SP0"
+ }
+}

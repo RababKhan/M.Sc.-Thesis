@@ -1,0 +1,72 @@
+{
+ "created": "2026-11-03T15:30:47+06:00",
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "models": {
+  "0000": {
+   "role": "dense",
+   "checkpoint": "checkpoints/phase7b/cifar10_simplecnn_0000_E5.pth",
+   "freeze_record": "results/phase7b_green_pruning/_recovery_runs/final/0000_E5.json",
+   "file_sha256": "177866a722c8fe7d1ef0e425ae2b445eb6a981bc898af951bde7a179e095f09d",
+   "file_sha256_recorded": "177866a722c8fe7d1ef0e425ae2b445eb6a981bc898af951bde7a179e095f09d",
+   "file_match": true,
+   "state_sha256": "8c285b1b801452072fba784b718474e5a525d2ed52f591b2571cf3f3a90b4972",
+   "state_sha256_recorded": "8c285b1b801452072fba784b718474e5a525d2ed52f591b2571cf3f3a90b4972",
+   "state_match": true,
+   "params": 620362,
+   "training_mode": false
+  },
+  "2225": {
+   "role": "phase7b_ppo [2,2,2,5]",
+   "checkpoint": "checkpoints/phase7b/cifar10_simplecnn_2225_E5.pth",
+   "freeze_record": "results/phase7b_green_pruning/_recovery_runs/final/2225_E5.json",
+   "file_sha256": "dd5ffa508c58557fc605240d941fd9be6fe961dd464fa3d2bbadf8c387142809",
+   "file_sha256_recorded": "dd5ffa508c58557fc605240d941fd9be6fe961dd464fa3d2bbadf8c387142809",
+   "file_match": true,
+   "state_sha256": "4c3292adf8b3e1c21c7de4fbca35b5224583d3a5c2ddf7a35cd85370110335df",
+   "state_sha256_recorded": "4c3292adf8b3e1c21c7de4fbca35b5224583d3a5c2ddf7a35cd85370110335df",
+   "state_match": true,
+   "params": 227229,
+   "training_mode": false
+  },
+  "uniform_r0.208": {
+   "role": "secondary comparator",
+   "checkpoint": "checkpoints/phase7b/cifar10_simplecnn_uniform_r0.208_E5.pth",
+   "freeze_record": "results/phase7b_green_pruning/_recovery_runs/final/uniform_r0.208_E5.json",
+   "file_sha256": "4f5830237e310964e6ce07fa7d03449f902adcd18d7b7df4acf28811cb5ffac8",
+   "file_sha256_recorded": "4f5830237e310964e6ce07fa7d03449f902adcd18d7b7df4acf28811cb5ffac8",
+   "file_match": true,
+   "state_sha256": "7aa21068329cbc5734d49b87ef58bf7779b3c20acef08cc0b803ef5025170126",
+   "state_sha256_recorded": "7aa21068329cbc5734d49b87ef58bf7779b3c20acef08cc0b803ef5025170126",
+   "state_match": true,
+   "params": 388977,
+   "training_mode": false
+  },
+  "lamp_s56.2": {
+   "role": "secondary comparator",
+   "checkpoint": "checkpoints/phase7b/cifar10_simplecnn_lamp_s56.2_E5.pth",
+   "freeze_record": "results/phase7b_green_pruning/_recovery_runs/final/lamp_s56.2_E5.json",
+   "file_sha256": "78fb57cb56c69c20f40789a8d7b490de54c554bf0e07b30b915f26b99eb713a1",
+   "file_sha256_recorded": "78fb57cb56c69c20f40789a8d7b490de54c554bf0e07b30b915f26b99eb713a1",
+   "file_match": true,
+   "state_sha256": "994e170906efcce8fe9676012e02902ae10d5971bf3b25beca0eaf53bb53c918",
+   "state_sha256_recorded": "994e170906efcce8fe9676012e02902ae10d5971bf3b25beca0eaf53bb53c918",
+   "state_match": true,
+   "params": 227483,
+   "training_mode": false
+  },
+  "phase7a_ppo": {
+   "role": "secondary comparator",
+   "checkpoint": "checkpoints/phase7a/cifar10_simplecnn_ppo.pth",
+   "freeze_record": "results/phase7b_green_pruning/selected_policies.json + results/phase7a_sustainability/accuracy_results.csv",
+   "file_sha256": "898cc1c7cccf4e52e35c4a3609e0deee1f779c1c112cedf77a17abed08da9ede",
+   "file_sha256_recorded": "898cc1c7cccf4e52e35c4a3609e0deee1f779c1c112cedf77a17abed08da9ede",
+   "file_match": true,
+   "state_sha256": "5e969eb99fe2951d4ea2113fa240d623b564d0f3fa391d3c471806f311594a1a",
+   "state_sha256_recorded": "5e969eb99fe2951d4ea2113fa240d623b564d0f3fa391d3c471806f311594a1a",
+   "state_match": true,
+   "params": 123459,
+   "training_mode": false
+  }
+ },
+ "all_match": true
+}

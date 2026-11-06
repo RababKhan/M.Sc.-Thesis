@@ -1,0 +1,14 @@
+{
+ "criteria": {
+  "P1 vs P0": false,
+  "P1 vs P2": false,
+  "P1 vs P3": false
+ },
+ "consistency": true,
+ "level_b_outcomes": [
+  "e: AUC validation accuracy (higher better)",
+  "f: AUC reward rank (lower better)",
+  "g: AUC utility (higher better)"
+ ],
+ "level": "B"
+}

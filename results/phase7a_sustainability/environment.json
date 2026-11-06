@@ -1,0 +1,32 @@
+{
+ "created": "2026-10-26T09:57:23+06:00",
+ "cpu": "12th Gen Intel(R) Core(TM) i7-1260P",
+ "logical_cpus": 16,
+ "os": "Windows-10-10.0.26200-SP0",
+ "python": "3.11.9",
+ "torch": "2.7.1+cpu",
+ "onednn": "Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)",
+ "threads": {
+  "intra_op": 1,
+  "inter_op": 1
+ },
+ "cpu_affinity": [
+  2
+ ],
+ "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+ "ac_power": true,
+ "energy_backend": {
+  "interface": "Windows Energy Meter Interface (EMI) performance counters via PDH",
+  "counter": "\\Energy Meter(RAPL_Package0_PKG)\\Energy (primary), RAPL_Package0_PP0 (secondary)",
+  "source": "Intel RAPL hardware energy counters",
+  "units": "picowatt-hours",
+  "dram_domain": "present but reads 0 on this machine (not used)",
+  "estimation": "none (no TDP model, no software estimate)"
+ },
+ "backend_check": {
+  "pkg_idle_w": 5.655163359325151,
+  "pp0_idle_w": 2.8635870316912118,
+  "counter_ms": 5002,
+  "wall_s": 5.002103599952534
+ }
+}

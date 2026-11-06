@@ -1,0 +1,39 @@
+{
+ "frozen_at": "2026-10-26T09:56:10+06:00",
+ "same_data_stream_within_setting": true,
+ "models": {
+  "cifar10_simplecnn_dense": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_simplecnn_dense.pth",
+   "sha256": "5d8045d38ab972f1429e7053b93fb9902fda392615016ad0c09b4e6000d77694"
+  },
+  "cifar10_simplecnn_ppo": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_simplecnn_ppo.pth",
+   "sha256": "898cc1c7cccf4e52e35c4a3609e0deee1f779c1c112cedf77a17abed08da9ede"
+  },
+  "cifar10_simplecnn_uniform": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_simplecnn_uniform.pth",
+   "sha256": "707c945181ce369791c9b628d323edfeabf6b92849dffdb429da08db462b8ac0"
+  },
+  "cifar10_simplecnn_lamp": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_simplecnn_lamp.pth",
+   "sha256": "67ead01462fd7a4c56368d54c45cd3ccce1012a1cd8a2476c7e70be052d5de32"
+  },
+  "cifar10_resnet8_dense": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_resnet8_dense.pth",
+   "sha256": "f78a8372c8f8b75d3d3d4fe94b1ad77cd3646b3511c81f0954951fc53c6455a3"
+  },
+  "cifar10_resnet8_ppo": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_resnet8_ppo.pth",
+   "sha256": "bb8dba7db5cd5f69be8d3eacd8d19a92bc5a650ef6bd1ded58b6e717e4d837aa"
+  },
+  "cifar10_resnet8_uniform": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_resnet8_uniform.pth",
+   "sha256": "a0f15dd487fde14aecb064e1c38641d1f38bd0b818a6cbba7ec8e9e6de581a7f"
+  },
+  "cifar10_resnet8_lamp": {
+   "checkpoint": "checkpoints\\phase7a\\cifar10_resnet8_lamp.pth",
+   "sha256": "d6f60c192ad72bb8e921a53a5443944ab9abb4bef5d9ce5b028d778466f41068"
+  }
+ },
+ "accuracy_results_sha256": "96765f093eb0ad06a5e4d0c601935ca04dc64b5f6e39a55455bd089ca363ccf5"
+}

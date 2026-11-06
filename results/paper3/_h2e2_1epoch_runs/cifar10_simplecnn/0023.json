@@ -1,0 +1,89 @@
+{
+ "setting": "cifar10_simplecnn",
+ "arch": "simplecnn",
+ "policy": [
+  0,
+  0,
+  2,
+  3
+ ],
+ "status": "complete",
+ "widths": [
+  32,
+  64,
+  102,
+  179
+ ],
+ "params": 372353,
+ "macs": 9657374,
+ "shape_unchanged": true,
+ "pre": {
+  "val_rl": 76.76,
+  "val_select": 76.52
+ },
+ "post": {
+  "val_rl": 79.28,
+  "val_select": 78.68
+ },
+ "train_loss": [
+  0.5794457786348131
+ ],
+ "train_accuracy": [
+  79.95555555555555
+ ],
+ "lr": [
+  0.0001
+ ],
+ "epochs": 1,
+ "resumed_from_epoch": 0,
+ "data_stream_sha256": "c7c486c4e1cf25612b025623fc7d2805a85fbdda6c7867e34205051c8ffd4e34",
+ "final_state_sha256": "9eba55674b074917e6e45d0e19d491f0d730b5afd9128a3b5fbba5ed09c1c31f",
+ "recovery": {
+  "protocol": {
+   "optimizer": "Adam",
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.999
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.0,
+   "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+   "batch_size": 128,
+   "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+   "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+   "selection": "none: the model after the final epoch"
+  },
+  "epochs": 1,
+  "seed": 600,
+  "data_generator_seed": 1000600
+ },
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "threads": 1,
+ "cpu_affinity": [
+  6
+ ],
+ "seconds": 111.0,
+ "train_seconds": 98.2,
+ "peak_memory_mb": 695.2,
+ "started_at": "2026-10-24T13:25:43+06:00",
+ "finished_at": "2026-10-24T13:27:34+06:00",
+ "test_use": "none",
+ "preregistration_sha256": "3eb86bd104b3c7d67086c41d5bea39cb3b3b26506a4f3f5f95f439eb304522fc",
+ "code_sha256": {
+  "h2_recovery.py": "2bb3a0b5eb443e899d6df6f7b5458de2a3f54311e249e6e8265387a37e3a7252",
+  "p3_lib.py": "240f0e29cac732a78de9d2d1e6432f9303573298a743149e43ef1cffea78e9ef",
+  "phase6_lib.py": "588b3473ba26b35ed08f2c86a876ee95d37ac688ac465052994ce8a712fc80c1",
+  "structured_units.py": "805259778aa9de3741d7386f346acb85af381b667b1d303faecebdbbbb6dee61",
+  "h2e2.py": "29b16661e7b3f714709cfc579b964e443e37a88d59b5d61d222015b45d59a289"
+ },
+ "git": {
+  "commit": "eba230e8c793d1b3c00b17d521398627e7e50b0a",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? checkpoints/phase6_finetuned/"
+  ]
+ },
+ "e2_stage": "validation",
+ "proxy_protocol_sha256": "98aa4a6bfe3f57f07396558a04492dec4a85252180c60d1cc072945db106733a"
+}

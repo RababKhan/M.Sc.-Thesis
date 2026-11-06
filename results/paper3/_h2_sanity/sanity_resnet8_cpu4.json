@@ -1,0 +1,195 @@
+{
+ "rows": [
+  {
+   "setting": "cifar10_resnet8",
+   "name": "identity",
+   "policy": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "widths": [
+    16,
+    16,
+    32,
+    64
+   ],
+   "params": 78042,
+   "macs": 12501632,
+   "seconds": 642.3,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 78.92,
+   "post_val_rl": 78.4,
+   "loss_epoch1": 0.5741359875096215,
+   "loss_epoch5": 0.5620276126755609,
+   "reload_ok": true,
+   "final_state_sha256": "38a261e60272f07a2ff4b1141e25cd88f90dc2d4df16d0a48d8a8f3fd668fd05"
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "name": "uniform10",
+   "policy": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "widths": [
+    14,
+    14,
+    29,
+    58
+   ],
+   "params": 69812,
+   "macs": 10526848,
+   "seconds": 799.4,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 20.96,
+   "post_val_rl": 76.84,
+   "loss_epoch1": 0.7937594398816427,
+   "loss_epoch5": 0.6541607193840875,
+   "reload_ok": true,
+   "final_state_sha256": "8b49e5020a2faee992fffde09996ab0376de81eee4e22b8895c87dc910bd23d9"
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "name": "mixed",
+   "policy": [
+    2,
+    3,
+    3,
+    1
+   ],
+   "widths": [
+    13,
+    11,
+    22,
+    58
+   ],
+   "params": 65679,
+   "macs": 8721536,
+   "seconds": 713.8,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 15.96,
+   "post_val_rl": 72.8,
+   "loss_epoch1": 1.1385728914896647,
+   "loss_epoch5": 0.79849041112264,
+   "reload_ok": true,
+   "final_state_sha256": "723d44290af61f7888b957b256bd55effe20fc04d3b232a9b8354f35f28d2b66"
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "name": "stem_heavy",
+   "policy": [
+    5,
+    0,
+    0,
+    0
+   ],
+   "widths": [
+    6,
+    16,
+    32,
+    64
+   ],
+   "params": 71652,
+   "macs": 8456832,
+   "seconds": 596.4,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 10.6,
+   "post_val_rl": 65.4,
+   "loss_epoch1": 1.508966368230184,
+   "loss_epoch5": 1.0322557453791301,
+   "reload_ok": true,
+   "final_state_sha256": "f7dc87a313ca9e4516bb2836bc1f19fd25e03a9a9d92c33c4dd6d1ef541fa160"
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "name": "conv_heavy",
+   "policy": [
+    0,
+    5,
+    5,
+    5
+   ],
+   "widths": [
+    16,
+    6,
+    13,
+    26
+   ],
+   "params": 33988,
+   "macs": 5350016,
+   "seconds": 551.0,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 13.24,
+   "post_val_rl": 59.0,
+   "loss_epoch1": 1.7770003369013467,
+   "loss_epoch5": 1.1441117232428657,
+   "reload_ok": true,
+   "final_state_sha256": "7ecd847ea26eb885246739486727fdb00b298f66ac6742514beedf50b4a32a95"
+  },
+  {
+   "setting": "cifar10_resnet8",
+   "name": "aggressive",
+   "policy": [
+    5,
+    5,
+    5,
+    5
+   ],
+   "widths": [
+    6,
+    6,
+    13,
+    26
+   ],
+   "params": 31108,
+   "macs": 3586176,
+   "seconds": 397.0,
+   "peak_memory_mb": 695.2,
+   "epochs": 5,
+   "shape_unchanged": true,
+   "pre_val_rl": 9.76,
+   "post_val_rl": 47.84,
+   "loss_epoch1": 2.1754139510684545,
+   "loss_epoch5": 1.4596363744099934,
+   "reload_ok": true,
+   "final_state_sha256": "ec689a0c5528af9e97b243935e4d7045e5fd88bb63d61002009169d98389c83a"
+  }
+ ],
+ "checks": [
+  {
+   "check": "resnet8: every recovery ran 5 epochs with shapes unchanged (no topology change, no regrowth)",
+   "pass": true,
+   "detail": "6"
+  },
+  {
+   "check": "resnet8: training loss falls from epoch 1 to epoch 5 for every policy",
+   "pass": true,
+   "detail": "[('identity', 0.574, 0.562), ('uniform10', 0.794, 0.654), ('mixed', 1.139, 0.798), ('stem_heavy', 1.509, 1.032), ('conv_heavy', 1.777, 1.144), ('aggressive', 2.175, 1.46)]"
+  },
+  {
+   "check": "resnet8: VAL-RL accuracy after recovery >= before for every pruned policy",
+   "pass": true,
+   "detail": "[('identity', 78.92, 78.4), ('uniform10', 20.96, 76.84), ('mixed', 15.96, 72.8), ('stem_heavy', 10.6, 65.4), ('conv_heavy', 13.24, 59.0), ('aggressive', 9.76, 47.84)]"
+  },
+  {
+   "check": "resnet8: recovered state dict reloads into the policy skeleton (strict) with identical logits",
+   "pass": true,
+   "detail": ""
+  }
+ ],
+ "cpu": 4
+}

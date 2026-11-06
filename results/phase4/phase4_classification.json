@@ -1,0 +1,451 @@
+{
+ "generated": "2026-09-30T09:27:59+06:00",
+ "final_pipeline": {
+  "reward": "R0",
+  "prior": "P2",
+  "variant": "S2",
+  "selection_rule": "archive",
+  "search_condition": "S2A"
+ },
+ "stage_winners": {
+  "A": "R0",
+  "B": "P2",
+  "C": "S2A"
+ },
+ "criteria": {
+  "A_reward": {
+   "met": false,
+   "passing_rewards": [],
+   "detail": {
+    "R1a": {
+     "ratio": 0.28845943355613357,
+     "ratio_boot_ci95": [
+      0.23396870841222953,
+      0.3487626726418492
+     ],
+     "A1": true,
+     "mean_vrl_retention": {
+      "cifar10_simplecnn": 0.9938934603724556,
+      "cifar10_lenet5": 0.9463452566096423,
+      "cifar10_resnet8": 0.8902376910016978,
+      "cifar100_simplecnn": 0.9918266048974189,
+      "cifar100_lenet5": 0.8863863863863866,
+      "cifar100_resnet8": 0.675133282559025
+     },
+     "settings_retention_ok": 2,
+     "A2": false
+    },
+    "R1b": {
+     "ratio": 1.0476528764158035,
+     "ratio_boot_ci95": [
+      0.9851289720052971,
+      1.1201207667709425
+     ],
+     "A1": false,
+     "mean_vrl_retention": {
+      "cifar10_simplecnn": 0.9872022520571677,
+      "cifar10_lenet5": 0.9624416796267499,
+      "cifar10_resnet8": 0.9731536502546687,
+      "cifar100_simplecnn": 0.9843812045003311,
+      "cifar100_lenet5": 0.9750250250250252,
+      "cifar100_resnet8": 0.9890327494287894
+     },
+     "settings_retention_ok": 6,
+     "A2": true
+    },
+    "R2": {
+     "ratio": 0.657814722478187,
+     "ratio_boot_ci95": [
+      0.5652442097582687,
+      0.7485006133449686
+     ],
+     "A1": false,
+     "mean_vrl_retention": {
+      "cifar10_simplecnn": 0.9820485058466868,
+      "cifar10_lenet5": 0.9649300155520999,
+      "cifar10_resnet8": 0.9286714770797962,
+      "cifar100_simplecnn": 0.9774983454665787,
+      "cifar100_lenet5": 0.9511011011011012,
+      "cifar100_resnet8": 0.9282939832444784
+     },
+     "settings_retention_ok": 4,
+     "A2": false
+    }
+   }
+  },
+  "B_sensitivity_specific": {
+   "met": true,
+   "class": "STRONG"
+  },
+  "C_search": {
+   "met": true,
+   "settings_with_median_selected_rank_le_20": {
+    "S1": 6,
+    "S2": 0,
+    "S2A": 6
+   }
+  },
+  "D_final_model": {
+   "met": false,
+   "class": "LIMITED"
+  },
+  "E_lamp": {
+   "met": true,
+   "beats_class": "NOT SUPPORTED",
+   "noninferior_settings": 3
+  },
+  "phase4_successful": true
+ },
+ "statements": {
+  "B: P2 > P3 and P2 > P4 (rank AUC) [sensitivity-specific]": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 5,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B: P2 > P0 (rank AUC)": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "B: P1 > P0 (rank AUC)": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "B: P2 > P5 (rank AUC)": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S1 better final-selected V_RL rank than S0": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S2 better final-selected V_RL rank than S0": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S2A better final-selected V_RL rank than S0": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S2 better best-seen rank than S0": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 1,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "C: S1 better final-selected V_SELECT rank than S0": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S2 better final-selected V_SELECT rank than S0": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "C: S2A better final-selected V_SELECT rank than S0": {
+   "class": "STRONG",
+   "reversed": false,
+   "supported_in": 6,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "D: F > K on test excess over matched LAMP": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 2,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "opposite",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "D-GM: F > K on test excess over matched global magnitude": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "E: F > LAMP (test, matched)": {
+   "class": "NOT SUPPORTED",
+   "reversed": true,
+   "supported_in": 0,
+   "opposite_in": 6,
+   "per_setting": {
+    "cifar10_simplecnn": "opposite",
+    "cifar10_lenet5": "opposite",
+    "cifar10_resnet8": "opposite",
+    "cifar100_simplecnn": "opposite",
+    "cifar100_lenet5": "opposite",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "E-NI: F non-inferior to LAMP (0.5 pp)": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 3,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B-secondary vrl_auc: P2 better than P3 and P4": {
+   "class": "NOT SUPPORTED",
+   "reversed": true,
+   "supported_in": 0,
+   "opposite_in": 4,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "opposite",
+    "cifar10_resnet8": "opposite",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "opposite",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "B-secondary utility_auc: P2 better than P3 and P4": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 5,
+   "opposite_in": 1,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "opposite"
+   }
+  },
+  "B-secondary destructive_frequency: P2 better than P3 and P4": {
+   "class": "MODERATE",
+   "reversed": false,
+   "supported_in": 4,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "supported",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "supported",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B-secondary first_episode_top100: P2 better than P3 and P4": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B-secondary first_episode_top50: P2 better than P3 and P4": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B-secondary best_seen_rank: P2 better than P3 and P4": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 1,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "B-secondary final_rank_vrl: P2 better than P3 and P4": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "A-regret: R1a lower final frontier regret than R0": {
+   "class": "LIMITED",
+   "reversed": false,
+   "supported_in": 1,
+   "opposite_in": 2,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "opposite",
+    "cifar100_simplecnn": "opposite",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "supported"
+   }
+  },
+  "A-regret: R1b lower final frontier regret than R0": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 1,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "opposite",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  },
+  "A-regret: R2 lower final frontier regret than R0": {
+   "class": "NOT SUPPORTED",
+   "reversed": false,
+   "supported_in": 0,
+   "opposite_in": 0,
+   "per_setting": {
+    "cifar10_simplecnn": "inconclusive",
+    "cifar10_lenet5": "inconclusive",
+    "cifar10_resnet8": "inconclusive",
+    "cifar100_simplecnn": "inconclusive",
+    "cifar100_lenet5": "inconclusive",
+    "cifar100_resnet8": "inconclusive"
+   }
+  }
+ }
+}

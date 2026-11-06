@@ -1,0 +1,241 @@
+setting,seed,pair,only_first_correct,only_second_correct,p,significant_first_better,significant_second_better
+cifar10_simplecnn,300,P1 vs P0,84,100,0.2687598253244301,False,False
+cifar10_simplecnn,300,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,301,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,301,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,302,P1 vs P0,100,84,0.2687598253244301,False,False
+cifar10_simplecnn,302,P0 vs matched global,311,297,0.59807743582957529,False,False
+cifar10_simplecnn,303,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,303,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,304,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,304,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,305,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,305,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,306,P1 vs P0,100,84,0.2687598253244301,False,False
+cifar10_simplecnn,306,P0 vs matched global,311,297,0.59807743582957529,False,False
+cifar10_simplecnn,307,P1 vs P0,10,17,0.24778856337070521,False,False
+cifar10_simplecnn,307,P0 vs matched global,60,44,0.14095628821231371,False,False
+cifar10_simplecnn,308,P1 vs P0,303,445,2.3365077513471054e-07,False,True
+cifar10_simplecnn,308,P0 vs matched global,146,155,0.64479057054166578,False,False
+cifar10_simplecnn,309,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,309,P0 vs matched global,305,289,0.53828821145062733,False,False
+cifar10_simplecnn,310,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,310,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,311,P1 vs P0,112,97,0.33285773410056463,False,False
+cifar10_simplecnn,311,P0 vs matched global,305,289,0.53828821145062733,False,False
+cifar10_simplecnn,312,P1 vs P0,337,212,1.0707008921924072e-07,True,False
+cifar10_simplecnn,312,P0 vs matched global,372,474,0.00050847172473515961,False,True
+cifar10_simplecnn,313,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,313,P0 vs matched global,311,297,0.59807743582957529,False,False
+cifar10_simplecnn,314,P1 vs P0,252,264,0.62825251579507091,False,False
+cifar10_simplecnn,314,P0 vs matched global,146,155,0.64479057054166578,False,False
+cifar10_simplecnn,315,P1 vs P0,351,221,6.0861110812371783e-08,True,False
+cifar10_simplecnn,315,P0 vs matched global,372,474,0.00050847172473515961,False,True
+cifar10_simplecnn,316,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,316,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_simplecnn,317,P1 vs P0,100,84,0.2687598253244301,False,False
+cifar10_simplecnn,317,P0 vs matched global,311,297,0.59807743582957529,False,False
+cifar10_simplecnn,318,P1 vs P0,0,0,1,False,False
+cifar10_simplecnn,318,P0 vs matched global,372,474,0.00050847172473515961,False,True
+cifar10_simplecnn,319,P1 vs P0,54,59,0.70688226149197697,False,False
+cifar10_simplecnn,319,P0 vs matched global,312,301,0.68632294089647305,False,False
+cifar10_lenet5,300,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,300,P0 vs matched global,1035,702,1.3477472539616951e-15,True,False
+cifar10_lenet5,301,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,301,P0 vs matched global,1051,588,1.4988942657638929e-30,True,False
+cifar10_lenet5,302,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,302,P0 vs matched global,1006,597,1.2302831757033236e-24,True,False
+cifar10_lenet5,303,P1 vs P0,1501,537,5.1341926505463351e-105,True,False
+cifar10_lenet5,303,P0 vs matched global,924,1346,7.8879527419620486e-19,False,True
+cifar10_lenet5,304,P1 vs P0,126,121,0.79916098216006881,False,False
+cifar10_lenet5,304,P0 vs matched global,1006,597,1.2302831757033236e-24,True,False
+cifar10_lenet5,305,P1 vs P0,77,96,0.17097186370126233,False,False
+cifar10_lenet5,305,P0 vs matched global,1028,571,1.6136636980664658e-30,True,False
+cifar10_lenet5,306,P1 vs P0,115,103,0.45634100150935636,False,False
+cifar10_lenet5,306,P0 vs matched global,1006,597,1.2302831757033236e-24,True,False
+cifar10_lenet5,307,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,307,P0 vs matched global,541,338,7.7441338010313769e-12,True,False
+cifar10_lenet5,308,P1 vs P0,598,785,5.4769495462682595e-07,False,True
+cifar10_lenet5,308,P0 vs matched global,354,372,0.52811543368691272,False,False
+cifar10_lenet5,309,P1 vs P0,357,236,7.6466364804989111e-07,True,False
+cifar10_lenet5,309,P0 vs matched global,367,296,0.006513066402231313,True,False
+cifar10_lenet5,310,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,310,P0 vs matched global,1006,597,1.2302831757033236e-24,True,False
+cifar10_lenet5,311,P1 vs P0,353,232,6.4132315402382072e-07,True,False
+cifar10_lenet5,311,P0 vs matched global,1035,702,1.3477472539616951e-15,True,False
+cifar10_lenet5,312,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,312,P0 vs matched global,1035,702,1.3477472539616951e-15,True,False
+cifar10_lenet5,313,P1 vs P0,482,573,0.0055655540201852973,False,True
+cifar10_lenet5,313,P0 vs matched global,367,296,0.006513066402231313,True,False
+cifar10_lenet5,314,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,314,P0 vs matched global,1051,588,1.4988942657638929e-30,True,False
+cifar10_lenet5,315,P1 vs P0,93,96,0.8843829672609973,False,False
+cifar10_lenet5,315,P0 vs matched global,541,338,7.7441338010313769e-12,True,False
+cifar10_lenet5,316,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,316,P0 vs matched global,846,440,4.7036031051609225e-30,True,False
+cifar10_lenet5,317,P1 vs P0,482,573,0.0055655540201852973,False,True
+cifar10_lenet5,317,P0 vs matched global,367,296,0.006513066402231313,True,False
+cifar10_lenet5,318,P1 vs P0,662,487,2.7077589059986986e-07,True,False
+cifar10_lenet5,318,P0 vs matched global,846,440,4.7036031051609225e-30,True,False
+cifar10_lenet5,319,P1 vs P0,0,0,1,False,False
+cifar10_lenet5,319,P0 vs matched global,1051,588,1.4988942657638929e-30,True,False
+cifar10_resnet8,300,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,300,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,301,P1 vs P0,145,109,0.027887436371125108,True,False
+cifar10_resnet8,301,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,302,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,302,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,303,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,303,P0 vs matched global,1123,531,7.1220708267114132e-49,True,False
+cifar10_resnet8,304,P1 vs P0,297,395,0.00022160633839580075,False,True
+cifar10_resnet8,304,P0 vs matched global,911,470,7.030217046877651e-33,True,False
+cifar10_resnet8,305,P1 vs P0,145,109,0.027887436371125108,True,False
+cifar10_resnet8,305,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,306,P1 vs P0,376,381,0.88442129438463324,False,False
+cifar10_resnet8,306,P0 vs matched global,1123,531,7.1220708267114132e-49,True,False
+cifar10_resnet8,307,P1 vs P0,60,56,0.78073912847625349,False,False
+cifar10_resnet8,307,P0 vs matched global,1571,639,5.2742340334223185e-90,True,False
+cifar10_resnet8,308,P1 vs P0,116,88,0.058441136475936753,False,False
+cifar10_resnet8,308,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,309,P1 vs P0,376,381,0.88442129438463324,False,False
+cifar10_resnet8,309,P0 vs matched global,1123,531,7.1220708267114132e-49,True,False
+cifar10_resnet8,310,P1 vs P0,265,387,2.0152883510197793e-06,False,True
+cifar10_resnet8,310,P0 vs matched global,239,228,0.64359399739925993,False,False
+cifar10_resnet8,311,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,311,P0 vs matched global,1430,638,1.8099021951119048e-69,True,False
+cifar10_resnet8,312,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,312,P0 vs matched global,1123,531,7.1220708267114132e-49,True,False
+cifar10_resnet8,313,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,313,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,314,P1 vs P0,165,202,0.060071642653618376,False,False
+cifar10_resnet8,314,P0 vs matched global,1111,392,1.0567127874530891e-79,True,False
+cifar10_resnet8,315,P1 vs P0,63,71,0.5455343664798713,False,False
+cifar10_resnet8,315,P0 vs matched global,1430,638,1.8099021951119048e-69,True,False
+cifar10_resnet8,316,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,316,P0 vs matched global,1430,638,1.8099021951119048e-69,True,False
+cifar10_resnet8,317,P1 vs P0,376,381,0.88442129438463324,False,False
+cifar10_resnet8,317,P0 vs matched global,1123,531,7.1220708267114132e-49,True,False
+cifar10_resnet8,318,P1 vs P0,0,0,1,False,False
+cifar10_resnet8,318,P0 vs matched global,1558,637,1.7097422970384391e-88,True,False
+cifar10_resnet8,319,P1 vs P0,142,121,0.21740606879239951,False,False
+cifar10_resnet8,319,P0 vs matched global,1429,558,1.0571488011740299e-87,True,False
+cifar100_simplecnn,300,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,300,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,301,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,301,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,302,P1 vs P0,368,244,6.0919641312784293e-07,True,False
+cifar100_simplecnn,302,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,303,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,303,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,304,P1 vs P0,368,244,6.0919641312784293e-07,True,False
+cifar100_simplecnn,304,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,305,P1 vs P0,244,371,3.4297291555527075e-07,False,True
+cifar100_simplecnn,305,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_simplecnn,306,P1 vs P0,124,134,0.57534961598883227,False,False
+cifar100_simplecnn,306,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,307,P1 vs P0,265,375,1.5704925587076172e-05,False,True
+cifar100_simplecnn,307,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_simplecnn,308,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,308,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,309,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,309,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,310,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,310,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_simplecnn,311,P1 vs P0,121,138,0.32013217466295152,False,False
+cifar100_simplecnn,311,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,312,P1 vs P0,253,370,3.1557971162591422e-06,False,True
+cifar100_simplecnn,312,P0 vs matched global,208,163,0.022222654956449095,True,False
+cifar100_simplecnn,313,P1 vs P0,124,134,0.57534961598883227,False,False
+cifar100_simplecnn,313,P0 vs matched global,280,298,0.47953195662486137,False,False
+cifar100_simplecnn,314,P1 vs P0,244,371,3.4297291555527075e-07,False,True
+cifar100_simplecnn,314,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_simplecnn,315,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,315,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_simplecnn,316,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,316,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,317,P1 vs P0,252,340,0.00034142244608620186,False,True
+cifar100_simplecnn,317,P0 vs matched global,217,189,0.18017843244096035,False,False
+cifar100_simplecnn,318,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,318,P0 vs matched global,287,326,0.12476211635083301,False,False
+cifar100_simplecnn,319,P1 vs P0,0,0,1,False,False
+cifar100_simplecnn,319,P0 vs matched global,213,171,0.036276789077330972,True,False
+cifar100_lenet5,300,P1 vs P0,257,230,0.23869684989091952,False,False
+cifar100_lenet5,300,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,301,P1 vs P0,290,258,0.18536828712920941,False,False
+cifar100_lenet5,301,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,302,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,302,P0 vs matched global,554,408,2.8201244946947453e-06,True,False
+cifar100_lenet5,303,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,303,P0 vs matched global,332,334,0.96909420472052499,False,False
+cifar100_lenet5,304,P1 vs P0,386,298,0.00086649254461463644,True,False
+cifar100_lenet5,304,P0 vs matched global,273,369,0.00017281870158193562,False,True
+cifar100_lenet5,305,P1 vs P0,290,258,0.18536828712920941,False,False
+cifar100_lenet5,305,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,306,P1 vs P0,359,615,2.0714200654429657e-16,False,True
+cifar100_lenet5,306,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,307,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,307,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,308,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,308,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,309,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,309,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,310,P1 vs P0,224,199,0.24320936158440737,False,False
+cifar100_lenet5,310,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,311,P1 vs P0,362,599,1.9888632175703353e-14,False,True
+cifar100_lenet5,311,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,312,P1 vs P0,382,633,3.0961909105480901e-15,False,True
+cifar100_lenet5,312,P0 vs matched global,344,355,0.70528499502252318,False,False
+cifar100_lenet5,313,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,313,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,314,P1 vs P0,202,235,0.12572992925876875,False,False
+cifar100_lenet5,314,P0 vs matched global,328,329,1,False,False
+cifar100_lenet5,315,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,315,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,316,P1 vs P0,85,84,0.99999999999995737,False,False
+cifar100_lenet5,316,P0 vs matched global,350,351,0.99999999999954525,False,False
+cifar100_lenet5,317,P1 vs P0,373,316,0.032814275438910412,True,False
+cifar100_lenet5,317,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,318,P1 vs P0,0,0,1,False,False
+cifar100_lenet5,318,P0 vs matched global,292,329,0.14850259617218148,False,False
+cifar100_lenet5,319,P1 vs P0,357,601,2.9411661819233596e-15,False,True
+cifar100_lenet5,319,P0 vs matched global,328,329,1,False,False
+cifar100_resnet8,300,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,300,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,301,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,301,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,302,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,302,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,303,P1 vs P0,285,185,4.5864250627606698e-06,True,False
+cifar100_resnet8,303,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,304,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,304,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,305,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,305,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,306,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,306,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,307,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,307,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,308,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,308,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,309,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,309,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,310,P1 vs P0,285,185,4.5864250627606698e-06,True,False
+cifar100_resnet8,310,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,311,P1 vs P0,258,176,9.6671042805788248e-05,True,False
+cifar100_resnet8,311,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,312,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,312,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,313,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,313,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,314,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,314,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,315,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,315,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,316,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,316,P0 vs matched global,316,241,0.0016914999491134198,True,False
+cifar100_resnet8,317,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,317,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,318,P1 vs P0,169,220,0.011146744078133434,False,True
+cifar100_resnet8,318,P0 vs matched global,180,155,0.18969092553329753,False,False
+cifar100_resnet8,319,P1 vs P0,0,0,1,False,False
+cifar100_resnet8,319,P0 vs matched global,180,155,0.18969092553329753,False,False

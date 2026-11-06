@@ -1,0 +1,98 @@
+{
+ "setting": "cifar10_simplecnn",
+ "arch": "simplecnn",
+ "policy": [
+  0,
+  2,
+  1,
+  5
+ ],
+ "status": "complete",
+ "widths": [
+  32,
+  51,
+  115,
+  102
+ ],
+ "params": 257347,
+ "macs": 8211804,
+ "shape_unchanged": true,
+ "pre": {
+  "val_rl": 68.0,
+  "val_select": 69.32
+ },
+ "post": {
+  "val_rl": 80.56,
+  "val_select": 79.4
+ },
+ "train_loss": [
+  0.612834291405148,
+  0.5735996469815572,
+  0.5625167016877068,
+  0.5547180850664775,
+  0.5476012514220344
+ ],
+ "train_accuracy": [
+  78.8,
+  79.90222222222222,
+  80.36444444444444,
+  80.59555555555555,
+  80.89333333333333
+ ],
+ "lr": [
+  0.0001,
+  9.045084971874738e-05,
+  6.545084971874737e-05,
+  3.454915028125263e-05,
+  9.549150281252631e-06
+ ],
+ "epochs": 5,
+ "resumed_from_epoch": 0,
+ "data_stream_sha256": "2cc04b82c1d53921376b2eeedd752f2a853f07d720bc629308ba9563660df9fa",
+ "final_state_sha256": "d505e40d7329da5075c129b73e944869c8540a75d26263b0beb0ca2b84f6e61f",
+ "recovery": {
+  "protocol": {
+   "optimizer": "Adam",
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.999
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.0,
+   "schedule": "CosineAnnealingLR(T_max=epochs, eta_min=0), stepped per epoch",
+   "batch_size": 128,
+   "augmentation": "random crop 32 (zero pad 4) + horizontal flip",
+   "batchnorm": "train mode during fine-tuning (running statistics updated identically for every method); eval mode for every evaluation; no separate recalibration",
+   "selection": "none: the model after the final epoch"
+  },
+  "epochs": 5,
+  "seed": 600,
+  "data_generator_seed": 1000600
+ },
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "threads": 1,
+ "cpu_affinity": [
+  4
+ ],
+ "seconds": 498.1,
+ "train_seconds": 485.6,
+ "peak_memory_mb": 694.5,
+ "started_at": "2026-10-24T10:31:45+06:00",
+ "finished_at": "2026-10-24T10:40:03+06:00",
+ "test_use": "none",
+ "preregistration_sha256": "3eb86bd104b3c7d67086c41d5bea39cb3b3b26506a4f3f5f95f439eb304522fc",
+ "code_sha256": {
+  "h2_recovery.py": "2bb3a0b5eb443e899d6df6f7b5458de2a3f54311e249e6e8265387a37e3a7252",
+  "p3_lib.py": "240f0e29cac732a78de9d2d1e6432f9303573298a743149e43ef1cffea78e9ef",
+  "phase6_lib.py": "588b3473ba26b35ed08f2c86a876ee95d37ac688ac465052994ce8a712fc80c1",
+  "structured_units.py": "805259778aa9de3741d7386f346acb85af381b667b1d303faecebdbbbb6dee61"
+ },
+ "git": {
+  "commit": "7bfb144a63954e43e958464420fce7aed6dfad70",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? checkpoints/phase6_finetuned/"
+  ]
+ }
+}

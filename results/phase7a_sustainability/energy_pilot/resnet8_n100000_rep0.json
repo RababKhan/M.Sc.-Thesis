@@ -1,0 +1,78 @@
+{
+ "arch": "resnet8",
+ "session": "pilot0",
+ "order_seed": null,
+ "order": [
+  "dense"
+ ],
+ "n": 100000,
+ "blocks_per_model": 3,
+ "warmup": 1000,
+ "started_at": "2026-10-26T10:06:42+06:00",
+ "blocks": [
+  {
+   "model": "dense",
+   "block": 0,
+   "at": "2026-10-26T10:08:25+06:00",
+   "seconds": 70.59329170000001,
+   "pkg_j": 1079.345467998,
+   "pp0_j": 875.4135620004,
+   "pkg_counter_ms": 70594,
+   "e1000_j": 10.79345467998,
+   "pkg_w": 15.28963222999842,
+   "net_e1000_j": 8.569512214806576,
+   "latency_median_ms": 0.7067,
+   "latency_mean_ms": 0.705171981,
+   "latency_p95_ms": 0.7468,
+   "latency_iqr_ms": 0.0397
+  },
+  {
+   "model": "dense",
+   "block": 1,
+   "at": "2026-10-26T10:09:40+06:00",
+   "seconds": 74.8844342,
+   "pkg_j": 1048.8504700008,
+   "pp0_j": 824.5657310004,
+   "pkg_counter_ms": 74885,
+   "e1000_j": 10.488504700008,
+   "pkg_w": 14.006254853973378,
+   "net_e1000_j": 8.129375819807827,
+   "latency_median_ms": 0.7455999999999999,
+   "latency_mean_ms": 0.748033204,
+   "latency_p95_ms": 0.7752,
+   "latency_iqr_ms": 0.011099999999999999
+  },
+  {
+   "model": "dense",
+   "block": 2,
+   "at": "2026-10-26T10:10:55+06:00",
+   "seconds": 75.2187609,
+   "pkg_j": 1055.5202710008,
+   "pp0_j": 829.9645359984,
+   "pkg_counter_ms": 75219,
+   "e1000_j": 10.555202710008,
+   "pkg_w": 14.032672944507384,
+   "net_e1000_j": 8.185541336882988,
+   "latency_median_ms": 0.746,
+   "latency_mean_ms": 0.751364133,
+   "latency_p95_ms": 0.7948,
+   "latency_iqr_ms": 0.0112
+  }
+ ],
+ "idle": {
+  "seconds": 30.000907599925995,
+  "pkg_j": 94.513644,
+  "pp0_j": 25.416565002,
+  "pkg_w": 3.1503594911319666
+ },
+ "finished_at": "2026-10-26T10:11:00+06:00",
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpu_affinity": [
+   2
+  ],
+  "torch": "2.7.1+cpu",
+  "mkldnn_enabled": true
+ }
+}

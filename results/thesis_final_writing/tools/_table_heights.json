@@ -1,0 +1,442 @@
+﻿[
+    {
+        "index":  8,
+        "kind":  "content",
+        "label":  "1.1",
+        "p1":  31,
+        "y1":  253.9,
+        "pn":  31,
+        "yn":  361.9,
+        "land":  0
+    },
+    {
+        "index":  9,
+        "kind":  "content",
+        "label":  "2.1",
+        "p1":  41,
+        "y1":  158.25,
+        "pn":  42,
+        "yn":  428.65,
+        "land":  1
+    },
+    {
+        "index":  10,
+        "kind":  "content",
+        "label":  "3.1",
+        "p1":  52,
+        "y1":  124.5,
+        "pn":  52,
+        "yn":  559.15,
+        "land":  0
+    },
+    {
+        "index":  14,
+        "kind":  "content",
+        "label":  "3.2",
+        "p1":  55,
+        "y1":  150.4,
+        "pn":  55,
+        "yn":  232.15,
+        "land":  0
+    },
+    {
+        "index":  16,
+        "kind":  "content",
+        "label":  "3.3",
+        "p1":  57,
+        "y1":  97.15,
+        "pn":  57,
+        "yn":  390,
+        "land":  0
+    },
+    {
+        "index":  28,
+        "kind":  "content",
+        "label":  "3.4",
+        "p1":  64,
+        "y1":  97.15,
+        "pn":  64,
+        "yn":  312,
+        "land":  0
+    },
+    {
+        "index":  33,
+        "kind":  "code",
+        "label":  "algorithm",
+        "p1":  68,
+        "y1":  124.5,
+        "pn":  68,
+        "yn":  124.5,
+        "land":  0
+    },
+    {
+        "index":  34,
+        "kind":  "code",
+        "label":  "algorithm",
+        "p1":  69,
+        "y1":  652.9,
+        "pn":  69,
+        "yn":  652.9,
+        "land":  0
+    },
+    {
+        "index":  36,
+        "kind":  "content",
+        "label":  "4.1",
+        "p1":  72,
+        "y1":  421.9,
+        "pn":  72,
+        "yn":  534.75,
+        "land":  0
+    },
+    {
+        "index":  37,
+        "kind":  "content",
+        "label":  "4.2",
+        "p1":  73,
+        "y1":  97.15,
+        "pn":  73,
+        "yn":  489,
+        "land":  0
+    },
+    {
+        "index":  38,
+        "kind":  "content",
+        "label":  "4.3",
+        "p1":  74,
+        "y1":  304.15,
+        "pn":  74,
+        "yn":  406.5,
+        "land":  0
+    },
+    {
+        "index":  39,
+        "kind":  "content",
+        "label":  "4.4",
+        "p1":  75,
+        "y1":  178.15,
+        "pn":  75,
+        "yn":  289.5,
+        "land":  0
+    },
+    {
+        "index":  40,
+        "kind":  "content",
+        "label":  "4.5",
+        "p1":  78,
+        "y1":  97.15,
+        "pn":  78,
+        "yn":  495.75,
+        "land":  0
+    },
+    {
+        "index":  41,
+        "kind":  "content",
+        "label":  "4.6",
+        "p1":  79,
+        "y1":  97.15,
+        "pn":  79,
+        "yn":  472.5,
+        "land":  0
+    },
+    {
+        "index":  42,
+        "kind":  "content",
+        "label":  "4.7",
+        "p1":  80,
+        "y1":  117,
+        "pn":  80,
+        "yn":  316.15,
+        "land":  1
+    },
+    {
+        "index":  43,
+        "kind":  "content",
+        "label":  "4.8",
+        "p1":  85,
+        "y1":  330.4,
+        "pn":  85,
+        "yn":  461.25,
+        "land":  0
+    },
+    {
+        "index":  44,
+        "kind":  "content",
+        "label":  "4.9",
+        "p1":  87,
+        "y1":  111,
+        "pn":  88,
+        "yn":  92.25,
+        "land":  0
+    },
+    {
+        "index":  45,
+        "kind":  "content",
+        "label":  "4.10",
+        "p1":  90,
+        "y1":  142.5,
+        "pn":  90,
+        "yn":  542.65,
+        "land":  0
+    },
+    {
+        "index":  46,
+        "kind":  "content",
+        "label":  "4.11",
+        "p1":  91,
+        "y1":  97.15,
+        "pn":  91,
+        "yn":  292.15,
+        "land":  0
+    },
+    {
+        "index":  47,
+        "kind":  "content",
+        "label":  "5.1",
+        "p1":  95,
+        "y1":  443.25,
+        "pn":  95,
+        "yn":  554.65,
+        "land":  0
+    },
+    {
+        "index":  48,
+        "kind":  "content",
+        "label":  "5.2",
+        "p1":  96,
+        "y1":  267.75,
+        "pn":  96,
+        "yn":  433.5,
+        "land":  0
+    },
+    {
+        "index":  49,
+        "kind":  "content",
+        "label":  "5.3",
+        "p1":  102,
+        "y1":  138.4,
+        "pn":  102,
+        "yn":  260.25,
+        "land":  0
+    },
+    {
+        "index":  50,
+        "kind":  "content",
+        "label":  "5.4",
+        "p1":  105,
+        "y1":  240,
+        "pn":  105,
+        "yn":  466.15,
+        "land":  0
+    },
+    {
+        "index":  51,
+        "kind":  "content",
+        "label":  "5.5",
+        "p1":  106,
+        "y1":  514.15,
+        "pn":  106,
+        "yn":  625.5,
+        "land":  0
+    },
+    {
+        "index":  52,
+        "kind":  "content",
+        "label":  "5.6",
+        "p1":  108,
+        "y1":  480.4,
+        "pn":  108,
+        "yn":  546,
+        "land":  0
+    },
+    {
+        "index":  53,
+        "kind":  "content",
+        "label":  "5.7",
+        "p1":  110,
+        "y1":  111,
+        "pn":  110,
+        "yn":  311.65,
+        "land":  0
+    },
+    {
+        "index":  54,
+        "kind":  "content",
+        "label":  "5.8",
+        "p1":  113,
+        "y1":  142.5,
+        "pn":  113,
+        "yn":  324.4,
+        "land":  0
+    },
+    {
+        "index":  55,
+        "kind":  "content",
+        "label":  "6.1",
+        "p1":  117,
+        "y1":  124.5,
+        "pn":  117,
+        "yn":  223.15,
+        "land":  0
+    },
+    {
+        "index":  56,
+        "kind":  "content",
+        "label":  "6.2",
+        "p1":  120,
+        "y1":  97.15,
+        "pn":  120,
+        "yn":  270.75,
+        "land":  0
+    },
+    {
+        "index":  57,
+        "kind":  "content",
+        "label":  "6.3",
+        "p1":  122,
+        "y1":  130.5,
+        "pn":  122,
+        "yn":  276.75,
+        "land":  1
+    },
+    {
+        "index":  58,
+        "kind":  "content",
+        "label":  "6.4",
+        "p1":  126,
+        "y1":  156.4,
+        "pn":  126,
+        "yn":  271.5,
+        "land":  0
+    },
+    {
+        "index":  59,
+        "kind":  "content",
+        "label":  "6.5",
+        "p1":  129,
+        "y1":  182.25,
+        "pn":  129,
+        "yn":  461.25,
+        "land":  0
+    },
+    {
+        "index":  60,
+        "kind":  "content",
+        "label":  "7.1",
+        "p1":  140,
+        "y1":  268.5,
+        "pn":  140,
+        "yn":  504.4,
+        "land":  0
+    },
+    {
+        "index":  61,
+        "kind":  "content",
+        "label":  "8.1",
+        "p1":  147,
+        "y1":  97.15,
+        "pn":  147,
+        "yn":  343.15,
+        "land":  0
+    },
+    {
+        "index":  62,
+        "kind":  "content",
+        "label":  "A.1",
+        "p1":  159,
+        "y1":  289.15,
+        "pn":  159,
+        "yn":  552.4,
+        "land":  0
+    },
+    {
+        "index":  63,
+        "kind":  "content",
+        "label":  "A.2",
+        "p1":  160,
+        "y1":  186.4,
+        "pn":  160,
+        "yn":  306,
+        "land":  0
+    },
+    {
+        "index":  64,
+        "kind":  "content",
+        "label":  "A.3",
+        "p1":  160,
+        "y1":  359.25,
+        "pn":  160,
+        "yn":  586.15,
+        "land":  0
+    },
+    {
+        "index":  65,
+        "kind":  "content",
+        "label":  "B.1",
+        "p1":  162,
+        "y1":  188.25,
+        "pn":  162,
+        "yn":  291.75,
+        "land":  0
+    },
+    {
+        "index":  66,
+        "kind":  "content",
+        "label":  "B.2",
+        "p1":  162,
+        "y1":  402.75,
+        "pn":  162,
+        "yn":  579.75,
+        "land":  0
+    },
+    {
+        "index":  67,
+        "kind":  "content",
+        "label":  "C.1",
+        "p1":  163,
+        "y1":  188.25,
+        "pn":  163,
+        "yn":  307.9,
+        "land":  0
+    },
+    {
+        "index":  68,
+        "kind":  "content",
+        "label":  "D.1",
+        "p1":  164,
+        "y1":  188.25,
+        "pn":  164,
+        "yn":  249,
+        "land":  0
+    },
+    {
+        "index":  69,
+        "kind":  "content",
+        "label":  "D.2",
+        "p1":  164,
+        "y1":  372.75,
+        "pn":  164,
+        "yn":  467.65,
+        "land":  0
+    },
+    {
+        "index":  70,
+        "kind":  "content",
+        "label":  "E.1",
+        "p1":  165,
+        "y1":  174.4,
+        "pn":  165,
+        "yn":  309,
+        "land":  0
+    },
+    {
+        "index":  71,
+        "kind":  "content",
+        "label":  "E.2",
+        "p1":  165,
+        "y1":  420.4,
+        "pn":  165,
+        "yn":  583.5,
+        "land":  0
+    }
+]

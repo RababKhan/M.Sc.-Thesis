@@ -1,0 +1,303 @@
+{
+ "created": "2026-10-26T09:31:21+06:00",
+ "sources": {
+  "phase5_final_policies.json": "d04c8556a9500a7c5d1b714ab320400f33def2a328334ee0fe4119e3e1b92a49",
+  "phase6_matched_masks.csv": "ef16fdcf11d85373fec05297d1c72877b32b2348e5ac304977b1acfdb49d7d3b"
+ },
+ "realization_rule": "structured unit k keeps max(1, round((1 - r_k) * C_k)) channels with the largest L1 norm (src/pruning/structured_units.py); thesis unit k -> structured unit k by index",
+ "settings": {
+  "cifar10_simplecnn": {
+   "arch": "simplecnn",
+   "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+   "ppo_source": {
+    "condition": "C1 (Phase 5; the policy fine-tuned in Phase 6)",
+    "seeds": "500-519",
+    "policy_counts": {
+     "[0, 2, 5, 5]": 3,
+     "[0, 5, 4, 5]": 2,
+     "[0, 3, 5, 5]": 2,
+     "[1, 0, 5, 5]": 2,
+     "[1, 1, 5, 5]": 2,
+     "[1, 2, 2, 5]": 1,
+     "[1, 3, 4, 5]": 1,
+     "[1, 1, 4, 5]": 1,
+     "[0, 0, 5, 5]": 1,
+     "[2, 1, 2, 5]": 1,
+     "[1, 2, 4, 5]": 1,
+     "[1, 4, 3, 5]": 1,
+     "[1, 1, 2, 5]": 1,
+     "[0, 3, 4, 5]": 1
+    },
+    "selected": [
+     0,
+     2,
+     5,
+     5
+    ],
+    "frequency": "3/20",
+    "seeds_with_policy": [
+     507,
+     510,
+     519
+    ]
+   },
+   "methods": {
+    "dense": {
+     "structured_ratios": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "widths": [
+      32,
+      64,
+      128,
+      256
+     ],
+     "macs": 10848768,
+     "params": 620362,
+     "mac_reduction": 0.0,
+     "param_reduction": 0.0,
+     "origin": "identity policy"
+    },
+    "ppo": {
+     "structured_ratios": [
+      0.0,
+      0.2,
+      0.6,
+      0.6
+     ],
+     "widths": [
+      32,
+      51,
+      51,
+      102
+     ],
+     "macs": 6227292,
+     "params": 123459,
+     "mac_reduction": 0.4259908590542263,
+     "param_reduction": 0.800988777520222,
+     "actions": [
+      0,
+      2,
+      5,
+      5
+     ],
+     "thesis_unit_ratios": [
+      0.0,
+      0.2,
+      0.6,
+      0.6
+     ],
+     "origin": "most frequent Phase-5 C1 policy; action ratios realized as structured channel removal",
+     "rounding": "channels = max(1, round((1 - r) C)); widths above"
+    },
+    "uniform": {
+     "structured_ratios": [
+      0.256,
+      0.256,
+      0.256,
+      0.256
+     ],
+     "widths": [
+      24,
+      48,
+      95,
+      190
+     ],
+     "macs": 6235020,
+     "params": 343123,
+     "mac_reduction": 0.4252785201047713,
+     "param_reduction": 0.4468987462159191,
+     "matching": "MAC reduction",
+     "mac_gap_to_ppo": 7728,
+     "mac_gap_relative": 0.00124098886000528,
+     "origin": "common ratio on a 0.001 grid minimizing |MACs - MACs_PPO|, ties -> smallest ratio"
+    },
+    "lamp": {
+     "structured_ratios": [
+      0.011574,
+      0.094564,
+      0.204319,
+      0.65933
+     ],
+     "widths": [
+      32,
+      58,
+      102,
+      87
+     ],
+     "macs": 8711430,
+     "params": 213955,
+     "mac_reduction": 0.19701204781962334,
+     "param_reduction": 0.6551126600275323,
+     "thesis_unit_ratios": [
+      0.011574,
+      0.094564,
+      0.204319,
+      0.65933
+     ],
+     "thesis_unit_zero_counts": [
+      10,
+      1743,
+      15064,
+      345679
+     ],
+     "ppo_thesis_unit_zero_counts": [
+      0,
+      3686,
+      44237,
+      314573
+     ],
+     "origin": "Phase-6 LAMP mask at exactly PPO's zero count; per-unit sparsity realized as structured channel removal"
+    }
+   }
+  },
+  "cifar10_resnet8": {
+   "arch": "resnet8",
+   "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+   "ppo_source": {
+    "condition": "C1 (Phase 5; the policy fine-tuned in Phase 6)",
+    "seeds": "500-519",
+    "policy_counts": {
+     "[1, 1, 1, 3]": 9,
+     "[0, 2, 1, 3]": 5,
+     "[0, 0, 1, 3]": 3,
+     "[1, 1, 0, 3]": 3
+    },
+    "selected": [
+     1,
+     1,
+     1,
+     3
+    ],
+    "frequency": "9/20",
+    "seeds_with_policy": [
+     500,
+     501,
+     503,
+     506,
+     508,
+     510,
+     514,
+     515,
+     518
+    ]
+   },
+   "methods": {
+    "dense": {
+     "structured_ratios": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "widths": [
+      16,
+      16,
+      32,
+      64
+     ],
+     "macs": 12501632,
+     "params": 78042,
+     "mac_reduction": 0.0,
+     "param_reduction": 0.0,
+     "origin": "identity policy"
+    },
+    "ppo": {
+     "structured_ratios": [
+      0.1,
+      0.1,
+      0.1,
+      0.3
+     ],
+     "widths": [
+      14,
+      14,
+      29,
+      45
+     ],
+     "macs": 9808000,
+     "params": 58554,
+     "mac_reduction": 0.2154624292252404,
+     "param_reduction": 0.24971169370339052,
+     "actions": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "thesis_unit_ratios": [
+      0.1,
+      0.1,
+      0.1,
+      0.3
+     ],
+     "origin": "most frequent Phase-5 C1 policy; action ratios realized as structured channel removal",
+     "rounding": "channels = max(1, round((1 - r) C)); widths above"
+    },
+    "uniform": {
+     "structured_ratios": [
+      0.149,
+      0.149,
+      0.149,
+      0.149
+     ],
+     "widths": [
+      14,
+      14,
+      27,
+      54
+     ],
+     "macs": 10093696,
+     "params": 65516,
+     "mac_reduction": 0.1926097328732761,
+     "param_reduction": 0.16050331872581436,
+     "matching": "MAC reduction",
+     "mac_gap_to_ppo": 285696,
+     "mac_gap_relative": 0.029128874388254487,
+     "origin": "common ratio on a 0.001 grid minimizing |MACs - MACs_PPO|, ties -> smallest ratio"
+    },
+    "lamp": {
+     "structured_ratios": [
+      0.032407,
+      0.083116,
+      0.146833,
+      0.290144
+     ],
+     "widths": [
+      15,
+      15,
+      27,
+      45
+     ],
+     "macs": 10228608,
+     "params": 58552,
+     "mac_reduction": 0.18181818181818177,
+     "param_reduction": 0.24973732092975576,
+     "thesis_unit_ratios": [
+      0.032407,
+      0.083116,
+      0.146833,
+      0.290144
+     ],
+     "thesis_unit_zero_counts": [
+      14,
+      383,
+      2105,
+      16638
+     ],
+     "ppo_thesis_unit_zero_counts": [
+      43,
+      460,
+      1434,
+      17203
+     ],
+     "origin": "Phase-6 LAMP mask at exactly PPO's zero count; per-unit sparsity realized as structured channel removal"
+    }
+   },
+   "mapping_note": "Approximate realization: thesis units stage2/stage3 pruned all weights of a stage (conv1, conv2, shortcut), whereas the validated structured units remove block-internal channels only (stage output widths are not pruned); thesis unit 'stem' (conv1 weights) maps to the coupled stage-1 residual width."
+  }
+ }
+}

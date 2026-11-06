@@ -1,0 +1,7 @@
+setting,method,worker,threads,concurrent_workers,train_seconds_per_epoch,validation_seconds_5000,epoch_seconds_total,zero_count_before,zero_count_after,mask_violations,peak_memory_mb,train_loss_epoch1
+cifar10_simplecnn,ppo,0,1,4,165.95,8.94,172.93,123463,123463,0,644.9,0.573073912387424
+cifar10_lenet5,ppo,0,1,4,23.91,1.14,25.19,12186,12186,0,660.1,1.0466294634077284
+cifar10_resnet8,ppo,0,1,4,285.1,13.16,295.5,15344,15344,0,826.7,0.5795620816760593
+cifar100_simplecnn,ppo,0,1,4,160.55,12.95,167.44,123463,123463,0,529.4,1.5656583920796712
+cifar100_lenet5,ppo,0,1,4,29.2,1.5,30.37,12186,12186,0,754.4,2.7220615881178114
+cifar100_resnet8,ppo,0,1,4,309.26,12.39,318.61,15344,15344,0,754.4,2.08235187403361

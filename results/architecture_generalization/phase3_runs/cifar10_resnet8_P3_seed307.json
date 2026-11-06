@@ -1,0 +1,148 @@
+{
+ "run_id": "cifar10_resnet8_P3_seed307",
+ "status": "complete",
+ "setting": "cifar10_resnet8",
+ "dataset": "cifar10",
+ "arch": "resnet8",
+ "condition": "P3",
+ "seed": 307,
+ "beta": 0.5,
+ "prior_vector": [
+  0.36712440779495753,
+  0.36712440779495753,
+  0.36712440779495753,
+  0.36712440779495753
+ ],
+ "prior_mapping": null,
+ "state_sensitivity": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "sparsity_coef": 0.01,
+ "policy_class": "SoftPriorPolicy",
+ "actions": [
+  1,
+  1,
+  1,
+  4
+ ],
+ "unit_names": [
+  "stem",
+  "stage1",
+  "stage2",
+  "stage3"
+ ],
+ "unit_ratios_percent": [
+  10,
+  10,
+  10,
+  40
+ ],
+ "unit_sparsity": [
+  9.953703703703704,
+  9.98263888888889,
+  10.002790178571429,
+  40.000697544642854
+ ],
+ "total_sparsity": 32.15486039296794,
+ "zero_count": 24875,
+ "val_accuracy_vrl": 76.23333333333333,
+ "test_accuracy": 76.84,
+ "reward": 1.8776182134373198,
+ "reward_components": {
+  "accuracy_term": 1.4560696095076402,
+  "sparsity_term": 0.32154860392967943,
+  "diversity_term": 0.1,
+  "total": 1.8776182134373198
+ },
+ "reward_rank": 96,
+ "pareto_val_accuracy": false,
+ "utility": 1.7776182134373193,
+ "destructive": false,
+ "action_entropy_rollout": [
+  1.004665493965149,
+  1.0725306272506714,
+  1.4012080430984497,
+  0.7921031713485718
+ ],
+ "mean_action_entropy": 1.0676268339157104,
+ "episodes": 512,
+ "timesteps_trained": 2048,
+ "ppo": {
+  "policy": "SoftPriorPolicy",
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "ent_coef": 0.01
+ },
+ "ppo_defaults": {
+  "gae_lambda": 0.95,
+  "clip_range": 0.2,
+  "vf_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "net_arch": "[64, 64] tanh",
+  "optimizer": "Adam"
+ },
+ "threads": 1,
+ "test_guard": "DataBundle.training() during learn; freeze before test",
+ "reference_checkpoint": "checkpoints/phase2_dense/cifar10/resnet8_seed0.pth",
+ "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+ "base_vrl_accuracy": 78.53333333333333,
+ "sensitivity_normalized": [
+  1.0,
+  0.1377301743204292,
+  0.33076745685940107,
+  0.0
+ ],
+ "landscape_sha256": "2e13b902c8cb38fa9c91900dcdb4c491abbb29f1c4afe958656ec3b774a0d7a5",
+ "curve_file": "results/architecture_generalization/phase3_runs/curves/cifar10_resnet8_P3_seed307.csv.gz",
+ "curve_sha256": "ba1342acfe9696f64b1216f6622ef0934730731450de8bcd34be0f5e152a179f",
+ "agent_file": "checkpoints/phase3_agents/cifar10_resnet8_P3_seed307.zip",
+ "test_predictions_file": "results/architecture_generalization/phase3_predictions/cifar10_resnet8/ppo_1114.npy",
+ "train_seconds": 18.6,
+ "runtime_seconds": 33.2,
+ "started_at": "2026-09-29T13:28:49+06:00",
+ "finished_at": "2026-09-29T13:29:22+06:00",
+ "preregistration_sha256": "064c6c0557938466c730694bd9c852a8f8eb05a732267efaaed241f1fffa22c5",
+ "frozen_inputs_sha256": "3887ffd15812af4707cad7b60df48580d25d1c36d2421b7676038f7399c53e87",
+ "sensitivity_csv_sha256": "a0d9781286a4df2d1a75dff2a94b17f248c5e3d430b792953731d7a2d0729951",
+ "destructive_rules_sha256": "1aefd96f50ac59a46de5cfa8b893ae11693504594a7d37269c25ef8dbf8dc582",
+ "code_sha256": {
+  "experiments/phase3/run_ppo.py": "7ee8f5f5b9e52da923f211c39986780784686ca1adfda8f608265fc6e28aba76",
+  "experiments/phase3/phase3_common.py": "c91cfbc49cd0b6d2a9157e90a3fdb193c46483cf8998d5362664848e7d4ecd56",
+  "src/rl/__init__.py": "2258d7998b314a4e279b7473f1b960c48b87a4a06734d447bdc01c4d19eaa213",
+  "src/pruning/__init__.py": "dc0a67787b8cd8803af1ee974e2d0e3d9f2fe551d7f38c609895804432fd1760",
+  "src/data/__init__.py": "bdd1f3dd4f29014700e7693095eb523a6addd1bf999da8c46a61ea6d618dfd9f",
+  "src/evaluation/__init__.py": "000cb062acbcc6b7b190e4ceae1953e884118f60a1428253aabbf440e82bb11a"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "5633700bd5a403ce8119588bab738f74f6a66169",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth",
+   "?? checkpoints/phase3_agents/",
+   "?? results/architecture_generalization/phase3_predictions/",
+   "?? results/architecture_generalization/phase3_runs/"
+  ]
+ }
+}

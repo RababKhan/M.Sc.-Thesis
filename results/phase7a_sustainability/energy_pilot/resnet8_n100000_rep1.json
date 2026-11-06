@@ -1,0 +1,78 @@
+{
+ "arch": "resnet8",
+ "session": "pilot1",
+ "order_seed": null,
+ "order": [
+  "dense"
+ ],
+ "n": 100000,
+ "blocks_per_model": 3,
+ "warmup": 1000,
+ "started_at": "2026-10-26T10:11:08+06:00",
+ "blocks": [
+  {
+   "model": "dense",
+   "block": 0,
+   "at": "2026-10-26T10:12:51+06:00",
+   "seconds": 70.7072919,
+   "pkg_j": 1066.7303630028,
+   "pp0_j": 864.4712600016,
+   "pkg_counter_ms": 70708,
+   "e1000_j": 10.667303630028,
+   "pkg_w": 15.08656793858626,
+   "net_e1000_j": 8.820457699528367,
+   "latency_median_ms": 0.7151,
+   "latency_mean_ms": 0.7063153059999999,
+   "latency_p95_ms": 0.7456999999999999,
+   "latency_iqr_ms": 0.036699999999999997
+  },
+  {
+   "model": "dense",
+   "block": 1,
+   "at": "2026-10-26T10:14:05+06:00",
+   "seconds": 73.9418278,
+   "pkg_j": 1035.813610998,
+   "pp0_j": 820.4830009992,
+   "pkg_counter_ms": 73942,
+   "e1000_j": 10.358136109980002,
+   "pkg_w": 14.008493457853094,
+   "net_e1000_j": 8.426805407069363,
+   "latency_median_ms": 0.7384999999999999,
+   "latency_mean_ms": 0.73862116,
+   "latency_p95_ms": 0.7653,
+   "latency_iqr_ms": 0.021599999999999998
+  },
+  {
+   "model": "dense",
+   "block": 2,
+   "at": "2026-10-26T10:15:20+06:00",
+   "seconds": 74.0678666,
+   "pkg_j": 1031.2331209992,
+   "pp0_j": 817.3423550016,
+   "pkg_counter_ms": 74068,
+   "e1000_j": 10.312331209992001,
+   "pkg_w": 13.922813877822694,
+   "net_e1000_j": 8.377708424488322,
+   "latency_median_ms": 0.74,
+   "latency_mean_ms": 0.739888552,
+   "latency_p95_ms": 0.7656,
+   "latency_iqr_ms": 0.0208
+  }
+ ],
+ "idle": {
+  "seconds": 30.002024400047958,
+  "pkg_j": 78.3640770012,
+  "pp0_j": 19.2071919996,
+  "pkg_w": 2.61195964499898
+ },
+ "finished_at": "2026-10-26T10:15:25+06:00",
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpu_affinity": [
+   2
+  ],
+  "torch": "2.7.1+cpu",
+  "mkldnn_enabled": true
+ }
+}

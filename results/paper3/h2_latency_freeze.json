@@ -1,0 +1,467 @@
+{
+ "created": "2026-10-23T21:02:40+0600",
+ "protocol": "results/paper3/paper3_preregistration.md \u00a74",
+ "config": {
+  "batch": 1,
+  "threads": 1,
+  "interop": 1,
+  "cpus": [
+   2
+  ],
+  "warmup": 50,
+  "timed": 300,
+  "rounds": 5
+ },
+ "sessions": 5,
+ "anchor_every": 25,
+ "seed": 20261024,
+ "tables": {
+  "simplecnn_c10": {
+   "table": "results/paper3/h2_latency_table_simplecnn_c10.csv",
+   "sha256": "5a32081a2c938ef5959561ff6acb6eb5d44b906d4c8c6e9207ec6245f5113fd4",
+   "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+   "sessions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "parts_sha256": {
+    "simplecnn_c10_s1.npz": "85a7e29e339805c84644c17ab6006a684fb7346c01dee298b0b288f8edfc6425",
+    "simplecnn_c10_s2.npz": "b08ef4d87ba83bdd19974c571ef3c5c7d9359b4ce4cd94898d3cbf83e77870f0",
+    "simplecnn_c10_s3.npz": "104f82b8be74ef414ca6844f27821add21b3833f3d50371c25daf7f38b307087",
+    "simplecnn_c10_s4.npz": "a03a4117dae016ad7017eda32769dec09433be3a5e8575927d530d5ec3908445",
+    "simplecnn_c10_s5.npz": "670f803231c3b4f02c3cb6f45a6877dcadc9cc938d71eac0302c80a42396fa35"
+   }
+  },
+  "simplecnn_c100": {
+   "table": "results/paper3/h2_latency_table_simplecnn_c100.csv",
+   "sha256": "991c14e35dd4b2e69e6a02f301b155c0edc9fb22db233b1379d1a0265b84699d",
+   "reference_sha256": "d75dd19ca3178d43473031630469bcfc5d738e1cf54c3c9685b35cf808b684ff",
+   "sessions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "parts_sha256": {
+    "simplecnn_c100_s1.npz": "83dc456ae95d91133ba9ce8d2813343714aef3869fcf3ae2bf3eca9f1fc7bd6a",
+    "simplecnn_c100_s2.npz": "0c630ad1ff1362694ea9515a7e2ec27866ac01d2fbcc48fc9e27575ec523d4f7",
+    "simplecnn_c100_s3.npz": "c01cfe3a00ba839a9bc2b4f653290d26e5b75f76e8019b6eb0a3971ec1c6a493",
+    "simplecnn_c100_s4.npz": "77c95b7d28155653356269cad0ffd16063e0ac8606ab77f7ae32ef395bdc8015",
+    "simplecnn_c100_s5.npz": "51298dac1449f0e2e6d79929104fe4147b4d6b2e72786913ffb2d2b8beb27300"
+   }
+  },
+  "resnet8_c10": {
+   "table": "results/paper3/h2_latency_table_resnet8_c10.csv",
+   "sha256": "aeb0d452d0c03c1b1f2e614dc5132d55bf4bfe315cba6127f11bcae47c01fae7",
+   "reference_sha256": "41fc5ee592b96fa0b086b2e23ca6f6b74d284e93cb884eace3eb38f1d0dc8b40",
+   "sessions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "parts_sha256": {
+    "resnet8_c10_s1.npz": "26d8c8d9290b182587b4cf22e8db918a965655efb7351186e964ff56fbdb7d7c",
+    "resnet8_c10_s2.npz": "c473b0847e8d0daba0bb659049972912388dc5990897c8f3074aadb3254a63d6",
+    "resnet8_c10_s3.npz": "b72d8ca2f0882565be7960dcc9606f04f8f9fa780068c1da4d04556a598aeb26",
+    "resnet8_c10_s4.npz": "fceb54783b39deb5f182e7b53bd9db2cdb0d88da9d46e755f439f6d8e42e2193",
+    "resnet8_c10_s5.npz": "e2aae933a123f573bea53e642925e6931d39f6b5b3d60c496b0e7876bb9d35f4"
+   }
+  },
+  "resnet8_c100": {
+   "table": "results/paper3/h2_latency_table_resnet8_c100.csv",
+   "sha256": "8b3fe8a58061770d62e2eb9daf4362d700382f51fcde008ac7dc3b9dc59df24e",
+   "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+   "sessions": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "parts_sha256": {
+    "resnet8_c100_s1.npz": "5af522b2dab6b4dbae35663eb4320d5a2dae9c22be02c66b09af62e8e1fab28f",
+    "resnet8_c100_s2.npz": "6fbc4527ffffd7775d82c7f928d94ab3e95be70b42ef2942a68e2423b8640b4a",
+    "resnet8_c100_s3.npz": "a461c81d6698616f94b9afa8b0624aca532189d261c3ba1bce6aa247b226fd73",
+    "resnet8_c100_s4.npz": "0f14d4c464dd686ae39c237df14479fe9e91b85304a770607eb4509f67fe3b41",
+    "resnet8_c100_s5.npz": "0d2b117ca851e7e14212e3611ed67bd47b6cf80fdd238eabd217890179ae50a8"
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "simplecnn_c10: exactly 1,296 policies, no duplicate action tuple",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "simplecnn_c10: 1,296 distinct physical shapes",
+   "pass": true,
+   "detail": "1296"
+  },
+  {
+   "check": "simplecnn_c10: parameters and MACs equal the H1 analytic counts for all 1,296; FLOPs = 2 x MACs",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "simplecnn_c10: identity-policy latency matches the dense anchor latency of the same sessions (within 5%)",
+   "pass": true,
+   "detail": "identity 0.7914 ms / anchors 0.7961 ms = 0.9942"
+  },
+  {
+   "check": "simplecnn_c10: 5 sessions; every session timed 1,296 x 300 valid passes (all > 0)",
+   "pass": true,
+   "detail": "(5, 1296, 300)"
+  },
+  {
+   "check": "simplecnn_c10: session metadata = H0 configuration A and H0 environment (CPU affinity [2], 1+1 threads, oneDNN, torch/python)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "simplecnn_c10: dense anchor drift within every kept session <= 10%",
+   "pass": true,
+   "detail": "[0.0751, 0.0875, 0.0791, 0.0886, 0.0938]"
+  },
+  {
+   "check": "simplecnn_c100: exactly 1,296 policies, no duplicate action tuple",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "simplecnn_c100: 1,296 distinct physical shapes",
+   "pass": true,
+   "detail": "1296"
+  },
+  {
+   "check": "simplecnn_c100: parameters and MACs equal the H1 analytic counts for all 1,296; FLOPs = 2 x MACs",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "simplecnn_c100: identity-policy latency matches the dense anchor latency of the same sessions (within 5%)",
+   "pass": true,
+   "detail": "identity 0.8099 ms / anchors 0.8183 ms = 0.9897"
+  },
+  {
+   "check": "simplecnn_c100: 5 sessions; every session timed 1,296 x 300 valid passes (all > 0)",
+   "pass": true,
+   "detail": "(5, 1296, 300)"
+  },
+  {
+   "check": "simplecnn_c100: session metadata = H0 configuration A and H0 environment (CPU affinity [2], 1+1 threads, oneDNN, torch/python)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "simplecnn_c100: dense anchor drift within every kept session <= 10%",
+   "pass": true,
+   "detail": "[0.0713, 0.0836, 0.0839, 0.086, 0.0911]"
+  },
+  {
+   "check": "resnet8_c10: exactly 1,296 policies, no duplicate action tuple",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "resnet8_c10: 1,296 distinct physical shapes",
+   "pass": true,
+   "detail": "1296"
+  },
+  {
+   "check": "resnet8_c10: parameters and MACs equal the H1 analytic counts for all 1,296; FLOPs = 2 x MACs",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "resnet8_c10: identity-policy latency matches the dense anchor latency of the same sessions (within 5%)",
+   "pass": true,
+   "detail": "identity 0.7702 ms / anchors 0.7732 ms = 0.9961"
+  },
+  {
+   "check": "resnet8_c10: 5 sessions; every session timed 1,296 x 300 valid passes (all > 0)",
+   "pass": true,
+   "detail": "(5, 1296, 300)"
+  },
+  {
+   "check": "resnet8_c10: session metadata = H0 configuration A and H0 environment (CPU affinity [2], 1+1 threads, oneDNN, torch/python)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "resnet8_c10: dense anchor drift within every kept session <= 10%",
+   "pass": true,
+   "detail": "[0.09, 0.0757, 0.0971, 0.0735, 0.0842]"
+  },
+  {
+   "check": "resnet8_c100: exactly 1,296 policies, no duplicate action tuple",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "resnet8_c100: 1,296 distinct physical shapes",
+   "pass": true,
+   "detail": "1296"
+  },
+  {
+   "check": "resnet8_c100: parameters and MACs equal the H1 analytic counts for all 1,296; FLOPs = 2 x MACs",
+   "pass": true,
+   "detail": "[]"
+  },
+  {
+   "check": "resnet8_c100: identity-policy latency matches the dense anchor latency of the same sessions (within 5%)",
+   "pass": true,
+   "detail": "identity 0.7771 ms / anchors 0.7778 ms = 0.9990"
+  },
+  {
+   "check": "resnet8_c100: 5 sessions; every session timed 1,296 x 300 valid passes (all > 0)",
+   "pass": true,
+   "detail": "(5, 1296, 300)"
+  },
+  {
+   "check": "resnet8_c100: session metadata = H0 configuration A and H0 environment (CPU affinity [2], 1+1 threads, oneDNN, torch/python)",
+   "pass": true,
+   "detail": ""
+  },
+  {
+   "check": "resnet8_c100: dense anchor drift within every kept session <= 10%",
+   "pass": true,
+   "detail": "[0.0952, 0.088, 0.0873, 0.0957, 0.0677]"
+  },
+  {
+   "check": "simplecnn_c10: identity latency agrees with the H0 configuration-A dense median (within 10%)",
+   "pass": false,
+   "detail": "H2 0.7914 ms vs H0 0.6800 ms"
+  },
+  {
+   "check": "CPU load <= 15% before and after every kept session",
+   "pass": true,
+   "detail": "4 repeats"
+  }
+ ],
+ "session_log": [
+  {
+   "pair": "resnet8_c10",
+   "session": 1,
+   "attempt": 1,
+   "load_before": 4.1,
+   "load_after": 3.0,
+   "anchor_drift": 0.2714163990299534,
+   "ok": false
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 1,
+   "attempt": 2,
+   "load_before": 2.6,
+   "load_after": 2.6,
+   "anchor_drift": 0.08997819911475191,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c100",
+   "session": 1,
+   "attempt": 1,
+   "load_before": 2.7,
+   "load_after": 2.2,
+   "anchor_drift": 0.09517634854771784,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c10",
+   "session": 1,
+   "attempt": 1,
+   "load_before": 2.8,
+   "load_after": 2.4,
+   "anchor_drift": 0.07508292931870375,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 1,
+   "attempt": 1,
+   "load_before": 2.2,
+   "load_after": 5.1,
+   "anchor_drift": 0.40643511878780325,
+   "ok": false
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 1,
+   "attempt": 2,
+   "load_before": 4.7,
+   "load_after": 2.6,
+   "anchor_drift": 0.07127152803224623,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c100",
+   "session": 2,
+   "attempt": 1,
+   "load_before": 2.1,
+   "load_after": 3.3,
+   "anchor_drift": 0.08797219898320352,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 2,
+   "attempt": 1,
+   "load_before": 2.3,
+   "load_after": 2.4,
+   "anchor_drift": 0.07567846322439242,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c10",
+   "session": 2,
+   "attempt": 1,
+   "load_before": 2.3,
+   "load_after": 2.2,
+   "anchor_drift": 0.08754250386398765,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 2,
+   "attempt": 1,
+   "load_before": 3.1,
+   "load_after": 2.0,
+   "anchor_drift": 0.08360795801293786,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c100",
+   "session": 3,
+   "attempt": 1,
+   "load_before": 2.3,
+   "load_after": 3.4,
+   "anchor_drift": 0.08732141713114228,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c10",
+   "session": 3,
+   "attempt": 1,
+   "load_before": 2.7,
+   "load_after": 2.3,
+   "anchor_drift": 0.07912822735434344,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 3,
+   "attempt": 1,
+   "load_before": 2.5,
+   "load_after": 2.3,
+   "anchor_drift": 0.09707810809090334,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 3,
+   "attempt": 1,
+   "load_before": 2.7,
+   "load_after": 2.6,
+   "anchor_drift": 0.08392333984375,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c100",
+   "session": 4,
+   "attempt": 1,
+   "load_before": 2.1,
+   "load_after": 3.1,
+   "anchor_drift": 0.0956797966963151,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 4,
+   "attempt": 1,
+   "load_before": 2.7,
+   "load_after": 3.1,
+   "anchor_drift": 0.10640993159361545,
+   "ok": false
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 4,
+   "attempt": 2,
+   "load_before": 5.4,
+   "load_after": 2.4,
+   "anchor_drift": 0.07353131889508491,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 4,
+   "attempt": 1,
+   "load_before": 2.6,
+   "load_after": 3.4,
+   "anchor_drift": 0.14018574297188757,
+   "ok": false
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 4,
+   "attempt": 2,
+   "load_before": 3.1,
+   "load_after": 1.9,
+   "anchor_drift": 0.08599600599101342,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c10",
+   "session": 4,
+   "attempt": 1,
+   "load_before": 2.2,
+   "load_after": 2.8,
+   "anchor_drift": 0.08856438460079652,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c10",
+   "session": 5,
+   "attempt": 1,
+   "load_before": 3.3,
+   "load_after": 2.8,
+   "anchor_drift": 0.08417922027542513,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c10",
+   "session": 5,
+   "attempt": 1,
+   "load_before": 2.6,
+   "load_after": 2.6,
+   "anchor_drift": 0.0937793647810562,
+   "ok": true
+  },
+  {
+   "pair": "simplecnn_c100",
+   "session": 5,
+   "attempt": 1,
+   "load_before": 2.7,
+   "load_after": 3.0,
+   "anchor_drift": 0.09112665684830634,
+   "ok": true
+  },
+  {
+   "pair": "resnet8_c100",
+   "session": 5,
+   "attempt": 1,
+   "load_before": 3.2,
+   "load_after": 4.2,
+   "anchor_drift": 0.06774110697316038,
+   "ok": true
+  }
+ ],
+ "note_on_failed_check": "The only failed check (simplecnn_c10 identity 0.791 ms vs H0 dense 0.680 ms, +16%) was added by the implementer as a cross-occasion consistency check; it is kept as FAIL. Within the H2 sessions the identity shape agrees with the dense anchors within 0.1-1.0% in all four tables, so the whole machine ran ~16% slower on this occasion (laptop, Balanced plan). Relative latencies, which the reward uses (g_L vs the identity of the same table), are stable: per-shape between-session CV median 1.2-1.6%, session-pair Spearman of gains 0.96-0.995, raw vs anchor-normalised gain Spearman >= 0.997. Consequence for H5: the confirmation session reports speed-ups against a dense model measured in the same session, never absolute latencies against the table."
+}

@@ -1,0 +1,38 @@
+{
+ "session": 1,
+ "config": "C",
+ "order_seed": 918519667,
+ "batch": 128,
+ "requested": {
+  "threads": 4,
+  "interop": 1,
+  "cpus": [
+   0,
+   2,
+   4,
+   6
+  ]
+ },
+ "effective": {
+  "threads": 4,
+  "interop": 1,
+  "cpus": [
+   0,
+   2,
+   4,
+   6
+  ],
+  "mkldnn_enabled": true,
+  "omp_num_threads": "4"
+ },
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "input_shape": [
+  128,
+  3,
+  32,
+  32
+ ],
+ "dtype": "torch.float32",
+ "timing_seconds": 8.03,
+ "pid": 508
+}

@@ -1,0 +1,23 @@
+{
+ "created": "2026-11-03T16:07:09+06:00",
+ "protocol_sha256": "1a1e4336f2cfe546ea804afdf78cf5a55b8a2a500dac55ea0c7a5e3fc4b80d19",
+ "checkpoints_verified": true,
+ "qualification": {
+  "e1000_j": [
+   11.417059509984,
+   14.277523055004002,
+   12.96193361499,
+   15.221217760002,
+   9.513834195006,
+   9.472768079994001
+  ],
+  "mean_j": 12.14405603583,
+  "sd_j": 2.4195825985751855,
+  "cv": 0.1992400719690698,
+  "decision": "not qualified",
+  "criterion": "CV of the 6 Dense E_1000 blocks <= 3% (decided before any data)"
+ },
+ "energy_confirmed": "NO",
+ "reason": "measurement setup not qualified",
+ "claim": "Direct energy confirmation remains unresolved because the available measurement setup did not satisfy the stability requirement."
+}

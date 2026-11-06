@@ -1,0 +1,44 @@
+{
+ "created": "2026-10-26T23:38:28+06:00",
+ "dense_val_rl": {
+  "2": 79.88,
+  "3": 80.48,
+  "5": 80.6
+ },
+ "n_policies": 49,
+ "n_feasible5": 19,
+ "same_data_stream_within_budget": {
+  "2": true,
+  "3": true,
+  "5": true
+ },
+ "rule": {
+  "rho_min": 0.9,
+  "recall": 1.0,
+  "precision_min": 0.5,
+  "min_feasible": 5,
+  "tau": "min q_E over 5-epoch-feasible sample policies - 0.005"
+ },
+ "proxies": {
+  "2": {
+   "rho": 0.9480139882010166,
+   "tau": 0.9884902353530296,
+   "recall": 1.0,
+   "precision": 0.6551724137931034,
+   "selected": 29,
+   "true_positive": 19,
+   "accepted": true
+  },
+  "3": {
+   "rho": 0.9394451399803592,
+   "tau": 0.9845626242544732,
+   "recall": 1.0,
+   "precision": 0.6129032258064516,
+   "selected": 31,
+   "true_positive": 19,
+   "accepted": true
+  }
+ },
+ "accepted_epochs": 2,
+ "decision": "2-epoch proxy accepted"
+}

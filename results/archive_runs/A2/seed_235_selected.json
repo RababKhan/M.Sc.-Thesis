@@ -1,0 +1,22 @@
+{
+ "condition": "A2",
+ "seed": 235,
+ "selected_actions": [
+  3,
+  2,
+  5,
+  5
+ ],
+ "selected_sparsity": 58.52095271281813,
+ "selected_vselect_accuracy": 74.15,
+ "selected_vselect_loss": 0.732980848312378,
+ "target_band_reached": false,
+ "n_band_candidates": 0,
+ "terminal_actions": [
+  1,
+  1,
+  4,
+  4
+ ],
+ "frozen_at": "2026-09-28T15:57:06+06:00"
+}

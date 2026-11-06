@@ -1,0 +1,42 @@
+[
+ {
+  "check": "stage 1: every record complete, validation only, masks and zero counts intact",
+  "pass": true,
+  "detail": "5 runs"
+ },
+ {
+  "check": "stage 1: the three pruned LeNet-5 runs share zero count, fine-tuning seed and data stream; the dense control shares seed and stream",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "reproduction run: bit-identical final weights and validation accuracy",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "stage 2: the list is written once and cannot be overwritten; a model outside the list cannot be evaluated",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "stage 3: the checkpoint reloaded from disk is the fine-tuned model (stub accuracy == stage-1 VAL-RL accuracy, incl. ResNet-8 BatchNorm)",
+  "pass": true,
+  "detail": "{'cifar10_lenet5_seed42_ppo': (63.12, 63.68), 'cifar10_resnet8_seed42_lamp': (78.76, 78.16)}"
+ },
+ {
+  "check": "stage 3: prediction files written (one per fine-tuned model, one per distinct pre-fine-tuning model)",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "stage 3: a checkpoint file that differs from the frozen hash is refused",
+  "pass": true,
+  "detail": ""
+ },
+ {
+  "check": "the official test set was never read",
+  "pass": true,
+  "detail": ""
+ }
+]

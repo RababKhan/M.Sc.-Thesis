@@ -1,0 +1,103 @@
+{
+ "run": "qual2",
+ "stage": "qualification",
+ "order": [
+  "0000",
+  "0000"
+ ],
+ "n": 200000,
+ "warmup": 2000,
+ "soak_s": 180,
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "started_at": "2026-11-03T15:46:21+06:00",
+ "blocks": [
+  {
+   "model": "0000",
+   "appearance": 0,
+   "position": 0,
+   "at": "2026-11-03T15:52:47+06:00",
+   "n": 200000,
+   "seconds": 203.72519820000002,
+   "pkg_j": 2592.386722998,
+   "pp0_j": 1639.4969390004,
+   "pkg_counter_ms": 203726,
+   "e1000_j": 12.96193361499,
+   "j_per_inference": 0.01296193361499,
+   "pkg_w": 12.724919381121504,
+   "latency_median_ms": 1.0479,
+   "latency_mean_ms": 1.0175909655,
+   "latency_wall_ms": 1.0186259910000002,
+   "latency_p95_ms": 1.0864,
+   "latency_iqr_ms": 0.0209,
+   "system_load_pct": 8.9,
+   "perf_pct_cpu2": 131.28533145894136,
+   "perf_pct_total": 117.60693560032867,
+   "nominal_mhz": 2100.0,
+   "thermal_zone_c_start": 85.85000000000002,
+   "thermal_zone_c_end": 83.85000000000002,
+   "ac_power_end": true
+  },
+  {
+   "model": "0000",
+   "appearance": 1,
+   "position": 1,
+   "at": "2026-11-03T15:56:24+06:00",
+   "n": 200000,
+   "seconds": 209.76019100000002,
+   "pkg_j": 3044.2435520004,
+   "pp0_j": 2027.0753840016,
+   "pkg_counter_ms": 209761,
+   "e1000_j": 15.221217760002,
+   "j_per_inference": 0.015221217760002001,
+   "pkg_w": 14.512970919255121,
+   "latency_median_ms": 1.0516999999999999,
+   "latency_mean_ms": 1.0475126755,
+   "latency_wall_ms": 1.048800955,
+   "latency_p95_ms": 1.1712,
+   "latency_iqr_ms": 0.03,
+   "system_load_pct": 10.2,
+   "perf_pct_cpu2": 134.6811891706534,
+   "perf_pct_total": 122.30406742843613,
+   "nominal_mhz": 2100.0,
+   "thermal_zone_c_start": 78.85000000000002,
+   "thermal_zone_c_end": 91.85000000000002,
+   "ac_power_end": true
+  }
+ ],
+ "soak": {
+  "model": "0000",
+  "seconds": 180.09349480015226,
+  "inferences": 175000,
+  "pkg_j": 2795.5007409996,
+  "pkg_w": 15.522497045780227,
+  "pdh_start": {
+   "perf_pct_cpu2": 191.4618533431361,
+   "perf_pct_total": 166.03404709317562,
+   "nominal_mhz": 2100.0,
+   "thermal_zone_c": 91.85000000000002
+  },
+  "pdh_end": {
+   "perf_pct_cpu2": 139.39645994694416,
+   "perf_pct_total": null,
+   "nominal_mhz": 2100.0,
+   "thermal_zone_c": 88.85000000000002
+  }
+ },
+ "finished_at": "2026-11-03T15:56:29+06:00",
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpu_affinity": [
+   2
+  ],
+  "torch": "2.7.1+cpu",
+  "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+ },
+ "gate": {
+  "at": "2026-11-03T15:46:19+06:00",
+  "ac_power": true,
+  "cpu_load_pct": 3.8,
+  "power_scheme": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+ },
+ "gate_waits": []
+}

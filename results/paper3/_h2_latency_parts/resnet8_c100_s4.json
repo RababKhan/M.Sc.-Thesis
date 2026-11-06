@@ -1,0 +1,29 @@
+{
+ "pair": "resnet8_c100",
+ "setting": "cifar100_resnet8",
+ "session": 4,
+ "order_seed": 533002243,
+ "reference_sha256": "8b84bfad252eae4116720ddfd986cc1ddde78a790f9c9690621bcdf199b7153f",
+ "requested": {
+  "threads": 1,
+  "interop": 1,
+  "cpus": [
+   2
+  ]
+ },
+ "effective": {
+  "threads": 1,
+  "interop": 1,
+  "cpus": [
+   2
+  ],
+  "mkldnn_enabled": true
+ },
+ "torch": "2.7.1+cpu",
+ "python": "3.11.9",
+ "batch": 1,
+ "warmup": 50,
+ "timed": 300,
+ "anchor_every": 25,
+ "seconds": 374.9
+}

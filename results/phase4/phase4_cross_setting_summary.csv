@@ -1,0 +1,26 @@
+statement,supported,opposite,inconclusive,class,reversed,cifar10_simplecnn,cifar10_lenet5,cifar10_resnet8,cifar100_simplecnn,cifar100_lenet5,cifar100_resnet8
+B: P2 > P3 and P2 > P4 (rank AUC) [sensitivity-specific],5,0,1,STRONG,False,supported,supported,supported,supported,supported,inconclusive
+B: P2 > P0 (rank AUC),6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+B: P1 > P0 (rank AUC),6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+B: P2 > P5 (rank AUC),6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+C: S1 better final-selected V_RL rank than S0,6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+C: S2 better final-selected V_RL rank than S0,3,0,3,MODERATE,False,supported,inconclusive,inconclusive,inconclusive,supported,supported
+C: S2A better final-selected V_RL rank than S0,6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+C: S2 better best-seen rank than S0,1,0,5,LIMITED,False,inconclusive,inconclusive,supported,inconclusive,inconclusive,inconclusive
+C: S1 better final-selected V_SELECT rank than S0,6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+C: S2 better final-selected V_SELECT rank than S0,3,0,3,MODERATE,False,supported,inconclusive,inconclusive,inconclusive,supported,supported
+C: S2A better final-selected V_SELECT rank than S0,6,0,0,STRONG,False,supported,supported,supported,supported,supported,supported
+D: F > K on test excess over matched LAMP,3,2,1,LIMITED,False,supported,supported,opposite,inconclusive,supported,opposite
+D-GM: F > K on test excess over matched global magnitude,3,0,3,MODERATE,False,inconclusive,inconclusive,supported,inconclusive,supported,supported
+"E: F > LAMP (test, matched)",0,6,0,NOT SUPPORTED,True,opposite,opposite,opposite,opposite,opposite,opposite
+E-NI: F non-inferior to LAMP (0.5 pp),3,0,3,MODERATE,False,supported,supported,inconclusive,inconclusive,supported,inconclusive
+B-secondary vrl_auc: P2 better than P3 and P4,0,4,2,NOT SUPPORTED,True,inconclusive,opposite,opposite,inconclusive,opposite,opposite
+B-secondary utility_auc: P2 better than P3 and P4,5,1,0,LIMITED,False,supported,supported,supported,supported,supported,opposite
+B-secondary destructive_frequency: P2 better than P3 and P4,4,0,2,MODERATE,False,supported,supported,inconclusive,supported,supported,inconclusive
+B-secondary first_episode_top100: P2 better than P3 and P4,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+B-secondary first_episode_top50: P2 better than P3 and P4,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+B-secondary best_seen_rank: P2 better than P3 and P4,1,0,5,LIMITED,False,inconclusive,inconclusive,inconclusive,inconclusive,supported,inconclusive
+B-secondary final_rank_vrl: P2 better than P3 and P4,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive
+A-regret: R1a lower final frontier regret than R0,1,2,3,LIMITED,False,inconclusive,inconclusive,opposite,opposite,inconclusive,supported
+A-regret: R1b lower final frontier regret than R0,0,1,5,NOT SUPPORTED,False,inconclusive,inconclusive,opposite,inconclusive,inconclusive,inconclusive
+A-regret: R2 lower final frontier regret than R0,0,0,6,NOT SUPPORTED,False,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive,inconclusive

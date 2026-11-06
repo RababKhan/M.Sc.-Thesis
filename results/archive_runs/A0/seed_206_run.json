@@ -1,0 +1,83 @@
+{
+ "condition": "A0",
+ "seed": 206,
+ "selected_actions": [
+  0,
+  1,
+  5,
+  5
+ ],
+ "selected_sparsity": 58.181850446543805,
+ "selected_vselect_accuracy": 77.6,
+ "selected_vselect_loss": 0.6435751152038575,
+ "target_band_reached": true,
+ "n_band_candidates": 13,
+ "terminal_actions": [
+  0,
+  1,
+  5,
+  5
+ ],
+ "frozen_at": "2026-09-28T14:37:43+06:00",
+ "beta": 0.0,
+ "prior_sensitivity": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "state_sensitivity": [
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "prior_mapping": null,
+ "frozen_policy_sha256": "c1f838d818765dc5d62baee5137f5d17c83cdf1e1ba5cc0438186435cb0e5be1",
+ "selected_test_accuracy": 76.56,
+ "terminal_test_accuracy": 76.56,
+ "terminal_sparsity": 58.181850446543805,
+ "terminal_vselect_accuracy": 77.6,
+ "selected_first_episode": 226,
+ "selected_first_timestep": 904,
+ "selected_times_sampled": 7,
+ "n_unique_policies": 304,
+ "episodes": 512,
+ "timesteps_trained": 2048,
+ "policy_class": "soft",
+ "runtime_seconds": 511.1,
+ "started_at": "2026-09-28T14:29:50+06:00",
+ "baseline_checkpoint": "checkpoints/cnn_baseline_FIXED.pth",
+ "baseline_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "preregistration_sha256": "bcbeb6d9047056b4d59e776210dffd0ba0b09b856ad231a1a5b40a4af3ed0ad0",
+ "split_sha256": "55b7ff40a25b9b24f6c89fae1ca41f309a66f8b834160c32c07d732920f0b511",
+ "sensitivity_sha256": "de30b20ccd865db3bf69c7b0fdb267fdad58b76809e227afd2a4749c31d280e6",
+ "reward_baseline_v_rl_accuracy": 76.96666666666667,
+ "git": {
+  "commit": "1bda844b1e24d8254b02704597f247c7803ab643",
+  "dirty": true
+ },
+ "script_sha256": {
+  "archive_confirm.py": "37aefdb73a1c1c2570e0892f11ee1cf334a563df2abf699ee4e879b89830812d",
+  "soft_prior.py": "85425e1312e62a9b873cc1c9c39f7e5b461b49fc76f731bd49bcdeae287d26b9",
+  "constrained_ppo.py": "80e5fe5aed8393218a8af3f26ab63c51dfd26dd7ad7357120414f9bc18c225c2",
+  "rl_env.py": "3c92b73550a3dbe6d30c3515f6c5b256571362db3645a58b2d598d04dc40abf1",
+  "common.py": "0afa8e51bf6bf3912c9dd58607c30cfe956f115909a7f67afc2b68d593435f0d",
+  "ppo_experiments.py": "1649aab5798772e8f121e34e0e005bd19ad6455383458b7102f1ea04f77b1595"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "gymnasium": "1.2.3",
+  "stable_baselines3": "2.8.0",
+  "numpy": "2.2.2",
+  "pandas": "2.2.3",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda": false,
+  "os": "Windows-10-10.0.22621-SP0"
+ },
+ "test_set_use": "only after the selected and terminal policies are frozen to disk"
+}

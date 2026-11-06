@@ -1,0 +1,263 @@
+{
+ "title": "Phase 7B final (Stage-B) pre-registration: accuracy-preserving sustainable structured pruning with sensitivity-aware PPO (SimpleCNN, CIFAR-10)",
+ "created": "2026-10-27T16:53:24+06:00",
+ "git_head_at_writing": "eac53bb15c6baebda3b783039ad3ef6862719089",
+ "frozen_rule": "Nothing below changes after this file is committed. Stage-B results are reported as they are.",
+ "inputs_sha256": {
+  "phase7b_design.md": "ed78c46500f0b8bd3ade8c0d9cd18ba212fbfdcfa05478d5b9e352d327b4317f",
+  "stage_a_samples.json": "3f7910a9ce22c54759c1e323438244325b31c3f19f088b07579ff87dd90e411a",
+  "accuracy_proxy_metrics.json": "f78cd840b2cdc8c968b11e9263fd2fe885dc52a4ef6d02c5bebd2ea291275225",
+  "energy_surrogate_metrics.json": "f9fe10f3798d8927964f7d2f7dbae5d3b226a9c30d35a6d8850c7b661bda8dc9",
+  "energy_surrogate_predictions.csv": "b9ee967fe9622a9bbe77094702ca05c8f2c29d5684ac1203f23e759494af87fd",
+  "proxy_landscape.csv": "98746f344318c0a9f51de7175ef4b22762b64b9f11a556e2da4d573cb0e8f987",
+  "structured_sensitivity.json": "80f230cab83f94eb10af9b25e591eccdeb8403f6079fecad13d3aea2dba91a9d",
+  "ppo_dev_tuning.json": "26bc0cf3882b4f2fe28797bbe5789f105f71e26287d738eef97d10bddafaa479"
+ },
+ "code_sha256": {
+  "p7b_lib.py": "d9d8f3119d3f6acc22b12540ddf3870bfdd50508da21b0fd6635a5fc6ea6fda0",
+  "recover.py": "6bf291a1116a0bd2adaa2d0a52c57d02a361c4a7d7c31314d25193d8c0b99743",
+  "ppo.py": "dbadf8c4e031ac5f7748044d1cb93b425aece064e9e3688f1ee7665021da680d",
+  "final_models.py": "3d87937598de94f5e170432c90837aac5937674c260d6b6287ff4ecbaad44d34",
+  "energy_final.py": "6430912a13be740a13a20714191c293197541a55797ba10590512c6d08abc91c",
+  "final_analysis.py": "9def8730fcae437c513b377bcfa3f94c17edfeee1b8dfac6e61ce7cd5b4b4b8b"
+ },
+ "setting": {
+  "architecture": "simplecnn",
+  "dataset": "CIFAR-10",
+  "reference": "Paper-3 frozen dense reference",
+  "test_set": "never read"
+ },
+ "structured_space": {
+  "units": [
+   "conv1",
+   "conv2",
+   "conv3",
+   "fc1"
+  ],
+  "ratios": [
+   0.0,
+   0.1,
+   0.2,
+   0.3,
+   0.4,
+   0.6
+  ],
+  "rule": "k = max(1, round((1 - r) C)) channels with the largest L1 norm (Paper-3 backend)"
+ },
+ "proxy": {
+  "epochs": 2,
+  "tau": 0.9884902353530296,
+  "split": "VAL-RL",
+  "q": "A_E / A_E,dense",
+  "validation": {
+   "rho": 0.9480139882010166,
+   "tau": 0.9884902353530296,
+   "recall": 1.0,
+   "precision": 0.6551724137931034,
+   "selected": 29,
+   "true_positive": 19,
+   "accepted": true
+  },
+  "landscape": "all 1,296 policies recovered once at E epochs"
+ },
+ "surrogate": {
+  "accepted_model": 2,
+  "coefficients": [
+   -0.11699317247173559,
+   13.761841113806815
+  ],
+  "features": "E_1000 = a + b * L_table (measured Paper-3 batch-1 latency, ms)",
+  "validation": {
+   "spearman": 0.9961647776813038,
+   "mdape": 0.010497762911605358,
+   "low_quartile_mdape": 0.009546103093815808,
+   "max_ape": 0.057276981393477755,
+   "p90_ape": 0.026365520389706874,
+   "passed": true
+  },
+  "dense_pred_e1000_j": 10.774815977050668,
+  "s_max": 0.6241788042266222
+ },
+ "state": [
+  "u/(n-1)",
+  "log1p(C_u)",
+  "unit share of dense params",
+  "unit share of dense MACs",
+  "centred sensitivity",
+  "previous ratio",
+  "mean ratio so far",
+  "E_hat(partial policy)/E_hat_dense"
+ ],
+ "prior": {
+  "beta": 1.0,
+  "form": "logit(a|u) -= beta * S~_u * r(a)/0.6 (src.rl.SoftPriorPolicy)"
+ },
+ "reward": {
+  "alpha": 4.0,
+  "kappa": 10.0,
+  "epsilon": 0.01,
+  "feasible": "R = 1 + alpha * s_hat / s_max + epsilon * q",
+  "infeasible": "R = -kappa * (tau - q)",
+  "alpha_tuning": {
+   "rule": "alpha with the lowest median predicted energy of the seeds' selected policies; ties -> smaller alpha",
+   "summary": {
+    "0.5": {
+     "median_selected_e_pred": 8.363053321856023,
+     "empty_archives": 0
+    },
+    "1.0": {
+     "median_selected_e_pred": 8.363053321856023,
+     "empty_archives": 0
+    },
+    "2.0": {
+     "median_selected_e_pred": 8.363053321856023,
+     "empty_archives": 0
+    },
+    "4.0": {
+     "median_selected_e_pred": 8.356172401299121,
+     "empty_archives": 0
+    }
+   },
+   "dev_seeds": [
+    900,
+    901,
+    902,
+    903,
+    904
+   ]
+  }
+ },
+ "ppo": {
+  "library": "stable-baselines3 PPO",
+  "kwargs": {
+   "policy": "MlpPolicy",
+   "learning_rate": 0.0003,
+   "n_steps": 64,
+   "batch_size": 32,
+   "n_epochs": 10,
+   "gamma": 0.99,
+   "ent_coef": 0.01,
+   "verbose": 0
+  },
+  "episodes": 512,
+  "steps": 2048,
+  "threads": 1
+ },
+ "seeds": {
+  "development": [
+   900,
+   901,
+   902,
+   903,
+   904
+  ],
+  "confirmatory": [
+   700,
+   701,
+   702,
+   703,
+   704,
+   705,
+   706,
+   707,
+   708,
+   709,
+   710,
+   711,
+   712,
+   713,
+   714,
+   715,
+   716,
+   717,
+   718,
+   719
+  ],
+  "report": "all 20 seeds"
+ },
+ "archive_and_selection": {
+  "archive": "every distinct proxy-feasible policy visited during training",
+  "selection": "lowest predicted energy; within 1% tied -> higher q, lower MACs, lower parameter memory, smaller action vector",
+  "empty_archive": "no selected policy; counted as a failure (GREEN-SUCCESS = NO)",
+  "primary_new_ppo": "most frequent selected policy over the 20 confirmatory seeds; ties -> lower predicted energy, then smaller action vector",
+  "enumeration_reference": "the same selection rule over all proxy-feasible policies (reported, not a method)"
+ },
+ "baselines": {
+  "dense": "identity policy",
+  "uniform": "common ratio on a 0.001 grid 0.0-0.9 minimizing |MACs - MACs_new_ppo| (ties -> smaller ratio)",
+  "lamp": "src.pruning.lamp on the dense reference at global sparsity on a 0.1% grid 0.0-90.0%; unit ratio = zeros/weights of the unit; the sparsity whose structured realization has the parameter count closest to new_ppo's (ties -> smaller sparsity)",
+  "old_ppo": "Phase-7A PPO-Structured [0,2,5,5], frozen checkpoint reused read only (Phase-7B dense recovery verified bit-identical to Phase 7A's, same protocol and data stream)"
+ },
+ "recovery": {
+  "protocol": "Phase-6 finetune: Adam lr 1e-4, cosine over 5 epochs, batch 128, crop+flip, seed 600",
+  "epochs": 5,
+  "applies_to": "every final model, identically"
+ },
+ "accuracy": {
+  "criterion_split": "VAL-SELECT (held out from the search)",
+  "preserved": "VAL-SELECT(model) >= VAL-SELECT(dense, 5-epoch recovered) - 0.5 pp",
+  "also_reported": "VAL-RL"
+ },
+ "memory": {
+  "primary": "parameter bytes = sum(numel * element_size) over parameters",
+  "secondary": "serialized checkpoint bytes"
+ },
+ "computation": "conv/linear MACs per image (closed form, checked against hooks)",
+ "energy_protocol": {
+  "backend": "RAPL package counter via Windows Energy Meter Interface (no TDP, no estimate)",
+  "pilot": {
+   "n": 100000,
+   "max_cv": 0.03,
+   "unstable": "N doubles once; still unstable -> STOP"
+  },
+  "sessions": 5,
+  "session_seed": 20261031,
+  "n": 100000,
+  "warmup": 1000,
+  "idle_s": 30,
+  "pause_s": 5,
+  "dense_blocks_per_session": 3,
+  "order": "non-dense models once and Dense 3 times, one random order per session",
+  "conditions": "AC, Balanced plan, batch 1, 1 intra-op and 1 inter-op thread, CPU 2, fresh process per session, system load <= 15.0%",
+  "dense_per_session": "median of its 3 blocks"
+ },
+ "statistics": {
+  "saving": "1 - E / E_dense within the session",
+  "noise_threshold": "2 x between-session CV of E_dense",
+  "energy_reduced": "lower than same-session dense in 5/5 sessions AND median saving > noise threshold",
+  "latency_reduced": "median-over-sessions latency below dense AND lower in 5/5 sessions",
+  "tests": "exact one-sided Wilcoxon vs dense (min p = 0.031); paired comparisons descriptive",
+  "edp": "normalized (E x latency) / (E_dense x latency_dense), per session, median"
+ },
+ "green_success": {
+  "rule": "accuracy preserved (VAL-SELECT) AND memory reduction > 0 AND MAC reduction > 0 AND latency reduced AND energy reduced",
+  "override": "never"
+ },
+ "cases": {
+  "GREEN-A": "new_ppo GREEN-SUCCESS and neither Uniform nor LAMP has a better trade-off",
+  "GREEN-B": "new_ppo GREEN-SUCCESS but Uniform or LAMP has a better trade-off",
+  "GREEN-C": "memory, MACs and energy improve but accuracy fails",
+  "GREEN-D": "accuracy preserved but energy not reduced",
+  "otherwise": "reported as none of GREEN-A-D with the failed criteria"
+ },
+ "comparison_rule": {
+  "baseline_better": "comparable VAL-SELECT accuracy (|d| <= 0.5 pp) and baseline E_1000 lower in 5/5 sessions, or baseline accuracy higher by > 0.5 pp with median E_1000 not higher (Phase-7A rule)",
+  "new_ppo_better": "the same with the roles exchanged",
+  "otherwise": "no clear difference"
+ },
+ "green_frequency": "GREEN-SUCCESS of each confirmatory seed's selected policy (5-epoch recovered and measured); seeds without a selection count as NO",
+ "pareto": [
+  "accuracy-energy",
+  "accuracy-MACs",
+  "accuracy-memory",
+  "energy-MACs"
+ ],
+ "stop_conditions": [
+  "integrity failure",
+  "non-RAPL backend",
+  "unstable energy pilot",
+  "a step would need a frozen rule changed",
+  "noise comparable to model differences"
+ ],
+ "next_architecture": "ResNet-8 only after the SimpleCNN results are frozen; no CIFAR-100"
+}

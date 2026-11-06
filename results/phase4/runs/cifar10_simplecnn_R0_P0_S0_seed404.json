@@ -1,0 +1,94 @@
+{
+ "run_id": "cifar10_simplecnn_R0_P0_S0_seed404",
+ "status": "complete",
+ "setting": "cifar10_simplecnn",
+ "reward": "R0",
+ "prior": "P0",
+ "variant": "S0",
+ "seed": 404,
+ "prior_coefficients": null,
+ "prior_permutation": null,
+ "reward_params_vrl": {
+  "A_b": 76.96666666666667,
+  "A_60": 40.2,
+  "rho_60": 59.75217464250684
+ },
+ "final_actions": [
+  0,
+  0,
+  4,
+  4
+ ],
+ "final_vrl_accuracy": 76.83333333333333,
+ "final_sparsity": 38.58957978421351,
+ "final_reward": 1.9832972703410523,
+ "final_reward_components": {
+  "accuracy_term": 1.497401472498917,
+  "sparsity_term": 0.3858957978421351,
+  "diversity_term": 0.1,
+  "total": 1.9832972703410523
+ },
+ "episodes": 512,
+ "timesteps_trained": 2048,
+ "threads": 1,
+ "bc_eta": 0.0,
+ "bc_updates": 0,
+ "final_elite_policies": null,
+ "ppo": {
+  "policy": "MlpPolicy",
+  "learning_rate": 0.0003,
+  "n_steps": 64,
+  "batch_size": 32,
+  "n_epochs": 10,
+  "gamma": 0.99,
+  "ent_coef": 0.01
+ },
+ "ppo_defaults": {
+  "gae_lambda": 0.95,
+  "clip_range": 0.2,
+  "vf_coef": 0.5,
+  "max_grad_norm": 0.5,
+  "net_arch": "[64, 64] tanh",
+  "optimizer": "Adam"
+ },
+ "test_set_accessed": false,
+ "guard": "DataBundle.training() during learn(); no test access in this runner",
+ "reference_sha256": "ca28f8345c23365ee7b92686e780ae0a9befa76c9d6bb9b3bb0b9e42272e111c",
+ "landscape_sha256": "d58e05ce2bd1695cfc803c271f0a3211bba4c20c7f5a46d3236838447789a6b8",
+ "curve_file": "results/phase4/runs/curves/cifar10_simplecnn_R0_P0_S0_seed404.csv.gz",
+ "curve_sha256": "4bd3b4d69766534e79e7de264fc34e48d637f0176c43c7de59782a15cb922500",
+ "agent_file": "checkpoints/phase4_agents/cifar10_simplecnn_R0_P0_S0_seed404.zip",
+ "train_seconds": 59.0,
+ "runtime_seconds": 59.2,
+ "started_at": "2026-09-29T18:43:42+06:00",
+ "finished_at": "2026-09-29T18:44:41+06:00",
+ "preregistration_sha256": "914b0418a58cc2b020d6c596a8ddaa036d283cdc4c1b0fa3b901ea9886609e53",
+ "config_sha256": "4d5cb586f24c8b770bc8820d624cfa56dab46304609e3207a5c64ab20b5a3f9b",
+ "code_sha256": {
+  "run.py": "2fc0f84daffd5ddf66dcef535b32b54751e032d26c7f86efa30ccf72adf9dd59",
+  "phase4_lib.py": "a61a5e98b7d1a0af453e1f826c3d2cddd883aef251cf46587488c93b89c3d4e8"
+ },
+ "environment": {
+  "python": "3.11.9",
+  "torch": "2.7.1+cpu",
+  "torchvision": "0.22.1+cpu",
+  "numpy": "2.2.2",
+  "cpu": "Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz",
+  "logical_cpus": 4,
+  "torch_threads": 1,
+  "cuda_available": false,
+  "os": "Windows-10-10.0.22621-SP0",
+  "stable-baselines3": "2.8.0",
+  "sb3-contrib": "2.8.0",
+  "gymnasium": "1.2.3",
+  "ptflops": "0.7.5",
+  "pandas": "2.2.3",
+  "psutil": "7.2.2"
+ },
+ "git": {
+  "commit": "e5e9a3754c52626e7d104b74e38526506200e204",
+  "dirty_paths": [
+   "M checkpoints/baseline_clean.pth"
+  ]
+ }
+}

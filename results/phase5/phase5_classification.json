@@ -1,0 +1,84 @@
+{
+ "generated": "2026-09-30T18:04:43+06:00",
+ "tau": 0.98,
+ "criteria": {
+  "A": {
+   "status": "PARTIALLY MET",
+   "per_setting": {
+    "cifar10_simplecnn": "opposite",
+    "cifar10_lenet5": "supported",
+    "cifar10_resnet8": "supported",
+    "cifar100_simplecnn": "opposite",
+    "cifar100_lenet5": "supported",
+    "cifar100_resnet8": "supported"
+   },
+   "resnet_supported": [
+    "supported",
+    "supported"
+   ],
+   "other_settings_opposite": 2
+  },
+  "B": {
+   "status": "MET",
+   "median_sparsity": {
+    "cifar100_lenet5": 31.01254868022501,
+    "cifar100_resnet8": 16.076756496631376,
+    "cifar100_simplecnn": 53.666520456921006,
+    "cifar10_lenet5": 38.4239922292375,
+    "cifar10_resnet8": 24.741468459152017,
+    "cifar10_simplecnn": 57.5871308915389
+   },
+   "settings_ge_20": 5,
+   "required_ge_20": 4
+  },
+  "C": {
+   "status": "PARTIALLY MET",
+   "median_selected_rank": {
+    "cifar100_lenet5": 26.0,
+    "cifar100_resnet8": 1.0,
+    "cifar100_simplecnn": 5.5,
+    "cifar10_lenet5": 15.0,
+    "cifar10_resnet8": 3.0,
+    "cifar10_simplecnn": 10.5
+   },
+   "share_runs_selected_top20": 0.7666666666666667,
+   "share_runs_best_seen_top20": 0.9083333333333333
+  },
+  "D": {
+   "status": "MET",
+   "settings_with_supported_metric": 6,
+   "opposite_outcomes": 0,
+   "supported_per_setting": {
+    "cifar10_simplecnn": 2,
+    "cifar10_lenet5": 2,
+    "cifar10_resnet8": 1,
+    "cifar100_simplecnn": 2,
+    "cifar100_lenet5": 2,
+    "cifar100_resnet8": 1
+   }
+  },
+  "E": {
+   "status": "PARTIALLY MET",
+   "supported": 4,
+   "opposite": 2
+  },
+  "F_strong": {
+   "status": "NOT MET",
+   "supported": 0,
+   "opposite": 6
+  },
+  "F_weak": {
+   "status": "MET",
+   "mean_C1_minus_LAMP": {
+    "cifar10_simplecnn": -0.49399999999999905,
+    "cifar10_lenet5": -0.320499999999997,
+    "cifar10_resnet8": -0.5250000000000021,
+    "cifar100_simplecnn": -0.28899999999999937,
+    "cifar100_lenet5": -0.2599999999999998,
+    "cifar100_resnet8": -0.5110000000000013
+   },
+   "within_0.5": 4,
+   "worse_than_1.0": 0
+  }
+ }
+}

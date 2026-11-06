@@ -1,0 +1,115 @@
+table,sensitivity_definition,sparsity_coef,sensitivity_condition,policy,count,share,test_accuracy,total_sparsity,seeds
+policy_frequency,accuracy,0.01,correct,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[42, 1, 2, 3, 4, 5, 6, 9]"
+policy_frequency,accuracy,0.01,correct,"[1, 0, 5, 5]",1,0.1,76.46,57.89840483196531,[7]
+policy_frequency,accuracy,0.01,correct,"[1, 1, 5, 5]",1,0.1,76.49,58.19572427856073,[8]
+features3_action,accuracy,0.01,correct,features.3 at 0.0%,9,0.9,,,
+features3_action,accuracy,0.01,correct,features.3 at 10.0%,1,0.1,,,
+features3_action,accuracy,0.01,correct,features.3 at 20.0%,0,0.0,,,
+features3_action,accuracy,0.01,correct,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.01,correct,features.3 at 40.0%,0,0.0,,,
+features3_action,accuracy,0.01,correct,features.3 at 60.0%,0,0.0,,,
+policy_frequency,accuracy,0.01,zeroed,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[1, 2, 3, 4, 5, 6, 7, 9]"
+policy_frequency,accuracy,0.01,zeroed,"[1, 1, 5, 5]",2,0.2,76.49,58.19572427856073,"[42, 8]"
+features3_action,accuracy,0.01,zeroed,features.3 at 0.0%,8,0.8,,,
+features3_action,accuracy,0.01,zeroed,features.3 at 10.0%,2,0.2,,,
+features3_action,accuracy,0.01,zeroed,features.3 at 20.0%,0,0.0,,,
+features3_action,accuracy,0.01,zeroed,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.01,zeroed,features.3 at 40.0%,0,0.0,,,
+features3_action,accuracy,0.01,zeroed,features.3 at 60.0%,0,0.0,,,
+policy_frequency,accuracy,0.01,shuffled,"[0, 0, 5, 5]",5,0.5,76.65,57.884530999948375,"[2, 3, 4, 5, 6]"
+policy_frequency,accuracy,0.01,shuffled,"[0, 1, 5, 5]",2,0.2,76.56,58.181850446543805,"[42, 1]"
+policy_frequency,accuracy,0.01,shuffled,"[0, 0, 0, 5]",1,0.1,76.88,50.74805766351763,[7]
+policy_frequency,accuracy,0.01,shuffled,"[2, 0, 5, 5]",1,0.1,75.66,57.91243998761035,[8]
+policy_frequency,accuracy,0.01,shuffled,"[0, 0, 4, 5]",1,0.1,76.91,55.50565277992876,[9]
+features3_action,accuracy,0.01,shuffled,features.3 at 0.0%,8,0.8,,,
+features3_action,accuracy,0.01,shuffled,features.3 at 10.0%,2,0.2,,,
+features3_action,accuracy,0.01,shuffled,features.3 at 20.0%,0,0.0,,,
+features3_action,accuracy,0.01,shuffled,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.01,shuffled,features.3 at 40.0%,0,0.0,,,
+features3_action,accuracy,0.01,shuffled,features.3 at 60.0%,0,0.0,,,
+policy_frequency,accuracy,0.02,correct,"[0, 0, 5, 5]",6,0.6,76.65,57.884530999948375,"[1, 2, 3, 6, 7, 9]"
+policy_frequency,accuracy,0.02,correct,"[1, 5, 5, 5]",1,0.1,74.77,59.68248283516597,[42]
+policy_frequency,accuracy,0.02,correct,"[1, 0, 5, 5]",1,0.1,76.46,57.89840483196531,[4]
+policy_frequency,accuracy,0.02,correct,"[0, 5, 5, 5]",1,0.1,75.16,59.66860900314904,[5]
+policy_frequency,accuracy,0.02,correct,"[2, 5, 5, 5]",1,0.1,73.22,59.696517990811,[8]
+features3_action,accuracy,0.02,correct,features.3 at 0.0%,7,0.7,,,
+features3_action,accuracy,0.02,correct,features.3 at 10.0%,0,0.0,,,
+features3_action,accuracy,0.02,correct,features.3 at 20.0%,0,0.0,,,
+features3_action,accuracy,0.02,correct,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.02,correct,features.3 at 40.0%,0,0.0,,,
+features3_action,accuracy,0.02,correct,features.3 at 60.0%,3,0.3,,,
+policy_frequency,accuracy,0.02,zeroed,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[42, 1, 2, 3, 4, 5, 6, 7]"
+policy_frequency,accuracy,0.02,zeroed,"[0, 1, 5, 5]",1,0.1,76.56,58.181850446543805,[8]
+policy_frequency,accuracy,0.02,zeroed,"[1, 2, 5, 5]",1,0.1,76.5,58.49304372515616,[9]
+features3_action,accuracy,0.02,zeroed,features.3 at 0.0%,8,0.8,,,
+features3_action,accuracy,0.02,zeroed,features.3 at 10.0%,1,0.1,,,
+features3_action,accuracy,0.02,zeroed,features.3 at 20.0%,1,0.1,,,
+features3_action,accuracy,0.02,zeroed,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.02,zeroed,features.3 at 40.0%,0,0.0,,,
+features3_action,accuracy,0.02,zeroed,features.3 at 60.0%,0,0.0,,,
+policy_frequency,accuracy,0.02,shuffled,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[1, 2, 3, 4, 5, 6, 8, 9]"
+policy_frequency,accuracy,0.02,shuffled,"[0, 1, 5, 5]",1,0.1,76.56,58.181850446543805,[42]
+policy_frequency,accuracy,0.02,shuffled,"[0, 4, 5, 5]",1,0.1,76.18,59.07397010995818,[7]
+features3_action,accuracy,0.02,shuffled,features.3 at 0.0%,8,0.8,,,
+features3_action,accuracy,0.02,shuffled,features.3 at 10.0%,1,0.1,,,
+features3_action,accuracy,0.02,shuffled,features.3 at 20.0%,0,0.0,,,
+features3_action,accuracy,0.02,shuffled,features.3 at 30.0%,0,0.0,,,
+features3_action,accuracy,0.02,shuffled,features.3 at 40.0%,1,0.1,,,
+features3_action,accuracy,0.02,shuffled,features.3 at 60.0%,0,0.0,,,
+policy_frequency,loss,0.01,correct,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[42, 1, 2, 3, 4, 5, 7, 9]"
+policy_frequency,loss,0.01,correct,"[1, 0, 5, 5]",1,0.1,76.46,57.89840483196531,[6]
+policy_frequency,loss,0.01,correct,"[1, 1, 5, 5]",1,0.1,76.49,58.19572427856073,[8]
+features3_action,loss,0.01,correct,features.3 at 0.0%,9,0.9,,,
+features3_action,loss,0.01,correct,features.3 at 10.0%,1,0.1,,,
+features3_action,loss,0.01,correct,features.3 at 20.0%,0,0.0,,,
+features3_action,loss,0.01,correct,features.3 at 30.0%,0,0.0,,,
+features3_action,loss,0.01,correct,features.3 at 40.0%,0,0.0,,,
+features3_action,loss,0.01,correct,features.3 at 60.0%,0,0.0,,,
+policy_frequency,loss,0.01,zeroed,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[1, 2, 3, 4, 5, 6, 7, 9]"
+policy_frequency,loss,0.01,zeroed,"[1, 1, 5, 5]",2,0.2,76.49,58.19572427856073,"[42, 8]"
+features3_action,loss,0.01,zeroed,features.3 at 0.0%,8,0.8,,,
+features3_action,loss,0.01,zeroed,features.3 at 10.0%,2,0.2,,,
+features3_action,loss,0.01,zeroed,features.3 at 20.0%,0,0.0,,,
+features3_action,loss,0.01,zeroed,features.3 at 30.0%,0,0.0,,,
+features3_action,loss,0.01,zeroed,features.3 at 40.0%,0,0.0,,,
+features3_action,loss,0.01,zeroed,features.3 at 60.0%,0,0.0,,,
+policy_frequency,loss,0.01,shuffled,"[0, 0, 5, 5]",6,0.6,76.65,57.884530999948375,"[42, 1, 3, 4, 6, 8]"
+policy_frequency,loss,0.01,shuffled,"[0, 0, 0, 5]",3,0.3,76.88,50.74805766351763,"[2, 5, 7]"
+policy_frequency,loss,0.01,shuffled,"[0, 0, 2, 5]",1,0.1,76.96,53.12693588353724,[9]
+features3_action,loss,0.01,shuffled,features.3 at 0.0%,10,1.0,,,
+features3_action,loss,0.01,shuffled,features.3 at 10.0%,0,0.0,,,
+features3_action,loss,0.01,shuffled,features.3 at 20.0%,0,0.0,,,
+features3_action,loss,0.01,shuffled,features.3 at 30.0%,0,0.0,,,
+features3_action,loss,0.01,shuffled,features.3 at 40.0%,0,0.0,,,
+features3_action,loss,0.01,shuffled,features.3 at 60.0%,0,0.0,,,
+policy_frequency,loss,0.02,correct,"[0, 0, 5, 5]",6,0.6,76.65,57.884530999948375,"[42, 1, 2, 4, 6, 9]"
+policy_frequency,loss,0.02,correct,"[0, 4, 5, 5]",1,0.1,76.18,59.07397010995818,[3]
+policy_frequency,loss,0.02,correct,"[0, 1, 5, 5]",1,0.1,76.56,58.181850446543805,[5]
+policy_frequency,loss,0.02,correct,"[0, 5, 5, 5]",1,0.1,75.16,59.66860900314904,[7]
+policy_frequency,loss,0.02,correct,"[1, 5, 5, 5]",1,0.1,74.77,59.68248283516597,[8]
+features3_action,loss,0.02,correct,features.3 at 0.0%,6,0.6,,,
+features3_action,loss,0.02,correct,features.3 at 10.0%,1,0.1,,,
+features3_action,loss,0.02,correct,features.3 at 20.0%,0,0.0,,,
+features3_action,loss,0.02,correct,features.3 at 30.0%,0,0.0,,,
+features3_action,loss,0.02,correct,features.3 at 40.0%,1,0.1,,,
+features3_action,loss,0.02,correct,features.3 at 60.0%,2,0.2,,,
+policy_frequency,loss,0.02,zeroed,"[0, 0, 5, 5]",8,0.8,76.65,57.884530999948375,"[42, 1, 2, 3, 4, 5, 6, 7]"
+policy_frequency,loss,0.02,zeroed,"[0, 1, 5, 5]",1,0.1,76.56,58.181850446543805,[8]
+policy_frequency,loss,0.02,zeroed,"[1, 2, 5, 5]",1,0.1,76.5,58.49304372515616,[9]
+features3_action,loss,0.02,zeroed,features.3 at 0.0%,8,0.8,,,
+features3_action,loss,0.02,zeroed,features.3 at 10.0%,1,0.1,,,
+features3_action,loss,0.02,zeroed,features.3 at 20.0%,1,0.1,,,
+features3_action,loss,0.02,zeroed,features.3 at 30.0%,0,0.0,,,
+features3_action,loss,0.02,zeroed,features.3 at 40.0%,0,0.0,,,
+features3_action,loss,0.02,zeroed,features.3 at 60.0%,0,0.0,,,
+policy_frequency,loss,0.02,shuffled,"[0, 0, 5, 5]",6,0.6,76.65,57.884530999948375,"[42, 1, 2, 3, 4, 5]"
+policy_frequency,loss,0.02,shuffled,"[1, 1, 5, 5]",1,0.1,76.49,58.19572427856073,[6]
+policy_frequency,loss,0.02,shuffled,"[0, 5, 5, 5]",1,0.1,75.16,59.66860900314904,[7]
+policy_frequency,loss,0.02,shuffled,"[0, 1, 5, 5]",1,0.1,76.56,58.181850446543805,[8]
+policy_frequency,loss,0.02,shuffled,"[0, 3, 5, 5]",1,0.1,76.53,58.77665066336276,[9]
+features3_action,loss,0.02,shuffled,features.3 at 0.0%,6,0.6,,,
+features3_action,loss,0.02,shuffled,features.3 at 10.0%,2,0.2,,,
+features3_action,loss,0.02,shuffled,features.3 at 20.0%,0,0.0,,,
+features3_action,loss,0.02,shuffled,features.3 at 30.0%,1,0.1,,,
+features3_action,loss,0.02,shuffled,features.3 at 40.0%,0,0.0,,,
+features3_action,loss,0.02,shuffled,features.3 at 60.0%,1,0.1,,,

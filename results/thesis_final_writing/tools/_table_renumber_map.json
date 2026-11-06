@@ -1,0 +1,165 @@
+{
+ "mapping": [
+  {
+   "file": "chapter_01_introduction.md",
+   "old": "1.1",
+   "new": "1.1"
+  },
+  {
+   "file": "chapter_02_literature_review.md",
+   "old": "2.2",
+   "new": "2.1"
+  },
+  {
+   "file": "chapter_03_framework.md",
+   "old": "3.1",
+   "new": "3.1"
+  },
+  {
+   "file": "chapter_03_framework.md",
+   "old": "3.3",
+   "new": "3.2"
+  },
+  {
+   "file": "chapter_03_framework.md",
+   "old": "3.4",
+   "new": "3.3"
+  },
+  {
+   "file": "chapter_03_framework.md",
+   "old": "3.5",
+   "new": "3.4"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.1",
+   "new": "4.1"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.2",
+   "new": "4.2"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.3",
+   "new": "4.3"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.4",
+   "new": "4.4"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.5",
+   "new": "4.5"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.6",
+   "new": "4.6"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.7",
+   "new": "4.7"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.8",
+   "new": "4.8"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.9",
+   "new": "4.9"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.10",
+   "new": "4.10"
+  },
+  {
+   "file": "chapter_04_experimental_setup.md",
+   "old": "4.11",
+   "new": "4.11"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.1",
+   "new": "5.1"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.2",
+   "new": "5.2"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.3",
+   "new": "5.3"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.5",
+   "new": "5.4"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.6",
+   "new": "5.5"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.8",
+   "new": "5.6"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.9",
+   "new": "5.7"
+  },
+  {
+   "file": "chapter_05_core_results.md",
+   "old": "5.11",
+   "new": "5.8"
+  },
+  {
+   "file": "chapter_06_deployment_sustainability.md",
+   "old": "6.1",
+   "new": "6.1"
+  },
+  {
+   "file": "chapter_06_deployment_sustainability.md",
+   "old": "6.4",
+   "new": "6.2"
+  },
+  {
+   "file": "chapter_06_deployment_sustainability.md",
+   "old": "6.5",
+   "new": "6.3"
+  },
+  {
+   "file": "chapter_06_deployment_sustainability.md",
+   "old": "6.6",
+   "new": "6.4"
+  },
+  {
+   "file": "chapter_06_deployment_sustainability.md",
+   "old": "6.8",
+   "new": "6.5"
+  },
+  {
+   "file": "chapter_07_discussion.md",
+   "old": "7.1",
+   "new": "7.1"
+  },
+  {
+   "file": "chapter_08_conclusion.md",
+   "old": "8.1",
+   "new": "8.1"
+  }
+ ],
+ "warnings": []
+}

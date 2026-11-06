@@ -1,0 +1,600 @@
+{
+ "created": "2026-11-03T14:29:09+06:00",
+ "status": "hardware validation STOPPED by the pre-registered energy-pilot rule",
+ "stop_rule": {
+  "n": 100000,
+  "max_cv": 0.03,
+  "unstable": "N doubles once; still unstable -> STOP"
+ },
+ "pilots": {
+  "pilot_n100000.json": {
+   "n": 100000,
+   "e1000_j": [
+    13.088017870020002,
+    11.413500159996,
+    11.204022499992,
+    15.125176310003999,
+    12.26538468,
+    12.272573529972
+   ],
+   "cv": 0.11360058979383937,
+   "decision": "unstable"
+  },
+  "pilot_n200000.json": {
+   "n": 200000,
+   "e1000_j": [
+    11.813603430006,
+    12.073863894984,
+    11.03939325999,
+    11.539374270011999,
+    11.025364480001999,
+    11.032653675006
+   ],
+   "cv": 0.04007437529009128,
+   "decision": "unstable"
+  }
+ },
+ "preregistration_sha256": "ab7bcd168c614d848f47f1addd3b80e22b7aab9681e21edb34f2c47f42d16bdc",
+ "integrity": {
+  "stage_a_identical_0000": true,
+  "single_data_stream_phase7b": true,
+  "phase7b_dense_identical_to_phase7a_dense": true,
+  "same_data_stream_as_phase7a": true
+ },
+ "methods": {
+  "dense": {
+   "id": "0000",
+   "roles": [
+    "dense"
+   ],
+   "policy": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "widths": [
+    32,
+    64,
+    128,
+    256
+   ],
+   "val_select_post": 80.0,
+   "delta_val_select_pp": 0.0,
+   "val_rl_post": 80.6,
+   "delta_val_rl_pp": 0.0,
+   "accuracy_preserving": true,
+   "params": 620362,
+   "memory_bytes": 2481448,
+   "memory_kb": 2423.2890625,
+   "memory_reduction": 0.0,
+   "serialized_bytes": 2486245,
+   "macs": 10848768,
+   "macs_m": 10.848768,
+   "mac_reduction": 0.0,
+   "latency_measured": "not measured",
+   "energy_measured": "not measured",
+   "latency_table_ms_paper3": 0.79145,
+   "e1000_pred_j_surrogate": 10.774815977050668,
+   "saving_pred_surrogate": 0.0,
+   "green_success": "NO (memory, MACs failed; latency and energy not measured)"
+  },
+  "new_ppo": {
+   "id": "2225",
+   "roles": [
+    "new_ppo",
+    "seed701",
+    "seed702",
+    "seed707",
+    "seed712",
+    "seed718"
+   ],
+   "policy": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "widths": [
+    26,
+    51,
+    102,
+    102
+   ],
+   "val_select_post": 78.88,
+   "delta_val_select_pp": -1.1200000000000045,
+   "val_rl_post": 80.0,
+   "delta_val_rl_pp": -0.5999999999999943,
+   "accuracy_preserving": false,
+   "params": 227229,
+   "memory_bytes": 908916,
+   "memory_kb": 887.61328125,
+   "memory_reduction": 0.6337154758028377,
+   "serialized_bytes": 913637,
+   "macs": 6937788,
+   "macs_m": 6.937788,
+   "mac_reduction": 0.36049992035962053,
+   "latency_measured": "not measured",
+   "energy_measured": "not measured",
+   "latency_table_ms_paper3": 0.6067,
+   "e1000_pred_j_surrogate": 8.23231583127486,
+   "saving_pred_surrogate": 0.23596692056654067,
+   "green_success": "NO (accuracy failed; latency and energy not measured)"
+  },
+  "uniform": {
+   "id": "uniform_r0.208",
+   "roles": [
+    "uniform"
+   ],
+   "policy": null,
+   "widths": [
+    25,
+    51,
+    101,
+    203
+   ],
+   "val_select_post": 78.76,
+   "delta_val_select_pp": -1.2399999999999949,
+   "val_rl_post": 79.76,
+   "delta_val_rl_pp": -0.8399999999999892,
+   "accuracy_preserving": false,
+   "params": 388977,
+   "memory_bytes": 1555908,
+   "memory_kb": 1519.44140625,
+   "memory_reduction": 0.37298383846850713,
+   "serialized_bytes": 1560837,
+   "macs": 6925854,
+   "macs_m": 6.925854,
+   "mac_reduction": 0.3615999531006654,
+   "latency_measured": "not measured",
+   "energy_measured": "not measured",
+   "latency_table_ms_paper3": null,
+   "e1000_pred_j_surrogate": null,
+   "saving_pred_surrogate": null,
+   "green_success": "NO (accuracy failed; latency and energy not measured)"
+  },
+  "lamp": {
+   "id": "lamp_s56.2",
+   "roles": [
+    "lamp"
+   ],
+   "policy": null,
+   "widths": [
+    32,
+    58,
+    103,
+    94
+   ],
+   "val_select_post": 79.64,
+   "delta_val_select_pp": -0.35999999999999943,
+   "val_rl_post": 79.12,
+   "delta_val_rl_pp": -1.4799999999999898,
+   "accuracy_preserving": true,
+   "params": 227483,
+   "memory_bytes": 909932,
+   "memory_kb": 888.60546875,
+   "memory_reduction": 0.6333060374426545,
+   "serialized_bytes": 914821,
+   "macs": 8757836,
+   "macs_m": 8.757836,
+   "mac_reduction": 0.19273451142102038,
+   "latency_measured": "not measured",
+   "energy_measured": "not measured",
+   "latency_table_ms_paper3": null,
+   "e1000_pred_j_surrogate": null,
+   "saving_pred_surrogate": null,
+   "green_success": "not assessable (hardware validation stopped)"
+  },
+  "old_ppo": {
+   "id": "phase7a_ppo",
+   "roles": [
+    "old_ppo"
+   ],
+   "policy": [
+    0,
+    2,
+    5,
+    5
+   ],
+   "widths": [
+    32,
+    51,
+    51,
+    102
+   ],
+   "val_select_post": 76.0,
+   "delta_val_select_pp": -4.0,
+   "val_rl_post": 75.52,
+   "delta_val_rl_pp": -5.079999999999998,
+   "accuracy_preserving": false,
+   "params": 123459,
+   "memory_bytes": 493836,
+   "memory_kb": 482.26171875,
+   "memory_reduction": 0.800988777520222,
+   "serialized_bytes": 498405,
+   "macs": 6227292,
+   "macs_m": 6.227292,
+   "mac_reduction": 0.4259908590542263,
+   "latency_measured": "not measured",
+   "energy_measured": "not measured",
+   "latency_table_ms_paper3": 0.6254,
+   "e1000_pred_j_surrogate": 8.489662260103046,
+   "saving_pred_surrogate": 0.21208285336981925,
+   "green_success": "NO (accuracy failed; latency and energy not measured)"
+  }
+ },
+ "new_ppo_assessable_criteria_met": {
+  "accuracy": false,
+  "memory": true,
+  "MACs": true
+ },
+ "new_ppo_unassessed_criteria": [
+  "latency",
+  "energy"
+ ],
+ "case": "undetermined: GREEN-C if energy were reduced, otherwise none of GREEN-A-D (energy not measured)",
+ "green_success_new_ppo": "NO (accuracy failed; latency and energy not measured)",
+ "green_success_seeds": {
+  "count": 0,
+  "of": 20,
+  "note": "every selected policy fails an assessable criterion"
+ },
+ "green_success_models": {
+  "0000": "NO (memory, MACs failed; latency and energy not measured)",
+  "2225": "NO (accuracy failed; latency and energy not measured)",
+  "uniform_r0.208": "NO (accuracy failed; latency and energy not measured)",
+  "lamp_s56.2": "not assessable (hardware validation stopped)",
+  "3125": "NO (accuracy failed; latency and energy not measured)",
+  "3132": "NO (accuracy failed; latency and energy not measured)",
+  "2224": "NO (accuracy failed; latency and energy not measured)",
+  "3130": "NO (accuracy failed; latency and energy not measured)",
+  "2221": "NO (accuracy failed; latency and energy not measured)",
+  "3134": "NO (accuracy failed; latency and energy not measured)",
+  "phase7a_ppo": "NO (accuracy failed; latency and energy not measured)"
+ },
+ "per_seed_assessable": [
+  {
+   "seed": 700,
+   "selected": [
+    3,
+    1,
+    2,
+    5
+   ],
+   "id": "3125",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 701,
+   "selected": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "id": "2225",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 702,
+   "selected": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "id": "2225",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 703,
+   "selected": [
+    3,
+    1,
+    3,
+    2
+   ],
+   "id": "3132",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 704,
+   "selected": [
+    3,
+    1,
+    3,
+    2
+   ],
+   "id": "3132",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 705,
+   "selected": [
+    2,
+    2,
+    2,
+    4
+   ],
+   "id": "2224",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 706,
+   "selected": [
+    3,
+    1,
+    3,
+    0
+   ],
+   "id": "3130",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 707,
+   "selected": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "id": "2225",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 708,
+   "selected": [
+    3,
+    1,
+    3,
+    0
+   ],
+   "id": "3130",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 709,
+   "selected": [
+    3,
+    1,
+    3,
+    2
+   ],
+   "id": "3132",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 710,
+   "selected": [
+    2,
+    2,
+    2,
+    1
+   ],
+   "id": "2221",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 711,
+   "selected": [
+    2,
+    2,
+    2,
+    1
+   ],
+   "id": "2221",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 712,
+   "selected": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "id": "2225",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 713,
+   "selected": [
+    2,
+    2,
+    2,
+    1
+   ],
+   "id": "2221",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 714,
+   "selected": [
+    2,
+    2,
+    2,
+    4
+   ],
+   "id": "2224",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 715,
+   "selected": [
+    3,
+    1,
+    3,
+    4
+   ],
+   "id": "3134",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 716,
+   "selected": [
+    2,
+    2,
+    2,
+    4
+   ],
+   "id": "2224",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 717,
+   "selected": [
+    3,
+    1,
+    3,
+    4
+   ],
+   "id": "3134",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 718,
+   "selected": [
+    2,
+    2,
+    2,
+    5
+   ],
+   "id": "2225",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  },
+  {
+   "seed": 719,
+   "selected": [
+    2,
+    2,
+    2,
+    1
+   ],
+   "id": "2221",
+   "assessable_criteria_met": {
+    "accuracy": false,
+    "memory": true,
+    "MACs": true
+   }
+  }
+ ],
+ "comparisons_new_ppo_vs": {
+  "uniform": {
+   "delta_val_select_pp": 0.11999999999999034,
+   "comparable_accuracy": true,
+   "macs_ratio": 1.0017231088036218,
+   "memory_ratio": 0.5841707864475277,
+   "verdict": "not assessable (hardware validation stopped); the Phase-7A rule needs measured session energy"
+  },
+  "lamp": {
+   "delta_val_select_pp": -0.7600000000000051,
+   "comparable_accuracy": false,
+   "macs_ratio": 0.7921806254421755,
+   "memory_ratio": 0.9988834330477442,
+   "verdict": "not assessable (hardware validation stopped); the Phase-7A rule needs measured session energy"
+  },
+  "old_ppo": {
+   "delta_val_select_pp": 2.8799999999999955,
+   "comparable_accuracy": false,
+   "macs_ratio": 1.1140938950670694,
+   "memory_ratio": 1.8405219546570117,
+   "verdict": "not assessable (hardware validation stopped); the Phase-7A rule needs measured session energy"
+  }
+ },
+ "enumeration_reference": "3125",
+ "pareto": {
+  "accuracy_macs": [
+   "0000",
+   "lamp_s56.2",
+   "3134",
+   "phase7a_ppo"
+  ],
+  "accuracy_memory": [
+   "0000",
+   "2225",
+   "lamp_s56.2",
+   "phase7a_ppo"
+  ],
+  "accuracy_energy": "not assessable (hardware validation stopped)",
+  "energy_macs": "not assessable (hardware validation stopped)"
+ },
+ "surrogate_note": "e1000_pred_j_surrogate is a prediction from the Paper-3 latency table and the accepted surrogate; it is not a measurement and enters no label, case or verdict",
+ "figures": "produced (accuracy-MACs and accuracy-memory planes; the energy planes are not assessable)",
+ "test_use": "none"
+}

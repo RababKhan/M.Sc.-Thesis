@@ -1,0 +1,29 @@
+{
+ "name": "main2",
+ "seed": 2,
+ "cache": true,
+ "soft_prior": false,
+ "episodes": 512,
+ "curve_identical_all_columns": true,
+ "first_differing_episode": null,
+ "actions": [
+  0,
+  5,
+  5,
+  5
+ ],
+ "recorded_actions": [
+  0,
+  5,
+  5,
+  5
+ ],
+ "sparsity": 59.66860900314904,
+ "recorded_sparsity": 59.66860900314904,
+ "test_accuracy": 75.16,
+ "recorded_test_accuracy": 75.16,
+ "final_reward": 3.912636755366521,
+ "threads": 1,
+ "train_seconds": 382.0,
+ "pass": true
+}

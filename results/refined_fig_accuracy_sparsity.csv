@@ -1,0 +1,136 @@
+series,sensitivity_definition,sparsity_coef,sensitivity_condition,seed,total_sparsity,test_accuracy
+dense baseline,,,,,0.0,77.03
+refined PPO run,accuracy,0.01,correct,42,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,1,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,4,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,5,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,correct,7,57.89840483196531,76.46
+refined PPO run,accuracy,0.01,correct,8,58.19572427856073,76.49
+refined PPO run,accuracy,0.01,correct,9,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,42,58.19572427856073,76.49
+refined PPO run,accuracy,0.01,zeroed,1,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,4,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,5,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,7,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,zeroed,8,58.19572427856073,76.49
+refined PPO run,accuracy,0.01,zeroed,9,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,42,58.181850446543805,76.56
+refined PPO run,accuracy,0.01,shuffled,1,58.181850446543805,76.56
+refined PPO run,accuracy,0.01,shuffled,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,4,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,5,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.01,shuffled,7,50.74805766351763,76.88
+refined PPO run,accuracy,0.01,shuffled,8,57.91243998761035,75.66
+refined PPO run,accuracy,0.01,shuffled,9,55.50565277992876,76.91
+refined PPO run,accuracy,0.02,correct,42,59.68248283516597,74.77
+refined PPO run,accuracy,0.02,correct,1,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,correct,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,correct,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,correct,4,57.89840483196531,76.46
+refined PPO run,accuracy,0.02,correct,5,59.66860900314904,75.16
+refined PPO run,accuracy,0.02,correct,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,correct,7,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,correct,8,59.696517990811,73.22
+refined PPO run,accuracy,0.02,correct,9,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,42,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,1,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,4,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,5,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,7,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,zeroed,8,58.181850446543805,76.56
+refined PPO run,accuracy,0.02,zeroed,9,58.49304372515616,76.5
+refined PPO run,accuracy,0.02,shuffled,42,58.181850446543805,76.56
+refined PPO run,accuracy,0.02,shuffled,1,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,2,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,3,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,4,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,5,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,6,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,7,59.07397010995818,76.18
+refined PPO run,accuracy,0.02,shuffled,8,57.884530999948375,76.65
+refined PPO run,accuracy,0.02,shuffled,9,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,42,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,1,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,2,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,3,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,4,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,5,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,6,57.89840483196531,76.46
+refined PPO run,loss,0.01,correct,7,57.884530999948375,76.65
+refined PPO run,loss,0.01,correct,8,58.19572427856073,76.49
+refined PPO run,loss,0.01,correct,9,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,42,58.19572427856073,76.49
+refined PPO run,loss,0.01,zeroed,1,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,2,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,3,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,4,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,5,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,6,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,7,57.884530999948375,76.65
+refined PPO run,loss,0.01,zeroed,8,58.19572427856073,76.49
+refined PPO run,loss,0.01,zeroed,9,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,42,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,1,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,2,50.74805766351763,76.88
+refined PPO run,loss,0.01,shuffled,3,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,4,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,5,50.74805766351763,76.88
+refined PPO run,loss,0.01,shuffled,6,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,7,50.74805766351763,76.88
+refined PPO run,loss,0.01,shuffled,8,57.884530999948375,76.65
+refined PPO run,loss,0.01,shuffled,9,53.12693588353724,76.96
+refined PPO run,loss,0.02,correct,42,57.884530999948375,76.65
+refined PPO run,loss,0.02,correct,1,57.884530999948375,76.65
+refined PPO run,loss,0.02,correct,2,57.884530999948375,76.65
+refined PPO run,loss,0.02,correct,3,59.07397010995818,76.18
+refined PPO run,loss,0.02,correct,4,57.884530999948375,76.65
+refined PPO run,loss,0.02,correct,5,58.181850446543805,76.56
+refined PPO run,loss,0.02,correct,6,57.884530999948375,76.65
+refined PPO run,loss,0.02,correct,7,59.66860900314904,75.16
+refined PPO run,loss,0.02,correct,8,59.68248283516597,74.77
+refined PPO run,loss,0.02,correct,9,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,42,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,1,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,2,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,3,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,4,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,5,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,6,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,7,57.884530999948375,76.65
+refined PPO run,loss,0.02,zeroed,8,58.181850446543805,76.56
+refined PPO run,loss,0.02,zeroed,9,58.49304372515616,76.5
+refined PPO run,loss,0.02,shuffled,42,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,1,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,2,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,3,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,4,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,5,57.884530999948375,76.65
+refined PPO run,loss,0.02,shuffled,6,58.19572427856073,76.49
+refined PPO run,loss,0.02,shuffled,7,59.66860900314904,75.16
+refined PPO run,loss,0.02,shuffled,8,58.181850446543805,76.56
+refined PPO run,loss,0.02,shuffled,9,58.77665066336276,76.53
+global magnitude at matched sparsity,,,,,50.74805766351763,76.67
+global magnitude at matched sparsity,,,,,53.12693588353724,76.66
+global magnitude at matched sparsity,,,,,55.50565277992876,76.72
+global magnitude at matched sparsity,,,,,57.884530999948375,76.54
+global magnitude at matched sparsity,,,,,57.89840483196531,76.55
+global magnitude at matched sparsity,,,,,57.91243998761035,76.53
+global magnitude at matched sparsity,,,,,58.181850446543805,76.32
+global magnitude at matched sparsity,,,,,58.19572427856073,76.35
+global magnitude at matched sparsity,,,,,58.49304372515616,76.34
+global magnitude at matched sparsity,,,,,58.77665066336276,76.44
+global magnitude at matched sparsity,,,,,59.07397010995818,76.45
+global magnitude at matched sparsity,,,,,59.66860900314904,76.36
+global magnitude at matched sparsity,,,,,59.68248283516597,76.35
+global magnitude at matched sparsity,,,,,59.696517990811,76.4
