@@ -8,13 +8,13 @@ fails the claim.
 | # | Claim | Frozen source | Expected value | Chapters where stated (text found) | Forbidden variants found | Status |
 |---|---|---|---|---|---|---|
 | 1 | PPO–Uniform maximum (test, C10 SimpleCNN); exact convention +31.37, prose ≈ +31.4 | `architecture_generalization/phase3_statistics.csv` | +31.37 / ≈ +31.4 | Abstract: 31.4 / Ch. 1: 31.4 / Ch. 5: 31.37; 31.4 / Ch. 7: 31.4 / Ch. 8: 31.4 | none | PASS |
-| 2 | Phase-4 terminal top-10 reach: 0% in five settings, 5% in one | `phase4/phase4_search_quality.csv` | [0, 0, 0, 0, 0, 5] | Ch. 5: 0% of runs in five settings and 5% in the sixth / Ch. 7: 0% of runs in five settings and 5% in the sixth / Ch. 8: 0% of runs in five settings and 5% in the sixth | none | PASS |
+| 2 | Phase-4 terminal top-10 reach: 0% in five settings, 5% in one | `phase4/phase4_search_quality.csv` | [0, 0, 0, 0, 0, 5] | Ch. 5: 0% of runs in five settings and 5% in the sixth / Ch. 8: 0% of runs in five settings and 5% in the sixth | none | PASS |
 | 3 | Archive (S2A) top-10 reach | `phase4/phase4_search_quality.csv` | 80–100% | Ch. 5: 80–100% / Ch. 7: 80–100% / Ch. 8: 80–100% | none | PASS |
 | 4 | Phase-4 archive Δ test, C10 LeNet-5 (corrected) | `phase4/phase4_search_quality.csv` | +0.89 | Ch. 5: +0.89 | none | PASS |
 | 5 | Phase-5 ResNet-8 mean sparsity C0 → C1 | `phase5/phase5_constraint_results.csv` | 46.2% → 24.5%; 25.9% → 15.6% | Ch. 5: 15.6%; 24.5%; 25.9%; 46.2% | none | PASS |
-| 6 | Validation-to-test feasibility (C1) | `phase5/phase5_constraint_results.csv` | 81/120 = 67.5% | Abstract: two thirds / Ch. 1: two thirds / Ch. 5: 67.5%; 81 / 120; two thirds / Ch. 7: 67.5%; 81 of 120 / Ch. 8: 67.5% | none | PASS |
-| 7 | Phase-6 |PPO − LAMP| before / after | `phase6/phase6_ppo_vs_lamp.csv` | 0.26–0.53 → 0.00–0.22 | Ch. 5: 0.00–0.22; 0.26–0.53 / Ch. 7: 0.00–0.22; 0.26–0.53 / Ch. 8: 0.00–0.22; 0.26–0.53 | none | PASS |
-| 8 | Phase-6 PPO − Global after recovery: maximum PPO advantage | `phase6/phase6_ppo_vs_global.csv` | 0.12 | Ch. 5: 0.12 pp / Ch. 6: 0.12 pp / Ch. 7: 0.12 pp / Ch. 8: 0.12 percentage | none | PASS |
+| 6 | Validation-to-test feasibility (C1) | `phase5/phase5_constraint_results.csv` | 81/120 = 67.5% | Abstract: two thirds / Ch. 1: two thirds / Ch. 5: 67.5%; 81 / 120 / Ch. 7: 67.5%; two thirds / Ch. 8: 67.5% | none | PASS |
+| 7 | Phase-6 |PPO − LAMP| before / after | `phase6/phase6_ppo_vs_lamp.csv` | 0.26–0.53 → 0.00–0.22 | Ch. 5: 0.00–0.22; 0.26–0.53 / Ch. 7: 0.00–0.22 / Ch. 8: 0.00–0.22; 0.26–0.53 | none | PASS |
+| 8 | Phase-6 PPO − Global after recovery: maximum PPO advantage | `phase6/phase6_ppo_vs_global.csv` | 0.12 | Ch. 5: 0.12 pp / Ch. 6: 0.12 pp / Ch. 8: 0.12 percentage | none | PASS |
 | 9 | Spearman: parameter vs latency / MAC vs latency | `paper3/h2_latency_table_*.csv (recomputed; = h2_e2_latency_correlations.csv for C10)` | 0.31–0.55 / 0.89–0.98 | Ch. 6: 0.31–0.55; 0.89–0.98 / Ch. 8: 0.31–0.55; 0.89–0.98 | none | PASS |
 | 10 | ResNet-8 best proxy-feasible speed-up (candidate, not confirmed) | `paper3/resnet8_threshold_calibration_decision.json` | 1.098× | Ch. 6: 1.098× / Ch. 7: 1.098× / Ch. 8: 1.098× | none | PASS |
 | 11 | ResNet-8 best confirmed five-epoch-feasible calibration speed-up | `paper3/resnet8_threshold_calibration_report.md` | 1.089× | Ch. 6: 1.089× / Ch. 7: 1.089× / Ch. 8: 1.089× | none | PASS |

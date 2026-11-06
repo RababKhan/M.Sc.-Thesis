@@ -52,6 +52,8 @@ def main(dry):
                     return before[-1]
                 warn.append(f"{f}: unresolved reference {tok}")
                 return tok
+            if tok not in gmap:
+                warn.append(f"{f}: reference to Table {tok}, which has no caption (deleted table?)")
             return gmap.get(tok, tok)
 
         out, last = [], 0

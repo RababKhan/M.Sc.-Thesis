@@ -8,12 +8,6 @@
   },
   {
    "label": "2.1",
-   "rows": 4,
-   "cols": 4,
-   "font": 10
-  },
-  {
-   "label": "2.2",
    "rows": 18,
    "cols": 12,
    "font": 8
@@ -26,38 +20,20 @@
   },
   {
    "label": "3.2",
-   "rows": 30,
-   "cols": 2,
-   "font": 10
-  },
-  {
-   "label": "3.3",
    "rows": 4,
    "cols": 6,
    "font": 9
   },
   {
-   "label": "3.4",
+   "label": "3.3",
    "rows": 16,
    "cols": 4,
    "font": 10
   },
   {
-   "label": "3.5",
+   "label": "3.4",
    "rows": 11,
    "cols": 4,
-   "font": 10
-  },
-  {
-   "label": "3.6",
-   "rows": 4,
-   "cols": 3,
-   "font": 10
-  },
-  {
-   "label": "3.7",
-   "rows": 10,
-   "cols": 2,
    "font": 10
   },
   {
@@ -110,7 +86,7 @@
   },
   {
    "label": "4.9",
-   "rows": 26,
+   "rows": 13,
    "cols": 5,
    "font": 10
   },
@@ -146,48 +122,30 @@
   },
   {
    "label": "5.4",
-   "rows": 6,
-   "cols": 2,
-   "font": 10
-  },
-  {
-   "label": "5.5",
    "rows": 11,
    "cols": 5,
    "font": 10
   },
   {
-   "label": "5.6",
+   "label": "5.5",
    "rows": 7,
    "cols": 7,
    "font": 9
   },
   {
-   "label": "5.7",
-   "rows": 8,
-   "cols": 3,
-   "font": 10
-  },
-  {
-   "label": "5.8",
+   "label": "5.6",
    "rows": 4,
    "cols": 4,
    "font": 10
   },
   {
-   "label": "5.9",
+   "label": "5.7",
    "rows": 8,
    "cols": 7,
    "font": 9
   },
   {
-   "label": "5.10",
-   "rows": 7,
-   "cols": 3,
-   "font": 10
-  },
-  {
-   "label": "5.11",
+   "label": "5.8",
    "rows": 6,
    "cols": 4,
    "font": 10
@@ -200,42 +158,24 @@
   },
   {
    "label": "6.2",
-   "rows": 3,
-   "cols": 5,
-   "font": 10
-  },
-  {
-   "label": "6.3",
-   "rows": 3,
-   "cols": 4,
-   "font": 10
-  },
-  {
-   "label": "6.4",
    "rows": 10,
    "cols": 2,
    "font": 10
   },
   {
-   "label": "6.5",
+   "label": "6.3",
    "rows": 9,
    "cols": 11,
    "font": 8
   },
   {
-   "label": "6.6",
+   "label": "6.4",
    "rows": 6,
    "cols": 8,
    "font": 8
   },
   {
-   "label": "6.7",
-   "rows": 4,
-   "cols": 4,
-   "font": 10
-  },
-  {
-   "label": "6.8",
+   "label": "6.5",
    "rows": 5,
    "cols": 5,
    "font": 10
@@ -247,12 +187,6 @@
    "font": 10
   },
   {
-   "label": "7.2",
-   "rows": 8,
-   "cols": 4,
-   "font": 10
-  },
-  {
    "label": "8.1",
    "rows": 7,
    "cols": 3,
@@ -261,38 +195,14 @@
   {
    "label": "A.1",
    "rows": 16,
-   "cols": 8,
-   "font": 8
-  },
-  {
-   "label": "A.2",
-   "rows": 7,
-   "cols": 9,
-   "font": 8
-  },
-  {
-   "label": "A.3",
-   "rows": 11,
-   "cols": 2,
-   "font": 10
-  },
-  {
-   "label": "A.4",
-   "rows": 14,
-   "cols": 3,
-   "font": 10
-  },
-  {
-   "label": "A.5",
-   "rows": 8,
-   "cols": 3,
-   "font": 10
+   "cols": 6,
+   "font": 9
   },
   {
    "label": "B.1",
-   "rows": 55,
-   "cols": 6,
-   "font": 9
+   "rows": 7,
+   "cols": 8,
+   "font": 8
   },
   {
    "label": "B.2",
@@ -302,21 +212,9 @@
   },
   {
    "label": "C.1",
-   "rows": 31,
-   "cols": 10,
-   "font": 8
-  },
-  {
-   "label": "C.2",
-   "rows": 19,
-   "cols": 9,
-   "font": 8
-  },
-  {
-   "label": "C.3",
-   "rows": 25,
-   "cols": 9,
-   "font": 8
+   "rows": 7,
+   "cols": 5,
+   "font": 10
   },
   {
    "label": "D.1",
@@ -326,45 +224,21 @@
   },
   {
    "label": "D.2",
-   "rows": 25,
-   "cols": 7,
-   "font": 9
-  },
-  {
-   "label": "D.3",
-   "rows": 3,
-   "cols": 7,
-   "font": 9
-  },
-  {
-   "label": "D.4",
-   "rows": 8,
-   "cols": 2,
+   "rows": 5,
+   "cols": 5,
    "font": 10
   },
   {
    "label": "E.1",
    "rows": 9,
-   "cols": 9,
+   "cols": 8,
    "font": 8
   },
   {
    "label": "E.2",
-   "rows": 12,
-   "cols": 9,
-   "font": 8
-  },
-  {
-   "label": "E.3",
    "rows": 7,
    "cols": 6,
    "font": 9
-  },
-  {
-   "label": "E.4",
-   "rows": 7,
-   "cols": 8,
-   "font": 8
   }
  ],
  "figures": [
@@ -500,15 +374,7 @@
   },
   {
    "kind": "content",
-   "label": "2.2"
-  },
-  {
-   "kind": "content",
    "label": "3.1"
-  },
-  {
-   "kind": "content",
-   "label": "3.2"
   },
   {
    "kind": "eq",
@@ -524,7 +390,7 @@
   },
   {
    "kind": "content",
-   "label": "3.3"
+   "label": "3.2"
   },
   {
    "kind": "eq",
@@ -532,7 +398,7 @@
   },
   {
    "kind": "content",
-   "label": "3.4"
+   "label": "3.3"
   },
   {
    "kind": "eq",
@@ -580,7 +446,7 @@
   },
   {
    "kind": "content",
-   "label": "3.5"
+   "label": "3.4"
   },
   {
    "kind": "eq",
@@ -589,10 +455,6 @@
   {
    "kind": "eq",
    "label": "3.17"
-  },
-  {
-   "kind": "content",
-   "label": "3.6"
   },
   {
    "kind": "eq",
@@ -609,10 +471,6 @@
   {
    "kind": "code",
    "label": "Input:  dense network M; a structured po"
-  },
-  {
-   "kind": "content",
-   "label": "3.7"
   },
   {
    "kind": "eq",
@@ -696,18 +554,6 @@
   },
   {
    "kind": "content",
-   "label": "5.9"
-  },
-  {
-   "kind": "content",
-   "label": "5.10"
-  },
-  {
-   "kind": "content",
-   "label": "5.11"
-  },
-  {
-   "kind": "content",
    "label": "6.1"
   },
   {
@@ -728,23 +574,7 @@
   },
   {
    "kind": "content",
-   "label": "6.6"
-  },
-  {
-   "kind": "content",
-   "label": "6.7"
-  },
-  {
-   "kind": "content",
-   "label": "6.8"
-  },
-  {
-   "kind": "content",
    "label": "7.1"
-  },
-  {
-   "kind": "content",
-   "label": "7.2"
   },
   {
    "kind": "content",
@@ -753,22 +583,6 @@
   {
    "kind": "content",
    "label": "A.1"
-  },
-  {
-   "kind": "content",
-   "label": "A.2"
-  },
-  {
-   "kind": "content",
-   "label": "A.3"
-  },
-  {
-   "kind": "content",
-   "label": "A.4"
-  },
-  {
-   "kind": "content",
-   "label": "A.5"
   },
   {
    "kind": "content",
@@ -784,14 +598,6 @@
   },
   {
    "kind": "content",
-   "label": "C.2"
-  },
-  {
-   "kind": "content",
-   "label": "C.3"
-  },
-  {
-   "kind": "content",
    "label": "D.1"
   },
   {
@@ -800,35 +606,16 @@
   },
   {
    "kind": "content",
-   "label": "D.3"
-  },
-  {
-   "kind": "content",
-   "label": "D.4"
-  },
-  {
-   "kind": "content",
    "label": "E.1"
   },
   {
    "kind": "content",
    "label": "E.2"
-  },
-  {
-   "kind": "content",
-   "label": "E.3"
-  },
-  {
-   "kind": "content",
-   "label": "E.4"
   }
  ],
  "landscape": [
-  "2.2",
+  "2.1",
   "4.7",
-  "6.5",
-  "A.1",
-  "C.1",
-  "E.2"
+  "6.3"
  ]
 }

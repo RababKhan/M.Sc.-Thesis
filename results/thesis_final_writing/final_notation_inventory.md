@@ -15,6 +15,7 @@ Status codes:
 | Symbol | Meaning | First chapter | Ambiguity | Status |
 |---|---|---|---|---|
 | N_L | number of pruning units; N_L = 4 for every architecture | Ch. 3 (Table 3.2, Eq. 3.1) | Ch. 3 states that L alone is never used, because T is latency | OK |
+| l | index of a pruning unit, l = 1, …, N_L | Ch. 3 (Section 3.2) | none | OK |
 | r_l | pruning ratio assigned to unit l, r_l = r(a_l) ∈ 𝓡 | Ch. 3 (Eq. 3.1) | none | OK |
 | **r** (bold) / r(a) | **r**: the policy vector [r_1, …, r_{N_L}]. r(a): the map from action index to ratio | Ch. 3 (Table 3.2) | bold vector vs function of a; Table 3.2 notes that **r** is equivalent to the action vector **a** | OK (context) |
 | S_l | normalised sensitivity of unit l, S_l ∈ [0, 1] | Ch. 3 (Table 3.2; §3.9) | none; Chs 4 and 5 use it with the same meaning | OK |
@@ -30,6 +31,7 @@ Status codes:
 | τ | retained-accuracy threshold of the constrained reward, τ = 0.98 (Phase 5 and the selection rule of Eq. 3.14) | Ch. 3 (Table 3.2; Eq. 3.15) | τ̂ = 0.98849 is the Phase-7B proxy threshold, marked by the hat (Ch. 3 §3.16.3; Ch. 4) | OK (context) |
 | latency, T(**r**) | measured batch-1 CPU latency per inference (ms); T_table(**r**) is the frozen Paper-3 table value used by the 7B surrogate | Ch. 3 (Table 3.2) | none. L is avoided on purpose | OK |
 | energy, E(**r**) | directly measured CPU package energy per 1,000 inferences (J) | Ch. 3 (Table 3.2) | Ê(**r**) is the surrogate (predicted) energy, used only inside the Phase-7B search. Every chapter says that it is not a measurement | OK |
+| Ê(**r**) | surrogate (predicted) energy per 1,000 inferences, used only inside the Phase-7B search; never reported as a measurement | Ch. 3 (Eq. 3.18) | distinct from measured E(**r**) by the hat | OK |
 
 ## Other symbols found
 

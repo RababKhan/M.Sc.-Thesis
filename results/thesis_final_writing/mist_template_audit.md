@@ -135,7 +135,7 @@ approved through MIST's process. Since it is the approved title, it is used exac
 |---|---|---|---|
 | Table cell font | 12 pt Times New Roman (notes 10 pt) | 10 pt (≤ 5 columns), 9 pt (6–7 columns), 8 pt (≥ 8 columns); notes 10 pt | data tables of 6–10 columns cannot fit 12 pt within the 153 mm text width without breaking numbers across lines |
 | List items | (not specified; body 12 pt before and after) | list paragraphs 1.5-spaced with 2 pt before and after, labelled (a)/(i) with a hanging indent | 12 pt around every list item would separate the items of one list more than paragraphs |
-| Bangla font | Sutonny OMJ 14 pt | Kalpurush (Unicode) 14 pt | Sutonny OMJ is not installed; substitute at print stage if required |
+| Bangla font | Sutonny OMJ 14 pt | Kalpurush (Unicode) 14 pt in the working digital build | Sutonny OMJ is not installed. Sutonny OMJ substitution should be applied only if required by the department or final print-office instructions; the Bangla Abstract content is not changed by a font substitution |
 | MIST monogram | 28 × 30 mm logo | bordered placeholder box of the same size | the logo file is not in the repository |
 | Keywords | not part of TP.11 | kept after the English Abstract | harmless; remove if the department prefers |
 | Chapter "General" first section | §3.3.11 | applied to Chapters 3, 5, 6, 7 and 8 (former "Chapter Overview"); Chapters 1, 2 and 4 open with substantive first sections (Background; Neural Network Compression; Experimental Design Overview) | renaming those would misdescribe their content |

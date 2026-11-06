@@ -157,8 +157,8 @@ by `tools/refs_mist.py` from the same citation keys in the final chapter files.
 | 150 | Ch. 3 | [14], [15] | (Renda, Frankle and Carbin, 2020; Le and Hua, 2021) | `renda2020rewinding`, `le2021retraining` | converted; entry present |
 | 151 | Ch. 3 | [8], [7] | (Hoefler et al., 2021; He and Xiao, 2024) | `hoefler2021sparsity`, `he2024structuredsurvey` | converted; entry present |
 | 152 | Ch. 3 | [22], [23] | (He, Zhang and Sun, 2017; Li et al., 2017) | `li2017filters`, `he2017channel` | converted; entry present |
-| 153 | Ch. 3 | [54] | (Raffin et al., 2021) | `raffin2021sb3` | converted; entry present |
-| 154 | Ch. 3 | [11] | (Schulman et al., 2017) | `schulman2017ppo` | converted; entry present |
+| 153 | Ch. 3 | [11] | (Schulman et al., 2017) | `schulman2017ppo` | converted; entry present |
+| 154 | Ch. 3 | [54] | (Raffin et al., 2021) | `raffin2021sb3` | converted; entry present |
 | 155 | Ch. 3 | [53] | (Schulman et al., 2016) | `schulman2016gae` | converted; entry present |
 | 156 | Ch. 4 | [93] | (Krizhevsky, 2009) | `krizhevsky2009cifar` | converted; entry present |
 | 157 | Ch. 4 | [94] | (LeCun et al., 1998) | `lecun1998lenet` | converted; entry present |
@@ -166,8 +166,8 @@ by `tools/refs_mist.py` from the same citation keys in the final chapter files.
 | 159 | Ch. 4 | [18] | (Blalock et al., 2020) | `blalock2020state` | converted; entry present |
 | 160 | Ch. 4 | [33] | (Evci et al., 2020) | `evci2020rigl` | converted; entry present |
 | 161 | Ch. 4 | [9] | (Lee et al., 2021) | `lee2021lamp` | converted; entry present |
-| 162 | Ch. 4 | [54] | (Raffin et al., 2021) | `raffin2021sb3` | converted; entry present |
-| 163 | Ch. 4 | [11] | (Schulman et al., 2017) | `schulman2017ppo` | converted; entry present |
+| 162 | Ch. 4 | [11] | (Schulman et al., 2017) | `schulman2017ppo` | converted; entry present |
+| 163 | Ch. 4 | [54] | (Raffin et al., 2021) | `raffin2021sb3` | converted; entry present |
 | 164 | Ch. 4 | [53] | (Schulman et al., 2016) | `schulman2016gae` | converted; entry present |
 | 165 | Ch. 4 | [96] | (Youden, 1950) | `youden1950index` | converted; entry present |
 | 166 | Ch. 4 | [92] | (Paszke et al., 2019) | `paszke2019pytorch` | converted; entry present |

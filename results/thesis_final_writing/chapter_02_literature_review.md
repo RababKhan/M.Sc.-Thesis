@@ -1,38 +1,25 @@
 # Chapter 2 — Literature Review
 
-This chapter reviews the research on which the thesis builds. Sections 2.1–2.2 cover compression and pruning
-granularity; Sections 2.3–2.5 the allocation problem; Sections 2.6–2.9 reinforcement learning (RL) for compression,
-PPO, sensitivity, and search and selection; Section 2.10 recovery; Sections 2.11–2.13 hardware-aware compression,
-cost metrics and energy measurement. Section 2.14 states the research gap.
+This chapter reviews compression and pruning granularity (Sections 2.1–2.2), the allocation problem (2.3–2.5),
+reinforcement learning (RL), PPO, sensitivity and policy selection (2.6–2.9), recovery (2.10), and hardware-aware
+compression, cost metrics and energy measurement (2.11–2.13); Section 2.14 states the research gap.
 
 ## 2.1 Neural Network Compression
 
 The accuracy gains of deep neural networks have come with growing parameter counts, arithmetic cost and memory
 traffic, making deployment expensive on servers and difficult on resource-limited devices
 [@menghani2023efficient; @hoefler2021sparsity]. Compression reduces these costs while keeping predictive quality
-close to that of the original model. The main families are:
+close to that of the original model, through pruning, quantisation, knowledge distillation or efficient architecture
+design [@menghani2023efficient; @cheng2024pruningsurvey; @he2024structuredsurvey].
 
-- **pruning**, which removes parameters or structures;
-- **quantisation**, which lowers numerical precision;
-- **knowledge distillation**, which trains a smaller model to imitate a larger one;
-- **efficient architecture design**, sometimes automated through neural architecture search.
-
-Several recent surveys organise this field [@menghani2023efficient; @cheng2024pruningsurvey; @he2024structuredsurvey].
-
-Pruning is among the oldest of these ideas. Early work removed weights by a second-order estimate of how much the
-training loss would increase without them [@lecun1989obd]. Later work showed that
-simply removing small-magnitude weights and retraining could reduce the parameter count of large convolutional
-networks many times over with little accuracy loss [@han2015learning]. The lottery ticket hypothesis then argued that
-dense networks contain sparse subnetworks that train to comparable accuracy, which renewed interest in why pruning
-works [@frankle2019lth].
-
-One recent survey counts more than three thousand pruning papers published between 2020 and 2024
-[@cheng2024pruningsurvey]. Pruning and quantisation are also often compared directly. A systematic study
+Pruning is among the oldest of these ideas. Early work removed weights by a second-order estimate of the loss
+increase [@lecun1989obd]; later, removing small-magnitude weights and retraining reduced the parameter count of large
+convolutional networks many times over with little accuracy loss [@han2015learning]; the lottery ticket hypothesis
+argued that dense networks contain sparse subnetworks that train to comparable accuracy [@frankle2019lth]. One survey
+counts more than three thousand pruning papers between 2020 and 2024 [@cheng2024pruningsurvey]. A systematic study
 found that quantisation usually gives a better accuracy–compression trade-off than pruning, except at very high
-compression ratios [@kuzmin2023pruningvsquant]. This thesis restricts itself to pruning, because its questions
-concern *where* capacity should be removed; quantisation is complementary and is not studied.
-
-Two observations from this literature shape the thesis.
+compression ratios [@kuzmin2023pruningvsquant]; this thesis studies pruning because its questions concern *where*
+capacity is removed. Two observations shape the thesis.
 
 1. **"Efficiency" is not a single quantity.** A pruned model may need less storage, fewer arithmetic operations, less
    time per inference or less energy, and these do not necessarily move together [@dehghani2022misnomer;
@@ -43,27 +30,21 @@ Two observations from this literature shape the thesis.
 
 ## 2.2 Unstructured and Structured Pruning
 
-Pruning methods are commonly classified by the *granularity* of what they remove (Table 2.1).
+Pruning methods are classified by the *granularity* of what they remove: *unstructured* (individual weights; same
+tensor shapes with a sparse mask; smaller compressed storage, speed-up only with sparse kernels or hardware support),
+*semi-structured* (fixed patterns such as N:M within small blocks; speed-up on hardware that supports the pattern) and
+*structured* (whole channels, filters or neurons; physically smaller dense tensors with fewer MACs, usable by standard
+libraries).
 
-**Table 2.1. Pruning granularity.**
+**Unstructured pruning** can reach high sparsity at a given accuracy because the choice of weights is unconstrained
+[@han2015learning; @hoefler2021sparsity], but zeros are stored and computed unless sparse formats and kernels are
+used, and on general-purpose hardware these are effective only at high sparsity and favourable patterns, so
+weight-level sparsity often brings little or no latency reduction [@hoefler2021sparsity; @he2024structuredsurvey].
 
-| Granularity | What is removed | Resulting model | Typical deployment benefit |
-|---|---|---|---|
-| Unstructured (weight-level) | Individual weights | Same tensor shapes, with a sparse mask | Smaller compressed storage; speed-up only with sparse kernels or hardware support |
-| Semi-structured (e.g. N:M) | Fixed patterns of weights within small blocks | Same shapes, regular sparsity pattern | Speed-up on hardware that supports the pattern |
-| Structured (channel, filter, neuron) | Whole channels, filters or neurons | Physically smaller dense tensors | Fewer MACs and smaller dense kernels, usable by standard libraries |
-
-**Unstructured pruning** removes individual weights. Because the choice of which weights to keep is unconstrained, it
-can reach high sparsity at a given accuracy [@han2015learning; @hoefler2021sparsity], but the model keeps its tensor
-shapes, with zeros stored and computed unless sparse formats and kernels are used. On general-purpose hardware such kernels are effective only at high sparsity and favourable sparsity patterns, so
-weight-level sparsity often brings little or no reduction in latency [@hoefler2021sparsity; @he2024structuredsurvey].
-
-**Structured pruning** removes whole structures such as convolutional filters, channels or fully connected neurons
-[@li2017filters; @he2017channel; @wen2016ssl]. The pruned network is a smaller dense network: it can be executed by
-standard dense libraries and directly reduces MACs and memory traffic. A survey of structured pruning describes it as
-the route to "realistic acceleration" [@he2024structuredsurvey]. The price is a coarser search space: removing a channel removes
-all its weights at once, and accuracy typically degrades faster than with unstructured pruning at the same parameter
-reduction.
+**Structured pruning** removes filters, channels or neurons [@li2017filters; @he2017channel; @wen2016ssl], giving a
+smaller dense network that directly reduces MACs and memory traffic, the route to "realistic acceleration"
+[@he2024structuredsurvey]. The price is a coarser search space: accuracy typically degrades faster than with
+unstructured pruning at the same parameter reduction.
 
 **Recent work on structured pruning** has concentrated on two problems.
 
@@ -82,19 +63,16 @@ works well compared with other channel-pruning methods, with no clear winner amo
 [@li2022randomchannel]. *How much* to prune in each layer, together with the training protocol, can matter as much as
 *which* channels are removed.
 
-**Relevance to this thesis.** The core framework (Chapters 3–5) uses magnitude-based *unstructured* masks within each
-layer and learns the per-layer ratio, which made exhaustive evaluation of the policy space possible. The deployment
-extension (Chapter 6) realises per-layer allocations as *physically structured* networks, so that memory, MACs,
-latency and energy can be measured; the gap between the two realisations is itself a finding of Chapter 6.
+**Relevance to this thesis.** The core framework (Chapters 3–5) uses magnitude-based *unstructured* masks and learns
+the per-layer ratio, which made exhaustive evaluation possible; the deployment extension (Chapter 6) realises the
+allocations as *physically structured* networks so that memory, MACs, latency and energy can be measured.
 
 ## 2.3 Layer-Wise Adaptive Pruning
 
-A pruning method must decide not only *which* parameters to remove but also *how many* to remove from each layer: the
-layer-wise sparsity allocation. The simplest choice applies the same ratio to every layer (uniform pruning). Layers
-differ, however, in size, position and redundancy. Early layers of a convolutional network are small and often
-fragile, while large fully connected or late convolutional layers often contain many redundant parameters. A uniform
-allocation therefore over-prunes some layers and under-prunes others. A sizeable literature shows that the allocation
-itself is a first-order factor in pruned-model quality [@lee2021lamp; @liu2022randompruning; @gadhikar2023random].
+A pruning method must also decide *how many* parameters to remove from each layer: the layer-wise sparsity
+allocation. Uniform pruning applies one ratio everywhere, but small early layers are often fragile while large late
+layers are redundant, so it over-prunes some layers and under-prunes others; the allocation itself is a first-order
+factor in pruned-model quality [@lee2021lamp; @liu2022randompruning; @gadhikar2023random].
 
 Approaches to the allocation problem fall into four broad classes.
 
@@ -118,10 +96,8 @@ sparsity, but OWL allocates higher sparsity to layers with fewer outlier activat
 sparsity [@yin2024owl]. BESA learns block-wise sparsity allocations under a global budget [@xu2024besa]. Other work
 proposes a sparsity-based compressibility index (PQ Index) to guide adaptive pruning [@diao2023sparsityperspective].
 
-**What remains less studied** is how a *learned* allocation compares with cheap deterministic allocations once the
-sparsity level, recovery budget and selection procedure are controlled. Learned allocators are usually reported
-against published numbers obtained under different protocols, rarely at the exact sparsity the learned method chose
-and under identical recovery (Research Question 1).
+**What remains less studied** is how a *learned* allocation compares with cheap deterministic allocations at the
+exact same sparsity and under identical recovery (Research Question 1).
 
 ## 2.4 Magnitude-Based and Deterministic Pruning
 
@@ -144,24 +120,19 @@ on harder tasks have also shown that apparent gains can vanish under more demand
 [@liu2023sparsitymaycry].
 
 **Deterministic methods** (magnitude pruning, global ranking, ERK, LAMP) are cheap, reproducible and free of search
-hyperparameters, so any learned method must justify its additional cost against them. The thesis compares PPO with
-Uniform, Random, global magnitude, ERK and LAMP at the same sparsity as each PPO run, rather than with numbers
-reported elsewhere.
+hyperparameters, so a learned method must justify its cost against them, at the same sparsity rather than against
+numbers reported elsewhere.
 
 ## 2.5 LAMP and Related Layer-Adaptive Methods
 
 Layer-Adaptive Magnitude-based Pruning (LAMP) rescales each weight's magnitude by the magnitudes of the weights in
 the same layer that would survive if it were pruned. This yields a score that reflects the model-level ℓ2 distortion
 caused by pruning [@lee2021lamp]. A single global threshold on the LAMP score then produces a layer-wise allocation
-automatically, without hyperparameters and with negligible computation. In its original evaluation, LAMP
-consistently outperformed popular existing schemes for layer-wise sparsity selection under various
-image-classification setups. It also
-remained strong under weight rewinding, where the connectivity-oriented allocation, the strongest baseline overall,
-fell behind even simple global magnitude pruning [@lee2021lamp].
-
-LAMP is a strong *deterministic* answer to exactly the problem a learned allocator addresses, and it costs almost
-nothing to compute, whereas an RL search requires thousands of pruned-model evaluations. It is therefore the natural
-benchmark for the practical value of RL-based allocation.
+automatically, without hyperparameters and with negligible computation. In its original evaluation LAMP consistently
+outperformed popular layer-wise sparsity schemes on image classification, and remained strong under weight rewinding,
+where the strongest other baseline fell behind even global magnitude pruning [@lee2021lamp]. As a near-free
+*deterministic* answer to the problem a learned allocator addresses, LAMP is the natural benchmark for RL-based
+allocation, which requires thousands of pruned-model evaluations.
 
 Related layer-adaptive methods include:
 
@@ -170,9 +141,8 @@ Related layer-adaptive methods include:
 - **Outlier-based allocations for LLMs** [@yin2024owl];
 - **Block-wise learned allocations** [@xu2024besa].
 
-**Limitation shared by these comparisons.** These methods, like most allocators, were compared under each paper's own
-training and fine-tuning protocol. Chapter 5 compares PPO and LAMP before and after identical recovery, separating the
-contribution of allocation from that of fine-tuning.
+Like most allocators, these were compared under each paper's own fine-tuning protocol; Chapter 5 compares PPO and
+LAMP before and after identical recovery.
 
 ## 2.6 Reinforcement Learning for Neural Network Compression
 
@@ -186,7 +156,7 @@ accuracy than hand-crafted compression at a given FLOPs reduction, and measured 
 hardware [@he2018amc]. Platform-aware methods such as NetAdapt and HAQ extended the idea by placing measured latency
 or hardware feedback inside the optimisation loop [@yang2018netadapt; @wang2019haq].
 
-Recent RL-based pruning research has explored several directions (Table 2.2):
+Recent RL-based pruning research has explored several directions (Table 2.1):
 
 - **Q-learning allocation.** QLP uses deep Q-learning to choose layer-wise sparsity ratios. It can revisit layers and
   prune them gradually instead of making a single first-to-last pass [@camci2022qlp].
@@ -199,16 +169,11 @@ Recent RL-based pruning research has explored several directions (Table 2.2):
 - **Joint training and pruning.** An RL agent sets layer pruning ratios while the network is being trained, rather
   than after a full pre-training run [@ganjdanesh2024agent].
 
-These methods show that RL can find competitive allocations and incorporate non-differentiable objectives. Three
-features of their evaluation leave questions open, which the thesis addresses (Research Questions 3, 4 and 5):
-1. **Final-policy evaluation**, typically after method-specific fine-tuning, without examining whether the agent
-   *retained* the best policy it encountered during search.
-2. **Hand-built rewards**, whose coefficients shape pruning aggressiveness in ways that are seldom analysed, including
-   whether better search exploits weaknesses in the reward.
-3. **Comparisons under different protocols**, against published results with different recovery budgets, which makes
-   it hard to attribute gains to the allocation itself.
+These methods show that RL can find competitive allocations and handle non-differentiable objectives, but they are
+usually evaluated on the final policy after method-specific fine-tuning, with hand-built rewards and against published
+results under different recovery budgets (questions taken up in Section 2.14).
 
-**Table 2.2. Comparison of representative pruning-allocation and deployment-aware pruning works.** "Struct." =
+**Table 2.1. Comparison of representative pruning-allocation and deployment-aware pruning works.** "Struct." =
 structured pruning; "Sens." = an explicit sensitivity or saliency signal drives allocation; "HW metric" = a measured
 or table-based hardware metric (latency, throughput) enters the method or its evaluation; "Energy" = inference energy
 measured on hardware. Datasets and models are as stated in each paper's abstract. Limitations are stated relative to
@@ -250,19 +215,11 @@ hyperparameters, handles discrete and continuous actions, and has mature impleme
 - **Multi-agent settings.** PPO proved surprisingly strong in cooperative multi-agent games, where it had been assumed
   less sample-efficient than off-policy methods [@yu2022mappo].
 
-PPO is therefore a reasonable and well-understood optimiser, but its behaviour must be examined empirically, especially
-in an unusual setting such as pruning allocation. The pruning task differs from typical RL benchmarks in three ways.
-
-1. **Short episodes.** An episode consists of a handful of decisions, one per prunable unit, so the problem resembles
-   a contextual combinatorial search more than long-horizon control.
-2. **Expensive, noisy reward.** The reward requires evaluating a pruned model on held-out data, and its noise comes
-   from a finite validation set.
-3. **Small, enumerable space in this thesis.** With four units and six ratios there are 1,296 policies, so the full
-   reward landscape can be computed and each PPO run compared against the exact optimum.
-
-The last feature, unusual in the RL-for-compression literature, allows search quality (how highly ranked are the
-policies PPO visits?) to be measured separately from final-policy quality (how highly ranked is the policy it ends
-on?).
+PPO is thus a reasonable optimiser whose behaviour must still be examined empirically. Pruning allocation differs from
+typical RL benchmarks: episodes are a handful of decisions, one per unit; the reward needs a noisy held-out
+evaluation of a pruned model; and here the space is small enough to enumerate (1,296 policies), so search quality (how
+highly ranked are the policies PPO visits?) can be measured separately from final-policy quality (how highly ranked is
+the policy it ends on?).
 
 ## 2.8 Sensitivity-Aware Pruning
 
@@ -282,19 +239,10 @@ the oldest ideas in pruning:
   reconstruction for accurate one-shot compression [@frantar2022obc; @frantar2023sparsegpt]. Wanda shows that a
   simple weight-times-activation score is a strong alternative [@sun2024wanda].
 
-In most of this work, sensitivity is used *directly as the pruning criterion*: it decides which elements to remove or
-how many. A different use is to provide sensitivity as *guidance to a search procedure* (a feature in the agent's
-state or a prior over its actions), while the search itself decides the allocation. In that role, sensitivity can
-help in two distinct ways:
-
-- it can make the search more efficient, finding good policies sooner or avoiding destructive ones;
-- it can lead to a better final model.
-
-These need not coincide: a search may be made faster without being made better at its end point, especially if
-selection, reward or recovery is the bottleneck. Studies that add sensitivity to a search pipeline usually report
-only the final accuracy of the combined method. Research Question 2 separates the two effects, measuring exploration
-quality (rank- and accuracy-based areas under the search trajectory, and the frequency of destructive policies)
-separately from final accuracy, and comparing a correct sensitivity prior with shuffled and constant controls.
+In most of this work sensitivity is *the pruning criterion*. Used instead as *guidance to a search* (a state feature
+or an action prior), it can make the search more efficient or lead to a better final model, and these need not
+coincide when selection, reward or recovery is the bottleneck. Studies usually report only final accuracy; Research
+Question 2 measures the two effects separately, against shuffled and constant controls.
 
 ## 2.9 Search and Policy Selection in Pruning
 
@@ -314,12 +262,9 @@ known in neighbouring fields:
   the pruned weights [@li2020eagleeye]. In NAS, reduced-training and "zero-cost" proxies are evaluated by how well they
   preserve the ranking of candidates [@abdelfattah2021zerocost].
 
-Two lessons follow for RL-based pruning: what the agent *retains* can differ substantially from what it *finds*, and
-the selection step needs validation data separate from the data that drives the search, or it will favour candidates
-that overfit the search signal. The thesis measures how often the terminal PPO policy is among the top-ranked
-policies, compared with the best policy PPO visited, introduces archive-based selection with re-ranking on a held-out
-selection split (Research Question 3), and documents where this improves validation ranking without improving test
-accuracy.
+For RL pruning, what the agent *retains* can differ from what it *finds*, and selection needs validation data separate
+from the search signal. The thesis measures the rank of the terminal policy against the best visited one and
+introduces archive-based selection on a held-out split (Research Question 3).
 
 ## 2.10 Post-Pruning Recovery and Fine-Tuning
 
@@ -340,10 +285,9 @@ procedure is not a detail:
   behaviour under distribution shift [@liebenwein2021lost], disparate effects across groups [@tran2022disparate], and
   transfer performance [@iofinova2022transfer].
 
-A comparison before recovery measures the immediate damage done by pruning; one after recovery with different
-budgets partly measures the budgets. Only **identical** recovery isolates the effect of the allocation or criterion.
-The thesis therefore fixes the recovery protocol across methods (optimiser, learning rate, schedule, epochs, data
-order) and the pruning mask, and compares methods before and after recovery (Research Question 5).
+A comparison before recovery measures immediate damage, and one after recovery with different budgets partly
+measures the budgets; only **identical** recovery isolates the allocation, so the thesis fixes the recovery protocol
+and mask across methods (Research Question 5).
 
 ## 2.11 Hardware-Aware Neural Network Compression
 
@@ -359,12 +303,10 @@ Hardware-aware methods put a hardware cost, rather than a proxy such as paramete
   this with soft masks that let pruned channels return during training while respecting a cost constraint
   [@humble2022smcp].
 
-These methods share a premise, that what is gained on hardware is not captured by parameter counts, and a cost: a
-hardware model or measurement loop for each target device. Their benefit depends on enough *accuracy-feasible*
-headroom, meaning cheaper configurations that still meet the accuracy requirement. The thesis treats that headroom as
-an empirical question to answer before any hardware-aware optimisation (Chapter 6): it measures the latency of every
-structured configuration in its search space and checks whether accuracy-feasible configurations offer enough room
-for a hardware-aware RL agent to exploit.
+These methods need a hardware model or measurement loop per device, and their benefit depends on enough
+*accuracy-feasible* headroom. The thesis treats that headroom as an empirical question to answer before any
+hardware-aware optimisation (Chapter 6), checking whether accuracy-feasible configurations offer enough room for a
+hardware-aware RL agent to exploit.
 
 ## 2.12 Parameter Count vs MACs/FLOPs vs Real Latency
 
@@ -386,11 +328,9 @@ Network cost can be described at three related but not interchangeable levels:
   reduce direct metrics such as latency and energy [@yang2018netadapt]. Recent LLM work reports speed-ups only when
   a sparse inference engine supports the sparsity pattern [@yin2024owl].
 
-**What is less common** is an *exhaustive* measurement within one search space of how well parameter and MAC
-reductions predict measured latency across *all* configurations a pruning method could choose, showing how often a
-sparser configuration is actually slower and how much latency headroom exists among configurations that meet an
-accuracy requirement. Chapter 6 reports such an analysis for all 1,296 structured configurations of two
-architectures.
+**What is less common** is an *exhaustive* measurement, across *all* configurations of one search space, of how well
+parameter and MAC reductions predict latency and how much accuracy-feasible headroom exists; Chapter 6 reports this for
+all 1,296 structured configurations of two architectures.
 
 ## 2.13 Energy-Efficient and Sustainable Neural Network Inference
 
@@ -432,14 +372,11 @@ necessarily reduce energy [@yang2017energyaware].
   integrated graphics, uncore components, thermal state) enters the measurement. Stable measurement therefore
   requires controlled conditions, repeated runs and an explicit stability criterion.
 
-Two distinctions from this literature shape the thesis' treatment of sustainability (Chapter 6):
-- **Measured versus estimated energy.** The thesis reports only directly measured package energy, never TDP-based or
-  model-based estimates. Where measurement could not be qualified as stable, it reports energy as unresolved.
-- **Operational energy versus environmental impact.** Inference energy on one processor is only one component of a
-  model's environmental footprint; converting it into carbon or lifecycle impact needs further data and assumptions
-  [@luccioni2023bloom; @wu2022sustainable]. The thesis therefore makes no environmental or carbon claims, and uses
-  "sustainability" only in the narrow, measurable sense of reduced memory, computation and measured operational
-  energy.
+The thesis therefore reports only directly measured package energy, never TDP- or model-based estimates, and reports
+energy as unresolved where measurement could not be qualified. Inference energy on one processor is only one component
+of a model's environmental footprint, and converting it into carbon or lifecycle impact needs further data and
+assumptions [@luccioni2023bloom; @wu2022sustainable]; the thesis makes no environmental or carbon claims and uses
+"sustainability" only for reduced memory, computation and measured operational energy.
 
 ## 2.14 Research Gap
 
@@ -447,11 +384,10 @@ The literature establishes that layer-wise allocation is important, that RL can 
 that sensitivity carries useful information, and that compression metrics do not straightforwardly become deployment
 efficiency. Six narrower questions remain open.
 
-1. **Adaptive allocation versus strong deterministic allocation, under controlled conditions.** Layer-specific
-   allocation clearly matters [@lee2021lamp; @liu2022randompruning; @yin2024owl], but learned allocators are usually
-   compared with deterministic ones under different protocols. It is not clear how a learned PPO allocation compares
-   with Uniform, Random, global magnitude, ERK and LAMP when every baseline is built at exactly the sparsity the agent
-   chose. → *Research Question 1.*
+1. **Adaptive allocation versus strong deterministic allocation, under controlled conditions.** Allocation matters
+   [@lee2021lamp; @liu2022randompruning; @yin2024owl], but it is unclear how a learned PPO allocation compares with
+   Uniform, Random, global magnitude, ERK and LAMP built at exactly the sparsity the agent chose.
+   → *Research Question 1.*
 
 2. **The separate contributions of sensitivity to exploration and to final accuracy.** Sensitivity is widely used as a
    pruning criterion [@molchanov2019importance; @yu2022hap; @nonnenmacher2022sosp]. When it is used to *guide* a
@@ -481,6 +417,5 @@ efficiency. Six narrower questions remain open.
    energy without material accuracy loss all remain empirical questions. Energy measurement on general-purpose CPUs
    adds its own reliability problem [@khan2018rapl; @raffin2024dissecting]. → *Research Question 6.*
 
-The thesis addresses these questions in sequence, each answer exposing the next problem. Chapter 3 describes the
-framework that emerged, indicating which components were part of the original design and which were introduced in
-response to diagnostic results.
+Chapter 3 describes the framework that emerged, distinguishing original components from those introduced in response
+to diagnostic results.

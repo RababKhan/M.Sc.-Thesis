@@ -1,13 +1,13 @@
 # Final cross-chapter QA (MIST stage)
 
-Scope: the final, compressed Abstract (English and Bangla), Chapters 1–8, references and Appendices A–E as assembled in
+Scope (re-checked after the final length-reduction pass): the final, compressed Abstract (English and Bangla), Chapters 1–8, references and Appendices A–E as assembled in
 `thesis_full_source.md` and formatted in `final_thesis_MIST.docx` / `final_thesis_MIST.pdf`. All audits were re-run
 after compression, table renumbering and author-date conversion.
 
 | # | Question | Answer | Evidence |
 |---|---|---|---|
 | 1 | Are all RQs introduced in Chapter 1? | **Yes.** RQ1–RQ6 verbatim in §1.5, mapped to O1–O6 (§1.6) and Contributions 1–6 (§1.7, Table 1.1 TC1–TC6) | Ch. 1 |
-| 2 | Are all RQs answered in Chapters 5–6? | **Yes.** RQ1–RQ5 in §5.11, RQ6 in §6.15 | Ch. 5–6 |
+| 2 | Are all RQs answered in Chapters 5–6? | **Yes.** RQ1–RQ5 in §5.11 with direct evidence in §§5.3–5.10 (Tables 5.2–5.8); RQ6 in §6.15 with direct evidence in §§6.4–6.13 (Tables 6.1–6.5) | Ch. 5–6 |
 | 3 | Are all RQs interpreted in Chapter 7? | **Yes.** §§7.2–7.10, one or more sections per RQ; compressed to interpretation with pointers to Chs 5–6 | Ch. 7 |
 | 4 | Are all RQs concluded in Chapter 8? | **Yes.** §8.2 keeps one subsection per RQ under its full wording, each with a one-line verdict | Ch. 8 |
 | 5 | Does every objective map to completed evidence? | **Yes.** O1–O6 → Phases 3–7B; O6's Phase-7B energy part is a documented measurement failure (unresolved result, not missing evidence) | Table 1.1; Ch. 4 Table 4.7 |
@@ -28,6 +28,6 @@ after compression, table renumbering and author-date conversion.
 | 20 | Any unsupported carbon/environment claims? | **No.** | `global_claim_audit.md`; `terminology_audit.md` §5 |
 | 21 | Placeholders or TODOs left? | **No TODO/TBD/XXXX.** Only the intentional, visible front-matter placeholders listed in `final_completion_report.md` §21 | PDF text scan |
 | 22 | Are references globally consistent? | **Yes.** MIST author-date; 98 entries alphabetical, unnumbered; 0 numbered citations; every citation has an entry and every entry is cited | `citation_conversion_audit.md`; `reference_audit_mist_final.md` |
-| 23 | Are all figures/tables referenced and listed? | **Yes.** 13 figures and 61 tables (43 chapter, 18 appendix), numbered consecutively, all in the List of Figures / List of Tables with page numbers; explicit pointers added to the former Tables 6.2, 6.4, 6.5 (now 6.4, 6.6, 6.8) | `final_figure_inventory.md`; `final_table_inventory.md` |
+| 23 | Are all figures/tables referenced and listed? | **Yes.** 13 figures and 40 tables (32 chapter, 8 appendix), numbered consecutively, all in the List of Figures / List of Tables with page numbers; removed tables audited in `final_table_reduction_audit.md` | `final_figure_inventory.md`; `final_table_inventory.md` |
 | 24 | Is notation consistent? | **Yes.** All required symbols single-meaning; "Spearman ρ" written wherever ρ means correlation | `final_notation_inventory.md` |
-| 25 | Is the thesis ready for submission formatting review? | **Formatted to the MIST template and visually checked.** Outstanding items are author-supplied information (student number, examiners, date, acknowledgements, monogram) and the length decision (`mist_length_compliance_audit.md`) | `final_completion_report.md` |
+| 25 | Is the thesis ready for submission formatting review? | **Formatted to the MIST template and visually checked.** 50,342 word-equivalent, 153 MIST-countable pages (164 physical). Outstanding items are author-supplied information (student number, examiners, date, acknowledgements, monogram) | `final_completion_report.md` |

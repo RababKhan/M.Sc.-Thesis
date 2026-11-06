@@ -22,7 +22,7 @@ from wordcount import words  # noqa: E402
 
 CH = RM.CHAPTERS
 META = json.load(open(os.path.join(HERE, "mist_meta.json"), encoding="utf-8"))
-OLD = "f01d9636"
+OLD = "9366c52a"   # MIST stage before the final length-reduction pass
 
 
 def body(f):
@@ -125,9 +125,9 @@ for line in APX.splitlines():
 open(os.path.join(W, "final_toc_map.md"), "w", encoding="utf-8").write("\n".join(toc) + "\n")
 
 # ------------------------------------------------------------------------------------------------- length report
-L = ["# Final length report (after the MIST compression pass)", "",
+L = ["# Final length report (after the final MIST length-reduction pass)", "",
      "Counts use the same rule throughout (`tools/wordcount.py`): citation keys and code blocks excluded; \"prose\" excludes",
-     "table rows. \"Before\" is commit `f01d9636` (previous completion stage).", "",
+     "table rows. \"Before\" is commit `9366c52a` (MIST-formatted build before the final length-reduction pass).", "",
      "| Part | Before (words) | After (words) | After (prose) | Change |", "|---|---|---|---|---|"]
 tb = ta = tp = 0
 for f in CH:
@@ -136,10 +136,10 @@ for f in CH:
     L.append(f"| Chapter {int(f.split('_')[1])} | {b:,} | {a:,} | {p:,} | {a - b:+,} ({100 * (a - b) / b:+.1f}%) |")
 L.append(f"| **Chapters 1–8** | **{tb:,}** | **{ta:,}** | **{tp:,}** | **{ta - tb:+,} ({100 * (ta - tb) / tb:+.1f}%)** |")
 ab, aa = words(old_body("appendices.md")), words(APX)
-L.append(f"| Appendices | {ab:,} (A–K) | {aa:,} (A–E) | {words(APX, True):,} | {aa - ab:+,} ({100 * (aa - ab) / ab:+.1f}%) |")
+L.append(f"| Appendices | {ab:,} (A–E) | {aa:,} (A–E, selective) | {words(APX, True):,} | {aa - ab:+,} ({100 * (aa - ab) / ab:+.1f}%) |")
 eng = re.sub(r"\*\*Keywords:\*\*.*", "", re.sub(r"^# Abstract", "", body("abstract.md")), flags=re.S)
-L += [f"| English Abstract (body, keywords excluded) | 349 | {words(eng):,} | | |", "",
-      "Target for Chapters 1–8: 38,000–42,000 words. Achieved: " + f"{ta:,}.",
+L += [f"| English Abstract (body, keywords excluded; unchanged in this pass) | 390 | {words(eng):,} | | |", "",
+      "Earlier target (first MIST pass) for Chapters 1–8: 38,000–42,000 words; this pass reduced them further to " + f"{ta:,} for the 150-page / 50,000 word-equivalent guideline.",
       "The MIST word-equivalent and the page count of the formatted thesis are in `mist_length_compliance_audit.md`."]
 open(os.path.join(W, "final_length_report.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
 

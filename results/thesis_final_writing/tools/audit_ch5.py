@@ -245,8 +245,10 @@ add("P5-H3-dest", 5, "phase5/phase5_statistics.csv", "H3 secondary destructive_r
     sum(g5("H3 secondary", s, "C1 - C2", "destructive_rate")["outcome"] == "supported" for s in S6), 6, present="lower in 6 of 6")
 cl5 = json.load(open(os.path.join(R, "phase5", "phase5_classification.json")))["criteria"]
 stat = lambda v: v if isinstance(v, str) else (v.get("status") or v.get("verdict"))  # noqa: E731
+# Presence patterns of P5-crit and P6-10 updated in the final MIST length pass: the criteria tables became prose
+# (same statuses); the frozen-value comparison is unchanged.
 add("P5-crit", 5, "phase5/phase5_classification.json", "criteria A–F", "status", "—", " / ".join(f"{k}: {stat(v)}" for k, v in cl5.items()),
-    "A: PARTIALLY MET / B: MET / C: PARTIALLY MET / D: MET / E: PARTIALLY MET / F_strong: NOT MET / F_weak: MET", present="F-strong. LAMP | **NOT MET**")
+    "A: PARTIALLY MET / B: MET / C: PARTIALLY MET / D: MET / E: PARTIALLY MET / F_strong: NOT MET / F_weak: MET", present="F-strong (LAMP) **NOT MET**")
 p5sum = open(os.path.join(R, "phase5", "phase5_summary.md"), encoding="utf-8").read()
 add("P5-C", 5, "phase5/phase5_summary.md", "§12 C", "top-20 selected / visited", "VAL-RL", "76.7% / 90.8%" if ("76.7%" in p5sum and "90.8%" in p5sum) else "?", "76.7% / 90.8%",
     present="76.7% of runs selected a top-20 policy")
@@ -281,7 +283,7 @@ add("P6-8", 6, "phase6/phase6_ppo_vs_global.csv", "H3 reference G_pre max", "max
 add("P6-9", 6, "phase6/phase6_pre_post_accuracy.csv", "zero_count_change, pruned rows", "regrowth", "—",
     str(all(float(x["zero_count_change"]) == 0 for x in pp.values())), "True", present="No pruned weight regrew")
 cl6 = json.load(open(os.path.join(R, "phase6", "phase6_classification.json")))["criteria"]
-add("P6-10", 6, "phase6/phase6_classification.json", "criteria A–F", "status", "—", " ".join(cl6[k]["status"] for k in "ABCDEF"), "MET MET MET MET MET MET", present="| F. Reproducibility | **MET**")
+add("P6-10", 6, "phase6/phase6_classification.json", "criteria A–F", "status", "—", " ".join(cl6[k]["status"] for k in "ABCDEF"), "MET MET MET MET MET MET", present="F. Reproducibility (480 of 480 runs complete")
 add("P6-11", 6, "phase6/phase6_classification.json", "E runs_with_unchanged_mask / pruned_runs", "sparsity preservation", "—",
     f"{cl6['E']['runs_with_unchanged_mask']} of {cl6['E']['pruned_runs']}", "360 of 360", present="360 of 360 pruned runs")
 add("P6-12", 6, "phase6/phase6_classification.json", "F reproduction_identical", "reproduction", "—", cl6["F"]["reproduction_identical"], "6/6", present="6 of 6 reproductions")

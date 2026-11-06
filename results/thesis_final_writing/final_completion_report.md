@@ -35,24 +35,21 @@ effect, with the open question stated as the thesis's inference.
 
 ## 3. Compression (Chapters 1–8)
 
-| | Before | After |
-|---|---|---|
-| Chapters 1–8 (words incl. table cells) | 46,689 | **40,376** (−13.5%; target 38,000–42,000 met) |
-| of which prose | 40,467 | 34,862 |
-| Appendices | 11,194 (A–K) | 3,453 (A–E) |
-
-Per chapter: 3,099; 4,998; 6,695; 7,887; 6,300; 4,698; 4,499; 2,200 (`final_length_report.md`). Redundancy removed
-between Chs 3/4, 5/7, 6/7 and 7/8; no number, criterion, claim boundary, citation key, section, equation, figure or
-numbered table was removed or changed. All audits re-run afterwards (§6).
+Two passes. First MIST pass: 46,689 → 40,376 words. **Final length-reduction pass** (baseline `9366c52a`): 40,376 →
+**34,315** words (prose 34,862 → 29,905); appendices 3,453 → 1,116. Per chapter: 2,746; 4,260; 5,200; 7,020; 5,366;
+4,090; 3,666; 1,967 (`final_length_report.md`). Ch. 3 now explains what and why with pointers to Ch. 4; Ch. 4 keeps
+values in its tables; Ch. 5 is question → result → statistics → short interpretation; Ch. 7 points to Sections 5.x
+/ 6.x instead of repeating numbers; Ch. 8 keeps answer, main evidence and limitation per RQ. Tables: 61 → 40
+(`final_table_reduction_audit.md`). No experimental result, number, statistic, criterion, RQ, contribution
+boundary, negative result, claim limitation, equation or core method was changed or removed.
 
 ## 4. MIST length compliance
 
-`mist_length_compliance_audit.md`: estimated MIST word-equivalent **62,031** (prose 34,862 + front matter 2,135 +
-references 3,035 + appendix prose 599 + 46 small and 15 large tables 17,450 + 2 listings 400 + 10 small and 3 large
-figures 2,550 + 20 equations 1,000) against the 50,000 guideline; formatted length **198 A4 pages** (4 unnumbered,
-19 Roman, 157 Arabic incl. References, 18 appendix) against 150. **The guideline is not met.** The guideline states it is
-not a strict limit; reaching it would require removing evidence (e.g. moving tables or merging appendices), which was
-not done without the author's decision (options in §11).
+`mist_length_compliance_audit.md`: MIST word-equivalent **50,342** (was 62,031) against the 50,000 guideline (+0.7%);
+**164 physical A4 pages** (was 198), of which **153 MIST-countable pages** (was 186) against 150 (+2.0%). MIST §3.3.2 does
+not count the cover, approval page, declaration, table of contents and lists of figures/tables. The guideline is met
+on word-equivalents to within 1% and on countable pages to within 2%; the remaining large tables are the methodology
+and evidence tables the brief requires to stay, so compression stopped (stop condition B for the remaining ~3 pages).
 
 ## 5. Abstracts, keywords, front matter
 
@@ -72,7 +69,7 @@ not done without the author's decision (options in §11).
 | Global numerical audit (16 claims, incl. Abstract) | PASS |
 | Global claim audit (51 hits; §33 guards) | PASS: no affirmative forbidden claim |
 | Split-governance audit | PASS, 6/6, no advisory |
-| Global citation audit (189 occurrences; 26 re-read manually after compression) | PASS |
+| Global citation audit (189 occurrences; contexts changed by either compression pass re-read manually) | PASS |
 | Terminology audit | no meaning-affecting issue; all four previous advisories resolved |
 | Notation inventory | all required symbols single-meaning; Spearman ρ labelled |
 
@@ -87,20 +84,19 @@ LaTeX token in Ch. 3 (`\overline{|w_l|}`) written as "mean |w_l|".
 
 ## 8. Figures and tables
 
-13 figures (10 small, 3 large; data unchanged) and 61 numbered tables (43 chapter, 18 appendix; 6 on landscape pages:
-2.2, 4.7, 6.5, A.1, C.1, E.2), all in the List of Figures / List of Tables (`final_figure_inventory.md`,
-`final_table_inventory.md`).
+13 figures (10 small, 3 large; data unchanged; none removed, as none duplicates another) and 40 numbered tables (32
+chapter, 8 appendix; 3 on landscape pages: 2.1, 4.7, 6.3), all in the List of Figures / List of Tables
+(`final_figure_inventory.md`, `final_table_inventory.md`, `final_table_reduction_audit.md`).
 
 ## 9. Visual QA
 
-The PDF was rendered page by page (Windows PDF renderer) and every page inspected over five build iterations. Defects
-found and fixed: unreadable narrow table columns (width planner, landscape pages for 6 wide tables); tables splitting
-after their first row (rows kept together); captions/lead-ins orphaned from their tables/lists; TOC/LoF/LoT entries
-over-spaced and blue/underlined (Word built-in TOC styles redefined; hyperlink formatting removed); appendix page labels
-in the lists (A-1 …); italic operator names in equations (argmax, softmax, top, round set upright); underscores shown
-literally (math subscripts rendered; data identifiers left literal); a stray LaTeX token; cover spacing. Final check:
-margins, fonts, spacing, numbering, headings, equations, figures, Bangla text, appendix numbering and reference
-indentation all as specified; no blank pages; no table overflow or figure clipping.
+The PDF was rendered page by page (Windows PDF renderer) and every page inspected, in the first MIST pass (five builds)
+and again after the final length-reduction pass (all 164 pages). Fixed earlier: narrow table columns, tables split
+after one row, orphaned captions/lead-ins, TOC/list styling and appendix page labels, equation operator styling,
+subscripts, a stray LaTeX token, cover spacing. Final check after this pass: table readability (3 landscape tables),
+page breaks, heading placement, figure sizes and captions, equations, TOC, List of Figures, List of Tables,
+references (hanging indent) and appendix pagination (A-1 … E-1) all correct; no blank pages, no table overflow, no
+figure clipping.
 
 ## 10. Remaining intentional placeholders (information not supplied)
 
@@ -112,13 +108,13 @@ No TODO, TBD, XXXX or `******` remains.
 
 ## 11. Unresolved / for the author
 
-1. **Length** (§4): 62,031 word-equivalent / 198 pages vs 50,000 / 150. Options: (a) accept, citing the guideline's
-   "no strict limit"; (b) move the 15 large tables' detail to the repository and keep summaries (≈ −5,000 to −8,000);
-   (c) a second compression pass of Chs 3–6 to ≈ 30,000 prose words.
-2. Degree statement wording on the title page ("Master of Science in Engineering (M.Sc. Engineering) in Computer
-   Science and Engineering") should be confirmed against MIST CSE practice.
+1. **Length** (§4): 50,342 word-equivalent and 153 MIST-countable pages (164 physical) vs about 50,000 / 150. Further
+   reduction would require removing a methodology or evidence table (§4); left to the author's decision.
+2. Title-page degree statement now reads "...for the Degree of Master of Science in Engineering in Computer Science
+   and Engineering" (as instructed); confirm against the department's approved wording if it differs.
 3. Board of Examination composition (four placeholder blocks) to be adjusted to the actual board.
-4. Bangla font: Sutonny OMJ is not installed; replace Kalpurush at print stage if required.
+4. Bangla font: Kalpurush in the working digital build. Sutonny OMJ substitution should be applied only if required by
+   the department or final print-office instructions; the Bangla Abstract content is unchanged.
 5. The approved title contains the acronym "CNN" and starts with "Development of a", which MIST §3.3.3 discourages;
    kept unchanged as the approved title.
 6. If fields are updated manually in Word, re-run `tools/word_finalize.ps1` to restore the appendix page labels in the
@@ -130,7 +126,7 @@ Created this stage: `mist_template_audit.md`, `abstract_bangla.md`, `references_
 `reference_audit_mist_final.md`, `citation_conversion_audit.md`, `mist_length_compliance_audit.md`,
 `final_thesis_MIST.docx`, `final_thesis_MIST.pdf`; tools `refs_mist.py`, `citation_audit_mist.py`,
 `renumber_tables.py`, `assemble_mist.py`, `build_docx.py`, `figmap.py`, `mist_meta.json`, `wordcount.py`,
-`mist_length_audit.py`, `word_finalize.ps1`, `word_measure.ps1`, `render_pages.ps1`, `_citation_manual_review.tsv`,
+`mist_length_audit.py`, `word_finalize.ps1`, `word_measure.ps1`, `render_pages.ps1`, `final_table_reduction_audit.md`, `_citation_manual_review.tsv`,
 `_table_renumber_map.json`, `_docx_build_log.json`, `_table_heights.json`. Updated: Abstract, Chapters 1–8,
 appendices (A–E) and their builder, appendix plan, abbreviations, notation inventory, terminology/claim/split/
 numerical/citation audits, Abstract QA, inventories, TOC map, length report, full source, this report and the

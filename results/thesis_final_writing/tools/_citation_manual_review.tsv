@@ -23,3 +23,23 @@ Ch. 7	oh2018sil	re-read: elite behavioural cloning described as in the spirit of
 Ch. 7	lee2021lamp	re-read: LAMP as deterministic, search-free method whose rescaled magnitude score sets layer-wise sparsity automatically (both occurrences): supported
 Ch. 7	hoefler2021sparsity	re-read: masked zeros inside dense tensors give no CPU speed or size benefit without sparse kernels: supported
 Ch. 7	jay2023powermeters;khan2018rapl;raffin2024dissecting	re-read: software energy meters need careful protocol design and validation: supported
+# --- final length-reduction pass (second compression), re-read
+Ch. 1	he2018amc	re-read: RL applied to pruning (AMC is the reference RL compression method): supported
+Ch. 2	cheng2024pruningsurvey;he2024structuredsurvey;menghani2023efficient	re-read: surveys of compression/pruning methods (pruning, quantisation, distillation, efficient design): supported
+Ch. 2	frankle2019lth	re-read: lottery ticket hypothesis, same claim in a merged sentence: supported
+Ch. 2	han2015learning;hoefler2021sparsity	re-read: unstructured pruning reaches high sparsity at given accuracy; merged sentence: supported
+Ch. 2	he2024structuredsurvey;hoefler2021sparsity	re-read: sparse kernels effective only at high sparsity, little latency reduction; merged sentence: supported
+Ch. 2	he2017channel;li2017filters;wen2016ssl	re-read: structured pruning removes filters, channels or neurons: supported
+Ch. 2	he2024structuredsurvey	re-read: structured pruning as the route to "realistic acceleration" (quoted survey phrase): supported
+Ch. 2	gadhikar2023random;lee2021lamp;liu2022randompruning	re-read: allocation is a first-order factor in pruned-model quality: supported
+Ch. 2	lee2021lamp	re-read: LAMP's original evaluation (outperformed layer-wise sparsity schemes; strong under weight rewinding): supported (as verified in Milestone 1)
+Ch. 3	pan2022misspecification;skalse2022rewardgaming	re-read: capable optimisers exploit misspecified rewards more strongly: supported
+Ch. 3	schulman2017ppo	re-read: PPO method citation ("PPO, as implemented in Stable-Baselines3"): supported
+Ch. 3	raffin2021sb3	re-read: Stable-Baselines3 implementation citation: supported
+Ch. 3	schulman2016gae	re-read: generalised advantage estimation method citation: supported
+Ch. 4	raffin2021sb3	re-read: Stable-Baselines3 implementation citation: supported
+Ch. 4	jay2023powermeters;raffin2024dissecting	re-read: software energy counters need careful protocol design: supported
+Ch. 6	hoefler2021sparsity	re-read: zeros loaded and multiplied with dense kernels unless sparse formats are used: supported
+Ch. 6	dehghani2022misnomer	re-read: cost indicators (parameters, FLOPs, measured speed) can disagree: supported
+Ch. 7	he2018amc	re-read: premise of RL-based compression that layer-wise allocation is learnable: supported
+Ch. 7	blalock2020state;le2021retraining;renda2020rewinding	re-read: retraining choices can change pruning conclusions: supported

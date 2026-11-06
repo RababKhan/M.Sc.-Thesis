@@ -1,21 +1,21 @@
-# Final length report (after the MIST compression pass)
+# Final length report (after the final MIST length-reduction pass)
 
 Counts use the same rule throughout (`tools/wordcount.py`): citation keys and code blocks excluded; "prose" excludes
-table rows. "Before" is commit `f01d9636` (previous completion stage).
+table rows. "Before" is commit `9366c52a` (MIST-formatted build before the final length-reduction pass).
 
 | Part | Before (words) | After (words) | After (prose) | Change |
 |---|---|---|---|---|
-| Chapter 1 | 3,427 | 3,099 | 3,041 | -328 (-9.6%) |
-| Chapter 2 | 5,450 | 4,998 | 4,490 | -452 (-8.3%) |
-| Chapter 3 | 7,975 | 6,695 | 5,624 | -1,280 (-16.1%) |
-| Chapter 4 | 9,321 | 7,887 | 6,049 | -1,434 (-15.4%) |
-| Chapter 5 | 6,803 | 6,300 | 5,332 | -503 (-7.4%) |
-| Chapter 6 | 5,250 | 4,698 | 4,105 | -552 (-10.5%) |
-| Chapter 7 | 5,739 | 4,499 | 4,188 | -1,240 (-21.6%) |
-| Chapter 8 | 2,724 | 2,200 | 2,033 | -524 (-19.2%) |
-| **Chapters 1–8** | **46,689** | **40,376** | **34,862** | **-6,313 (-13.5%)** |
-| Appendices | 11,194 (A–K) | 3,453 (A–E) | 599 | -7,741 (-69.2%) |
-| English Abstract (body, keywords excluded) | 349 | 390 | | |
+| Chapter 1 | 3,099 | 2,746 | 2,688 | -353 (-11.4%) |
+| Chapter 2 | 4,998 | 4,260 | 3,829 | -738 (-14.8%) |
+| Chapter 3 | 6,695 | 5,200 | 4,598 | -1,495 (-22.3%) |
+| Chapter 4 | 7,887 | 7,020 | 5,200 | -867 (-11.0%) |
+| Chapter 5 | 6,300 | 5,366 | 4,694 | -934 (-14.8%) |
+| Chapter 6 | 4,698 | 4,090 | 3,598 | -608 (-12.9%) |
+| Chapter 7 | 4,499 | 3,666 | 3,498 | -833 (-18.5%) |
+| Chapter 8 | 2,200 | 1,967 | 1,800 | -233 (-10.6%) |
+| **Chapters 1–8** | **40,376** | **34,315** | **29,905** | **-6,061 (-15.0%)** |
+| Appendices | 3,453 (A–E) | 1,116 (A–E, selective) | 493 | -2,337 (-67.7%) |
+| English Abstract (body, keywords excluded; unchanged in this pass) | 390 | 390 | | |
 
-Target for Chapters 1–8: 38,000–42,000 words. Achieved: 40,376.
+Earlier target (first MIST pass) for Chapters 1–8: 38,000–42,000 words; this pass reduced them further to 34,315 for the 150-page / 50,000 word-equivalent guideline.
 The MIST word-equivalent and the page count of the formatted thesis are in `mist_length_compliance_audit.md`.

@@ -9,8 +9,8 @@ so are often large. Deploying them has a cost on four fronts:
 - the latency of each prediction;
 - the energy drawn by the processor that runs them.
 
-These costs matter most at inference time, which is repeated for every query. Inference energy and its trends have
-become a subject of study in their own right [@desislavov2023trends; @luccioni2024powerhungry].
+These costs recur at every inference, and inference energy has become a subject of study in its own right
+[@desislavov2023trends; @luccioni2024powerhungry].
 
 **Pruning.** Network compression reduces these costs while keeping accuracy, through pruning, quantisation,
 distillation and efficient architecture design [@menghani2023efficient]. *Pruning* removes parts of a
@@ -27,10 +27,9 @@ papers in a few years [@cheng2024pruningsurvey].
 Only the second shrinks the dense computation that general-purpose hardware actually executes
 [@hoefler2021sparsity].
 
-**How much each layer should lose.** The simplest rule prunes every layer by the same fraction. Layers, however,
-differ in their share of the parameters, in their share of the computation, and in how much accuracy is lost when
-they are pruned. This motivates *layer-wise adaptive* pruning, in which each layer receives its own ratio.
-Approaches to choosing the ratios include:
+**How much each layer should lose.** The simplest rule prunes every layer by the same fraction, but layers differ in
+their share of parameters and computation and in the accuracy lost when they are pruned. *Layer-wise adaptive*
+pruning gives each layer its own ratio, chosen by:
 - **Magnitude-based rules,** which remove the smallest weights within each layer or across the whole network.
 - **Layer-adaptive scores,** such as LAMP, which rescale weight magnitudes so that a single global threshold produces
   a non-uniform allocation [@lee2021lamp].
@@ -39,13 +38,12 @@ Approaches to choosing the ratios include:
   for each layer, rewarded by the accuracy and compression of the resulting network, are a well-known example
   [@he2018amc].
 
-This thesis uses Proximal Policy Optimisation (PPO) [@schulman2017ppo] as such an allocator, and studies what it
-contributes, what it needs in order to work, and whether its compression becomes real deployment benefit.
+This thesis uses Proximal Policy Optimisation (PPO) [@schulman2017ppo] as such an allocator and studies what it
+contributes, what it needs to work, and whether its compression becomes deployment benefit.
 
-**Why a learned allocator, and what is hard about it.** The quantity a learned allocator optimises need not be
-differentiable or expressible as a per-weight score. It can be validation accuracy after pruning, a hard accuracy
-constraint, or a measured hardware cost, and the same agent can be pointed at a different objective without
-redesigning the method. This flexibility has costs:
+**Why a learned allocator, and what is hard about it.** A learned allocator can optimise objectives that are not
+differentiable or per-weight scores, such as validation accuracy, a hard accuracy constraint or a measured hardware
+cost, and can be re-targeted without redesign. This flexibility has costs:
 - **Evaluation cost.** Every candidate must be evaluated, so the search costs far more than a one-pass rule.
 - **Sensitivity to design details.** Policy-gradient methods are sensitive to implementation and training choices
   [@engstrom2020implementation; @andrychowicz2021onpolicy].
@@ -55,23 +53,20 @@ Whether the flexibility is worth the cost has to be measured against strong dete
 
 ## 1.2 Motivation
 
-The thesis is motivated by five linked problems. Each concerns a different step between "a network can be pruned" and
-"a pruned network is a better deployment choice".
+Five linked problems lie between "a network can be pruned" and "a pruned network is a better deployment choice".
 
-**Problem A: uniform pruning ignores heterogeneous layer sensitivity.** A single ratio for all layers treats a small
-early convolution, on which every later layer depends, like a large fully connected layer with many redundant
-weights. An adaptive allocation should do better, but *how much* better, and against *which* alternatives? Strong
-deterministic layer-adaptive methods already exist, so a learned allocator must be compared with them under
-controlled conditions, not only with uniform pruning.
+**Problem A: uniform pruning ignores heterogeneous layer sensitivity.** A single ratio treats a small early
+convolution, on which every later layer depends, like a large redundant fully connected layer. Strong deterministic
+layer-adaptive methods already exist, so a learned allocator must be compared with them under controlled conditions,
+not only with uniform pruning.
 
-**Problem B: a search may find strong policies without retaining them.** An RL agent evaluates many candidate
-allocations but returns its final policy. If its distribution drifts away from the best candidates it has seen, a
-good search can still end on a mediocre allocation, and reporting only the final policy cannot distinguish weak
-search from weak retention.
+**Problem B: a search may find strong policies without retaining them.** An RL agent evaluates many allocations but
+returns its final policy; a good search can end on a mediocre allocation, and reporting only that policy cannot
+distinguish weak search from weak retention.
 
 **Problem C: a reward can encourage excessive pruning.** RL pruning rewards typically trade accuracy against sparsity
-at a fixed rate. Such a reward has no point at which accuracy loss becomes unacceptable. A more effective optimiser
-may then find exactly the over-pruned models the reward implicitly prefers.
+at a fixed rate, with no point at which accuracy loss becomes unacceptable; a better optimiser may then find exactly
+the over-pruned models the reward implicitly prefers.
 
 **Problem D: comparisons before equal recovery may overstate differences.** Pruned networks are usually fine-tuned
 before use, and fine-tuning can repair much of the damage [@renda2020rewinding; @le2021retraining]. A method that
@@ -83,8 +78,8 @@ computations on a CPU. Even under structured pruning, the parameters removed and
 coincide, and cost indicators can disagree [@dehghani2022misnomer]. Speed and energy must be measured, with a reliable
 instrument.
 
-These problems form a chain: a study that solves only the first can still return poor allocations, optimise the
-wrong trade-off, overstate its advantage, or claim efficiency it does not deliver. The design controls each problem:
+A study that solves only the first can still return poor allocations, optimise the wrong trade-off, overstate its
+advantage or claim efficiency it does not deliver. The design controls each problem:
 - **A:** every baseline is built at exactly the sparsity the agent chose;
 - **B:** every policy the agent visits is recorded and ranked against an exhaustive landscape;
 - **C:** rewards are compared on the same landscapes, and the accuracy boundary is made explicit;
@@ -102,36 +97,32 @@ effectiveness depends on four things beyond the learning algorithm itself:
 - whether the reward encodes the intended accuracy–compression trade-off;
 - how the pruned models are recovered before comparison.
 
-Moreover, the fraction of zero weights does not by itself establish deployment efficiency. This thesis therefore
-investigates whether a PPO agent can learn adaptive layer-wise pruning policies, what sensitivity, retention, reward
-design and equal recovery contribute, and whether the resulting compression becomes memory, computation, latency and
-measured energy benefits.
+Nor does the fraction of zero weights establish deployment efficiency. This thesis therefore investigates whether a
+PPO agent can learn adaptive layer-wise pruning policies, what sensitivity, retention, reward design and equal recovery
+contribute, and whether the compression becomes memory, computation, latency and measured energy benefits.
 
-**Research approach.** The investigation was a sequence of experimental phases, each with conditions, seeds, metrics
-and decision criteria committed before its confirmatory data were collected (Chapter 4). Four design choices make
-the results auditable:
-- **Exhaustive ground truth.** Four pruning units with six ratios each give 1,296 policies per setting. Every policy
-  was evaluated once, so the rank of any policy the agent visits or returns is known exactly, and search and
-  retention are measured against ground truth.
-- **Strict data governance.** The training images update weights only. One validation split drives the reward, and a
-  second, disjoint split is used only to select among candidates already produced. The test set is read only for
-  frozen models.
-- **Matched comparisons.** In the core framework, every baseline is built at exactly the number of zeroed weights of
-  the PPO model it is compared with. After pruning, every compared model receives an identical recovery protocol.
-- **A separate extension.** A later extension realises pruning physically and measures latency and energy directly,
-  under pre-registered stability checks for the measuring instrument.
+**Research approach.** The investigation was a sequence of phases, each with conditions, seeds, metrics and decision
+criteria committed before its confirmatory data were collected (Chapter 4). Four design choices make the results
+auditable:
+- **Exhaustive ground truth.** Four pruning units with six ratios give 1,296 policies per setting, all evaluated, so
+  the rank of any visited or returned policy is known exactly.
+- **Strict data governance.** Training images update weights only; one validation split drives the reward, a second,
+  disjoint split only selects among candidates; the test set is read only for frozen models.
+- **Matched comparisons.** Every baseline is built at exactly the zero count of the PPO model it is compared with, and
+  every compared model receives an identical recovery protocol.
+- **A separate extension.** Pruning is realised physically and latency and energy are measured directly, under
+  pre-registered stability checks for the instrument.
 
 ## 1.4 Research Gap
 
-Chapter 2 identifies six narrower gaps. The claim is not that RL has never been applied to pruning; it has
-[@he2018amc]. The gaps concern how such methods are evaluated and what their results establish.
+Chapter 2 identifies six gaps. RL has been applied to pruning [@he2018amc]; the gaps concern how such methods are
+evaluated and what their results establish.
 
 1. **Adaptive allocation against strong deterministic allocation.** Layer-specific allocation matters, but learned
    allocators are rarely compared with uniform, random, magnitude-based and layer-adaptive baselines built at exactly
    the same sparsity. → RQ1.
-2. **Exploration effects versus final-model effects of sensitivity.** Sensitivity is widely used to guide pruning, but
-   its effect on the efficiency of a search is seldom separated from its effect on final accuracy, or compared with
-   uninformative controls. → RQ2.
+2. **Exploration effects versus final-model effects of sensitivity.** Sensitivity's effect on search efficiency is
+   seldom separated from its effect on final accuracy, or compared with uninformative controls. → RQ2.
 3. **Retention of strong policies found during search.** RL pruning is usually judged by its final policy. Whether
    stronger policies were encountered and lost has not been examined systematically for pruning. → RQ3.
 4. **Incentives for excessive sparsity in pruning rewards.** Hand-weighted accuracy–sparsity rewards can be exploited
@@ -171,9 +162,7 @@ Chapter 2 identifies six narrower gaps. The claim is not that RL has never been 
 > **RQ6.** Do compression gains translate into real deployment benefits in memory, computation, latency and measured
 > operational energy?
 
-The questions were not all fixed at the outset; each answer exposed the next problem (Chapter 3). Improving the
-search revealed a retention problem, retention revealed reward misalignment, a corrected reward made a fair recovery
-comparison meaningful, and the deployment question followed.
+The questions were not all fixed at the outset; each answer exposed the next problem (Chapter 3).
 
 ## 1.6 Research Objectives
 
@@ -203,15 +192,13 @@ research questions, contributions and evidence.
 The thesis makes six contributions. None of them rests on a claim that PPO is the best pruning method.
 
 **Contribution 1. An adaptive layer-wise pruning framework, evaluated against strong baselines.** A PPO agent assigns
-one of six pruning ratios to each of four units per network. It was evaluated against uniform, random,
-global-magnitude, ERK and LAMP allocations built at exactly the sparsity the agent chose, across two datasets and
-three architectures. The agent learns non-uniform allocations that strongly outperform uniform and random allocation;
-the deterministic LAMP method remains stronger before recovery.
+one of six ratios to each of four units, evaluated against uniform, random, global-magnitude, ERK and LAMP allocations
+at exactly its own sparsity, on two datasets and three architectures. Its non-uniform allocations strongly outperform
+uniform and random allocation; LAMP remains stronger before recovery.
 
 **Contribution 2. A separation of the exploration effect and the final-model effect of sensitivity guidance.** Across
-three experimental phases, and against several uninformative controls, the analysis shows that sensitivity's main
-measurable contribution is to the *search*: better-ranked policies earlier and fewer destructive ones. Its
-contribution to final predictive accuracy was not detectable.
+three phases and against uninformative controls, sensitivity's measurable contribution is to the *search*
+(better-ranked policies earlier, fewer destructive ones); its contribution to final accuracy was not detectable.
 
 **Contribution 3. Identification of a policy-retention problem in RL pruning, and evaluation of archive-based
 selection.** Using exhaustive ground-truth landscapes, the thesis shows that the agent visits near-optimal policies
@@ -224,9 +211,8 @@ constraint-first reward, with selection on held-out data, substantially reduced 
 Validation feasibility, however, did not reliably transfer to the test set.
 
 **Contribution 5. A controlled equal-recovery analysis.** Every compared model received an identical fixed-mask
-fine-tuning protocol, with shared seeds and data order, at identical sparsity. This shows how much of the difference
-between pruning methods remains after recovery: the differences became small. The thesis's main methodological
-recommendation for pruning comparisons follows from it.
+fine-tuning protocol, with shared seeds and data order, at identical sparsity; the differences between methods became
+small, which grounds the thesis's main methodological recommendation.
 
 **Contribution 6. A deployment analysis that keeps four quantities apart:** parameter compression, MAC reduction,
 measured latency and directly measured operational energy. It comprises:
@@ -235,12 +221,11 @@ measured latency and directly measured operational energy. It comprises:
 - a deployment-oriented structured PPO that learns physical channel allocations directly;
 - pre-registered qualification of the energy instrument, reported including its failure.
 
-**Novelty.** The novelty does not lie in a new pruning criterion, or in a claim that PPO outperforms existing methods.
-It lies in **treating adaptive pruning as a sequence of connected optimisation and validation problems, rather than
-evaluating only the final compressed model.** These problems are allocation, exploration, policy retention, reward
-alignment, recovery, deployment translation and hardware validation. Each is examined with its own experiment and
-decision criteria fixed before the confirmatory data were collected. The contribution is methodological and
-analytical: it shows how a weakness at one stage can hide or reverse the effect of improvements at another.
+**Novelty.** The novelty lies not in a new pruning criterion or a claim that PPO outperforms existing methods, but in
+**treating adaptive pruning as a sequence of connected optimisation and validation problems, rather than evaluating
+only the final compressed model**: allocation, exploration, policy retention, reward alignment, recovery, deployment
+translation and hardware validation, each examined with its own experiment and decision criteria fixed before the
+confirmatory data were collected. It shows how a weakness at one stage can hide or reverse improvements at another.
 
 **Table 1.1. Research questions, objectives, contributions and evidence.**
 
@@ -256,20 +241,20 @@ analytical: it shows how a weakness at one stage can hide or reverse the effect 
 TC1–TC6 denote Contributions 1–6. The labels C0, C1 and C2 used in later chapters denote Phase-5 experimental
 conditions, not contributions.
 
-**Preview of the main findings** (reported in full in Chapters 5–7):
-- PPO's learned allocations substantially outperformed uniform pruning (by up to about 31.4 percentage points of test
-  accuracy) and random pruning in the studied settings, but LAMP remained the stronger method before equal recovery.
-- Sensitivity guidance improved exploration but not final accuracy. Archive selection restored validation-rank
-  retention; its test effect was mixed.
-- The accuracy-constrained reward substantially reduced destructive over-pruning. Its validation-certified
-  feasibility, however, held on the test set in only about two thirds of runs.
-- Equal recovery greatly narrowed the differences between PPO and LAMP. They fell within a pre-registered
-  confidence-interval margin in every setting, although LAMP remained slightly ahead in three.
-- On the deployment side, parameter reduction was a weak predictor of CPU latency compared with MAC reduction.
-  Physically structured pruning reduced directly measured CPU package energy (Phase 7A), but with a substantial
-  accuracy cost; on one network, a simple uniform allocation was the better choice.
+**Preview of the main findings** (Chapters 5–7):
+- PPO substantially outperformed uniform (by up to about 31.4 percentage points of test accuracy) and random pruning,
+  but LAMP remained stronger before equal recovery.
+- Sensitivity guidance improved exploration but not final accuracy; archive selection restored validation-rank
+  retention, with a mixed test effect.
+- The accuracy-constrained reward substantially reduced destructive over-pruning, but its validation-certified
+  feasibility held on the test set in only about two thirds of runs.
+- Equal recovery narrowed the PPO–LAMP differences to within a pre-registered confidence-interval margin in every
+  setting, although LAMP remained slightly ahead in three.
+- Parameter reduction was a weak predictor of CPU latency compared with MAC reduction. Structured pruning reduced
+  directly measured CPU package energy (Phase 7A) at a substantial accuracy cost; on one network, uniform allocation
+  was the better choice.
 - The redesigned agent (Phase 7B) reduced parameter memory by 63.4% and MACs by 36.0% at a validation-accuracy cost of
-  1.12 percentage points. It missed the pre-registered accuracy criterion, and its direct energy could not be
+  1.12 percentage points; it missed the pre-registered accuracy criterion, and its direct energy could not be
   confirmed.
 
 ## 1.8 Scope and Boundaries
@@ -306,24 +291,14 @@ The energy evaluation concerns operational inference energy; it is not an enviro
 
 ## 1.9 Thesis Organisation
 
-Chapter 2 reviews the literature on compression, layer-wise and layer-adaptive allocation, RL for compression,
-sensitivity, search and policy selection, recovery, hardware-aware compression and energy measurement, and ends with
-the six research gaps. Chapter 3 presents the framework in the order in which it developed, with the later
-deployment-oriented structured extension presented separately. Chapter 4 gives the experimental setup: data and
-validation configurations, architectures, baselines and matching rules, PPO configuration, the conditions of every
-phase, metrics, statistical decision rules, the latency and energy protocols, and reproducibility. Chapter 5 reports
-the core-framework results (Phases 3–6, RQ1–RQ5). Chapter 6 reports the deployment analysis: exhaustive latency, the
-structured transfer with measured energy, the deployment-oriented structured PPO and the energy-confirmation attempt
-(RQ6). Chapter 7 interprets the findings across phases and states the limitations. Chapter 8 concludes and outlines
-future work.
+Chapter 2 reviews the literature and ends with the research gaps. Chapter 3 presents the framework in the order in
+which it developed, with the deployment-oriented structured extension separately. Chapter 4 gives the experimental
+setup. Chapter 5 reports the core-framework results (Phases 3–6, RQ1–RQ5) and Chapter 6 the deployment analysis
+(RQ6). Chapter 7 interprets the findings and states the limitations; Chapter 8 concludes and outlines future work.
 
 ## 1.10 Chapter Summary
 
 This chapter argued that adaptive layer-wise pruning is a chain of connected problems rather than a single choice of
-ratio, and set out six research questions, objectives and contributions: **RQ1–RQ5** for a PPO-based,
-sensitivity-aware core framework using masked pruning, and **RQ6** for a structured deployment extension with direct
-hardware measurement. The novelty is methodological: each stage is evaluated on its own evidence, including its
-negative results. The thesis does not claim superiority over existing methods, and its scope is limited to small
-CNNs, CIFAR data and one CPU platform.
-
-Chapter 2 reviews the literature on which these questions build.
+ratio, and set out six research questions: **RQ1–RQ5** for a PPO-based, sensitivity-aware core framework using masked
+pruning, and **RQ6** for a structured deployment extension with direct hardware measurement. The thesis does not
+claim superiority over existing methods, and its scope is limited to small CNNs, CIFAR data and one CPU platform.
